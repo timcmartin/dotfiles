@@ -1,3 +1,5 @@
+[include]
+	path = ~/.gitconfig-user
 [alias]
   d = difftool
   br = branch
@@ -37,7 +39,7 @@
   status = auto
   ui = auto
 [core]
-	excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = ~/.gitignore
   editor = vim
   whitespace = warn
 [diff]
@@ -50,7 +52,7 @@
   singlekey = false
 [merge]
   summary = true
-	tool = meld
+	tool = opendiff
 [merge "bundlelock"]
   name = lock Gemfile
   driver = bundle install
@@ -67,30 +69,44 @@
     end\n\
     File.open(%(%A), %(w)) {|f| f.write(b)}\n\
     exit 1 if b.include?(%(<)*%L)'"
+[mergetool]
+	# Don't prompt before opening the merge tool.
+	prompt = false
+	# Don't keep backups of the merge tool inputs.
+	keepBackup = false
+	# Don't keep the merge tool temporary input/output files.
+	keepTemporaries = false
+[mergetool "opendiff"]
+	# Use a script to setup opendiff correctly for Git merges.
+	path = git-mergetool-opendiff
 [push]
   default = tracking
 [rebase]
   autosquash = true
 [rerere]
   enabled = true
-[user]
-	name = tmartin
-	email = tmartin@sixsafetysystems.com
 [http]
   sslVerify = false
 [credential]
-  helper = /opt/boxen/bin/boxen-git-credential
-  # helper = cache --timeout=36000
-[mergetool]
-	keepBackup = false
+	# Use OS X Keychain to store HTTP passwords.
+	helper = osxkeychain
 [init]
 	templatedir = ~/.git_template
-[difftool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-	trustExitCode = true
-
+[difftool "opendiff"]
+	# Set the OS X opendiff command name.
+	path = opendiff
+[url "git@github.com:"]
+	# Always use GitHub SSH protocol to push.
+	# Allows use of git:// for public repositories with push access
+	pushInsteadOf = git://github.com/
+[url "https://github.com/"]
+	# Use HTTP for GitHub instead of git:// or git@
+	# Enable this in networks where git:// or git@ are blocked.
+	#insteadOf = git://github.com/
+	#insteadOf = git@github.com:
+[url "git@github.com:"]
+	# Use SSH for GitHub instead of https://
+	# Enable this in networks where https:// has issues.
+	#insteadOf = https://github.com/
 [hub]
-protocol = https
+  protocol = https

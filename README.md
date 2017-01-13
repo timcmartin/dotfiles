@@ -1,44 +1,37 @@
 # Dotfiles
 
 This repository borrows heavily from [jcarley/dotmatrix](https://github.com/jcarley/dotmatrix),
-but was tweaked for use with [Boxen](https://boxen.github.com/) and [Dotbot](https://github.com/anishathalye/dotbot).
+but was tweaked in 2017 for use with [Strap](http://mikemcquaid.com/2016/06/15/replacing-boxen/) and [Scripts To Rule Them All](https://github.com/github/scripts-to-rule-them-all).
 
 This config makes use of powerline and tmux-powerline.
 
 It also references a private bitbucket repo that contains private_dotfiles.
 
-I have included my preferred vimbundles as a submodule.  Upon running ./install, it will init and update all vimbundles as well.
+I have included my preferred vimbundles as a submodule.
 
-## Standalone Setup: (without Boxen)
+Might have to manually do ohmyzsh -> have added something to setup script that might work.
 
-1. git clone this project
-
-```
-  git clone https://github.com/timcmartin/dotfiles.git ~/Dotfiles
-```
-
-2. Change into the ~/.dotfiles directory and run ./install
-
-```
-  cd ~/Dotfiles
-  scripts/./install
-```
-
-Dotbot will update the submodules and create the requisite symlinks.
-
-## Boxen Setup:
-
-1. No need to do anything with this repo.
-
-2. Clone the boxen repo and it will take care of everyting.
-
-## Editing:
-
-To edit the functionality, of Dotbot, edit the `install.conf.yaml` file.
-
-See [Dotbot](https://github.com/anishathalye/dotbot) for more information and examples.
-
-## Lanuchd Plist
-
-There is a `subcron.sh` job and a properties job in the `properties` directory.
-Dotbot will automatically symlink this to the LaunchAgents directory and every morning at 7 all Dotfiles submodules will be updated.
+## TODO:
+- [O] Installation
+  - [X] tmux
+  - [X] tmuxinator
+  - [ ] Exhuberant Ctags
+  - [X] Vim
+  - [ ] Powerline Fonts
+  - [ ] Projects
+  - [X] zsh
+  - [X] ohmyzsh
+  - [X] postgresql
+  - [X] evernote
+- [ ] Script - locations
+  - [ ] crypt_config.vim -> dotfiles_private/crypt_congfig.vim
+  - [ ] properties/local.update_dotfiles.plist -> ~/Library/LaunchAgents/local.update_dotfiles.plist
+- [ ] Script - should not symlink
+  - [ ] VITUNES.md
+  - [ ] tmux-theme
+  - [ ] tim.sh
+  - [ ] git-completion.bash
+- [ ] Script - ensures directory exists
+  - [ ] vim
+  - [ ] vimbackupdir
+  - [ ] zsh

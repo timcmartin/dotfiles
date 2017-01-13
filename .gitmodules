@@ -1,6 +1,3 @@
-[submodule "dotbot"]
-	path = dotbot
-	url = https://github.com/anishathalye/dotbot
 [submodule "dotfiles_private"]
 	path = dotfiles_private
   url = git@bitbucket.org:timcmartin/dotfiles_private.git

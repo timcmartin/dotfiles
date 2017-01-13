@@ -1,0 +1,14 @@
+[user]
+	# Name used in commit messages.
+	name = Tim Martin
+	# Email used in commit messages.
+	email = timcmartin@gmail.com
+[shell]
+	# Default SSH username.
+	username = timcmartin
+[bintray]
+	# Bintray username.
+	username = timcmartin
+[github]
+	# GitHub username for command-line tools.
+	user = timcmartin
