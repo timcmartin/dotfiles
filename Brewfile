@@ -41,7 +41,7 @@ brew 'shellcheck'
 brew 'ssh-copy-id'
 brew 'the_silver_searcher'
 brew 'tmux'
-brew 'vim --env_std --override-system-vim'
+brew 'vim', args: ['--env_std', '--override-system-vim']
 brew 'zsh'
 brew 'zsh-completions'
 cask '1password'
