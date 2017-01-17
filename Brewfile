@@ -101,6 +101,7 @@ mas 'Pages', id: 409201541
 mas 'Pixelmator', id: 407963104
 mas 'Reeder', id: 880001334
 mas 'Remote Desktop', id: 409907375
+mas 'Skitch', id: 490505997
 mas 'Sketch', id: 402476602
 mas 'Slack', id: 803453959
 mas 'Textual', id: 896450579
