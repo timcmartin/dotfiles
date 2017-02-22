@@ -12,7 +12,7 @@ I have included my preferred vimbundles as a submodule.
 Might have to manually do ohmyzsh -> have added something to setup script that might work.
 
 ## TODO:
-- [O] Installation
+- [o] Installation
   - [X] tmux
   - [X] tmuxinator
   - [ ] Exhuberant Ctags
@@ -23,6 +23,9 @@ Might have to manually do ohmyzsh -> have added something to setup script that m
   - [X] ohmyzsh
   - [X] postgresql
   - [X] evernote
+  - [ ] http://www.audacityteam.org/
+  - [ ] Bartender2
+  - [ ] Alfred
 - [ ] Script - locations
   - [ ] crypt_config.vim -> dotfiles_private/crypt_congfig.vim
   - [ ] properties/local.update_dotfiles.plist -> ~/Library/LaunchAgents/local.update_dotfiles.plist
