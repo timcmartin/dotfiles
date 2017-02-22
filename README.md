@@ -26,6 +26,8 @@ Might have to manually do ohmyzsh -> have added something to setup script that m
   - [ ] http://www.audacityteam.org/
   - [ ] Bartender2
   - [ ] Alfred
+  - [ ] Skitch
+  - [ ] GarageBand
 - [ ] Script - locations
   - [ ] crypt_config.vim -> dotfiles_private/crypt_congfig.vim
   - [ ] properties/local.update_dotfiles.plist -> ~/Library/LaunchAgents/local.update_dotfiles.plist
