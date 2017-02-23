@@ -4,9 +4,6 @@ if exists('g:loaded_pathogen')
   call pathogen#helptags()
 endif
 
-" Include password sensitive information not checked into GIT
-source ~/crypt_config.vim
-
 " General behavior
 behave xterm
 set nocompatible
