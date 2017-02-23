@@ -400,7 +400,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['scss'] }
 
 " vimwiki
-let g:vimwiki_list = [ {'path': '~/Dropbox/vimwiki/recipes'}, {'path': '~/Dropbox/vimwiki/dev'}, {'path': '~/Dropbox/vimwiki/personal'}, {'path': '~/Dropbox/vimwiki/house'}, {'path': '~/Dropbox/vimwiki/cabin'}, {'path': '~/Dropbox/vimwiki/getty'}, {'path': '~/Dropbox/vimwiki/travel'}, {'path': '~/Dropbox/vimwiki/work'}, {'path': '~/Dropbox/SixSafety/vimwiki/', 'ext': '.md'}]
+let g:vimwiki_list = [ {'path': '~/Dropbox/vimwiki/recipes'}, {'path': '~/Dropbox/vimwiki/dev'}, {'path': '~/Dropbox/vimwiki/guitarrig'}, {'path': '~/Dropbox/vimwiki/personal'}, {'path': '~/Dropbox/vimwiki/house'}, {'path': '~/Dropbox/vimwiki/cabin'}, {'path': '~/Dropbox/vimwiki/getty'}, {'path': '~/Dropbox/vimwiki/travel'}, {'path': '~/Dropbox/vimwiki/work'}, {'path': '~/Dropbox/SixSafety/vimwiki/', 'ext': '.md'}]
 let g:vimwiki_hl_headers = 1
 let g:vimwiki_nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'ruby': 'rb', 'cmd': 'sh'}
 
