@@ -61,7 +61,7 @@ unsetopt correct_all
 zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
 
-source ~/.profile
+# source ~/.profile
 export PATH=/usr/local/sbin:$PATH
 
 # todo.txt
