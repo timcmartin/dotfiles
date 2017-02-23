@@ -39,6 +39,6 @@ for DOTFILE in *; do
     cp -rv "$DIRFILE" "$HOMEFILE"
 
   # OhMyZsh
-  "wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -"
+  "curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
   fi
 done
