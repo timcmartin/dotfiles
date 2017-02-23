@@ -17,26 +17,26 @@ Might have to manually do ohmyzsh -> have added something to setup script that m
   - [X] tmuxinator
   - [ ] Exhuberant Ctags
   - [X] Vim
-  - [ ] Powerline Fonts
+  - [X] Powerline Fonts
   - [ ] Projects
   - [X] zsh
   - [X] ohmyzsh
   - [X] postgresql
   - [X] evernote
-  - [ ] http://www.audacityteam.org/
+  - [X] http://www.audacityteam.org/
   - [ ] Bartender2
   - [ ] Alfred
   - [ ] Skitch
   - [ ] GarageBand
-- [ ] Script - locations
-  - [ ] crypt_config.vim -> dotfiles_private/crypt_congfig.vim
-  - [ ] properties/local.update_dotfiles.plist -> ~/Library/LaunchAgents/local.update_dotfiles.plist
-- [ ] Script - should not symlink
-  - [ ] VITUNES.md
+- [X] Script - locations
+  - [X] crypt_config.vim -> dotfiles_private/crypt_congfig.vim
+  - [X] properties/local.update_dotfiles.plist -> ~/Library/LaunchAgents/local.update_dotfiles.plist
+- [.] Script - should not symlink
+  - [X] VITUNES.md
   - [ ] tmux-theme
   - [ ] tim.sh
   - [ ] git-completion.bash
-- [ ] Script - ensures directory exists
-  - [ ] vim
-  - [ ] vimbackupdir
-  - [ ] zsh
+- [X] Script - ensures directory exists
+  - [X] vim
+  - [X] vimbackupdir
+  - [X] zsh
