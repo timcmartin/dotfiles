@@ -1,7 +1,4 @@
 .vim/.undo
-crypt_config.vim
-.crypt_tmux
 tags
-.vmailrc
 dump.rdb
-vimbackupdir/
+vimbackupdir/*
