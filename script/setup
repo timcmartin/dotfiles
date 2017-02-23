@@ -37,8 +37,5 @@ for DOTFILE in *; do
     fi
   else
     cp -rv "$DIRFILE" "$HOMEFILE"
-
-  # OhMyZsh
-  "curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
   fi
 done
