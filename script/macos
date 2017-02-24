@@ -57,12 +57,6 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # network DS_store
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
-
-keyboard_ids = 'ioreg -n IOHIDKeyboard -r | grep -E \'VendorID"|ProductID\' | awk \'{ print $4 }\' | paste -s -d\'-\n\' -'
-remap = 'xargs -I{} defaults -currentHost write -g "com.apple.keyboard.modifiermapping.{}-0" -array "<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>"'
-command = "${keyboard_ids} | ${remap}"
-eval $command
-
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
