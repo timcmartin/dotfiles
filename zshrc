@@ -77,6 +77,6 @@ export PATH="/usr/local/bin:$PATH"
 # export PATH=$PATH:"/Users/timcmartin/.cloud66"
 
 # added by travis gem
-[ -f /Users/timcmartin/.travis/travis.sh ] && source /Users/timcmartin/.travis/travis.sh
+# [ -f /Users/timcmartin/.travis/travis.sh ] && source /Users/timcmartin/.travis/travis.sh
 
 fpath=(~/.zsh $fpath)
