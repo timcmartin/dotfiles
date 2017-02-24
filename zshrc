@@ -63,17 +63,18 @@ zrcl="$HOME/.zshrc.local"
 
 # source ~/.profile
 export PATH=/usr/local/sbin:$PATH
+export PATH="/usr/local/bin:$PATH"
 
 # todo.txt
-export PATH=$PATH:"/opt/boxen/homebrew/Cellar/todo-txt/2.10/bin"
+# export PATH=$PATH:"/opt/boxen/homebrew/Cellar/todo-txt/2.10/bin"
 
-eval "$(rbenv init -)"
-export PATH="/opt/boxen/rbenv/bin:$PATH"
-export PATH="/opt/rubies/2.3.0/lib/ruby/gems/2.3.0/bundler/gems:$PATH"
-export PATH="/opt/rubies/2.3.1/lib/ruby/gems/2.3.1/bundler/gems:$PATH"
+# eval "$(rbenv init -)"
+# export PATH="/opt/boxen/rbenv/bin:$PATH"
+# export PATH="/opt/rubies/2.3.0/lib/ruby/gems/2.3.0/bundler/gems:$PATH"
+# export PATH="/opt/rubies/2.3.1/lib/ruby/gems/2.3.1/bundler/gems:$PATH"
 
 # Cloud66 Toolbelt
-export PATH=$PATH:"/Users/timcmartin/.cloud66"
+# export PATH=$PATH:"/Users/timcmartin/.cloud66"
 
 # added by travis gem
 [ -f /Users/timcmartin/.travis/travis.sh ] && source /Users/timcmartin/.travis/travis.sh
