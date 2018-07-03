@@ -71,24 +71,14 @@ tmux list-sessions || ( tmux new -d -s $DUMMY && tmuxinator start $PROJECT )
 # todo.txt
 export PATH=$PATH:"/opt/boxen/homebrew/Cellar/todo-txt/2.10/bin"
 
-eval "$(rbenv init -)"
-export PATH="/opt/boxen/rbenv/bin:$PATH"
-export PATH="/opt/rubies/2.3.0/lib/ruby/gems/2.3.0/bundler/gems:$PATH"
-export PATH="/opt/rubies/2.3.1/lib/ruby/gems/2.3.1/bundler/gems:$PATH"
-
-# Cloud66 Toolbelt
-export PATH=$PATH:"/Users/timcmartin/.cloud66"
-
-# added by travis gem
-[ -f /Users/timcmartin/.travis/travis.sh ] && source /Users/timcmartin/.travis/travis.sh
+# eval "$(rbenv init -)"
+# export PATH="/opt/boxen/rbenv/bin:$PATH"
+# export PATH="/opt/rubies/2.3.0/lib/ruby/gems/2.3.0/bundler/gems:$PATH"
+# export PATH="/opt/rubies/2.3.1/lib/ruby/gems/2.3.1/bundler/gems:$PATH"
 
 fpath=(~/.zsh $fpath)
 
-### Added by the Bluemix CLI
-source /usr/local/Bluemix/bx/zsh_autocomplete
-
-eval `docker-machine env 2>/dev/null`
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Linuxbrew
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
