@@ -56,9 +56,6 @@
     ~/.zshrc:
       relink: true
       path: zshrc
-    ~/crypt_config.vim:
-      relink: true
-      path: dotfiles_private/crypt_config.vim
     ~/.vimbundles:
       relink: true
       path: vimbundles/
@@ -68,9 +65,6 @@
     ~/.thymerc:
       relink: true
       path: thymerc
-    ~/Library/LaunchAgents/local.update_dotfiles.plist:
-      relink: true
-      path: properties/local.update_dotfiles.plist
     ~/.tmuxinator:
       relink: true
       path: tmuxinator/
