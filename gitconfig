@@ -37,7 +37,7 @@
   status = auto
   ui = auto
 [core]
-	excludesfile = /opt/boxen/config/git/gitignore
+	excludesfile = ~/.gitignore
   editor = vim
   whitespace = warn
 [diff]
@@ -75,22 +75,22 @@
   enabled = true
 [user]
 	name = Tim Martin
-	email = timcmartin@gmail.com
+	email = tim.martin@gettyimages.com
 [http]
   sslVerify = false
 [credential]
-  helper = /opt/boxen/bin/boxen-git-credential
+  ; helper = /opt/boxen/bin/boxen-git-credential
   # helper = cache --timeout=36000
 [mergetool]
 	keepBackup = false
 [init]
 	templatedir = ~/.git_template
-[difftool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
-	trustExitCode = true
+; [difftool "sourcetree"]
+	; cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	; path = 
+; [mergetool "sourcetree"]
+	; cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	; trustExitCode = true
 
 [hub]
 protocol = https
