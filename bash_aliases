@@ -185,21 +185,10 @@ alias memcache='echo "flush_all" | nc 127.0.0.1 11211'
 alias devwork='vim ~/www/work/wwwroot/index.php'
 
 # Empty iStock Log
-alias istocklog='echo : > /Users/tmartin/Code/Getty/istock/codebase/timlog'
+# alias istocklog='echo : > /Users/tmartin/Code/Getty/istock/codebase/timlog'
 
 # Tail istocklog
-alias timlog='tail -f /Users/tmartin/Code/Getty/istock/codebase/timlog'
-
-# start postgres
-# alias postgres='/Applications/Postgres.app/Contents/Versions/9.3/bin/psql -p5432'
-# ------------------------------------------------------------------
-# database
-# ------------------------------------------------------------------
-alias 'pgstart=pg_ctl -D /opt/boxen/data/postgresql/ -l logfile start'
-alias 'pgstop=pg_ctl -D /opt/boxen/data/postgresql/ stop'
-alias 'pgrestart=pg_ctl -D /opt/boxen/data/postgresql/ restart'
-# ex: pgrestore db_name file_name
-alias 'pgrestore=pg_restore --verbose --clean --no-acl --no-owner -h localhost -d'
+# alias timlog='tail -f /Users/tmartin/Code/Getty/istock/codebase/timlog'
 
 # reset memcache
 alias reset-memcache='memcached -u memcached -d -m 30 -l 127.0.0.1 -p 11211'
@@ -223,15 +212,6 @@ alias mycode='cd ~/src/personal'
 # personal: src code directory
 alias src='cd ~/src'
 
-# six safety: cd api
-alias api='cd ~/src/api'
-
-# six safety: cd ui
-alias ui='cd ~/src/ui'
-
-# six safety boxen repo: cd repo
-alias ourboxen='cd /opt/boxen/repo'
-
 # workdev
 alias workdev='cd /src/personal/workdev'
 
@@ -253,44 +233,5 @@ alias clearlogs='rake log:clear'
 # Find Postgres
 alias findpg='ps -ax | grep -i postgres'
 
-# Update APIPIE Docs
-alias updatedocs='be rake api:generate_examples'
-
-# Geeknote
-alias geeknote='python ~/src/community/geeknote/geeknote/geeknote.py'
-
-# SIXSAFETY
-# tail API
-alias tailapiprod='cx tail -s "API-Production" -e production Drake production.log'
-alias tailapistaging='cx tail -s "API-Sandbox" -e staging Cricket staging.log'
-
-# ssh API
-# alias sshapiprod='cx ssh -s "API-Production" -e production Drake'
-# alias sshapioldprod='cx ssh -s "API-Production-TO" -e production Raccoon'
-# alias sshapistaging='cx ssh -s "API-Sandbox" -e staging Cricket'
-# alias sshproddb='cx ssh -s "API-Production" -e production Crayfish'
-alias spaceprod='cf t -s production'
-alias spacestaging='cf t -s staging'
-alias sshapiprod='cf ssh lucisix-io'
-alias sshapistaging='cf ssh staging-lucisix-io'
-alias sshproddb='cf ssh lucisix-worker'
-
-# tail UI-Sandbox log
-alias tailuistaging='cx tail -s "UI-Sandbox" -e staging Dolphin staging.log'
-alias tailuiprod='cx tail -s "UI-Production-TO" -e production Panther production.log'
-
-# ssh UI-Sandbox
-alias sshuistaging='cx ssh -s "UI-Sandbox" -e staging Dolphin'
-alias sshuistaging='cx ssh -s "UI-Production-TO" -e production Panther'
-
 # TMUX Fix
 alias mux='tmuxinator'
-
-# Pause Sonos
-alias pause_sonos='cd /Users/timcmartin/src/personal/sonos && ruby sonos-pause.rb'
-
-# Play Sonos
-alias play_sonos='cd /Users/timcmartin/src/personal/sonos && ruby sonos-play.rb'
-
-# Thor - npm command line
-alias thorcli='/opt/nodes/4.5.0/lib/node_modules/thor/bin/thor'
