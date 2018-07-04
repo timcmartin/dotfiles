@@ -37,7 +37,7 @@
   status = auto
   ui = auto
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore_global
   editor = vim
   whitespace = warn
 [diff]

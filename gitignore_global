@@ -13,11 +13,6 @@ ehthumbs.db
 \#*\#
 /tags
 /.bundle/
-.vim/.undo
-crypt_config.vim
-.crypt_tmux
 tags
-.vmailrc
 dump.rdb
-vimbackupdir/
 doc/tags

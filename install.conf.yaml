@@ -5,6 +5,9 @@
     ~/.agignore:
       relink: true
       path: agignore
+    ~/.gitignore_global:
+      relink: true
+      path: gitignore_global
     ~/.bash_aliases:
       relink: true
       path: bash_aliases
