@@ -163,7 +163,7 @@ let NERDChristmasTree = 1
 let NERDTreeHighlightCursorline = 1
 " Make bookmarks visible
 let NERDTreeShowBookmarks = 1
-let g:NERDTreeBookmarksFile = '/Users/timcmartin/Dotfiles/NERDTreeBookmarks'
+let g:NERDTreeBookmarksFile = $HOME . '/Dotfiles/NERDTreeBookmarks'
 " Show hidden files
 let NERDTreeShowHidden = 0
 " Don't hijack NETRW

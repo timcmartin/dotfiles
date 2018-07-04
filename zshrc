@@ -64,10 +64,12 @@ zrcl="$HOME/.zshrc.local"
 source ~/.profile
 export PATH=/usr/local/sbin:$PATH
 
+# TODO: Need to fix too.
 DUMMY='dummy'
 PROJECT='monit'
 tmux list-sessions || ( tmux new -d -s $DUMMY && tmuxinator start $PROJECT )
 
+# TODO: Need to fix
 # todo.txt
 export PATH=$PATH:"/opt/boxen/homebrew/Cellar/todo-txt/2.10/bin"
 

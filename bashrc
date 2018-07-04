@@ -102,11 +102,3 @@ function proml {
   PS1="Powerslave: \W $BLUE\$(parse_git_branch) $DEFAULT\$ "
 }
 proml
-
-[ -f /opt/boxen/env.sh ] && source /opt/boxen/env.sh
-
-# added by travis gem
-[ -f /Users/timcmartin/.travis/travis.sh ] && source /Users/timcmartin/.travis/travis.sh
-
-### Added by the Bluemix CLI
-source /usr/local/Bluemix/bx/bash_autocomplete

@@ -29,6 +29,9 @@
     ~/.pair:
       relink: true
       path: pair
+    ~/.pryrc:
+      relink: true
+      path: pryrc
     ~/.rdebugrc:
       relink: true
       path: rdebugrc
@@ -68,9 +71,6 @@
     ~/.tmuxinator:
       relink: true
       path: tmuxinator/
-    ~/.pryrc:
-      relink: true
-      path: pryrc
 
 - shell:
     -

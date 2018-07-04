@@ -1,6 +1,6 @@
 #!/bin/bash
 
-directory="/Users/timcmartin/Dotfiles"
+directory="$HOME/Dotfiles"
 update_command="cd \"$directory\" && git submodule foreach --recursive git fetch"
 
 eval $update_command
