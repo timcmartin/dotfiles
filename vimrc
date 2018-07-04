@@ -195,7 +195,7 @@ map <F2> :PBCopy<cr>
 " Toggle between paste and nopaste, shows which one is active
 map <F3> :set paste!\|set paste?<cr>
 
-set clipboard=unnamed
+set clipboard=unnamedplus
 xnoremap p pgvy
 
 " sudo save with w!!
@@ -478,18 +478,15 @@ endfunction
 command! PasteWithPasteMode call PasteWithPasteMode()
 nmap <silent> <leader>p :PasteWithPasteMode<CR>
 
-" Write Buffer
-" Writes the current buffer unless we're the in QuickFix mode.
-" ---------------
-" function WriteBuffer()
-  " if &filetype == "qf"
-    " execute "normal! \<enter>"
-  " else
-    " :write
-  " endif
-" endfunction
+" yank/paste to/from clipboard
+noremap <silent> <leader>y "*y
+noremap <silent> <leader>Y "*Y
+noremap <silent> <leader>p "*p
+noremap <silent> <leader>P "*P
 
-" noremap <silent> <enter> :call WriteBuffer()<CR>
+" paste without yanking replaced text in visual mode
+vnoremap <silent> p "_dP
+vnoremap <silent> P "_dp
 
 " sass highlighting for slim files
 " -----------------
