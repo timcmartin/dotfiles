@@ -65,9 +65,9 @@ source ~/.profile
 export PATH=/usr/local/sbin:$PATH
 
 # TODO: Need to fix too.
-DUMMY='dummy'
-PROJECT='monit'
-tmux list-sessions || ( tmux new -d -s $DUMMY && tmuxinator start $PROJECT )
+# DUMMY='dummy'
+# PROJECT='monit'
+# tmux list-sessions || ( tmux new -d -s $DUMMY && tmuxinator start $PROJECT )
 
 # TODO: Need to fix
 # todo.txt
@@ -77,6 +77,8 @@ export PATH=$PATH:"/opt/boxen/homebrew/Cellar/todo-txt/2.10/bin"
 # export PATH="/opt/boxen/rbenv/bin:$PATH"
 # export PATH="/opt/rubies/2.3.0/lib/ruby/gems/2.3.0/bundler/gems:$PATH"
 # export PATH="/opt/rubies/2.3.1/lib/ruby/gems/2.3.1/bundler/gems:$PATH"
+exort PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 fpath=(~/.zsh $fpath)
 

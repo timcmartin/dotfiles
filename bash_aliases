@@ -235,3 +235,7 @@ alias findpg='ps -ax | grep -i postgres'
 
 # TMUX Fix
 alias mux='tmuxinator'
+
+# Getty VPN
+alias vpn="/opt/cisco/anyconnect/bin/vpn"
+alias vpnui="/opt/cisco/anyconnect/bin/vpnui"
