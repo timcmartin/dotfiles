@@ -77,7 +77,7 @@ export PATH=$PATH:"/opt/boxen/homebrew/Cellar/todo-txt/2.10/bin"
 # export PATH="/opt/boxen/rbenv/bin:$PATH"
 # export PATH="/opt/rubies/2.3.0/lib/ruby/gems/2.3.0/bundler/gems:$PATH"
 # export PATH="/opt/rubies/2.3.1/lib/ruby/gems/2.3.1/bundler/gems:$PATH"
-exort PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 fpath=(~/.zsh $fpath)
