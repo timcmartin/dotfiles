@@ -50,6 +50,9 @@ colorscheme jellybeans
 filetype plugin indent on
 filetype plugin on
 
+" Linux Background // needs to go after colorscheme
+hi Normal guibg=NONE ctermbg=NONE
+
 if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
 endif
