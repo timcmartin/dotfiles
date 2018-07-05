@@ -13,7 +13,7 @@ windows:
           - cd asset_detail
           - git status
         - todo:
-          - t ls
+          - t ls work
         - la
   - editor:
       layout: main-vertical
