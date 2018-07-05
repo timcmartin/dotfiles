@@ -38,9 +38,9 @@ nnoremap <leader>h *<C-O>
 " Appearanace and colour
 syntax on
 set t_Co=256
-set background=dark
-colorscheme jellybeans-joel
-" colorscheme Jellybeans
+" colorscheme jellybeans-tim
+" colorscheme jellybeans-joel
+colorscheme jellybeans
 " colorscheme molokai
 " colorscheme grb256
 " colorscheme railscasts
@@ -117,10 +117,6 @@ endif
 au! BufRead,BufNewFile *.rb
 au! BufRead,BufNewFile *.xml
 au BufNewFile,BufRead *.scss set filetype=sass
-
-" TODO - Not using this
-" CocoaPods
-" au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
 
 augroup vimrc
   autocmd!
@@ -521,3 +517,9 @@ let g:switch_mapping = "-"
 " Date & Time
 :nnoremap <F5> "=strftime("%b %d, %Y")<CR>P
 :inoremap <F5> <C-R>=strftime("%b %d, %Y")<CR>
+
+" Typescript for Angular
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow

@@ -16,7 +16,7 @@ alias v='vim'
 alias v.='vim .'
 alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd {} && git pull)"'" "'";"'"'
 alias vimrc='vim ~/.vimrc'
-alias vimwork='vim -O ~/Dropbox/vimwiki/work/Kanban.wiki ~/Dropbox/vimwiki/work/diary/diary.wiki'
+alias vimwork='vim -O ~/Dropbox/vimwiki/work/diary/diary.wiki'
 
 # Pickler Commands
 alias curtest='cr cucumber FEATURE=$CURTEST'
@@ -165,14 +165,6 @@ function besdb {
 
 alias unhitch='hitch -u'
 
-# Finicky Local MySQL - need to test
-# TODO - Not working
-# export MYSQL_HOME=/usr/local/mysql
-# alias start_mysql='sudo $MYSQL_HOME/bin/mysqld_safe &'
-# alias stop_mysql='sudo $MYSQL_HOME/bin/mysqladmin shutdown'
-
-#bind 'set bind-tty-special-chars off'
-
 [ ! -f "$HOME/.bash_aliases.local" ] || . "$HOME/.bash_aliases.local"
 
 # Alias for the TODO plugin
@@ -182,7 +174,7 @@ alias t='todo.sh -d ~/.todo.cfg'
 alias memcache='echo "flush_all" | nc 127.0.0.1 11211'
 
 # Edit Work Site
-alias devwork='vim ~/www/work/wwwroot/index.php'
+alias devwork="vim $HOME/src/personal/workdev/index.html"
 
 # Empty iStock Log
 # alias istocklog='echo : > /Users/tmartin/Code/Getty/istock/codebase/timlog'
@@ -220,6 +212,12 @@ alias updatesubs='git submodule foreach --recursive git fetch'
 
 # vimwiki: recipes-monitor
 alias recipes='cd ~/Dropbox/vimwiki/recipes/book'
+
+# Unisporkal
+alias unisporkal='cd ~/src/unisporkal'
+
+# Asset Detail
+alias asset_detail='cd ~/src/unisporkal/asset_detail'
 
 # Start Redis
 # Use redisup
