@@ -1,6 +1,11 @@
 " hashrocket.vim
 " vim:set ft=vim et tw=78 sw=2:
 
+if exists('g:loaded_hashrocket')
+  finish
+endif
+let g:loaded_hashrocket = 1
+
 if $HASHROCKET_DIR == '' && expand('<sfile>') =~# '/dotmatrix/\.vim/plugin/hashrocket\.vim$'
   let $HASHROCKET_DIR = expand('<sfile>')[0 : -38]
 endif
@@ -11,7 +16,7 @@ if $HASHROCKET_DIR == ''
   let $HASHROCKET_DIR = substitute(system("bash -i -c 'echo \"$HASHROCKET_DIR\"'"),'\n$','','')
 endif
 if $HASHROCKET_DIR == ''
-  let $HASHROCKET_DIR = expand('~/dev')
+  let $HASHROCKET_DIR = expand('~/hashrocket')
 endif
 
 function! s:HComplete(A,L,P)
@@ -28,26 +33,7 @@ Hcommand split
 Hcommand saveas
 Hcommand tabedit
 
-command! -bar -nargs=* -complete=dir Terrarails :execute 'Rails --template='.system("ruby -rubygems -e 'print Gem.bin_path(%(terraformation))'") . ' ' . <q-args>
-
-command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 command! -bar -range=% NotRocket :<line1>,<line2>s/:\(\w\+\)\s*=>/\1:/ge
-
-command! -bar -nargs=* -bang -complete=file Rename :
-      \ let v:errmsg = ""|
-      \ saveas<bang> <args>|
-      \ if v:errmsg == ""|
-      \   call delete(expand("#"))|
-      \ endif
-
-command! -bar -nargs=0 -bang -complete=file Remove :
-      \ let v:errmsg = ''|
-      \ let s:removable = expand('%:p')|
-      \ bdelete<bang>|
-      \ if v:errmsg == ''|
-      \   call delete(s:removable)|
-      \ endif|
-      \ unlet s:removable
 
 function! HTry(function, ...)
   if exists('*'.a:function)
@@ -57,103 +43,115 @@ function! HTry(function, ...)
   endif
 endfunction
 
-set nocompatible
-set autoindent
-set autoread
-set backspace=indent,eol,start
-set complete-=i      " Searching includes can be slow
-set display=lastline " When lines are cropped at the screen bottom, show as much as possible
 if &grepprg ==# 'grep -n $* /dev/null'
   set grepprg=grep\ -rnH\ --exclude='.*.swp'\ --exclude='*~'\ --exclude='*.log'\ --exclude=tags\ $*\ /dev/null
 endif
-set incsearch
-set laststatus=2    " Always show status line
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
 set list            " show trailing whiteshace and tabs
-set modelines=5
-set scrolloff=1
-set sidescrolloff=5
-set showcmd
-set showmatch
-set smarttab
 if &statusline == ''
   set statusline=[%n]\ %<%.99f\ %h%w%m%r%{HTry('CapsLockStatusline')}%y%{HTry('rails#statusline')}%{HTry('fugitive#statusline')}%#ErrorMsg#%{HTry('SyntasticStatuslineFlag')}%*%=%-14.(%l,%c%V%)\ %P
 endif
-set ttimeoutlen=50  " Make Esc work faster
-set wildmenu
 
-if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
-  set t_Co=16
+if has('persistent_undo')
+  set undofile
+  set undodir^=~/.vim/tmp//,~/Library/Vim/undo
 endif
 
-let g:is_bash = 1 " Highlight all .sh files as if they were bash
-let g:ruby_minlines = 500
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_rails = 1
 
-let g:NERDCreateDefaultMappings = 0
-let g:NERDSpaceDelims = 1
-let g:NERDShutUp = 1
-let g:VCSCommandDisableMappings = 1
-
-let g:surround_{char2nr('s')} = " \r"
-let g:surround_{char2nr(':')} = ":\r"
-let g:surround_indent = 1
-
-
-if !exists('g:w_sleep')
-  let g:w_sleep = 0
+if !exists('g:rails_projections')
+  let g:rails_projections = {}
 endif
 
-function! s:Wall() abort
-  let sleep = g:w_sleep ? 'sleep '.g:w_sleep.'m' : ''
-  let tab = tabpagenr()
-  let win = winnr()
-  let seen = {}
-  if !&readonly && expand('%') !=# ''
-    let seen[bufnr('')] = 1
-    write
-  endif
-  tabdo windo if !&readonly && expand('%') !=# '' && !has_key(seen, bufnr('')) | exe sleep | silent write | let seen[bufnr('')] = 1 | endif
-  execute 'tabnext '.tab
-  execute win.'wincmd w'
-endfunction
+call extend(g:rails_projections, {
+      \  "app/presenters/*.rb": {
+      \     "command": "presenter",
+      \     "test": "spec/presenter/{}_spec.rb",
+      \     "alternate": "spec/presenter/{}_spec.rb",
+      \     "template": "class {camelcase|capitalize|colons}\nend" }
+      \ }, 'keep')
 
-command! -bar W              :call s:Wall()
+if !exists('g:rails_gem_projections')
+  let g:rails_gem_projections = {}
+endif
 
-command! -bar -nargs=0 SudoW :setl nomod|silent exe 'write !sudo tee % >/dev/null'|let &mod = v:shell_error
+call extend(g:rails_gem_projections, {
+      \ "active_model_serializers": {
+      \   "app/serializers/*_serializer.rb": {
+      \     "command": "serializer",
+      \     "template": "class {camelcase|capitalize|colons}Serializer < ActiveModel::Serializer\nend",
+      \     "affinity": "model"}},
+      \ "rspec-core": {
+      \    "spec/support/*.rb": {
+      \      "command": "support"}},
+      \ "cucumber": {
+      \   "features/*.feature": {
+      \     "command": "feature",
+      \     "template": "Feature: {capitalize|blank}"},
+      \   "features/support/*.rb": {
+      \     "command": "support"},
+      \   "features/support/env.rb": {
+      \     "command": "support"},
+      \   "features/step_definitions/*_steps.rb": {
+      \     "command": "steps"}},
+      \ "carrierwave": {
+      \   "app/uploaders/*_uploader.rb": {
+      \     "command": "uploader",
+      \     "template": "class {camelcase|capitalize|colons}Uploader < CarrierWave::Uploader::Base\nend"}},
+      \ "draper": {
+      \   "app/decorators/*_decorator.rb": {
+      \     "command": "decorator",
+      \     "affinity": "model",
+      \     "template": "class {camelcase|capitalize|colons}Decorator < ApplicationDecorator\nend"}},
+      \ "fabrication": {
+      \   "spec/fabricators/*_fabricator.rb": {
+      \     "command": ["fabricator", "factory"],
+      \     "alternate": "app/models/{}.rb",
+      \     "related": "db/schema.rb#{pluralize}",
+      \     "test": "spec/models/{}_spec.rb",
+      \     "template": "Fabricator :{} do\nend",
+      \     "affinity": "model"}},
+      \ "factory_girl": {
+      \   "spec/factories/*.rb": {
+      \     "command": "factory",
+      \     "alternate": "app/models/{}.rb",
+      \     "related": "db/schema.rb#{pluralize}",
+      \     "test": "spec/models/{}_spec.rb",
+      \     "template": "FactoryGirl.define do\n  factory :{} do\n  end\nend",
+      \     "affinity": "model"},
+      \   "spec/factories.rb": {
+      \      "command": "factory"},
+      \   "test/factories.rb": {
+      \      "command": "factory"}}
+      \ }, 'keep')
 
-runtime! plugin/matchit.vim
-runtime! macros/matchit.vim
+" Generic non-Rails projections with projectile.vim
+if !exists('g:projectionist_heuristics')
+  let g:projectionist_heuristics = {}
+endif
 
-map Y       y$
-nnoremap <silent> <C-L> :nohls<CR><C-L>
+call extend(g:projectionist_heuristics, {
+      \ "config.rb&source/": {
+      \   "source/stylesheets/*.sass": { "command" : "stylesheet" },
+      \   "source/stylesheets/*.scss": { "command" : "stylesheet" },
+      \   "source/stylesheets/*.css":  { "command" : "stylesheet" },
+      \   "source/javascripts/*.js":   { "command" : "javascript" },
+      \   "source/javascripts/*.coffee": { "command" : "javascript" },
+      \   "source/*.html": { "command" : "view" },
+      \   "source/*.haml": { "command" : "view" },
+      \   "config.rb": { "command" : "config" }
+      \ }
+      \ }, 'keep')
+
 inoremap <C-C> <Esc>`^
 
-cnoremap          <C-O> <Up>
-inoremap              ø <C-O>o
-inoremap          <M-o> <C-O>o
-" Emacs style mappings
-inoremap          <C-A> <C-O>^
-inoremap     <C-X><C-@> <C-A>
-cnoremap          <C-A> <Home>
-cnoremap     <C-X><C-A> <C-A>
-" If at end of a line of spaces, delete back to the previous line.
-" Otherwise, <Left>
-inoremap <silent> <C-B> <C-R>=getline('.')=~'^\s*$'&&col('.')>strlen(getline('.'))?"0\<Lt>C-D>\<Lt>Esc>kJs":"\<Lt>Left>"<CR>
-cnoremap          <C-B> <Left>
-" If at end of line, decrease indent, else <Del>
-inoremap <silent> <C-D> <C-R>=col('.')>strlen(getline('.'))?"\<Lt>C-D>":"\<Lt>Del>"<CR>
-cnoremap          <C-D> <Del>
-" If at end of line, fix indent, else <Right>
-inoremap <silent> <C-F> <C-R>=col('.')>strlen(getline('.'))?"\<Lt>C-F>":"\<Lt>Right>"<CR>
-inoremap          <C-E> <End>
-cnoremap          <C-F> <Right>
+" copy to end of line
+nnoremap Y y$
+" copy to system clipboard
+vnoremap gy "+y
+" copy whole file to system clipboard
+nnoremap gY gg"+yG
 
-noremap           <F1>   <Esc>
-noremap!          <F1>   <Esc>
 
 " Enable TAB indent and SHIFT-TAB unindent
 vnoremap <silent> <TAB> >gv
@@ -161,8 +159,10 @@ vnoremap <silent> <S-TAB> <gv
 
 iabbrev Lidsa     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
 iabbrev rdebug    require 'ruby-debug'; Debugger.start; Debugger.settings[:autoeval] = 1; Debugger.settings[:autolist] = 1; debugger
+iabbrev bpry      require 'pry'; binding.pry;
+iabbrev ipry      require IEx; IEx.pry;
 
-inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+xnoremap <leader>g y :Ggrep <C-R>"<CR>
 
 function! s:align()
   let p = '^\s*|\s.*\s|\s*$'
@@ -175,31 +175,34 @@ function! s:align()
   endif
 endfunction
 
-if !exists('g:syntax_on')
-  syntax on
+" Cursor shapes
+if exists("g:use_cursor_shapes") && g:use_cursor_shapes
+  let &t_SI .= "\<Esc>[6 q"
+  let &t_EI .= "\<Esc>[2 q"
 endif
-filetype plugin indent on
 
-" Bundle Open command, from Bernerd Schaefer
-" Call with :BO <gemname>
-function! s:BundleOpen(Gem) abort
-  if exists(':Btabedit')
-    execute 'Btabedit '.a:Gem
-    redraw
-    let v:warningmsg = 'Use :Btabedit instead. It has tab complete!'
-    echomsg v:warningmsg
-    return
-  endif
-  let path = system('bundle show '.a:Gem)
-  if v:shell_error != 0
-    echo 'failed to run command'
-  else
-    exe 'tabedit '.substitute(path, '\v\C\n$', '', '') | :lcd %
-  endif
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+function! s:unused_steps(bang) abort
+  let savegp = &grepprg
+
+  let prg = "hr unused"
+  if a:bang | let prg = prg.' -f' | endif
+  let &grepprg = prg
+
+  try
+    silent grep!
+  finally
+    let &grepprg = savegp
+  endtry
+
+  copen
+  redraw!
 endfunction
 
-" :BO capybara
-:command! -nargs=1 BundleOpen :call s:BundleOpen(<q-args>)
+command! -bang UnusedSteps call <SID>unused_steps("<bang>")
 
 augroup hashrocket
   autocmd!
@@ -207,33 +210,18 @@ augroup hashrocket
   autocmd CursorHold,BufWritePost,BufReadPost,BufLeave *
         \ if isdirectory(expand("<amatch>:h")) | let &swapfile = &modified | endif
 
-  autocmd BufNewFile,BufRead *.haml             set ft=haml
-  autocmd BufNewFile,BufRead *.feature,*.story  set ft=cucumber
   autocmd BufRead * if ! did_filetype() && getline(1)." ".getline(2).
         \ " ".getline(3) =~? '<\%(!DOCTYPE \)\=html\>' | setf html | endif
 
-  autocmd FileType javascript,coffee      setlocal et sw=2 sts=2 isk+=$
-  autocmd FileType html,xhtml,css,scss    setlocal et sw=2 sts=2
-  autocmd FileType eruby,yaml,ruby        setlocal et sw=2 sts=2
-  autocmd FileType cucumber               setlocal et sw=2 sts=2
   autocmd FileType gitcommit              setlocal spell
-  autocmd FileType gitconfig              setlocal noet sw=8
   autocmd FileType ruby                   setlocal comments=:#\  tw=79
-  autocmd FileType sh,csh,zsh             setlocal et sw=2 sts=2
-  autocmd FileType vim                    setlocal et sw=2 sts=2 keywordprg=:help
 
   autocmd Syntax   css  syn sync minlines=50
 
-  autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
-  autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
-  autocmd User Rails Rnavcommand decorator app/decorators -suffix=_decorator.rb -default=model()
-  autocmd User Rails Rnavcommand uploader app/uploaders -suffix=_uploader.rb -default=model()
-  autocmd User Rails Rnavcommand steps features/step_definitions -suffix=_steps.rb -default=web
-  autocmd User Rails Rnavcommand blueprint spec/blueprints -suffix=_blueprint.rb -default=model()
-  autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb -default=model()
-  autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
-  autocmd User Rails Rnavcommand feature features -suffix=.feature -default=cucumber
-  autocmd User Rails Rnavcommand support spec/support features/support -default=env
-  autocmd User Rails Rnavcommand worker app/workers -suffix=_worker.rb -default=model()
-  autocmd User Fugitive command! -bang -bar -buffer -nargs=* Gpr :Git<bang> pull --rebase <args>
+  autocmd FileType help nnoremap <buffer> q :q<cr>
+  autocmd FileType ruby nmap <buffer> <leader>bt <Plug>BlockToggle
+  autocmd FileType cucumber
+        \ inoremap <buffer><silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+  autocmd BufRead *_spec.rb map <buffer> <leader>l <Plug>ExtractRspecLet
+  autocmd FileType sql nmap <buffer> <leader>t :<C-U>w \| call Send_to_Tmux("\\i ".expand("%")."\n")<CR>
 augroup END

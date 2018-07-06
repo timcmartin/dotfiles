@@ -16,7 +16,7 @@ alias v='vim'
 alias v.='vim .'
 alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd {} && git pull)"'" "'";"'"'
 alias vimrc='vim ~/.vimrc'
-alias vimwork='vim -O ~/Dropbox/vimwiki/getty/diary/diary.wiki'
+alias vimwork='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty/diary/diary.wiki'
 
 # Pickler Commands
 alias curtest='cr cucumber FEATURE=$CURTEST'
@@ -238,3 +238,6 @@ alias mux='tmuxinator'
 # Getty VPN
 alias vpn="/opt/cisco/anyconnect/bin/vpn"
 alias vpnui="/opt/cisco/anyconnect/bin/vpnui"
+
+# Linux Chrome
+alias chrome="google-chrome-stable --password-store=basic"

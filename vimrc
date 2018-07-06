@@ -38,9 +38,10 @@ nnoremap <leader>h *<C-O>
 " Appearanace and colour
 syntax on
 set t_Co=256
-" colorscheme jellybeans-tim
+colorscheme jellybeans-tim
 " colorscheme jellybeans-joel
-colorscheme jellybeans
+" colorscheme jellybeans
+" colorscheme solarized
 " colorscheme molokai
 " colorscheme grb256
 " colorscheme railscasts
@@ -52,6 +53,7 @@ filetype plugin on
 
 " Linux Background // needs to go after colorscheme
 hi Normal guibg=NONE ctermbg=NONE
+hi NonText guibg=NONE ctermbg=NONE
 
 if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
@@ -100,7 +102,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 " the 3 options tell vim to delete white space at start of the line,
 " a line break, and the character before where Insert mode started
 set backspace=indent,eol,start
-set mouse=a " sometimes you want a mouse
+" set mouse=a " sometimes you want a mouse
 set nofoldenable " I rarely use folds
 set title          " Set the title of the window in the terminal to the file
 set titlestring='Powerslave'
@@ -493,7 +495,7 @@ autocmd BufNewFile,BufRead *.slim set ft=sass
 
 " HTML highlighting for smarty templates
 " -----------------
-au BufRead,BufNewFile *.tpl set filetype=smarty 
+au BufRead,BufNewFile *.tpl set filetype=smarty
 
 " Tagbar
 nmap  <F8> :TagbarToggle<CR>
