@@ -7,7 +7,6 @@ endif
 " General behavior
 behave xterm
 set nocompatible
-
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -42,16 +41,10 @@ colorscheme jellybeans-tim
 " colorscheme jellybeans-joel
 " colorscheme jellybeans
 " colorscheme solarized
-" colorscheme molokai
-" colorscheme grb256
-" colorscheme railscasts
-" colorscheme railscasts2
-" colorscheme darkburn
-" colorscheme twilight256
 filetype plugin indent on
 filetype plugin on
 
-" Linux Background // needs to go after colorscheme
+" Transparent Linux Background // needs to go after colorscheme
 hi Normal guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
 
@@ -62,7 +55,8 @@ endif
 set laststatus=2   " Always show the statusline
 set noshowmode
 let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1
+" Last used buffers
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'powerlineish'
 
 " Make Vim awesomer
@@ -222,6 +216,7 @@ if executable('ag')
   " Ensure max height isn't too large. (for performance)
   let g:ctrlp_max_height = 20
 
+  " Rails Stuff
   map <leader>gn :CtrlP<cr>
   map <leader>gv :CtrlP app/views<cr>
   map <leader>gc :CtrlP app/controllers<cr>
