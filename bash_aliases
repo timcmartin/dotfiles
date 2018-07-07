@@ -1,10 +1,20 @@
 # Convenience Commands
-alias hosts='sudo vi /etc/hosts'
-alias pizza='be slice -a thin'
-alias cain='be slice -a thin candidate'
+alias chrome="google-chrome-stable --password-store=basic"
+alias clearlogs='rake log:clear'
+alias findpg='ps -ax | grep -i postgres'
+alias hosts='sudo vim /etc/hosts'
+alias mux='tmuxinator'
+alias t='todo.sh -d ~/.todo.cfg'
+alias v.='vim .'
+alias v='vim'
+alias vimrc='vim ~/.vimrc'
+alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd {} && git pull)"'" "'";"'"'
+alias vimwork='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty/diary/diary.wiki'
+alias vpn="/opt/cisco/anyconnect/bin/vpn"
+alias vpnui="/opt/cisco/anyconnect/bin/vpnui"
 
 # Bash Commands
-alias bashedit='vi ~/.bash_aliases'
+alias bashedit='vim ~/.bash_aliases'
 alias callme='sudo su -'
 alias m.='mate .'
 alias m=mate
@@ -12,11 +22,19 @@ alias please=sudo
 alias psack='ps aux | ack'
 alias psgrep='ps aux | grep'
 alias rebash='START_DIR=`pwd`;cd ..;source ~/.bash_aliases;cd $START_DIR; c; l'
-alias v='vim'
-alias v.='vim .'
-alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd {} && git pull)"'" "'";"'"'
-alias vimrc='vim ~/.vimrc'
-alias vimwork='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty/diary/diary.wiki'
+
+# Code Aliases
+alias asset_detail='cd ~/src/unisporkal/asset_detail'
+alias cabin='cd ~/src/personal/cabin-monitor'
+alias devwork="vim $HOME/src/personal/workdev/index.html"
+alias dotfiles='cd ~/Dotfiles'
+alias mycode='cd ~/src/personal'
+alias recipes='cd ~/Dropbox/vimwiki/recipes/book'
+alias src='cd ~/src'
+alias unisporkal='cd ~/src/unisporkal'
+alias workdev='cd /src/personal/workdev'
+alias wurstwings='cd ~/src/personal/wurstwings'
+alias wwredis='redis-server /usr/local/etc/redis.conf'
 
 # Pickler Commands
 alias curtest='cr cucumber FEATURE=$CURTEST'
@@ -77,6 +95,7 @@ alias gtree="git tree"
 alias gtrim="sed -i '' -e 's/[[:space:]]*$//g'"
 alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 alias glastfive="git reflog | egrep -io \"moving from ([^[:space:]]+)\" | awk '{ print $3 }' | head -n5"
+alias updatesubs='git submodule foreach --recursive git fetch'
 
 # Gem Commands
 alias audit='gem list'
@@ -97,6 +116,7 @@ alias pgup='pg_ctl -w -D /usr/local/var/postgres -l /usr/local/var/postgres/serv
 alias pgdown='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 alias redisup='redis-server ~/Dotfiles/redis.conf'
 alias redistestup='redis-server ~/Dotfiles/redistest.conf'
+alias redisstop='redis-cli shutdown'
 alias rakedbtestkill='RAILS_ENV=test rake db:drop && RAILS_ENV=test rake db:create && RAILS_ENV=test rake db:migrate'
 alias rakedbreset='rake db:migrate:reset'
 alias rakedbinit='rake db:drop db:create db:migrate'
@@ -168,76 +188,12 @@ alias unhitch='hitch -u'
 
 [ ! -f "$HOME/.bash_aliases.local" ] || . "$HOME/.bash_aliases.local"
 
-# Alias for the TODO plugin
-alias t='todo.sh -d ~/.todo.cfg'
-
+# Old Getty Commands
 # iStock Memcache
 alias memcache='echo "flush_all" | nc 127.0.0.1 11211'
-
-# Edit Work Site
-alias devwork="vim $HOME/src/personal/workdev/index.html"
-
 # Empty iStock Log
 # alias istocklog='echo : > /Users/tmartin/Code/Getty/istock/codebase/timlog'
-
 # Tail istocklog
 # alias timlog='tail -f /Users/tmartin/Code/Getty/istock/codebase/timlog'
-
 # reset memcache
 alias reset-memcache='memcached -u memcached -d -m 30 -l 127.0.0.1 -p 11211'
-
-# CODEBASES
-# cd to wurstwings codebase
-alias wurstwings='cd ~/src/personal/wurstwings'
-
-# start wurstwings redis
-alias wwredis='redis-server /usr/local/etc/redis.conf'
-
-# personal: cd dotfiles
-alias dotfiles='cd ~/Dotfiles'
-
-# personal: cabin-monitor
-alias cabin='cd ~/src/personal/cabin-monitor'
-
-# personal: cd src/personal
-alias mycode='cd ~/src/personal'
-
-# personal: src code directory
-alias src='cd ~/src'
-
-# workdev
-alias workdev='cd /src/personal/workdev'
-
-# update submodules
-alias updatesubs='git submodule foreach --recursive git fetch'
-
-# vimwiki: recipes-monitor
-alias recipes='cd ~/Dropbox/vimwiki/recipes/book'
-
-# Unisporkal
-alias unisporkal='cd ~/src/unisporkal'
-
-# Asset Detail
-alias asset_detail='cd ~/src/unisporkal/asset_detail'
-
-# Start Redis
-# Use redisup
-
-# Shutdown Redis
-alias redisstop='redis-cli shutdown'
-
-# Clear Logs
-alias clearlogs='rake log:clear'
-
-# Find Postgres
-alias findpg='ps -ax | grep -i postgres'
-
-# TMUX Fix
-alias mux='tmuxinator'
-
-# Getty VPN
-alias vpn="/opt/cisco/anyconnect/bin/vpn"
-alias vpnui="/opt/cisco/anyconnect/bin/vpnui"
-
-# Linux Chrome
-alias chrome="google-chrome-stable --password-store=basic"
