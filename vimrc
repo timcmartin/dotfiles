@@ -52,6 +52,7 @@ if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
 endif
 
+" Status Line
 set laststatus=2   " Always show the statusline
 set noshowmode
 let g:airline_powerline_fonts = 1

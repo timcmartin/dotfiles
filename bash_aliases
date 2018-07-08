@@ -32,9 +32,9 @@ alias mycode='cd ~/src/personal'
 alias recipes='cd ~/Dropbox/vimwiki/recipes/book'
 alias src='cd ~/src'
 alias unisporkal='cd ~/src/unisporkal'
-alias workdev='cd /src/personal/workdev'
+alias workdev='cd $HOME/src/personal/workdev'
 alias wurstwings='cd ~/src/personal/wurstwings'
-alias wwredis='redis-server /usr/local/etc/redis.conf'
+#alias wwredis='redis-server /usr/local/etc/redis.conf'
 
 # Pickler Commands
 alias curtest='cr cucumber FEATURE=$CURTEST'
