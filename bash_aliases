@@ -12,6 +12,7 @@ alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd 
 alias vimwork='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty/diary/diary.wiki'
 alias vpn="/opt/cisco/anyconnect/bin/vpn"
 alias vpnui="/opt/cisco/anyconnect/bin/vpnui"
+alias gidocker="cd ~/src/unisporkal/gi_proxy && ./runDocker.sh -b"
 
 # Bash Commands
 alias bashedit='vim ~/.bash_aliases'
@@ -184,16 +185,4 @@ function besdb {
   bundle_command "dbconsole" "$@"
 }
 
-alias unhitch='hitch -u'
-
 [ ! -f "$HOME/.bash_aliases.local" ] || . "$HOME/.bash_aliases.local"
-
-# Old Getty Commands
-# iStock Memcache
-alias memcache='echo "flush_all" | nc 127.0.0.1 11211'
-# Empty iStock Log
-# alias istocklog='echo : > /Users/tmartin/Code/Getty/istock/codebase/timlog'
-# Tail istocklog
-# alias timlog='tail -f /Users/tmartin/Code/Getty/istock/codebase/timlog'
-# reset memcache
-alias reset-memcache='memcached -u memcached -d -m 30 -l 127.0.0.1 -p 11211'

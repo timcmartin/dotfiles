@@ -7,8 +7,7 @@ windows:
       layout: tiled
       panes:
         - docker:
-          - cd ~/src/unisporkal/gi_proxy
-          - ./runDocker.sh -b
+          - gidocker
         - asset_detail:
           - cd asset_detail
           - git status
