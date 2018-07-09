@@ -1,4 +1,4 @@
-# ~/.tmuxinator/getty.yml
+# ~/.tmuxinator/gettystartup.yml
 name: unisporkal
 root: ~/src/unisporkal
 
@@ -13,7 +13,7 @@ windows:
           - cd asset_detail
           - git status
         - todo:
-          - t ls work
+          - chrome && t ls work
         - la
   - editor:
       layout: main-vertical
