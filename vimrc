@@ -524,3 +524,10 @@ let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+" Closetags
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+" Auto-pairs
+au Filetype vimwiki let b:autopairs_loaded=1
+au Filetype ruby let b:autopairs_loaded=1
