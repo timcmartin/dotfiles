@@ -13,6 +13,8 @@ alias vimwork='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty
 alias vpn="/opt/cisco/anyconnect/bin/vpn"
 alias vpnui="/opt/cisco/anyconnect/bin/vpnui"
 alias gidocker="cd ~/src/unisporkal/gi_proxy && ./runDocker.sh -b"
+alias iptables="sudo iptables -L --line-numbers"
+alias iptablesdrop="sudo iptables -D ciscovpn "
 
 # Bash Commands
 alias bashedit='vim ~/.bash_aliases'
