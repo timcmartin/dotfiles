@@ -531,3 +531,6 @@ let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
 " Auto-pairs
 au Filetype vimwiki let b:autopairs_loaded=1
 au Filetype ruby let b:autopairs_loaded=1
+
+" Javascript.vim
+let g:used_javascript_libs = 'jquery, angularjs, angularui, angularuirouter, jasmine'

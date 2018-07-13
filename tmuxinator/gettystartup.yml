@@ -11,8 +11,8 @@ windows:
         - asset_detail:
           - cd asset_detail
           - git status
-        - todo:
-          - chrome && t ls work
+        - cypress:
+          - chrome && cd ../automation
         - la
   - editor:
       layout: main-vertical
