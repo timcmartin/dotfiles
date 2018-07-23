@@ -37,7 +37,9 @@ nnoremap <leader>h *<C-O>
 " Appearanace and colour
 syntax on
 set t_Co=256
+" current colorscheme
 colorscheme jellybeans-tim
+" old colorschemes
 " colorscheme jellybeans-joel
 " colorscheme jellybeans
 " colorscheme solarized
@@ -64,7 +66,6 @@ let g:airline_theme = 'powerlineish'
 set autoindent
 set backupdir=~/.vimbackupdir,~/tmp,~/,.
 set directory=~/.vimbackupdir,~/tmp,~/,.
-" set dictionary="/usr/dict/words"
 set expandtab
 set guifont=Monaco:h16
 set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
@@ -277,9 +278,6 @@ nnoremap td  :tabclose<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
-" This is overwritten by hashrocket
-" nmap <silent> <C-l> :wincmd l<CR>
-" nmap <silent> <C-Z> :retab<CR> :Trim<CR>
 
 " window behavior
 set splitbelow  " Open new horizontal split windows below current
@@ -290,16 +288,11 @@ set winminheight=1  " 1 height windows
 " Switch from ruby 1.8 hash to ruby 1.9 hash
 map <silent> <leader>rh :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
 
-" let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
-" let g:rspec_command = 'call Send_to_Tmux("be zeus rspec {spec}\n")'
 let g:rspec_command = 'call Send_to_Tmux("be rspec {spec}\n")'
 map <leader>s :call RunCurrentSpecFile()<CR>
 " map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>as :call RunAllSpecs()<CR>
-
-" Run Go tests
-nmap <leader>g :Tmux go test<CR>
 
 function! MakeRspecFileIfMissing()
 ruby << EOF
@@ -347,9 +340,6 @@ if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 
-" Make line completion easier.
-" imap <C-l> <C-x><C-l>
-
 " Fixes common typos
 command! W w
 command! Q q
@@ -377,7 +367,7 @@ if has("autocmd")
 endif
 
 " Trim command to remove random whitespace.
-" command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
+command! -bar -range=% Trim :<line1>,<line2>s/\s\+$//e
 
 " Turn the current split into a new tab
 function! SplitToTab()
@@ -454,9 +444,10 @@ function! Preserve(command)
   call cursor(l, c)
 endfunction
 
+" temp disabled
 "strip all trailing white space
-command! StripTrailingWhiteSpace :call Preserve("%s/\\s\\+$//e")<CR>
-command! Trim :call Preserve("%s/\\s\\+$//e")<CR>
+"command! StripTrailingWhiteSpace :call Preserve("%s/\\s\\+$//e")<CR>
+"command! Trim :call Preserve("%s/\\s\\+$//e")<CR>
 
 " Paste using Paste Mode
 " Keeps indentation in source.
