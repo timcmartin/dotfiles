@@ -1,8 +1,23 @@
 # Convenience Commands
 alias chrome="google-chrome-stable --password-store=basic"
+alias clearcache='rake tmp:cache:clear'
 alias clearlogs='rake log:clear'
+alias cypress-candidate-getty="yarn candidate:headless --spec cypress/integration/gi_spec.js"
+alias cypress-candidate-istock="yarn candidate:headless --spec cypress/integration/istock_spec.js"
+alias cypress-candidate="yarn candidate:headless"
+alias cypress-dev-getty="yarn development:headless --spec cypress/integration/gi_spec.js"
+alias cypress-dev-istock="yarn development:headless --spec cypress/integration/istock_spec.js"
+alias cypress-dev="yarn development:headless"
+alias cypress-stage-getty="yarn staging-ca:headless --spec cypress/integration/gi_spec.js"
+alias cypress-stage-istock="yarn staging-ca:headless --spec cypress/integration/istock_spec.js"
+alias cypress-stage="yarn staging-ca:headless"
 alias findpg='ps -ax | grep -i postgres'
+alias gidocker="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b"
+alias gir="bundle exec rails s"
+alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 alias hosts='sudo vim /etc/hosts'
+alias iptables="sudo iptables -L --line-numbers"
+alias iptablesdrop="sudo iptables -D ciscovpn "
 alias mux='tmuxinator'
 alias t='todo.sh -d ~/.todo.cfg'
 alias v.='vim .'
@@ -10,11 +25,6 @@ alias v='vim'
 alias vimrc='vim ~/.vimrc'
 alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd {} && git pull)"'" "'";"'"'
 alias vimwork='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty/diary/diary.wiki'
-alias vpn="/opt/cisco/anyconnect/bin/vpn"
-alias vpnui="/opt/cisco/anyconnect/bin/vpnui"
-alias gidocker="cd ~/src/unisporkal/gi_proxy && ./runDocker.sh -b"
-alias iptables="sudo iptables -L --line-numbers"
-alias iptablesdrop="sudo iptables -D ciscovpn "
 
 # Bash Commands
 alias bashedit='vim ~/.bash_aliases'
@@ -27,16 +37,17 @@ alias psgrep='ps aux | grep'
 alias rebash='START_DIR=`pwd`;cd ..;source ~/.bash_aliases;cd $START_DIR; c; l'
 
 # Code Aliases
-alias asset_detail='cd ~/src/unisporkal/asset_detail'
-alias cabin='cd ~/src/personal/cabin-monitor'
+alias asset_detail='cd $HOME/src/getty/unisporkal/asset_detail'
+alias cabin='cd $HOME/src/personal/cabin-monitor'
 alias devwork="vim $HOME/src/personal/workdev/index.html"
-alias dotfiles='cd ~/Dotfiles'
-alias mycode='cd ~/src/personal'
-alias recipes='cd ~/Dropbox/vimwiki/recipes/book'
+alias dotfiles='cd $HOME/Dotfiles'
+alias mycode='cd $HOME/src/personal'
+alias recipes='cd $HOME/Dropbox/vimwiki/recipes/book'
 alias src='cd ~/src'
-alias unisporkal='cd ~/src/unisporkal'
+alias unisporkal='cd $HOME/src/getty/unisporkal'
+alias automation='cd $HOME/src/getty/automation'
 alias workdev='cd $HOME/src/personal/workdev'
-alias wurstwings='cd ~/src/personal/wurstwings'
+alias wurstwings='cd $HOME/src/personal/wurstwings'
 #alias wwredis='redis-server /usr/local/etc/redis.conf'
 
 # Pickler Commands
@@ -59,10 +70,11 @@ alias ~='cd ~'
 alias b='cd -'
 alias c=clear
 alias d='ls -bF'
-alias l='ls -aFG'
-alias ll='l -l'
-alias ls="ls -G"
-alias la='ls -A'
+alias l='exa -a --long --header --git'
+alias la='exa -a'
+alias ll='exa -l --git'
+alias ls='ls -G'
+alias lsa='ls -lah'
 
 # Git Commands
 alias g='git'
@@ -156,9 +168,9 @@ function sdb {
 alias railsservers='lsof -wni tcp:5000'
 
 # Bundle Commands
-alias be='bundle exec'
-alias becr='c; yn bundle exec rake'
-alias berake='bundle exec rake'
+#alias be='bundle exec'
+#alias becr='c; yn bundle exec rake'
+#alias berake='bundle exec rake'
 
 function bundle_command {
   local cmd=$1

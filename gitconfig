@@ -97,3 +97,7 @@
 protocol = https
 [pull]
 	rebase = true
+[github]
+	user = timcmartin
+[credential]
+	helper = osxkeychain

@@ -61,7 +61,6 @@ unsetopt correct_all
 zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
 
-source ~/.profile
 export PATH=/usr/local/sbin:$PATH
 
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -69,15 +68,11 @@ eval "$(rbenv init -)"
 
 fpath=(~/.zsh $fpath)
 
-# Linuxbrew
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
-
 # pbcopy
-alias pbcopy='xclip -selection clipboard'
-alias pbpaste='xclip -selection clipboard -o'
+#alias pbcopy='xclip -selection clipboard'
+#alias pbpaste='xclip -selection clipboard -o'
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+. "/usr/local/opt/nvm/nvm.sh"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

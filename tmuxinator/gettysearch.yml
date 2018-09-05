@@ -1,6 +1,6 @@
-# ~/.tmuxinator/getty.yml
+# ~/.tmuxinator/gettysearch.yml
 name: unisporkal
-root: ~/src/unisporkal
+root: ~/src/getty/unisporkal
 
 windows:
   - unisporkal:
@@ -9,16 +9,22 @@ windows:
         - docker:
           - gidocker
         - asset_detail:
-          - cd asset_detail
-          - rails s
+          - cd search
+          - bundle exec rails s
         - cypress:
           - cd ../automation
         - asset_detail_2:
-          - cd asset_detail
+          - cd search
           - gst
   - editor:
       layout: main-vertical
       panes:
         - vim:
-          - cd asset_detail
+          - cd search
           - vimwork
+  - engine:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd gems/unisporkal_engine
+          - vim

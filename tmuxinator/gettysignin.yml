@@ -1,6 +1,6 @@
 # ~/.tmuxinator/getty.yml
 name: unisporkal
-root: ~/src/unisporkal
+root: ~/src/getty/unisporkal
 
 windows:
   - unisporkal:
@@ -10,7 +10,7 @@ windows:
           - gidocker
         - asset_detail:
           - cd sign_in
-          - rails s
+          - bundle exec rails s
         - cypress:
           - cd ../automation
         - asset_detail_2:
