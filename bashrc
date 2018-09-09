@@ -102,3 +102,5 @@ function proml {
   PS1="Powerslave: \W $BLUE\$(parse_git_branch) $DEFAULT\$ "
 }
 proml
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
