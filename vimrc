@@ -137,7 +137,7 @@ function! s:RebuildTagsFile()
   silent !ctags -R --exclude=coverage --exclude=files --exclude=log --exclude=tmp --exclude=vendor *
 endfunction
 command! -nargs=0 RebuildTagsFile call s:RebuildTagsFile()
-set tags=./tags;
+set tags=./tags;/
 map <Leader>rt :RebuildTagsFile<cr>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>

@@ -111,6 +111,7 @@ alias gtrim="sed -i '' -e 's/[[:space:]]*$//g'"
 alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 alias glastfive="git reflog | egrep -io \"moving from ([^[:space:]]+)\" | awk '{ print $3 }' | head -n5"
 alias updatesubs='git submodule foreach --recursive git fetch'
+alias gbranchdate="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
 
 # Gem Commands
 alias audit='gem list'
