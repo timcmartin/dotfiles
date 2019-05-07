@@ -7,8 +7,8 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="robbyrussell"
 # ZSH_THEME="honukai"
-ZSH_THEME="muse"
-#ZSH_THEME="tim"
+# ZSH_THEME="muse"
+ZSH_THEME="spaceship"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -52,7 +52,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails ruby sublime brew vagrant postgres redis-cli bundler golang git git-flow git-extras last-working-dir osx ssh-agent web-search zsh-syntax-highlighting tmuxinator zsh-completions gitfast)
+plugins=(rails ruby sublime brew vagrant postgres redis-cli bundler golang git git-flow git-extras last-working-dir osx ssh-agent web-search zsh-syntax-highlighting tmuxinator gitfast)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
@@ -68,6 +68,8 @@ eval "$(rbenv init -)"
 
 fpath=(~/.zsh $fpath)
 
+export PATH=/Users/tmartin/Library/Python/2.7/bin:$PATH
+
 # pbcopy
 #alias pbcopy='xclip -selection clipboard'
 #alias pbpaste='xclip -selection clipboard -o'
@@ -77,4 +79,15 @@ export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Getty Stuff
+export GITLAB_ACCESS_TOKEN=AEebyymeZ27DS8FwB9eJ
+_git_fi ()
+{
+    __gitcomp_nl "$(__git_refs)"
+}
+
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault

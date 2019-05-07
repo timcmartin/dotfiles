@@ -1,0 +1,40 @@
+# ~/.tmuxinator/gi.yml
+name: ciu
+root: ~/src/getty/unisporkal/curated-image-uploader
+
+windows:
+  - ciu-editor:
+      layout: main-vertical
+      panes:
+        - vimwork
+  - ciu-terminal:
+      layout: 2453,364x98,0,0{182x98,0,0[182x49,0,0,1,182x48,0,50{91x48,0,50,4,90x48,92,50,10}],181x98,183,0,6}
+      panes:
+        - rails:
+          - gir
+        - dynamo:
+          - docker run -p 8000:8000 amazon/dynamodb-local
+        - dynamo-admin:
+          - cd ../landing
+          - be rake dynamodb:local:setup
+          - dynamodb-admin
+        - guard:
+          - be guard -c
+  - landing-editor:
+      layout: main-vertical
+      panes:
+        - landing-vim:
+          - cd ../landing
+          - vim
+  - unisporkal:
+      layout: 4415,247x67,0,0{123x67,0,0[123x33,0,0,0,123x33,0,34,2],123x67,124,0,1}
+      panes:
+        - docker:
+          - cd ../gi-proxy
+          - gidocker
+        - landing-rails:
+          - cd ../landing
+          - gir
+        - landing:
+          - cd ../landing
+          - ll

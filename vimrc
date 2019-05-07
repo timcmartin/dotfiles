@@ -36,6 +36,7 @@ nnoremap <leader>h *<C-O>
 
 " Appearanace and colour
 syntax on
+set background=dark
 set t_Co=256
 " current colorscheme
 colorscheme jellybeans-tim
@@ -43,12 +44,19 @@ colorscheme jellybeans-tim
 " colorscheme jellybeans-joel
 " colorscheme jellybeans
 " colorscheme solarized
+" colorscheme codedark
+" colorscheme afterglow
+" colorscheme papercolor
+" colorscheme deepsea
 filetype plugin indent on
 filetype plugin on
 
 " Transparent Linux Background // needs to go after colorscheme
 hi Normal guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
+
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 
 if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
@@ -60,7 +68,8 @@ set noshowmode
 let g:airline_powerline_fonts = 1
 " Last used buffers
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'afterglow'
 
 " Make Vim awesomer
 set autoindent
@@ -130,18 +139,6 @@ vmap <silent> <leader>x :!tidy -qi -raw -xml<CR>:se filetype=xml<CR>
 " run selection in bash
 vmap <leader>rs :!bash <CR>
 
-" Ctags make the world a better place
-" Based on code from https://github.com/spicycode/Vimlander-2-The-Quickening
-" Add RebuildTagsFile function/command
-function! s:RebuildTagsFile()
-  silent !ctags -R --exclude=coverage --exclude=files --exclude=log --exclude=tmp --exclude=vendor *
-endfunction
-command! -nargs=0 RebuildTagsFile call s:RebuildTagsFile()
-set tags=./tags;/
-map <Leader>rt :RebuildTagsFile<cr>
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
 " Run rake from Rails files
 autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
 autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
@@ -169,7 +166,7 @@ let NERDTreeShowHidden = 0
 let NERDTreeHijackNetrw = 1
 let NERDTreeIgnore=['\.$', '\~$']
 " NERDTree Window size
-" let g:NERDTreeWinSize = 40
+let g:NERDTreeWinSize = 40
 
 " clear search
 nmap <silent> ,/ :nohlsearch<CR>
@@ -199,46 +196,63 @@ xnoremap p pgvy
 " sudo save with w!!
 cmap w!! w !sudo tee % >/dev/null
 
-" comment
+" NERDcommenter
 nmap \\ <plug>NERDCommenterToggle<CR>
 vmap \\ <plug>NERDCommenterToggle<CR>
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDDefaultAlign = 'left'
 
-" Silver Searcher and Control P
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
+" fzf
+set rtp+=/usr/local/opt/fzf
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+nnoremap <c-p> :FZF<cr>
+augroup fzf
+  autocmd!
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup END
 
-  nnoremap <leader>a :Ag
+" Configure FZF to find ctags
+" https://github.com/junegunn/fzf/wiki/Examples-(vim)#jump-to-tags
+function! s:tags_sink(line)
+  let parts = split(a:line, '\t\zs')
+  let excmd = matchstr(parts[2:], '^.*\ze;"\t')
+  execute 'silent e' parts[1][:-2]
+  let [magic, &magic] = [&magic, 0]
+  execute excmd
+  let &magic = magic
+endfunction
+function! s:tags()
+  if empty(tagfiles())
+    echohl WarningMsg
+    echom 'Preparing tags'
+    echohl None
+    call system('ctags -R --exclude=.git --exclude=node_modules --html-kinds=-ij')
+  endif
 
-  " Use the Silver Searcher
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
-  let g:ctrlp_tabpage_position = 'ac'
-  let g:ctrlp_map = '<c-p>'
-  let g:ctrlp_cmd = 'CtrlP'
-  let g:ctrlp_working_path_mode = 'ra'
-  " Ensure max height isn't too large. (for performance)
-  let g:ctrlp_max_height = 20
+  call fzf#run({
+  \ 'source':  'cat '.join(map(tagfiles(), 'fnamemodify(v:val, ":S")')).
+  \            '| grep -v -a ^!',
+  \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
+  \ 'down':    '40%',
+  \ 'sink':    function('s:tags_sink')})
+endfunction
+command! Tags call s:tags()
+nnoremap <C-t> :Tags<CR>
+nmap <C-t> :Tags<CR>
 
-  " Rails Stuff
-  map <leader>gn :CtrlP<cr>
-  map <leader>gv :CtrlP app/views<cr>
-  map <leader>gc :CtrlP app/controllers<cr>
-  map <leader>gm :CtrlP app/models<cr>
-  map <leader>gh :CtrlP app/helpers<cr>
-  map <leader>gd :CtrlP app/decorators<cr>
-  map <leader>gi :CtrlP app/infrastructure<cr>
-  map <leader>gl :CtrlP lib<cr>
-  map <leader>gp :CtrlP public<cr>
-  map <leader>gs :CtrlP public/stylesheets<cr>
-  nnoremap <leader>. :CtrlPTag<cr>
-
-  " shortcut for a new tab and Ag
-  nmap <leader>n :call NewTabAndAg()<cr>
-  function! NewTabAndAg()
-    :tabnew
-    :Ag
-  endfunction
-endif
+" coffeetags
+let g:CoffeeAutoTagDisabled=0
+" let g:CoffeeAutoTagFile=<filename>       " Name of the generated tag file (Default: ./tags)
+" let g:CoffeeAutoTagIncludeVars=<0 or 1>  " Includes variables (Default: 0 [false])
+" let g:CoffeeAutoTagTagRelative=<0 or 1>  " Sets file names to the relative path from the tag file location to the tag file location (Default: 1 [true])
 
 " rails specific mappings
 map <leader>gr :topleft :split config/routes.rb<cr>
@@ -289,9 +303,12 @@ set winminheight=1  " 1 height windows
 " Switch from ruby 1.8 hash to ruby 1.9 hash
 map <silent> <leader>rh :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
 
-let g:rspec_command = 'call Send_to_Tmux("be rspec {spec}\n")'
-map <leader>s :call RunCurrentSpecFile()<CR>
-" map <leader>s :call RunNearestSpec()<CR>
+" Vim-Rspec and Tslime
+" let g:tslime_always_current_session = 1
+" let g:tslime_always_current_window = 1
+let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
+map <leader>t :call RunCurrentSpecFile()<CR>
+map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>as :call RunAllSpecs()<CR>
 
@@ -445,10 +462,9 @@ function! Preserve(command)
   call cursor(l, c)
 endfunction
 
-" temp disabled
 "strip all trailing white space
-"command! StripTrailingWhiteSpace :call Preserve("%s/\\s\\+$//e")<CR>
-"command! Trim :call Preserve("%s/\\s\\+$//e")<CR>
+command! StripTrailingWhiteSpace :call Preserve("%s/\\s\\+$//e")<CR>
+command! Trim :call Preserve("%s/\\s\\+$//e")<CR>
 
 " Paste using Paste Mode
 " Keeps indentation in source.
@@ -485,8 +501,96 @@ autocmd BufNewFile,BufRead *.slim set ft=sass
 " -----------------
 au BufRead,BufNewFile *.tpl set filetype=smarty
 
+" Close Open Buffers
+function! Wipeout()
+  " list of *all* buffer numbers
+  let l:buffers = range(1, bufnr('$'))
+
+  " what tab page are we in?
+  let l:currentTab = tabpagenr()
+  try
+    " go through all tab pages
+    let l:tab = 0
+    while l:tab < tabpagenr('$')
+      let l:tab += 1
+
+      " go through all windows
+      let l:win = 0
+      while l:win < winnr('$')
+        let l:win += 1
+        " whatever buffer is in this window in this tab, remove it from
+        " l:buffers list
+        let l:thisbuf = winbufnr(l:win)
+        call remove(l:buffers, index(l:buffers, l:thisbuf))
+      endwhile
+    endwhile
+
+    " if there are any buffers left, delete them
+    if len(l:buffers)
+      execute 'bwipeout' join(l:buffers)
+    endif
+  finally
+    " go back to our original tab page
+    execute 'tabnext' l:currentTab
+  endtry
+endfunction
+
 " Tagbar
 nmap  <F8> :TagbarToggle<CR>
+
+let g:CoffeeAutoTagIncludeVars=1
+
+let g:tagbar_type_coffee = {
+    \ 'ctagstype' : 'coffee',
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 'm:methods',
+        \ 'f:functions',
+        \ 'v:variables',
+        \ 'f:fields',
+    \ ]
+\ }
+
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
+
+let g:tagbar_type_ruby = {
+    \ 'kinds' : [
+        \ 'm:modules',
+        \ 'c:classes',
+        \ 'd:describes',
+        \ 'C:contexts',
+        \ 'f:methods',
+        \ 'F:singleton methods'
+    \ ]
+\ }
+
+if executable('ripper-tags')
+  let g:tagbar_type_ruby = {
+      \ 'kinds'      : ['m:modules',
+                      \ 'c:classes',
+                      \ 'C:constants',
+                      \ 'F:singleton methods',
+                      \ 'f:methods',
+                      \ 'a:aliases'],
+      \ 'kind2scope' : { 'c' : 'class',
+                       \ 'm' : 'class' },
+      \ 'scope2kind' : { 'class' : 'c' },
+      \ 'ctagsbin'   : 'ripper-tags',
+      \ 'ctagsargs'  : ['-f', '-']
+      \ }
+endif
 
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
@@ -496,7 +600,7 @@ nmap  <F8> :TagbarToggle<CR>
 "  n... :  where to save the viminfo files
 set viminfo='10,\"100,:20,%,n~/.viminfo
 
-noremap <Leader>t :noautocmd vimgrep /TODO/j **/*.rb<CR>:cw<CR>
+noremap <Leader>tt :noautocmd vimgrep /TODO/j **/*.rb<CR>:cw<CR>
 
 " Windowswap
 let g:windowswap_map_keys = 0 "prevent default bindings

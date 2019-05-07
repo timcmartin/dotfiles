@@ -59,7 +59,25 @@ end
 
 
 Pry.config.color = true
-Pry.config.prompt = Pry::NAV_PROMPT
+# Pry.config.prompt = Pry::NAV_PROMPT
+# Pry.config.prompt = [proc { "pry> " },
+#                      proc { "     | " }]
+# ==============================
+#   Pry Prompt
+# ==============================
+# with AWS:
+#             AWS@2.0.0 (main)>
+# with Rails:
+#             3.2.13@2.0.0 (main)>
+# Plain Ruby:
+#             2.0.0 (main)>
+Pry.config.prompt = proc do |obj, level, _|
+  prompt = ""
+  prompt << "AWS@" if defined?(AWS)
+  prompt << "#{Rails.version}@" if defined?(Rails)
+  prompt << "#{RUBY_VERSION}"
+  "#{prompt} (#{obj})> "
+end
 
 Pry.config.commands.alias_command "h", "hist -T 20", desc: "Last 20 commands"
 Pry.config.commands.alias_command "hg", "hist -T 20 -G", desc: "Up to 20 commands matching expression"

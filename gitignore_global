@@ -13,6 +13,8 @@ ehthumbs.db
 \#*\#
 /tags
 tags
+.tags
 /.bundle/
 dump.rdb
 doc/tags
+.byebug_history
