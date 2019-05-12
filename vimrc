@@ -630,3 +630,7 @@ au Filetype ruby let b:autopairs_loaded=1
 
 " Javascript.vim
 let g:used_javascript_libs = 'jquery, angularjs, angularui, angularuirouter, jasmine'
+
+" Instant Markdown
+let g:instant_markdown_autostart=0
+nmap \md :InstantMarkdownPreview<CR>
