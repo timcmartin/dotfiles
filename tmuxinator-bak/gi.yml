@@ -1,0 +1,18 @@
+# ~/.tmuxinator/gi.yml
+name: unisporkal
+root: ~/src/getty/unisporkal
+
+windows:
+  - unisporkal:
+      layout: 4415,247x67,0,0{123x67,0,0[123x33,0,0,0,123x33,0,34,2],123x67,124,0,1}
+      panes:
+        - docker:
+          - gidocker
+        - cypress:
+          - cd ../automation
+        - unisporkal:
+          - ll
+  - editor:
+      layout: main-vertical
+      panes:
+        - vimwork

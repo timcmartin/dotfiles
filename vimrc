@@ -127,6 +127,8 @@ endif
 au! BufRead,BufNewFile *.rb
 au! BufRead,BufNewFile *.xml
 au BufNewFile,BufRead *.scss set filetype=sass
+" autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+" au! BufNewFile,BufRead *.md
 
 augroup vimrc
   autocmd!
@@ -245,8 +247,9 @@ function! s:tags()
   \ 'sink':    function('s:tags_sink')})
 endfunction
 command! Tags call s:tags()
-nnoremap <C-t> :Tags<CR>
-nmap <C-t> :Tags<CR>
+" This screws up 'back' functionality when following tags
+" nnoremap <C-t> :Tags<CR>
+" nmap <C-t> :Tags<CR>
 
 " coffeetags
 let g:CoffeeAutoTagDisabled=0
@@ -407,9 +410,107 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['scss'] }
 
 " vimwiki
-let g:vimwiki_list = [ {'path': '~/Dropbox/vimwiki/getty/'}, {'path': '~/Dropbox/vimwiki/cabin/'}, {'path': '~/Dropbox/vimwiki/dev/'}, {'path': '~/Dropbox/vimwiki/guitarrig/'}, {'path': '~/Dropbox/vimwiki/house/'}, {'path': '~/Dropbox/vimwiki/personal/'}, {'path': '~/Dropbox/vimwiki/recipes/'}, {'path': '~/Dropbox/vimwiki/sixsafety/'}, {'path': '~/Dropbox/vimwiki/temp/'}, {'path': '~/Dropbox/vimwiki/travel/'} ]
+" AWS
+let vimwiki_aws = {}
+let vimwiki_aws.path = '~/Dropbox/vimwiki/aws/'
+let vimwiki_aws.path_html = ''
+let vimwiki_aws.syntax = 'default'
+let vimwiki_aws.ext = '.wiki'
+let vimwiki_aws.name = 'aws'
+
+" Getty
+let vimwiki_getty = {}
+let vimwiki_getty.path = '~/Dropbox/vimwiki/getty/'
+let vimwiki_getty.path_html = ''
+let vimwiki_getty.syntax = 'default'
+let vimwiki_getty.ext = '.wiki'
+let vimwiki_getty.name = 'Getty'
+
+" Cabin
+let vimwiki_cabin = {}
+let vimwiki_cabin.path = '~/Dropbox/vimwiki/cabin/'
+let vimwiki_cabin.path_html = ''
+let vimwiki_cabin.syntax = 'default'
+let vimwiki_cabin.ext = '.wiki'
+let vimwiki_cabin.name = 'Cabin'
+
+" Dev
+let vimwiki_dev = {}
+let vimwiki_dev.path = '~/Dropbox/vimwiki/dev/'
+let vimwiki_dev.path_html = ''
+let vimwiki_dev.syntax = 'default'
+let vimwiki_dev.ext = '.wiki'
+let vimwiki_dev.name = 'Dev'
+
+" Guitar
+let vimwiki_guitar = {}
+let vimwiki_guitar.path = '~/Dropbox/vimwiki/guitarrig/'
+let vimwiki_guitar.path_html = ''
+let vimwiki_guitar.syntax = 'default'
+let vimwiki_guitar.ext = '.wiki'
+let vimwiki_guitar.name = 'GuitarRig'
+
+" House
+let vimwiki_house = {}
+let vimwiki_house.path = '~/Dropbox/vimwiki/house/'
+let vimwiki_house.path_html = ''
+let vimwiki_house.syntax = 'default'
+let vimwiki_house.ext = '.wiki'
+let vimwiki_house.name = 'House'
+
+" Personal
+let vimwiki_personal = {}
+let vimwiki_personal.path = '~/Dropbox/vimwiki/personal/'
+let vimwiki_personal.path_html = ''
+let vimwiki_personal.syntax = 'default'
+let vimwiki_personal.ext = '.wiki'
+let vimwiki_personal.name = 'Personal'
+
+" Recipes
+let vimwiki_recipes = {}
+let vimwiki_recipes.path = '~/Dropbox/vimwiki/recipes/'
+let vimwiki_recipes.path_html = ''
+let vimwiki_recipes.syntax = 'default'
+let vimwiki_recipes.ext = '.wiki'
+let vimwiki_recipes.name = 'Recipes'
+
+" SixSafety
+let vimwiki_sixsafety = {}
+let vimwiki_sixsafety.path = '~/Dropbox/vimwiki/sixsafety/'
+let vimwiki_sixsafety.path_html = ''
+let vimwiki_sixsafety.syntax = 'default'
+let vimwiki_sixsafety.ext = '.wiki'
+let vimwiki_sixsafety.name = 'SixSafety'
+
+" Temp
+let vimwiki_temp = {}
+let vimwiki_temp.path = '~/Dropbox/vimwiki/temp/'
+let vimwiki_temp.path_html = ''
+let vimwiki_temp.syntax = 'default'
+let vimwiki_temp.ext = '.wiki'
+let vimwiki_temp.name = 'Temp'
+
+" Travel
+let vimwiki_travel = {}
+let vimwiki_travel.path = '~/Dropbox/vimwiki/travel/'
+let vimwiki_travel.path_html = ''
+let vimwiki_travel.syntax = 'default'
+let vimwiki_travel.ext = '.wiki'
+let vimwiki_travel.name = 'Travel'
+
+" Food Diary
+let vimwiki_food = {}
+let vimwiki_food.path = '~/Dropbox/vimwiki/food_diary/'
+let vimwiki_food.path_html = ''
+let vimwiki_food.syntax = 'markdown'
+let vimwiki_food.ext = '.md'
+let vimwiki_food.name = 'FoodDiary'
+
+let g:vimwiki_list = [vimwiki_aws, vimwiki_getty, vimwiki_cabin, vimwiki_dev, vimwiki_guitar, vimwiki_house, vimwiki_personal, vimwiki_recipes, vimwiki_sixsafety, vimwiki_temp, vimwiki_travel, vimwiki_food]
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+
 let g:vimwiki_hl_headers = 1
-let g:vimwiki_nested_syntaxes = {'python':'python', 'c++':'cpp', 'ruby': 'ruby', 'cmd':'sh'}
+let g:vimwiki_nested_syntaxes = {'python':'python', 'c++':'cpp', 'ruby':'ruby', 'cmd':'sh'}
 let g:automatic_nested_syntaxes = 1
 au BufRead,BufNewFile *.wiki set filetype=vimwiki
 :autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote
@@ -443,7 +544,10 @@ if has("autocmd")
         \ endif
 
   " Fix trailing whitespace in my most used programming langauges
+  " Preferred Trimming
   autocmd BufWritePre *.py,*.coffee,*.rb,*.feature,*.slim,*.md,*.wiki silent! :StripTrailingWhiteSpace
+  " Non-unisporkal stripping
+  " autocmd BufWritePre *.py,*.feature,*.md,*.wiki silent! :StripTrailingWhiteSpace
 endif
 
 " Strip Trailing White Space

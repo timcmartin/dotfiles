@@ -1,0 +1,35 @@
+# ~/.tmuxinator/jaguar.yml
+name: jaguar
+root: ~/src/getty/unisporkal
+
+windows:
+  - search:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd search
+          - givim
+  - asset_detail:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd asset_detail
+          - vim
+  - unisporkal:
+      layout: even-horizontal
+      panes:
+        - search:
+          - cd search
+          - bundle exec rails s
+        - asset_detail:
+          - cd asset_detail
+          - bundle exec rails s
+  - git:
+      layout: even-horizontal
+      panes:
+        - search:
+          - cd search
+          - gst
+        - ad:
+          - cd asset_detail
+          - gst

@@ -7,7 +7,7 @@ windows:
       layout: 4415,247x67,0,0{123x67,0,0[123x33,0,0,0,123x33,0,34,2],123x67,124,0,1}
       panes:
         - docker:
-          - gid
+          - gidocker
         - cypress:
           - cd ../automation
         - asset_detail:
@@ -15,5 +15,5 @@ windows:
   - editor:
       layout: 027d,272x81,0,0{176x81,0,0,74,95x81,177,0,81}
       panes:
-        - givim
+        - vimwork
         - pwd

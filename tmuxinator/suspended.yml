@@ -1,0 +1,38 @@
+# ~/.tmuxinator/suspended.yml
+name: suspended
+root: ~/src/getty/unisporkal
+
+windows:
+  - engine:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd gems/unisporkal_engine
+          - givim
+  - cns:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd customer-notifications-microservice
+          - vim
+  - unisporkal:
+      layout: even-horizontal
+      panes:
+        - landing:
+          - cd landing
+          - bundle exec rails s
+        - cns:
+          - cd customer-notifications-microservice
+          - gicns
+  - git:
+      layout: even-horizontal
+      panes:
+        - engine:
+          - cd gems/unisporkal_engine
+          - gst
+        - account:
+          - cd account
+          - gst
+        - cns:
+          - cd customer-notifications-microservice
+          - gst

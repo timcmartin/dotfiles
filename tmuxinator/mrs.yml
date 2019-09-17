@@ -1,0 +1,21 @@
+# ~/.tmuxinator/mrs.yml
+
+name: mrs
+root: ~/src/getty/unisporkal
+
+windows:
+  - dismissals:
+      layout: main-vertical
+      panes:
+        - engine:
+          - cd gems/unisporkal_engine
+          - gir
+        - cns:
+          - cd customer-notifications-microservice
+          - gir
+  - terms:
+      layout: main-vertical
+      panes:
+        - account:
+          - cd account
+          - gir

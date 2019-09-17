@@ -21,3 +21,4 @@ tags
 dump.rdb
 vimbackupdir/
 doc/tags
+aws/*

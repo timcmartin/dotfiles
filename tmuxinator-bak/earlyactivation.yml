@@ -1,0 +1,43 @@
+# ~/.tmuxinator/earlyactivation.yml
+name: early-activation
+root: ~/src/getty/unisporkal
+
+windows:
+  - engine:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd gems/unisporkal_engine
+          - vimwork
+  - cns:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd customer-notifications-microservice
+          - vim
+  - unisporkal:
+      layout: even-horizontal
+      panes:
+        - docker:
+          - cd gi_proxy
+          - gidocker
+        - dynamo:
+          - gidynamo
+        - landing:
+          - cd landing
+          - bundle exec rails s
+        - cns:
+          - cd customer-notifications-microservice
+          - gicns
+  - git:
+      layout: even-horizontal
+      panes:
+        - engine:
+          - cd gems/unisporkal_engine
+          - g co B-195174-subscriptions-to-cache
+        - account:
+          - cd account
+          - g co B-195174-subscriptions-to-cache
+        - cns:
+          - cd customer-notifications-microservice
+          - gst

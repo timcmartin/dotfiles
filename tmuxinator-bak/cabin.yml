@@ -1,7 +1,7 @@
-# ~/.tmuxinator/basic.yml
+# ~/.tmuxinator/cabin.yml
 
-name: basic
-root: ~/src/personal/
+name: cabin
+root: ~/src/personal/cabin-monitor/
 
 # Optional tmux socket
 # socket_name: foo
@@ -11,7 +11,7 @@ root: ~/src/personal/
 
 # Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
 # pre_window: rbenv shell 2.0.0-p247
-pre_window: cd ~/src/personal
+pre_window: cd ~/src/personal/cabin-monitor/
 
 # Pass command line options to tmux. Useful for specifying a different tmux.conf.
 # tmux_options: -f ~/.tmux.mac.conf
@@ -20,11 +20,7 @@ pre_window: cd ~/src/personal
 # tmux_command: byobu
 
 windows:
-  - todo:
-      layout: main-vertical
-      panes:
-        - t ls
-  - terminal:
-    layout: main-vertical
-    panes:
-      - pwd
+  - cabin-editor: vim
+  - cabin-terminal: gst
+  - cabin-server: foreman start
+  - cabin-logs: tail -f log/development.log

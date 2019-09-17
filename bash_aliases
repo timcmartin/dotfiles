@@ -1,4 +1,5 @@
 # Convenience Commands
+alias awslocal="export AWS_PROFILE=local"
 alias chrome="google-chrome-stable --password-store=basic"
 alias clearcache='rake tmp:cache:clear'
 alias clearlogs='rake log:clear'
@@ -8,16 +9,21 @@ alias cypress-candidate="yarn candidate:headless"
 alias cypress-dev-getty="yarn development:headless --spec cypress/integration/gi_spec.js"
 alias cypress-dev-istock="yarn development:headless --spec cypress/integration/istock_spec.js"
 alias cypress-dev="yarn development:headless"
-alias cypress-stage-gix="yarn staging-ca:headless --spec cypress/integration/gi_gix_spec.js"
-alias cypress-stage-getty="yarn staging-ca:headless --spec cypress/integration/gi_spec.js"
-alias cypress-stage-istock="yarn staging-ca:headless --spec cypress/integration/istock_spec.js"
+alias cypress-stage-gix="yarn staging-ca:headless --config video=false --spec cypress/integration/gi_gix_spec.js"
+alias cypress-stage-getty="yarn staging-ca:headless --config video=false --spec cypress/integration/gi_spec.js"
+alias cypress-stage-istock="yarn staging-ca:headless --config video=false --spec cypress/integration/istock_spec.js"
 alias cypress-stage="yarn staging-ca:headless"
 alias findpg='ps -ax | grep -i postgres'
-alias gidocker="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b"
+alias gid="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b"
 alias gir="bundle exec rails s"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 alias gidynamo='docker run -p 8000:8000 curated-set-dynamo -dbPath /data/'
-alias gidynamoadmin='dynamodb-admin'
+alias gidynamoadmin='AWS_REGION=us-west-2 AWS_ACCESS_KEY_ID=development AWS_SECRET_ACCESS_KEY=secret-access-key dynamodb-admin'
+alias gicns='bundle exec rackup --host 0.0.0.0 --port 3108'
+alias giawssand='export AWS_PROFILE=oktad && oktad -p getty-sandbox -t sandbox -w'
+alias giawslocal="export AWS_PROFILE=local"
+alias gilock='g co Gemfile.lock'
+alias givim='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty/diary/diary.wiki'
 alias hosts='sudo vim /etc/hosts'
 alias iptables="sudo iptables -L --line-numbers"
 alias iptablesdrop="sudo iptables -D ciscovpn "
@@ -27,10 +33,9 @@ alias v.='vim .'
 alias v='vim'
 alias vimrc='vim ~/.vimrc'
 alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd {} && git pull)"'" "'";"'"'
-alias vimwork='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty/diary/diary.wiki'
 
 # Bash Commands
-alias bashedit='vim ~/.bash_aliases'
+alias aliasedit='vim ~/.bash_aliases'
 alias callme='sudo su -'
 alias m.='mate .'
 alias m=mate
@@ -40,15 +45,31 @@ alias psgrep='ps aux | grep'
 alias rebash='START_DIR=`pwd`;cd ..;source ~/.bash_aliases;cd $START_DIR; c; l'
 
 # Code Aliases
+## Getty
+alias account='cd $HOME/src/getty/unisporkal/account'
 alias asset_detail='cd $HOME/src/getty/unisporkal/asset_detail'
+alias automation='cd $HOME/src/getty/automation'
+alias ciu='cd $HOME/src/getty/unisporkal/curated-image-uploader'
+alias cns='cd $HOME/src/getty/unisporkal/customer-notifications-microservice'
+alias consul='cd $HOME/src/getty/unisporkal/gems/consul_client'
+alias engine='cd $HOME/src/getty/unisporkal/gems/unisporkal_engine'
+alias gidocs='cd $HOME/src/getty/unisporkal/docs'
+alias landing='cd $HOME/src/getty/unisporkal/landing'
+alias misc_admin='cd $HOME/src/getty/unisporkal/misc_admin'
+alias purchase='cd $HOME/src/getty/unisporkal/purchase'
+alias search='cd $HOME/src/getty/unisporkal/search'
+alias service_client='cd $HOME/src/getty/unisporkal/gems/service_client'
+alias sign_in='cd $HOME/src/getty/unisporkal/sign_in'
+alias styles='cd $HOME/src/getty/unisporkal/gems/unisporkal_styles'
+alias unisporkal='cd $HOME/src/getty/unisporkal'
+## Personal
 alias cabin='cd $HOME/src/personal/cabin-monitor'
 alias devwork="vim $HOME/src/personal/workdev/index.html"
 alias dotfiles='cd $HOME/Dotfiles'
 alias mycode='cd $HOME/src/personal'
 alias recipes='cd $HOME/Dropbox/vimwiki/recipes/book'
 alias src='cd ~/src'
-alias unisporkal='cd $HOME/src/getty/unisporkal'
-alias automation='cd $HOME/src/getty/automation'
+alias vimwiki='cd $HOME/Dropbox/vimwiki'
 alias workdev='cd $HOME/src/personal/workdev'
 alias wurstwings='cd $HOME/src/personal/wurstwings'
 #alias wwredis='redis-server /usr/local/etc/redis.conf'

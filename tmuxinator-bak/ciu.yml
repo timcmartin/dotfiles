@@ -1,0 +1,38 @@
+# ~/.tmuxinator/gi.yml
+name: ciu
+root: ~/src/getty/unisporkal/curated-image-uploader
+
+windows:
+  - ciu-editor:
+      layout: main-vertical
+      panes:
+        - vimwork
+  - ciu-terminal:
+      layout: tiled
+      panes:
+        - rails:
+          - gir
+        - dynamo:
+          - gidynamo
+        - git:
+          - ll
+        - guard:
+          - be guard -c
+  - landing-editor:
+      layout: main-vertical
+      panes:
+        - landing-vim:
+          - cd ../landing
+          - vim
+  - unisporkal:
+      layout: 4415,247x67,0,0{123x67,0,0[123x33,0,0,0,123x33,0,34,2],123x67,124,0,1}
+      panes:
+        - docker:
+          - cd ../gi-proxy
+          - gidocker
+        - landing-rails:
+          - cd ../landing
+          - gir
+        - landing:
+          - cd ../landing
+          - ll

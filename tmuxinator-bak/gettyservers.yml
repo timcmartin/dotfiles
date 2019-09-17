@@ -1,17 +1,15 @@
-# ~/.tmuxinator/gi.yml
+# ~/.tmuxinator/gettyservers.yml
 
-name: gi
+name: gettyservers
 root: ~/src/getty/unisporkal
 
 windows:
   - gettyservers:
-      layout: tiled
+      layout: main-vertical
       panes:
         - docker:
           - cd gi_proxy
-          - gid
-        - uni:
-          - ls
+          - gidocker
         - dynamo:
           - gidynamo
         - dynamoadmin:

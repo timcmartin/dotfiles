@@ -5,6 +5,9 @@
     ~/.agignore:
       relink: true
       path: agignore
+    ~/.aws:
+      relink: true
+      path: aws/
     ~/.gitignore_global:
       relink: true
       path: gitignore_global
