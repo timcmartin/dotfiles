@@ -1,5 +1,5 @@
-# ~/.tmuxinator/suspended.yml
-name: suspended
+# ~/.tmuxinator/remove-modal.yml
+name: remove-modal
 root: ~/src/getty/unisporkal
 
 windows:
@@ -9,12 +9,6 @@ windows:
         - vim:
           - cd gems/unisporkal_engine
           - givim
-  - cns:
-      layout: main-vertical
-      panes:
-        - vim:
-          - cd customer-notifications-microservice
-          - vim
   - account:
       layout: main-vertical
       panes:
@@ -26,10 +20,7 @@ windows:
       panes:
         - account:
           - cd account
-          - gir
-        - cns:
-          - cd customer-notifications-microservice
-          - gicns
+          - hivemind
   - git:
       layout: even-horizontal
       panes:
@@ -38,7 +29,4 @@ windows:
           - gst
         - account:
           - cd account
-          - gst
-        - cns:
-          - cd customer-notifications-microservice
           - gst

@@ -3,19 +3,24 @@ alias awslocal="export AWS_PROFILE=local"
 alias chrome="google-chrome-stable --password-store=basic"
 alias clearcache='rake tmp:cache:clear'
 alias clearlogs='rake log:clear'
+alias ciucands='RAILS_ENV=devcand bundle exec rails s'
+alias ciucandc='RAILS_ENV=devcand rails c'
+alias ciuprods='RAILS_ENV=devprod bundle exec rails s'
+alias ciuprodc='RAILS_ENV=devprod rails c'
 alias cypress-candidate-getty="yarn candidate:headless --spec cypress/integration/gi_spec.js"
 alias cypress-candidate-istock="yarn candidate:headless --spec cypress/integration/istock_spec.js"
 alias cypress-candidate="yarn candidate:headless"
 alias cypress-dev-getty="yarn development:headless --spec cypress/integration/gi_spec.js"
 alias cypress-dev-istock="yarn development:headless --spec cypress/integration/istock_spec.js"
 alias cypress-dev="yarn development:headless"
-alias cypress-stage-gix="yarn staging-ca:headless --config video=false --spec cypress/integration/gi_gix_spec.js"
-alias cypress-stage-getty="yarn staging-ca:headless --config video=false --spec cypress/integration/gi_spec.js"
-alias cypress-stage-istock="yarn staging-ca:headless --config video=false --spec cypress/integration/istock_spec.js"
+alias cypress-stage-gix="yarn staging-ca:headless --spec cypress/integration/gi_gix_spec.js"
+alias cypress-stage-getty="yarn staging-ca:headless --spec cypress/integration/gi_spec.js"
+alias cypress-stage-istock="yarn staging-ca:headless --spec cypress/integration/istock_spec.js"
 alias cypress-stage="yarn staging-ca:headless"
 alias findpg='ps -ax | grep -i postgres'
 alias gid="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b"
 alias gir="bundle exec rails s"
+alias giw="./bin/webpack-dev-server"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 alias gidynamo='docker run -p 8000:8000 curated-set-dynamo -dbPath /data/'
 alias gidynamoadmin='AWS_REGION=us-west-2 AWS_ACCESS_KEY_ID=development AWS_SECRET_ACCESS_KEY=secret-access-key dynamodb-admin'
@@ -23,6 +28,11 @@ alias gicns='bundle exec rackup --host 0.0.0.0 --port 3108'
 alias giawssand='export AWS_PROFILE=oktad && oktad -p getty-sandbox -t sandbox -w'
 alias giawslocal="export AWS_PROFILE=local"
 alias gilock='g co Gemfile.lock'
+alias gimerge='git merge --no-ff'
+alias gifixtures='be rake fixtures'
+alias gitestfixtures='RAILS_ENV=test be rake fixtures'
+alias gikarma='yarn test'
+alias gikarmabrowser='yarn debug-test'
 alias givim='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty/diary/diary.wiki'
 alias hosts='sudo vim /etc/hosts'
 alias iptables="sudo iptables -L --line-numbers"

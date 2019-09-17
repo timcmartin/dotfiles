@@ -498,15 +498,15 @@ let vimwiki_travel.syntax = 'default'
 let vimwiki_travel.ext = '.wiki'
 let vimwiki_travel.name = 'Travel'
 
-" Food Diary
-let vimwiki_food = {}
-let vimwiki_food.path = '~/Dropbox/vimwiki/food_diary/'
-let vimwiki_food.path_html = ''
-let vimwiki_food.syntax = 'markdown'
-let vimwiki_food.ext = '.md'
-let vimwiki_food.name = 'FoodDiary'
+" Express
+let vimwiki_express = {}
+let vimwiki_express.path = '~/Dropbox/vimwiki/express/'
+let vimwiki_express.path_html = ''
+let vimwiki_express.syntax = 'markdown'
+let vimwiki_express.ext = '.md'
+let vimwiki_express.name = 'Express'
 
-let g:vimwiki_list = [vimwiki_aws, vimwiki_getty, vimwiki_cabin, vimwiki_dev, vimwiki_guitar, vimwiki_house, vimwiki_personal, vimwiki_recipes, vimwiki_sixsafety, vimwiki_temp, vimwiki_travel, vimwiki_food]
+let g:vimwiki_list = [vimwiki_aws, vimwiki_getty, vimwiki_cabin, vimwiki_dev, vimwiki_guitar, vimwiki_house, vimwiki_personal, vimwiki_recipes, vimwiki_sixsafety, vimwiki_temp, vimwiki_travel, vimwiki_express]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
 let g:vimwiki_hl_headers = 1

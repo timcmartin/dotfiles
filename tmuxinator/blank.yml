@@ -1,0 +1,11 @@
+# ~/.tmuxinator/blank.yml
+
+name: blank
+root: ~/src/personal
+
+windows:
+  - blank:
+      layout: main-vertical
+      panes:
+        - main:
+          - gir

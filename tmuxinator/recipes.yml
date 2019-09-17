@@ -1,0 +1,18 @@
+# ~/.tmuxinator/recipes.yml
+
+name: recipes
+root: ~/src/personal/recipes
+
+windows:
+  - vim:
+      layout: main-vertical
+      panes:
+        - main:
+          - vim
+  - gitbook:
+      layout: main-vertical
+      panes:
+        - server:
+          - gitbook serve .
+        - git:
+          - gst
