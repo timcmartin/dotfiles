@@ -1,5 +1,6 @@
 # Convenience Commands
 alias awslocal="export AWS_PROFILE=local"
+alias awssand='export AWS_PROFILE=oktad && oktad -p getty-sandbox -t sandbox -w'
 alias chrome="google-chrome-stable --password-store=basic"
 alias clearcache='rake tmp:cache:clear'
 alias clearlogs='rake log:clear'
@@ -25,7 +26,7 @@ alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 alias gidynamo='docker run -p 8000:8000 curated-set-dynamo -dbPath /data/'
 alias gidynamoadmin='AWS_REGION=us-west-2 AWS_ACCESS_KEY_ID=development AWS_SECRET_ACCESS_KEY=secret-access-key dynamodb-admin'
 alias gicns='bundle exec rackup --host 0.0.0.0 --port 3108'
-alias giawssand='export AWS_PROFILE=oktad && oktad -p getty-sandbox -t sandbox -w'
+alias cnsc='bundle exec irb -I. -r app.rb'
 alias giawslocal="export AWS_PROFILE=local"
 alias gilock='g co Gemfile.lock'
 alias gimerge='git merge --no-ff'
@@ -72,6 +73,7 @@ alias service_client='cd $HOME/src/getty/unisporkal/gems/service_client'
 alias sign_in='cd $HOME/src/getty/unisporkal/sign_in'
 alias styles='cd $HOME/src/getty/unisporkal/gems/unisporkal_styles'
 alias unisporkal='cd $HOME/src/getty/unisporkal'
+alias proxy='cd $HOME/src/getty/unisporkal/gi_proxy'
 ## Personal
 alias cabin='cd $HOME/src/personal/cabin-monitor'
 alias devwork="vim $HOME/src/personal/workdev/index.html"
@@ -84,16 +86,6 @@ alias src='cd ~/src'
 alias vimwiki='cd $HOME/Dropbox/vimwiki'
 alias workdev='cd $HOME/src/personal/workdev'
 alias wurstwings='cd $HOME/src/personal/wurstwings'
-#alias wwredis='redis-server /usr/local/etc/redis.conf'
-
-# Pickler Commands
-alias curtest='cr cucumber FEATURE=$CURTEST'
-alias curpush='pickler push $CURTEST'
-alias curpull='pickler pull $CURTEST'
-alias curstart='pickler start $CURTEST'
-alias curfinish='pickler finish $CURTEST'
-alias curdeliver='pickler deliver $CURTEST'
-alias curspec='rspec $CURSPEC'
 
 # Directory Navigation
 alias ...='cd ../..'
@@ -148,6 +140,8 @@ alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 alias glastfive="git reflog | egrep -io \"moving from ([^[:space:]]+)\" | awk '{ print $3 }' | head -n5"
 alias updatesubs='git submodule foreach --recursive git fetch'
 alias gbranchdate="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
+# git branches for all subdirs
+alias brall='for dir in $(ls -d */);do (cd $dir && echo "$dir [$(git rev-parse --abbrev-ref HEAD)]") ; done'
 
 # Gem Commands
 alias audit='gem list'
