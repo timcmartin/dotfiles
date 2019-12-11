@@ -251,6 +251,10 @@ command! Tags call s:tags()
 " nnoremap <C-t> :Tags<CR>
 " nmap <C-t> :Tags<CR>
 
+" Open tag in new window
+" nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
+nnoremap <C-]> <C-w><C-]><C-w>T
+
 " coffeetags
 let g:CoffeeAutoTagDisabled=0
 " let g:CoffeeAutoTagFile=<filename>       " Name of the generated tag file (Default: ./tags)
@@ -604,6 +608,8 @@ autocmd BufNewFile,BufRead *.slim set ft=sass
 " HTML highlighting for smarty templates
 " -----------------
 au BufRead,BufNewFile *.tpl set filetype=smarty
+" ES6 Javascript Highlighting
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
 " Close Open Buffers
 function! Wipeout()
@@ -718,6 +724,9 @@ let g:switch_mapping = "-"
 " Date & Time
 :nnoremap <F5> "=strftime("%b %d, %Y")<CR>P
 :inoremap <F5> <C-R>=strftime("%b %d, %Y")<CR>
+
+" Relative Filename
+nnoremap <Leader>fn :let @+ = expand("%")<CR>
 
 " Typescript for Angular
 let g:typescript_compiler_binary = 'tsc'
