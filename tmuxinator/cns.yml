@@ -1,20 +1,20 @@
-# ~/.tmuxinator/uts.yml
-name: uts
-root: ~/src/getty/unisporkal
+# ~/.tmuxinator/cns.yml
+
+name: cns
+root: ~/src/getty/unisporkal/customer-notifications-microservice
 
 windows:
-  - engine:
-      layout: main-vertical
-      panes:
-        - vim:
-          - engine
-          - givim
   - cns:
       layout: main-vertical
       panes:
         - vim:
-          - cns
-          - vim -O rule/base.rb rule/newly_registered.rb
+          - givim
+  - engine:
+      layout: main-vertical
+      panes:
+        - engine-vim:
+          - engine
+          - givim
   - servers:
       layout: even-horizontal
       panes:
@@ -28,11 +28,13 @@ windows:
           - cns
           - export AWS_PROFILE=local
           - gicns
-  - cns-term:
+  - term:
       layout: main-vertical
       panes:
-        - term:
+        - term-cns:
           - cns
+        - term-engine:
+          - engine
   - gi-local-dynamo:
       layout: main-vertical
       panes:
@@ -41,3 +43,11 @@ windows:
           - vim
         - term:
           - cd ~/src/getty/gi-local-dynamo
+  - globalization:
+      layout: main-vertical
+      panes:
+        - editor:
+          - cd ~/src/getty/unisporkal/gems/globalization
+          - vim
+        - term:
+          - cd ~/src/getty/unisporkal/gems/globalization

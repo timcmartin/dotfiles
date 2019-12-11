@@ -1,0 +1,11 @@
+# ~/.tmuxinator/uni.yml
+
+name: uni
+root: ~/src/getty/unisporkal
+
+windows:
+  - blank:
+      layout: main-vertical
+      panes:
+        - main:
+          - ls

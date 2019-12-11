@@ -49,6 +49,11 @@ def a_hash
   {hello: "world", free: "of charge"}
 end
 
+def dockit(doc)
+  File.open('/Users/tmartin/Desktop/docit.html', 'w') {|f| f.write(doc) }
+  %x{open /Users/tmartin/Desktop/docit.html}
+end
+
 ## Benchmarking
 # Inspired by <http://stackoverflow.com/questions/123494/whats-your-favourite-irb-trick/123834#123834>.
 
