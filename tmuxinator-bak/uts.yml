@@ -1,0 +1,43 @@
+# ~/.tmuxinator/uts.yml
+name: uts
+root: ~/src/getty/unisporkal
+
+windows:
+  - engine:
+      layout: main-vertical
+      panes:
+        - vim:
+          - engine
+          - givim
+  - cns:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cns
+          - vim -O rule/base.rb rule/newly_registered.rb
+  - servers:
+      layout: even-horizontal
+      panes:
+        - landing-rails:
+          - landing
+          - gir
+        - landing-assets:
+          - landing
+          - giw
+        - cns:
+          - cns
+          - export AWS_PROFILE=local
+          - gicns
+  - cns-term:
+      layout: main-vertical
+      panes:
+        - term:
+          - cns
+  - gi-local-dynamo:
+      layout: main-vertical
+      panes:
+        - editor:
+          - cd ~/src/getty/gi-local-dynamo
+          - vim
+        - term:
+          - cd ~/src/getty/gi-local-dynamo

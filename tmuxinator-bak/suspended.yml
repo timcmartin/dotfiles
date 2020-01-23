@@ -1,5 +1,5 @@
-# ~/.tmuxinator/earlyactivation.yml
-name: early-activation
+# ~/.tmuxinator/suspended.yml
+name: suspended
 root: ~/src/getty/unisporkal
 
 windows:
@@ -8,24 +8,25 @@ windows:
       panes:
         - vim:
           - cd gems/unisporkal_engine
-          - vimwork
+          - givim
   - cns:
       layout: main-vertical
       panes:
         - vim:
           - cd customer-notifications-microservice
           - vim
+  - account:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd account
+          - vim
   - unisporkal:
       layout: even-horizontal
       panes:
-        - docker:
-          - cd gi_proxy
-          - gidocker
-        - dynamo:
-          - gidynamo
-        - landing:
-          - cd landing
-          - bundle exec rails s
+        - account:
+          - cd account
+          - gir
         - cns:
           - cd customer-notifications-microservice
           - gicns
@@ -34,10 +35,10 @@ windows:
       panes:
         - engine:
           - cd gems/unisporkal_engine
-          - g co B-195174-subscriptions-to-cache
+          - gst
         - account:
           - cd account
-          - g co B-195174-subscriptions-to-cache
+          - gst
         - cns:
           - cd customer-notifications-microservice
           - gst

@@ -1,4 +1,4 @@
-# ~/.tmuxinator/gi.yml
+# ~/.tmuxinator/ciu.yml
 name: ciu
 root: ~/src/getty/unisporkal/curated-image-uploader
 
@@ -6,33 +6,23 @@ windows:
   - ciu-editor:
       layout: main-vertical
       panes:
-        - vimwork
+        - givim
   - ciu-terminal:
-      layout: tiled
+      layout: main-vertical
       panes:
         - rails:
+          - export AWS_PROFILE=local
           - gir
-        - dynamo:
-          - gidynamo
         - git:
           - ll
         - guard:
           - be guard -c
-  - landing-editor:
+  - uni-terminal:
       layout: main-vertical
       panes:
-        - landing-vim:
-          - cd ../landing
-          - vim
-  - unisporkal:
-      layout: 4415,247x67,0,0{123x67,0,0[123x33,0,0,0,123x33,0,34,2],123x67,124,0,1}
-      panes:
-        - docker:
-          - cd ../gi-proxy
-          - gidocker
-        - landing-rails:
-          - cd ../landing
-          - gir
         - landing:
           - cd ../landing
           - ll
+        - consul:
+          - cd ../gems/consul_client
+          - g co curated-image-uploader

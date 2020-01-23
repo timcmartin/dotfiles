@@ -1,0 +1,20 @@
+# ~/.tmuxinator/hackathon.yml
+name: hackathon
+root: ~/src/getty/unisporkal
+
+windows:
+  - misc-admin:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd misc_admin
+          - givim
+  - unisporkal:
+      layout: even-horizontal
+      panes:
+        - misc-admin:
+          - cd misc_admin
+          - bundle exec rails s
+        - term:
+          - cd misc_admin
+          - gst

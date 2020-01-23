@@ -1,0 +1,26 @@
+# ~/.tmuxinator/autorenew.yml
+name: autorenew
+root: ~/src/getty/unisporkal
+
+windows:
+  - account:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd account
+          - givim
+  - unisporkal:
+      layout: even-horizontal
+      panes:
+        - tests:
+          - cd account
+          - be rspec spec
+        - account:
+          - cd account
+          - gir
+  - git:
+      layout: even-horizontal
+      panes:
+        - account:
+          - cd account
+          - gst

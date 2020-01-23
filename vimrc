@@ -124,6 +124,7 @@ if has('persistent_undo')
   set undofile
 endif
 
+" File type highlighting
 au! BufRead,BufNewFile *.rb
 au! BufRead,BufNewFile *.xml
 au BufNewFile,BufRead *.scss set filetype=sass
@@ -727,6 +728,12 @@ let g:switch_mapping = "-"
 
 " Relative Filename
 nnoremap <Leader>fn :let @+ = expand("%")<CR>
+
+" Format txt
+nnoremap <Leader>txt :set ft=txt<CR>
+
+" Format md
+nnoremap <Leader>md :set ft=markdown<CR>
 
 " Typescript for Angular
 let g:typescript_compiler_binary = 'tsc'

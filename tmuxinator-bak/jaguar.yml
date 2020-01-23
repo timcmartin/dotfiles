@@ -8,7 +8,7 @@ windows:
       panes:
         - vim:
           - cd search
-          - vimwork
+          - givim
   - asset_detail:
       layout: main-vertical
       panes:
@@ -18,9 +18,6 @@ windows:
   - unisporkal:
       layout: even-horizontal
       panes:
-        - docker:
-          - cd gi_proxy
-          - gidocker
         - search:
           - cd search
           - bundle exec rails s

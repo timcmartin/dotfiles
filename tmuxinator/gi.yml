@@ -13,6 +13,5 @@ windows:
         - uni:
           - ls
         - dynamo:
-          - gidynamo
-        - dynamoadmin:
-          - gidynamoadmin
+          - cd /Users/tmartin/src/getty/gi-local-dynamo
+          - bin/start

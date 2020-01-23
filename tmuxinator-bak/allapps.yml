@@ -1,0 +1,40 @@
+# ~/.tmuxinator/allapps.yml
+name: allapps
+root: ~/src/getty/unisporkal
+windows:
+  - a-l:
+      layout: even-horizontal
+      panes:
+        - account:
+          - cd account
+          - gst
+        - asset-detail:
+          - cd asset_detail
+          - gst
+        - collaboration:
+          - cd collaboration
+          - gst
+        - landing:
+          - cd landing
+          - gst
+  - p-s:
+      layout: even-horizontal
+      panes:
+        - purchase:
+          - cd purchase
+          - gst
+        - search:
+          - cd search
+          - gst
+        - sign-in:
+          - cd sign_in
+          - gst
+  - gems:
+      layout: even-horizontal
+      panes:
+        - engine:
+          - engine
+          - gst
+        - styles:
+          - styles
+          - gst
