@@ -21,6 +21,7 @@ alias cypress-stage="yarn staging-ca:headless"
 alias findpg='ps -ax | grep -i postgres'
 alias gid="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b"
 alias gir="bundle exec rails s"
+alias girs="bundle exec rails s 1>/dev/null"
 alias giw="./bin/webpack-dev-server"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 alias gidynamo='docker run -p 8000:8000 curated-set-dynamo -dbPath /data/'

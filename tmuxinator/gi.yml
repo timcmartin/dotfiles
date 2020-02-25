@@ -5,13 +5,13 @@ root: ~/src/getty/unisporkal
 
 windows:
   - gettyservers:
-      layout: tiled
+      layout: even-vertical
       panes:
         - docker:
           - cd gi_proxy
           - gid
-        - uni:
-          - ls
         - dynamo:
           - cd /Users/tmartin/src/getty/gi-local-dynamo
           - bin/start
+        - uni:
+          - ls

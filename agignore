@@ -68,3 +68,6 @@ rerun.txt
 */*/*/*/*.map
 */*/*/*/*/*.map
 */*/*/*/*/*/*.map
+
+/*/public/*/assets/packs/js/*
+/*/public/packs-test/js/*

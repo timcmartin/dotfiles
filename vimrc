@@ -754,3 +754,6 @@ let g:used_javascript_libs = 'jquery, angularjs, angularui, angularuirouter, jas
 " Instant Markdown
 let g:instant_markdown_autostart=0
 nmap \md :InstantMarkdownPreview<CR>
+
+" Insert puts caller
+nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
