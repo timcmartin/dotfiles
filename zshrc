@@ -52,7 +52,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails ruby sublime brew vagrant postgres redis-cli bundler golang git git-flow git-extras last-working-dir osx ssh-agent web-search zsh-syntax-highlighting tmuxinator gitfast)
+plugins=(rails ruby sublime brew vagrant postgres redis-cli bundler golang git git-flow git-extras last-working-dir osx ssh-agent web-search zsh-syntax-highlighting tmuxinator gitfast rbenv)
 autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
@@ -62,9 +62,6 @@ zrcl="$HOME/.zshrc.local"
 [[ ! -a $zrcl ]] || source $zrcl
 
 export PATH=/usr/local/sbin:$PATH
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 fpath=(~/.zsh $fpath)
 
@@ -89,6 +86,12 @@ _git_fi ()
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -p ~/.ignore -g ""'
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

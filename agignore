@@ -61,13 +61,18 @@ rerun.txt
 */*/*/*/*/*/*.css
 
 # Ignore Webpacker stuff
-*.map
-*/*.map
-*/*/*.map
-*/*/*/*.map
-*/*/*/*/*.map
-*/*/*/*/*/*.map
-*/*/*/*/*/*/*.map
+# *.map
+# */*.map
+# */*/*.map
+# */*/*/*.map
+# */*/*/*/*.map
+# */*/*/*/*/*.map
+# */*/*/*/*/*/*.map
 
 /*/public/*/assets/packs/js/*
 /*/public/packs-test/js/*
+
+# Exclude iLox keys
+# /config/locales/*
+# */config/locales/*
+# */*/config/locales/*

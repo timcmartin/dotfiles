@@ -1,0 +1,17 @@
+# ~/.tmuxinator/base.yml
+
+name: base
+root: ~/src/getty/unisporkal
+
+windows:
+  - cns:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cns
+          - givim
+  - term:
+      layout: main-vertical
+      panes:
+        - term:
+          - cns

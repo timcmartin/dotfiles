@@ -4,10 +4,10 @@ alias awssand='export AWS_PROFILE=oktad && oktad -p getty-sandbox -t sandbox -w'
 alias chrome="google-chrome-stable --password-store=basic"
 alias clearcache='rake tmp:cache:clear'
 alias clearlogs='rake log:clear'
-alias ciucands='RAILS_ENV=devcand bundle exec rails s'
-alias ciucandc='RAILS_ENV=devcand rails c'
-alias ciuprods='RAILS_ENV=devprod bundle exec rails s'
-alias ciuprodc='RAILS_ENV=devprod rails c'
+alias ciucands='ciu; g co custom-environment; RAILS_ENV=devcand bundle exec rails s'
+alias ciucandc='ciu; g co custom-environment; RAILS_ENV=devcand rails c'
+alias ciuprods='ciu; g co custom-environment; RAILS_ENV=kdevprod bundle exec rails s'
+alias ciuprodc='ciu; g co custom-environment; RAILS_ENV=devprod rails c'
 alias cypress-candidate-getty="yarn candidate:headless --spec cypress/integration/gi_spec.js"
 alias cypress-candidate-istock="yarn candidate:headless --spec cypress/integration/istock_spec.js"
 alias cypress-candidate="yarn candidate:headless"
@@ -18,18 +18,29 @@ alias cypress-stage-gix="yarn staging-ca:headless --spec cypress/integration/gi_
 alias cypress-stage-getty="yarn staging-ca:headless --spec cypress/integration/gi_spec.js"
 alias cypress-stage-istock="yarn staging-ca:headless --spec cypress/integration/istock_spec.js"
 alias cypress-stage="yarn staging-ca:headless"
+alias cypress-stage-vpn="yarn staging:headless"
 alias findpg='ps -ax | grep -i postgres'
-alias gid="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b"
+alias giproxy="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b | lolcat"
+# Misc Admin
+alias giproxya="cd ~/src/getty/unisporkal/gi_proxy; git checkout admin_apps_2; git pull --rebase; ./runDocker.sh -b | lolcat"
+# Home
+alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runDocker.sh -b | lolcat"
+alias giproxy-cabin="cd ~/src/getty/unisporkal/gi_proxy && git checkout cabin && ./runDocker.sh -b | lolcat"
 alias gir="bundle exec rails s"
 alias girs="bundle exec rails s 1>/dev/null"
 alias giw="./bin/webpack-dev-server"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
-alias gidynamo='docker run -p 8000:8000 curated-set-dynamo -dbPath /data/'
-alias gidynamoadmin='AWS_REGION=us-west-2 AWS_ACCESS_KEY_ID=development AWS_SECRET_ACCESS_KEY=secret-access-key dynamodb-admin'
+alias gidynamoup='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/start'
+alias gidynamostop='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/stop'
 alias gicns='bundle exec rackup --host 0.0.0.0 --port 3108'
-alias cnsc='bundle exec irb -I. -r app.rb'
+alias giguard='find . -type f -name "*.rb" | entr -c -p bundle exec rspec spec --format documentation'
+# Console for CNS
+alias cnsc='bundle exec pry -I. -r app.rb'
+# PID for CNS (when freezes)
+alias cnspid='lsof -wni tcp:3108'
 alias giawslocal="export AWS_PROFILE=local"
 alias gilock='g co Gemfile.lock'
+alias yarnlock='g co yarn.lock'
 alias gimerge='git merge --no-ff'
 alias gifixtures='be rake fixtures'
 alias gitestfixtures='RAILS_ENV=test be rake fixtures'
@@ -45,9 +56,12 @@ alias v.='vim .'
 alias v='vim'
 alias vimrc='vim ~/.vimrc'
 alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd {} && git pull)"'" "'";"'"'
+# ^M FIX
+alias caretm='stty sane'
 
 # Bash Commands
 alias aliasedit='vim ~/.bash_aliases'
+alias editalias='vim ~/.bash_aliases'
 alias callme='sudo su -'
 alias m.='mate .'
 alias m=mate
@@ -59,7 +73,7 @@ alias rebash='START_DIR=`pwd`;cd ..;source ~/.bash_aliases;cd $START_DIR; c; l'
 # Code Aliases
 ## Getty
 alias account='cd $HOME/src/getty/unisporkal/account'
-alias asset_detail='cd $HOME/src/getty/unisporkal/asset_detail'
+alias adp='cd $HOME/src/getty/unisporkal/asset_detail'
 alias automation='cd $HOME/src/getty/automation'
 alias ciu='cd $HOME/src/getty/unisporkal/curated-image-uploader'
 alias cns='cd $HOME/src/getty/unisporkal/customer-notifications-microservice'
@@ -69,7 +83,7 @@ alias gidocs='cd $HOME/src/getty/unisporkal/docs'
 alias landing='cd $HOME/src/getty/unisporkal/landing'
 alias misc_admin='cd $HOME/src/getty/unisporkal/misc_admin'
 alias purchase='cd $HOME/src/getty/unisporkal/purchase'
-alias search='cd $HOME/src/getty/unisporkal/search'
+alias srp='cd $HOME/src/getty/unisporkal/search'
 alias service_client='cd $HOME/src/getty/unisporkal/gems/service_client'
 alias sign_in='cd $HOME/src/getty/unisporkal/sign_in'
 alias styles='cd $HOME/src/getty/unisporkal/gems/unisporkal_styles'
@@ -109,8 +123,8 @@ alias lsa='ls -lah'
 alias g='git'
 alias gac='git add . -A && git commit'
 alias gadd='git add .'
+# This one conflicts with oh-my-zsh git completion
 alias gap='git add -p'
-alias gaddp='git add -p'
 alias gbr='git branch'
 alias gbra='git branch -a'
 alias gc='git commit'
@@ -170,6 +184,12 @@ alias rakedbinit='rake db:drop db:create db:migrate'
 alias rb='ruby'
 alias testenv='RAILS_ENV=test'
 alias pryc='pry -r ./config/environment'
+alias rsff='be rspec spec --fail-fast --format documentation'
+alias railsservers='lsof -wni tcp:5000'
+
+# Silver Searcher
+alias ag='ag --path-to-ignore ~/.ignore'
+alias Ag='ag --path-to-ignore ~/.ignore'
 
 function rails_command {
   local cmd=$1
@@ -197,7 +217,6 @@ function sr {
 function sdb {
   rails_command "dbconsole" "$@"
 }
-alias railsservers='lsof -wni tcp:5000'
 
 # Bundle Commands
 #alias be='bundle exec'

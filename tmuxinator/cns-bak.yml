@@ -1,0 +1,53 @@
+# ~/.tmuxinator/cns-bak.yml
+
+name: cns-bak
+root: ~/src/getty/unisporkal/customer-notifications-microservice
+
+windows:
+  - cns:
+      layout: main-vertical
+      panes:
+        - vim:
+          - givim
+  - engine:
+      layout: main-vertical
+      panes:
+        - engine-vim:
+          - engine
+          - givim
+  - servers:
+      layout: even-horizontal
+      panes:
+        - landing-rails:
+          - landing
+          - gir
+        - landing-assets:
+          - landing
+          - giw
+        - cns:
+          - cns
+          - export AWS_PROFILE=local
+          - gicns
+  - term:
+      layout: main-vertical
+      panes:
+        - term-cns:
+          - cns
+        - term-engine:
+          - engine
+  - gi-local-dynamo:
+      layout: main-vertical
+      panes:
+        - editor:
+          - cd ~/src/getty/gi-local-dynamo
+          - vim
+        - term:
+          - cd ~/src/getty/gi-local-dynamo
+  - globalization:
+      layout: main-vertical
+      panes:
+        - editor:
+          - cd ~/src/getty/unisporkal/gems/globalization
+          - vim
+        - term:
+          - cd ~/src/getty/unisporkal/gems/globalization

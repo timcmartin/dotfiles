@@ -1,0 +1,13 @@
+# ~/.tmuxinator/linux.yml
+
+name: linux
+root: ~/src/getty/learning/linux-cli-classes
+
+windows:
+  - linux:
+      layout: even-horizontal
+      panes:
+        - ssh:
+          - ssh -i linux-class.key tmartin@linuxclass.sandbox-getty.cloud
+        - vim:
+          - givim

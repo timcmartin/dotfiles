@@ -9,12 +9,6 @@ windows:
       panes:
         - vim:
           - givim
-  - engine:
-      layout: main-vertical
-      panes:
-        - engine-vim:
-          - engine
-          - givim
   - servers:
       layout: even-horizontal
       panes:
@@ -33,21 +27,3 @@ windows:
       panes:
         - term-cns:
           - cns
-        - term-engine:
-          - engine
-  - gi-local-dynamo:
-      layout: main-vertical
-      panes:
-        - editor:
-          - cd ~/src/getty/gi-local-dynamo
-          - vim
-        - term:
-          - cd ~/src/getty/gi-local-dynamo
-  - globalization:
-      layout: main-vertical
-      panes:
-        - editor:
-          - cd ~/src/getty/unisporkal/gems/globalization
-          - vim
-        - term:
-          - cd ~/src/getty/unisporkal/gems/globalization

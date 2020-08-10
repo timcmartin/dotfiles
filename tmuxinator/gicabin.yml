@@ -1,6 +1,6 @@
-# ~/.tmuxinator/gi.yml
+# ~/.tmuxinator/gicabin.yml
 
-name: gi
+name: gicabin
 root: ~/src/getty/unisporkal
 
 windows:
@@ -8,7 +8,7 @@ windows:
       layout: even-vertical
       panes:
         - docker:
-          - giproxy
+          - giproxy-cabin
         - dynamo:
           - cd /Users/tmartin/src/getty/gi-local-dynamo
           - bin/start

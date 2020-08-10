@@ -54,9 +54,10 @@ filetype plugin on
 " Transparent Linux Background // needs to go after colorscheme
 hi Normal guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
-
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+" Make line numbers red
+hi LineNr term=bold cterm=NONE ctermfg=DarkRed ctermbg=NONE gui=NONE guifg=DarkRed guibg=NONE
+" remove underline from line numbers and current line yellow
+hi CursorLineNr term=bold cterm=bold ctermfg=11 gui=bold
 
 if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
@@ -83,8 +84,6 @@ set matchpairs+=<:>
 set modeline
 set modelines=5
 set number
-" Make line numbers red
-highlight LineNr term=bold cterm=NONE ctermfg=DarkRed ctermbg=NONE gui=NONE guifg=DarkRed guibg=NONE
 set wrap
 set linebreak
 set ruler
@@ -290,7 +289,8 @@ nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
 nnoremap tk  :tabprev<CR>
 nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
+" Temporarily disabling - double t issues
+" nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<CR>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
@@ -408,11 +408,30 @@ command! -nargs=0 SplitToTab call SplitToTab()
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 
 " Syntastic.  Awesome syntax error checking for js, ruby, etc...
-let g:syntastic_enable_signs=1 "show markers next to each error/warning
-let g:syntastic_auto_loc_list=0 "don't pop up the Errors list automatically
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['scss'] }
+" let g:syntastic_enable_signs=1 "show markers next to each error/warning
+" let g:syntastic_auto_loc_list=0 "don't pop up the Errors list automatically
+" let g:syntastic_mode_map = { 'mode': 'active',
+"                            \ 'active_filetypes': [],
+"                            \ 'passive_filetypes': ['scss'] }
+" let g:syntastic_javascript_checkers = ['eslint']
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_enable_signs=1 "show markers next to each error/warning
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_loc_list_height = 5
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 1
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_error_symbol = '❌'
+" let g:syntastic_style_error_symbol = '⁉️'
+" let g:syntastic_warning_symbol = '⚠️'
+" let g:syntastic_style_warning_symbol = '💩'
+" highlight link SyntasticErrorSign SignColumn
+" highlight link SyntasticWarningSign SignColumn
+" highlight link SyntasticStyleErrorSign SignColumn
+" highlight link SyntasticStyleWarningSign SignColumn
 
 " vimwiki
 " AWS
@@ -757,3 +776,26 @@ nmap \md :InstantMarkdownPreview<CR>
 
 " Insert puts caller
 nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
+
+" Ale
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_linters = {'javascript': ['prettier', 'eslint']}
+let g:ale_linters_explicit = 1
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_fix_on_save = 0
+" Temp disable for js
+let g:ale_pattern_options = { '\.js$': {'ale_enabled': 0}}
+let g:airline#extensions#ale#enabled = 1
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
+
+" Ctrlp
+if executable("ag")
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endi
