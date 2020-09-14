@@ -11,6 +11,7 @@ nohup.out
 log
 tmp
 tags
+tags.temp
 
 # Ignore generate api docs
 /doc/api

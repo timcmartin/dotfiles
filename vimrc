@@ -782,12 +782,13 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
-let g:ale_linters = {'javascript': ['prettier', 'eslint']}
+let g:ale_linters = {'javascript': ['prettier', 'jscs'], 'ruby': ['rubocop']}
+" let g:ale_linters = {'javascript': ['prettier', 'jscs']}
 let g:ale_linters_explicit = 1
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_fixers = {'javascript': ['prettier', 'jscs']}
 let g:ale_fix_on_save = 0
 " Temp disable for js
-let g:ale_pattern_options = { '\.js$': {'ale_enabled': 0}}
+" let g:ale_pattern_options = { '\.js$': {'ale_enabled': 0}}
 let g:airline#extensions#ale#enabled = 1
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign

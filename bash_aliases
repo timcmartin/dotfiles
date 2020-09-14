@@ -19,6 +19,8 @@ alias cypress-stage-getty="yarn staging-ca:headless --spec cypress/integration/g
 alias cypress-stage-istock="yarn staging-ca:headless --spec cypress/integration/istock_spec.js"
 alias cypress-stage="yarn staging-ca:headless"
 alias cypress-stage-vpn="yarn staging:headless"
+alias cypress-stage-vpn-getty="yarn staging:headless --spec cypress/integration/gi_spec.js"
+alias cypress-stage-vpn-istock="yarn staging:headless --spec cypress/integration/istock_spec.js"
 alias findpg='ps -ax | grep -i postgres'
 alias giproxy="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b | lolcat"
 # Misc Admin
@@ -58,6 +60,8 @@ alias vimrc='vim ~/.vimrc'
 alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd {} && git pull)"'" "'";"'"'
 # ^M FIX
 alias caretm='stty sane'
+# Cleanup vim backup dir not used in past 7 days
+alias cleanvim="find ~/.vimbackupdir -type f -name '*.*' -not \( -atime 0 -or -atime 1 -or -atime 2 -or -atime 3 -or -atime 4 -or -atime 5 -or -atime 6 \) -delete"
 
 # Bash Commands
 alias aliasedit='vim ~/.bash_aliases'
@@ -69,6 +73,7 @@ alias please=sudo
 alias psack='ps aux | ack'
 alias psgrep='ps aux | grep'
 alias rebash='START_DIR=`pwd`;cd ..;source ~/.bash_aliases;cd $START_DIR; c; l'
+alias flushdns="say 'flushing D N S';sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say 'awwwww yeeeyiah'"
 
 # Code Aliases
 ## Getty
@@ -89,6 +94,7 @@ alias sign_in='cd $HOME/src/getty/unisporkal/sign_in'
 alias styles='cd $HOME/src/getty/unisporkal/gems/unisporkal_styles'
 alias unisporkal='cd $HOME/src/getty/unisporkal'
 alias proxy='cd $HOME/src/getty/unisporkal/gi_proxy'
+alias cypress='cd $HOME/src/getty/automation'
 ## Personal
 alias cabin='cd $HOME/src/personal/cabin-monitor'
 alias devwork="vim $HOME/src/personal/workdev/index.html"
