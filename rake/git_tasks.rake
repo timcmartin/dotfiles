@@ -21,4 +21,8 @@ namespace :git do
   task :new_checkout do
     sh "git checkout -b #{ENV['NEW_BRANCH']}"
   end
+
+  task :commit_all, [:commit_message] => [:lock, :add, :commit] do |t, args|
+    sh "say '#{args[:commit_message]} committed'"
+  end
 end
