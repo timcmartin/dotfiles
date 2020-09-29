@@ -7,6 +7,3 @@
 [submodule "vimbundles"]
 	path = vimbundles
 	url = https://github.com/timcmartin/vimbundles.git
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = git@github.com:timcmartin/ohmyzsh.git
