@@ -255,12 +255,6 @@ command! Tags call s:tags()
 " nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 nnoremap <C-]> <C-w><C-]><C-w>T
 
-" coffeetags
-let g:CoffeeAutoTagDisabled=0
-" let g:CoffeeAutoTagFile=<filename>       " Name of the generated tag file (Default: ./tags)
-" let g:CoffeeAutoTagIncludeVars=<0 or 1>  " Includes variables (Default: 0 [false])
-" let g:CoffeeAutoTagTagRelative=<0 or 1>  " Sets file names to the relative path from the tag file location to the tag file location (Default: 1 [true])
-
 " rails specific mappings
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
@@ -667,19 +661,6 @@ endfunction
 
 " Tagbar
 nmap  <F8> :TagbarToggle<CR>
-
-let g:CoffeeAutoTagIncludeVars=1
-
-let g:tagbar_type_coffee = {
-    \ 'ctagstype' : 'coffee',
-    \ 'kinds'     : [
-        \ 'c:classes',
-        \ 'm:methods',
-        \ 'f:functions',
-        \ 'v:variables',
-        \ 'f:fields',
-    \ ]
-\ }
 
 let g:tagbar_type_typescript = {
   \ 'ctagstype': 'typescript',
