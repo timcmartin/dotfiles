@@ -36,6 +36,10 @@ alias gidynamoup='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/start'
 alias gidynamostop='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/stop'
 alias gicns='bundle exec rackup --host 0.0.0.0 --port 3108'
 alias giguard='find . -type f -name "*.rb" | entr -c -p bundle exec rspec spec --format documentation'
+alias uni_pre_update='proxy && git checkout master | cns && git checkout master | service_client && git checkout master'
+alias uni_post_update='proxy && git checkout wfh | cns && git checkout - | service_client && git checkout wfh | unisporkal'
+alias uni_pull='uni_pre_update && uni pull && uni_post_update'
+
 # Console for CNS
 alias cnsc='bundle exec pry -I. -r app.rb'
 # PID for CNS (when freezes)
@@ -163,6 +167,8 @@ alias updatesubs='git submodule foreach --recursive git fetch'
 alias gbranchdate="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
 # git branches for all subdirs
 alias brall='for dir in $(ls -d */);do (cd $dir && echo "$dir [$(git rev-parse --abbrev-ref HEAD)]") ; done'
+# clean all merged branches
+alias git_clean_merged='git checkout master | git branch --merged| egrep -v "(^\*|master|fi)" | xargs git branch -d'
 
 # Gem Commands
 alias audit='gem list'
