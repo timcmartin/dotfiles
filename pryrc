@@ -108,6 +108,7 @@ begin
   # Pry.config.print = proc { |output, value| output.puts value.ai }
   AwesomePrint.pry!
 rescue LoadError => err
+  puts err
   puts "no awesome_print :("
 end
 
