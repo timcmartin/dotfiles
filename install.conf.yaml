@@ -1,34 +1,30 @@
 - clean:
     - "~"
+- create:
+    ~/.vimbackupdir
 
 - link:
     ~/.agignore:
       relink: true
       path: agignore
-    ~/.aws:
-      relink: true
-      path: aws/
-    ~/.gitignore_global:
-      relink: true
-      path: gitignore_global
     ~/.bash_aliases:
       relink: true
       path: bash_aliases
     ~/.bashrc:
       relink: true
       path: bashrc
-    ~/.ctags:
-      relink: true
-      path: ctags
     ~/.gemrc:
       relink: true
       path: gemrc
-    ~/.git_template:
-      relink: true
-      path: git_template/
     ~/.gitconfig:
       relink: true
       path: gitconfig
+    ~/.gitignore_global:
+      relink: true
+      path: gitignore_global
+    ~/.ignore:
+      relink: true
+      path: ignore
     ~/.irbrc:
       relink: true
       path: irbrc
@@ -44,42 +40,45 @@
     ~/.rspec:
       relink: true
       path: rspec
+    ~/.thymerc:
+      relink: true
+      path: thymerc
     ~/.tmux.conf:
       relink: true
       path: tmux.conf
     ~/.todo.cfg:
       relink: true
       path: todo.cfg
-    ~/.vim:
-      relink: true
-      path: vim/
     ~/.vimrc:
       relink: true
       path: vimrc
     ~/.watchr.rb:
       relink: true
       path: watchr.rb
-    ~/.zsh:
-      relink: true
-      path: zsh
     ~/.zshrc:
       relink: true
       path: zshrc
-    ~/.vimbundles:
+    ~/.aws:
       relink: true
-      path: vimbundles/
-    ~/.vimbackupdir:
+      path: aws/
+    ~/.git_template:
       relink: true
-      path: vimbackupdir/
-    ~/.thymerc:
-      relink: true
-      path: thymerc
-    ~/.tmuxinator:
-      relink: true
-      path: tmuxinator/
+      path: git_template/
     ~/.rake:
       relink: true
       path: rake/
+    ~/.tmuxinator:
+      relink: true
+      path: tmuxinator/
+    ~/.vim:
+      relink: true
+      path: vim/
+    ~/.vimbundles:
+      relink: true
+      path: vimbundles/
+    ~/.zsh:
+      relink: true
+      path: zsh/
 
 - shell:
     -
