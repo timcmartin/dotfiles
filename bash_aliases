@@ -129,46 +129,23 @@ alias ll='exa -l --git'
 alias ls='ls -G'
 alias lsa='ls -lah'
 
-# Git Commands
-alias g='git'
+# Git Commands -> See also ~/.oh-my-zsh/plugins/git/git.plugin.zsh
 alias gac='git add . -A && git commit'
 alias gadd='git add .'
-# This one conflicts with oh-my-zsh git completion
-alias gap='git add -p'
-alias gbr='git branch'
-alias gbra='git branch -a'
-alias gc='git commit'
-alias gci='git commit -am'
-alias gcl='git clone'
-alias gco='git checkout'
-alias gd='git diff'
-alias gdel='git add -u'
-alias gdf='clear; git diff -a -w'
-alias gf='git flow'
-alias gfull='clear; git status; git add .; git add -u; echo "****************"; git status; git ci -am'
-alias gl='git pull'
-alias glog='clear; git log'
-alias gfl='git log -u'
-alias gwho='git shortlog -s --'
-alias gme='git merge --no-ff'
-alias gmv='git mv'
-alias gp='git push'
+alias gaddp='git add -p'
 alias gpull='git pull'
 alias gpush='git push'
 alias greset='git reset --hard HEAD && git clean -fd'
-alias grm='git rm'
 alias gst='git status'
-alias gtr="git tr"
-alias gtree="git tree"
 alias gtrim="sed -i '' -e 's/[[:space:]]*$//g'"
-alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 alias glastfive="git reflog | egrep -io \"moving from ([^[:space:]]+)\" | awk '{ print $3 }' | head -n5"
-alias updatesubs='git submodule foreach --recursive git fetch'
-alias gbranchdate="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
 # git branches for all subdirs
 alias brall='for dir in $(ls -d */);do (cd $dir && echo "$dir [$(git rev-parse --abbrev-ref HEAD)]") ; done'
 # clean all merged branches
 alias git_clean_merged='git checkout master | git branch --merged| egrep -v "(^\*|master|fi)" | xargs git branch -d'
+alias gbranchdate="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
+alias updatesubs='git submodule foreach --recursive git fetch'
+alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 
 # Gem Commands
 alias audit='gem list'
