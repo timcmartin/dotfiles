@@ -1,13 +1,21 @@
 # Dotfiles
 
 This repository borrows heavily from [jcarley/dotmatrix](https://github.com/jcarley/dotmatrix),
-but was tweaked for use with [Dotbot](https://github.com/anishathalye/dotbot).
+but was tweaked for use with [Dotbot](https://github.com/anishathalye/dotbot) and [Strap](https://github.com/timcmartin/strap).
 
 This config makes use of powerline and tmux-powerline.
 
 I have included my preferred vimbundles as a submodule.  Upon running ./install, it will init and update all vimbundles as well.
 
-## Setup:
+## Preferred Setup:
+
+1. `git clone https://github.com/timcmartin/strap`
+2. edit `bin/strap.sh` to have the correct Github credentials.
+3. Run `bash bin/strap.sh`
+
+Strap has been forked from the original repo and modified to work with Dotbot.
+
+## Secondary Setup:
 
 `git clone --recursive https://github.com/timcmartin/dotfiles.git ~/Dotfiles && cd ~/Dotfiles && ./install`
 
@@ -34,19 +42,9 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 
 ## Other Things to Install
 
-### Home Brew:
 * iTerm2
-* the_silver_searcher
-* tmux
-* todo-txt
-* vim
-* python
 * Node.js
-
-### Other
 * oh-my-zsh
-* xcode
-* rbenv - with Getty setup
 * Alfred
 * Bartender
 * iStat menus
@@ -55,7 +53,6 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 * AnyConnect
 * Keeping You Awake
 * Muzzle
-* Better Snap Tool
 * Fork
 * 1Password
 * AWS config
