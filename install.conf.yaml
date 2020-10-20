@@ -79,6 +79,4 @@
       path: zsh/
 
 - shell:
-    -
-      - "git submodule update --init --recursive git fetch"
-      - "Installing submodules"
+  - [git submodule update --init --recursive, Installing submodules]
