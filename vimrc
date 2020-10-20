@@ -44,7 +44,6 @@ colorscheme jellybeans-tim
 " colorscheme jellybeans-joel
 " colorscheme jellybeans
 " colorscheme solarized
-" colorscheme codedark
 " colorscheme afterglow
 " colorscheme papercolor
 " colorscheme deepsea
