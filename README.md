@@ -31,3 +31,29 @@ Dotbot will update the submodules and create the requisite symlinks.
 To edit the functionality, of Dotbot, edit the `install.conf.yaml` file.
 
 See [Dotbot](https://github.com/anishathalye/dotbot) for more information and examples.
+
+## Other Things to Install
+
+### Home Brew:
+* iTerm2
+* the_silver_searcher
+* tmux
+* todo-txt
+* vim
+* python
+* Node.js
+
+### Other
+* oh-my-zsh
+* xcode
+* rbenv - with Getty setup
+* Alfred
+* Bartender
+* iStat menus
+* Dropbox
+* Slack
+* AnyConnect
+* Keeping You Awake
+* Muzzle
+* Better Snap Tool
+* Fork
