@@ -7,4 +7,4 @@
 	url = https://github.com/timcmartin/fonts
 [submodule "vimbundles"]
 	path = vimbundles
-	url = https://github.com/timcmartin/vimbundles.git
+	url = https://github.com/timcmartin/vimbundles
