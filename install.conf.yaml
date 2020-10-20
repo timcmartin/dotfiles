@@ -18,7 +18,7 @@
       relink: true
       path: gemrc
     ~/.gitconfig:
-      relink: true
+      force: true
       path: gitconfig
     ~/.gitignore_global:
       relink: true
