@@ -57,3 +57,4 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 * Muzzle
 * Better Snap Tool
 * Fork
+* 1Password

@@ -1,7 +1,7 @@
 - clean:
     - "~"
 - create:
-    ~/.vimbackupdir
+    - ~/.vimbackupdir
 
 - link:
     ~/.agignore:
