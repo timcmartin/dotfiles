@@ -9,7 +9,7 @@ I have included my preferred vimbundles as a submodule.  Upon running ./install,
 
 ## Setup:
 
-`git clone https://github.com/timcmartin/dotfiles.git ~/Dotfiles && cd ~/Dotfiles && ./install`
+`git clone --recursive https://github.com/timcmartin/dotfiles.git ~/Dotfiles && cd ~/Dotfiles && ./install`
 
 1. git clone this project
 
