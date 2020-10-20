@@ -58,3 +58,4 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 * Better Snap Tool
 * Fork
 * 1Password
+* AWS config

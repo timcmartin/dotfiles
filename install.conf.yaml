@@ -2,6 +2,7 @@
     - "~"
 - create:
     - ~/.vimbackupdir
+    - ~/.aws
 
 - link:
     ~/.agignore:
@@ -58,9 +59,6 @@
     ~/.zshrc:
       relink: true
       path: zshrc
-    ~/.aws:
-      relink: true
-      path: aws/
     ~/.git_template:
       relink: true
       path: git_template/
