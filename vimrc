@@ -1,8 +1,88 @@
-execute pathogen#infect('~/.vimbundles/{}')
-
-if exists('g:loaded_pathogen')
-  call pathogen#helptags()
+" :PlugInstall, :PlugUpdate, :PlugClean
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
 endif
+call plug#begin('~/.vim/plugged')
+
+" ---------- plugins ---------
+Plug 'mileszs/ack.vim'
+Plug 'dense-analysis/ale'
+Plug 'jiangmiao/auto-pairs'
+Plug 'mattn/calendar-vim'
+Plug 'junegunn/fzf.vim'
+Plug 'gregsexton/gitv'
+Plug 'Yggdroot/indentLine'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'mortice/pbcopy.vim'
+Plug 'bbatsov/rubocop'
+Plug 'csexton/snipmate.vim'
+Plug 'ervandew/supertab'
+Plug 'AndrewRadev/switch.vim'
+Plug 'scrooloose/syntastic'
+Plug 'godlygeek/tabular'
+Plug 'majutsushi/tagbar'
+Plug 'edkolev/tmuxline.vim'
+Plug 'freitass/todo.txt-vim'
+Plug 'csexton/trailertrash.vim'
+Plug 'jgdavey/tslime.vim'
+Plug 'tpope/vim-abolish'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'paranoida/vim-airlineish'
+Plug 'burnettk/vim-angular'
+Plug 'jgdavey/vim-blockle'
+Plug 'duff/vim-bufonly'
+Plug 'tpope/vim-bundler'
+Plug 'alvan/vim-closetag'
+Plug 'timcmartin/vim-colorschemes'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-dotenv'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'tpope/vim-haml'
+Plug 'aquach/vim-http-client'
+Plug 'w0ng/vim-hybrid'
+Plug 'wgibbs/vim-irblack'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'leshill/vim-json'
+Plug 'plasticboy/vim-markdown'
+Plug 'andymass/vim-matchup'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tpope/vim-projectionist'
+Plug 'therubymug/vim-pyte'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'jgdavey/vim-railscasts'
+Plug 'tpope/vim-rake'
+Plug 'clarke/vim-renumber'
+Plug 'tpope/vim-repeat'
+Plug 'thoughtbot/vim-rspec'
+Plug 'vim-ruby/vim-ruby'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'mhinz/vim-signify'
+Plug 'slim-template/vim-slim'
+Plug 'adamlowe/vim-slurper'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'skalnik/vim-vroom'
+Plug 'posva/vim-vue'
+Plug 'wesQ3/vim-windowswap'
+Plug 'vimwiki/vimwiki'
+" https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+" Initialize plugin system
+call plug#end()
 
 " General behavior
 behave xterm
@@ -40,13 +120,6 @@ set background=dark
 set t_Co=256
 " current colorscheme
 colorscheme jellybeans-tim
-" old colorschemes
-" colorscheme jellybeans-joel
-" colorscheme jellybeans
-" colorscheme solarized
-" colorscheme afterglow
-" colorscheme papercolor
-" colorscheme deepsea
 filetype plugin indent on
 filetype plugin on
 
@@ -68,7 +141,6 @@ set noshowmode
 let g:airline_powerline_fonts = 1
 " Last used buffers
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline_theme = 'powerlineish'
 let g:airline_theme = 'afterglow'
 
 " Make Vim awesomer
@@ -221,13 +293,13 @@ augroup fzf
 augroup END
 
 " Gutentags
-let g:gutentags_add_default_project_roots = 0 
+let g:gutentags_add_default_project_roots = 0
 let g:gutentags_project_root = ['package.json', '.git']
 let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
 let g:gutentags_generate_on_write = 1
-let g:gutentags_generate_on_new = 1 
-let g:gutentags_generate_on_missing = 1 
-let g:gutentags_generate_on_write = 1 
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_empty_buffer = 1
 let g:gutentags_ctags_extra_args = [ '--tag-relative=yes', '--fields=+ailmnS' ]
 let g:gutentags_ctags_exclude = [ '.git', '.svg', '.hg', '/tests/', '/spec/', 'build', 'dist', 'sites//files/', 'bin', 'node_modules', 'bower_components', 'cache', 'compiled', 'docs', 'example', 'bundle', 'vendor', '.md', '-lock.json', '.lock', 'bundle.js', 'build.js', '.rc', '.json', '.min.', '.map', '.bak', '.zip', '.pyc', '.class', '.sln', '.Master', '.csproj', '.tmp', '.csproj.user', '.cache', '.pdb', 'tags', 'cscope.', '.css', '.less', '.scss', '.exe', '.dll', '.mp3', '.ogg', '.flac', '.swp', '.swo', '.bmp', '.gif', '.ico', '.jpg', '.png', '.rar', '.zip', '.tar', '.tar.gz', '.tar.xz', '.tar.bz2', '.pdf', '.doc', '.docx', '.ppt', '.pptx' ]

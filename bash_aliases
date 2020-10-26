@@ -132,7 +132,8 @@ alias lsa='ls -lah'
 # Git Commands -> See also ~/.oh-my-zsh/plugins/git/git.plugin.zsh
 alias gac='git add . -A && git commit'
 alias gadd='git add .'
-alias gaddp='git add -p'
+# Note - I used to call this `gap` but oh-my-zsh overrides it
+alias gapp='git add -p'
 alias gpull='git pull'
 alias gpush='git push'
 alias greset='git reset --hard HEAD && git clean -fd'
