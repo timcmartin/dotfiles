@@ -74,7 +74,6 @@ Plug 'skalnik/vim-vroom'
 Plug 'posva/vim-vue'
 Plug 'wesQ3/vim-windowswap'
 Plug 'vimwiki/vimwiki'
-Plug 'ycm-core/youcompleteme'
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -82,13 +81,11 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Initialize plugin system
 call plug#end()
 
-" YCM Code Completion
-nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <silent> <leader>rr :YcmCompleter RefactorRename<space>
+let g:coc_global_extensions = ['coc-json', 'coc-solargraph', 'coc-tsserver']
 
 " General behavior
 behave xterm
@@ -864,13 +861,23 @@ if executable("ag")
 endif
 
 " COC stuff
-" nnoremap <silent> K :call CocAction('doHover')<CR>
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gr <Plug>(coc-references)
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-" nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-" nmap <leader>do <Plug>(coc-codeaction)
-" nmap <leader>rn <Plug>(coc-rename)
+nnoremap <silent> K :call CocAction('doHover')<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
