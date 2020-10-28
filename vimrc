@@ -81,11 +81,14 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json','js','jsx','vim','rb']}
 " Initialize plugin system
 call plug#end()
 
 let g:coc_global_extensions = ['coc-json', 'coc-solargraph', 'coc-tsserver']
+
+autocmd BufNew,BufEnter *.json,*.vim,*.js,*.jsx,*.rb execute "silent! CocEnable"
+autocmd BufLeave *.json,*.vim,*.js,*.jsx,*.rb execute "silent! CocDisable"
 
 " General behavior
 behave xterm
