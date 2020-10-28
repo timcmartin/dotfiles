@@ -6,10 +6,11 @@ call plug#begin('~/.vim/plugged')
 
 " ---------- plugins ---------
 Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/calendar-vim'
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 Plug 'gregsexton/gitv'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
@@ -75,14 +76,21 @@ Plug 'skalnik/vim-vroom'
 Plug 'posva/vim-vue'
 Plug 'wesQ3/vim-windowswap'
 Plug 'vimwiki/vimwiki'
+Plug 'ycm-core/youcompleteme'
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 " Initialize plugin system
 call plug#end()
+
+" YCM Code Completion
+nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <silent> <leader>rr :YcmCompleter RefactorRename<space>
 
 " General behavior
 behave xterm
@@ -119,17 +127,18 @@ syntax on
 set background=dark
 set t_Co=256
 " current colorscheme
-colorscheme jellybeans-tim
+" colorscheme jellybeans-tim
+colorscheme molokai_tim
 filetype plugin indent on
 filetype plugin on
 
 " Transparent Linux Background // needs to go after colorscheme
-hi Normal guibg=NONE ctermbg=NONE
-hi NonText guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
+" hi NonText guibg=NONE ctermbg=NONE
 " Make line numbers red
-hi LineNr term=bold cterm=NONE ctermfg=DarkRed ctermbg=NONE gui=NONE guifg=DarkRed guibg=NONE
+" hi LineNr term=bold cterm=NONE ctermfg=DarkRed ctermbg=NONE gui=NONE guifg=DarkRed guibg=NONE
 " remove underline from line numbers and current line yellow
-hi CursorLineNr term=bold cterm=bold ctermfg=11 gui=bold
+" hi CursorLineNr term=bold cterm=bold ctermfg=11 gui=bold
 
 if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
@@ -338,17 +347,6 @@ command! Tags call s:tags()
 " Open tag in new window
 " nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 nnoremap <C-]> <C-w><C-]><C-w>T
-
-" rails specific mappings
-map <leader>gr :topleft :split config/routes.rb<cr>
-map <leader>gg :topleft 100 :split Gemfile<cr>
-
-" switch between last two files
-nnoremap <leader><leader> <c-^>
-
-" bubble text
-map <C-J> ddp
-map <C-K> ddkP
 
 " Map arrows to visual line movement
 noremap <buffer> <silent> <Up> gk
@@ -857,6 +855,7 @@ let g:ale_fix_on_save = 0
 let g:airline#extensions#ale#enabled = 1
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
+map <leader>at :ALEToggle<CR>
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
@@ -864,4 +863,16 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 if executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endi
+endif
+
+" COC stuff
+" nnoremap <silent> K :call CocAction('doHover')<CR>
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gr <Plug>(coc-references)
+" nmap <silent> [g <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+" nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+" nmap <leader>do <Plug>(coc-codeaction)
+" nmap <leader>rn <Plug>(coc-rename)
