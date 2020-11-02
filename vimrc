@@ -10,6 +10,7 @@ Plug 'rking/ag.vim'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/calendar-vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf'
 Plug 'gregsexton/gitv'
 Plug 'Yggdroot/indentLine'
@@ -81,14 +82,14 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json','js','jsx','vim','rb']}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Initialize plugin system
 call plug#end()
 
 let g:coc_global_extensions = ['coc-json', 'coc-solargraph', 'coc-tsserver']
 
-autocmd BufNew,BufEnter *.json,*.vim,*.js,*.jsx,*.rb execute "silent! CocEnable"
-autocmd BufLeave *.json,*.vim,*.js,*.jsx,*.rb execute "silent! CocDisable"
+autocmd BufNew,BufEnter *.wiki,*.md execute "silent! CocDisable"
+autocmd BufLeave *.wiki,*.md execute "silent! CocEnable"
 
 " General behavior
 behave xterm
@@ -862,6 +863,10 @@ if executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter> 
+au FileType md vmap <Leader><Bslash> :EasyAlign*<Bar><Enter> 
 
 " COC stuff
 nnoremap <silent> K :call CocAction('doHover')<CR>
