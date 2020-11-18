@@ -11,7 +11,9 @@ Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/calendar-vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'gregsexton/gitv'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
@@ -108,6 +110,9 @@ let localleader = '\'
 " Let's make escape better, together.
 inoremap jj <Esc>
 
+" Delete visual selection and paste default register
+vnoremap <leader>p "_dP
+
 " HTTP_CLIENT
 let g:http_client_bind_hotkey = 1
 
@@ -123,11 +128,9 @@ nnoremap <leader>h *<C-O>
 
 " Appearanace and colour
 syntax on
+colorscheme molokai_tim
 set background=dark
 set t_Co=256
-" current colorscheme
-" colorscheme jellybeans-tim
-colorscheme molokai_tim
 filetype plugin indent on
 filetype plugin on
 
@@ -286,6 +289,11 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDDefaultAlign = 'left'
 
+" Fugitive remaps
+nmap <leader>gs :G<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+
 " fzf
 set rtp+=/usr/local/opt/fzf
 let g:fzf_action = {
@@ -299,6 +307,9 @@ augroup fzf
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+nnoremap <leader>gb :GBranches<CR>
 
 " Gutentags
 let g:gutentags_add_default_project_roots = 0
