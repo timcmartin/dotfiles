@@ -10,7 +10,10 @@ Plug 'rking/ag.vim'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/calendar-vim'
-Plug 'junegunn/fzf'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'gregsexton/gitv'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdcommenter'
@@ -74,7 +77,6 @@ Plug 'skalnik/vim-vroom'
 Plug 'posva/vim-vue'
 Plug 'wesQ3/vim-windowswap'
 Plug 'vimwiki/vimwiki'
-Plug 'ycm-core/youcompleteme'
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -82,13 +84,14 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Initialize plugin system
 call plug#end()
 
-" YCM Code Completion
-nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <leader>gr :YcmCompleter GoToReferences<CR>
-nnoremap <silent> <leader>rr :YcmCompleter RefactorRename<space>
+let g:coc_global_extensions = ['coc-json', 'coc-solargraph', 'coc-tsserver']
+
+autocmd BufNew,BufEnter *.wiki,*.md execute "silent! CocDisable"
+autocmd BufLeave *.wiki,*.md execute "silent! CocEnable"
 
 " General behavior
 behave xterm
@@ -107,6 +110,9 @@ let localleader = '\'
 " Let's make escape better, together.
 inoremap jj <Esc>
 
+" Delete visual selection and paste default register
+vnoremap <leader>p "_dP
+
 " HTTP_CLIENT
 let g:http_client_bind_hotkey = 1
 
@@ -122,11 +128,9 @@ nnoremap <leader>h *<C-O>
 
 " Appearanace and colour
 syntax on
+colorscheme molokai_tim
 set background=dark
 set t_Co=256
-" current colorscheme
-" colorscheme jellybeans-tim
-colorscheme molokai_tim
 filetype plugin indent on
 filetype plugin on
 
@@ -285,6 +289,11 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDDefaultAlign = 'left'
 
+" Fugitive remaps
+nmap <leader>gs :G<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
+
 " fzf
 set rtp+=/usr/local/opt/fzf
 let g:fzf_action = {
@@ -298,6 +307,9 @@ augroup fzf
   autocmd  FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 augroup END
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+nnoremap <leader>gb :GBranches<CR>
 
 " Gutentags
 let g:gutentags_add_default_project_roots = 0
@@ -863,14 +875,28 @@ if executable("ag")
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter> 
+au FileType md vmap <Leader><Bslash> :EasyAlign*<Bar><Enter> 
+
 " COC stuff
-" nnoremap <silent> K :call CocAction('doHover')<CR>
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gy <Plug>(coc-type-definition)
-" nmap <silent> gr <Plug>(coc-references)
-" nmap <silent> [g <Plug>(coc-diagnostic-prev)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-" nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
-" nmap <leader>do <Plug>(coc-codeaction)
-" nmap <leader>rn <Plug>(coc-rename)
+nnoremap <silent> K :call CocAction('doHover')<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction

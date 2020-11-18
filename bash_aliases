@@ -52,7 +52,7 @@ alias gifixtures='be rake fixtures'
 alias gitestfixtures='RAILS_ENV=test be rake fixtures'
 alias gikarma='yarn test'
 alias gikarmabrowser='yarn debug-test'
-alias givim='vim -O ~/Dropbox/vimwiki/getty/index.wiki ~/Dropbox/vimwiki/getty/diary/diary.wiki'
+alias givim='vim -O ~/Dropbox/vimwiki/getty/diary/diary.wiki'
 alias hosts='sudo vim /etc/hosts'
 alias iptables="sudo iptables -L --line-numbers"
 alias iptablesdrop="sudo iptables -D ciscovpn "
@@ -66,6 +66,8 @@ alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd 
 alias caretm='stty sane'
 # Cleanup vim backup dir not used in past 7 days
 alias cleanvim="find ~/.vimbackupdir -type f -name '*.*' -not \( -atime 0 -or -atime 1 -or -atime 2 -or -atime 3 -or -atime 4 -or -atime 5 -or -atime 6 \) -delete"
+# Clear You've got mail
+alias cleanmail="sudo cat /dev/null > /var/mail/tmartin"
 
 # Bash Commands
 alias aliasedit='vim ~/.bash_aliases'
