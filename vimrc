@@ -38,6 +38,7 @@ Plug 'leshill/vim-json'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/calendar-vim'
+Plug 'mbbill/undotree'
 Plug 'mhinz/vim-signify'
 Plug 'mileszs/ack.vim'
 Plug 'mortice/pbcopy.vim'
@@ -73,6 +74,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-ruby/vim-ruby'
+Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'vimwiki/vimwiki'
 Plug 'w0ng/vim-hybrid'
 Plug 'wesQ3/vim-windowswap'
@@ -113,6 +115,9 @@ inoremap jj <Esc>
 " Delete visual selection and paste default register
 vnoremap <leader>p "_dP
 
+" Undotree
+nnoremap <leader>u :UndotreeShow<CR>
+
 " HTTP_CLIENT
 let g:http_client_bind_hotkey = 1
 
@@ -152,7 +157,36 @@ set noshowmode
 let g:airline_powerline_fonts = 1
 " Last used buffers
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ctrlspace#enabled = 1
 let g:airline_theme = 'afterglow'
+set hidden
+
+" CtrlSpace
+if has('win32')
+    let s:vimfiles = '~/vimfiles'
+    let s:os   = 'windows'
+else
+    let s:vimfiles = '~/.vim'
+    if has('mac') || has('gui_macvim')
+        let s:os = 'darwin'
+    else
+    " elseif has('gui_gtk2') || has('gui_gtk3')
+        let s:os = 'linux'
+    endif
+endif
+
+let g:CtrlSpaceFileEngine = s:vimfiles . '/plugged/vim-ctrlspace' . '/bin/file_engine_' . s:os . '_amd64'
+let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
+let g:CtrlSpaceUseTabline = 1
+" Does not appear to work
+" let g:CtrlSpaceDefaultMappingKey = "<C-space> "
+" This does though
+map <C-space> :CtrlSpace
+hi link CtrlSpaceNormal   PMenu
+hi link CtrlSpaceSelected PMenuSel
+hi link CtrlSpaceSearch   Search
+hi link CtrlSpaceStatus   StatusLine
+hi link CtrlSpaceSearch   IncSearch
 
 " Make Vim awesomer
 set autoindent
@@ -199,11 +233,8 @@ set cursorline    " Supposed to Show a line under the cursor line
                   " Instead makes the line number coloured
 set scrolloff=3   " Keep three lines below the last line when scrolling
 
-" Persistent Undo
-if has('persistent_undo')
-  set undodir=~/.vimbackupdir/.undo
-  set undofile
-endif
+set undodir=~/.vimbackupdir/.undo
+set undofile
 
 " File type highlighting
 au! BufRead,BufNewFile *.rb
@@ -851,8 +882,8 @@ let g:used_javascript_libs = 'jquery, angularjs, angularui, angularuirouter, jas
 let g:instant_markdown_autostart=0
 nmap \md :InstantMarkdownPreview<CR>
 
-" Insert puts caller
-nnoremap <leader>wtf oputs "#" * 90<c-m>puts caller<c-m>puts "#" * 90<esc>
+" Insert puts caller - useful in Ruby files
+nnoremap <leader>wtf oputs "#{'@' * 100}\n #{caller_locations(1,1)[0].label} \n#{'@' * 100}"<esc>
 
 " Ale
 let g:ale_lint_on_enter = 0
