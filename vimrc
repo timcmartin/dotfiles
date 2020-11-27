@@ -17,6 +17,7 @@ set hidden
 set ignorecase smartcase
 set incsearch hlsearch
 set laststatus=2
+set listchars=tab:⇀\ ,trail:␠
 set matchpairs+=<:>
 set nobackup
 set nocompatible
@@ -48,6 +49,27 @@ set clipboard=unnamed
 xnoremap p pgvy
 " Delete visual selection and paste default register
 vnoremap <leader>p "_dP
+" Yank entire buffer with gy
+nmap gy :%y+<cr>
+" Make Y behave like other capital commands.
+nnoremap Y y$
+
+" Paste using Paste Mode
+" Keeps indentation from source.
+" ---------------
+function! PasteWithPasteMode()
+  if &paste
+    normal p
+  else
+    " Enable paste mode and paste the text, then disable paste mode.
+    set paste
+    normal p
+    set nopaste
+  endif
+endfunction
+
+command! PasteWithPasteMode call PasteWithPasteMode()
+nmap <silent> <leader>p :PasteWithPasteMode<CR>
 
 " Ruby Styleguide
 set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
@@ -69,21 +91,40 @@ call plug#begin('~/.vim/plugged')
 
 " ---------- plugins ---------
 Plug 'AndrewRadev/switch.vim'
+Plug 'axelf4/vim-strip-trailing-whitespace'
 Plug 'Yggdroot/indentLine'
 Plug 'edkolev/tmuxline.vim'
 Plug 'freitass/todo.txt-vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'jgdavey/tslime.vim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'timcmartin/vim-afterglow'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'vim-ruby/vim-ruby'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'vimwiki/vimwiki'
+" https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Initialize plugin system
 call plug#end()
@@ -94,9 +135,44 @@ let g:switch_mapping = "-"
 
 " Yggdroot/indentLine
 let g:indentLine_color_term = 239
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+" junegunn/vim-easy-align
+au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
+au FileType md vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 
 " mbbill/undotree
 nnoremap <leader>u :UndotreeShow<CR>
+
+" neoclide/coc.nvim
+let g:coc_global_extensions = ['coc-json', 'coc-solargraph', 'coc-tsserver']
+nnoremap <silent> K :call CocAction('doHover')<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
+nmap <leader>do <Plug>(coc-codeaction)
+nmap <leader>rn <Plug>(coc-rename)
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" jgdavey/tslime.vim
+let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
+map <leader>t :call RunCurrentSpecFile()<CR>
+map <leader>s :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()<CR>
+map <leader>as :call RunAllSpecs()<CR>
 
 " scrooloose/nerdcommenter
 nmap \\ <plug>NERDCommenterToggle<CR>
@@ -111,8 +187,8 @@ let g:NERDDefaultAlign = 'left'
 map <silent> <leader>f :NERDTree<CR>:wincmd l<CR>:NERDTreeFind<CR>
 map <leader>dc :NERDTreeTabsClose<cr>
 map <leader>do :NERDTree<cr>
-nnoremap <silent><c-n> :NERDTreeTabsToggle<cr>
-vnoremap <silent><c-n> :NERDTreeTabsToggle<cr>
+nnoremap <silent><C-n> :NERDTreeTabsToggle<cr>
+vnoremap <silent><C-n> :NERDTreeTabsToggle<cr>
 let NERDChristmasTree = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeShowBookmarks = 1
@@ -128,8 +204,12 @@ nmap \md :InstantMarkdownPreview<CR>
 nmap \ms :InstantMarkdownStop<CR>
 
 " junegunn/fzf
-nnoremap <c-p> :FZF<cr>
+nnoremap <C-p> :Files<cr>
+nnoremap <C-g> :Rg<cr>
+
 let $FZF_DEFAULT_OPTS='--reverse'
+let $FZF_DEFAULT_COMMAND='rg --files'
+
 let g:fzf_action = {
       \ 'ctrl-t': 'tab split',
       \ 'ctrl-x': 'split',
@@ -155,11 +235,18 @@ colorscheme afterglow
 set background=dark
 set t_Co=256
 
+" tpope/vim-fugitive
+nnoremap <leader>gs :G<CR>
+nnoremap <leader>gb :GBranches<CR>
+nnoremap <leader>gj :diffget //3<CR>
+nnoremap <leader>gf :diffget //2<CR>
+
 " vim-airline/vim-airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#ctrlspace#enabled=1
 let g:airline#extensions#tmuxline#enabled=1
+let g:airline#extensions#coc#enabled=1
 let airline#extensions#tabline#disable_refresh=0
 " timcmartin/vim-afterglow
 let g:airline_theme='afterglow'
@@ -182,6 +269,12 @@ hi link CtrlSpaceSelected PMenuSel
 hi link CtrlSpaceSearch   Search
 hi link CtrlSpaceStatus   StatusLine
 hi link CtrlSpaceSearch   IncSearch
+
+if executable("ag")
+  let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+endif
+
+let g:CtrlSpaceIgnoredFiles = '\v(tmp|temp|node_modules)[\/]'
 
 " vimwiki/vimwiki
 " AWS
@@ -281,8 +374,10 @@ let g:automatic_nested_syntaxes = 1
 if has ('autocmd')
  augroup Vimwiki
     autocmd!
-    au BufRead,BufNewFile *.wiki set filetype=vimwiki
+    au BufRead,BufNewFile,BufNew,BufEnter *.wiki set filetype=vimwiki
     au FileType vimwiki map <leader>d :VimwikiMakeDiaryNote
+    au BufNew,BufEnter *.wiki,*.md execute "silent! CocDisable"
+    au BufLeave *.wiki,*.md execute "silent! CocEnable"
   augroup END
 endif
 
@@ -293,19 +388,30 @@ inoremap <F5> <C-R>=strftime("%b %d, %Y")<CR>
 
 " Escape
 inoremap jj <Esc>
-
 " Semicolon
 map ; :
 noremap ;; ;
 
-" Relative Filename
-nnoremap <Leader>fn :let @+ = expand("%")<CR>
-
+" Gitbook formatting convenience
 " Format txt
 nnoremap <Leader>txt :set ft=txt<CR>
-
 " Format md
 nnoremap <Leader>md :set ft=markdown<CR>
+
+" Jumping to end / beginning of lines
+noremap H ^
+noremap L $
+
+" Last cursor position
+if has("autocmd")
+  augroup Cursor_Position
+    autocmd!
+    autocmd BufReadPost *
+      \ if line("'\"") > 1 && line ("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
+  augroup END
+endif
 
 " ---- Managing Tabs & Navigation ----
 map <leader>tn :tabnew<cr>
@@ -326,14 +432,35 @@ nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 
+" Relative Filename
+nnoremap <Leader>fn :let @+ = expand("%")<CR>
+
+" Ruby
+" Look for Todos
+noremap <Leader>tt :noautocmd vimgrep /TODO/j **/*.rb<CR>:cw<CR>
+" Insert puts caller
+nnoremap <leader>wtf oputs "#{'@' * 100}\n #{caller_locations(1,1)[0].label} \n#{'@' * 100}"<esc>
+" Switch from ruby 1.8 hash to ruby 1.9 hash
+map <silent> <leader>rh :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
+
+" Sass highlighting for slim files
+autocmd BufNewFile,BufRead *.slim set ft=sass
+
 " Search
 " remove highlight from search matches
 nmap <silent><leader>/ :nohlsearch<CR>
 " Search for highlighted text with //
 vnoremap // y/<C-R>"<CR>
+" Highlight search word under cursor without jumping to next
+nnoremap <leader>h *<C-O>
 
-" make it easy to load todo.txt
+" todo.txt - make it easy
 nnoremap <leader>te :vsplit $HOME/Dropbox/Apps/Todotxt+/todo.txt<cr>
+
+" Untitled Documents
+if has("autocmd")
+  autocmd FocusLost silent! :wa
+endif
 
 " vimrc
 " make it easy to source and load vimrc
@@ -345,3 +472,4 @@ if has ('autocmd')
     autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw |  AirlineRefresh
   augroup END
 endif
+
