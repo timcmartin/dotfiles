@@ -271,7 +271,7 @@ hi link CtrlSpaceStatus   StatusLine
 hi link CtrlSpaceSearch   IncSearch
 
 if executable("ag")
-  let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
+  let g:CtrlSpaceGlobCommand = 'rg --files ""'
 endif
 
 let g:CtrlSpaceIgnoredFiles = '\v(tmp|temp|node_modules)[\/]'
