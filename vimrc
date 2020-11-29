@@ -130,7 +130,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
@@ -271,38 +270,11 @@ nnoremap <localleader>sd :Obsess!<CR>
 " vim-airline/vim-airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#ctrlspace#enabled=1
 let g:airline#extensions#tmuxline#enabled=1
 let g:airline#extensions#coc#enabled=1
 let airline#extensions#tabline#disable_refresh=0
 " timcmartin/vim-afterglow
 let g:airline_theme='afterglow'
-
-" vim-ctrlspace/vim-ctrlspace
-let s:vimfiles = '~/.vim'
-if has('mac') || has('gui_macvim')
-  let s:os = 'darwin'
-else
-  " elseif has('gui_gtk2') || has('gui_gtk3')
-  let s:os = 'linux'
-endif
-
-let g:CtrlSpaceFileEngine = s:vimfiles . '/plugged/vim-ctrlspace' . '/bin/file_engine_' . s:os . '_amd64'
-let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
-let g:CtrlSpaceUseTabline = 1
-let g:CtrlSpaceSearchTiming = 500
-map <C-space> :CtrlSpace
-hi link CtrlSpaceNormal   PMenu
-hi link CtrlSpaceSelected PMenuSel
-hi link CtrlSpaceSearch   Search
-hi link CtrlSpaceStatus   StatusLine
-hi link CtrlSpaceSearch   IncSearch
-
-if executable("ag")
-  let g:CtrlSpaceGlobCommand = 'rg --files ""'
-endif
-
-let g:CtrlSpaceIgnoredFiles = '\v(tmp|temp|node_modules)[\/]'
 
 " vimwiki/vimwiki
 " AWS
