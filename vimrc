@@ -157,9 +157,8 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 nnoremap <leader>u :UndotreeShow<CR>
 
 " neoclide/coc.nvim
-let g:coc_global_extensions = ['coc-json', 'coc-solargraph', 'coc-tsserver', 'coc-eslint', 'coc-prettier','coc-yaml']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier','coc-yaml']
 let g:coc_disable_transparent_cursor = 1
-let g:WorkspaceFolders = ['/Users/tmartin/src/getty/unisporkal/customer-notifications-microservice', '/Users/tmartin/src/getty/unisporkal/gems/unisporkal_engine', '/Users/tmartin/src/getty/unisporkal/account', '/Users/tmartin/src/getty/unisporkal/asset_detail', '/Users/tmartin/src/getty/unisporkal/builder', '/Users/tmartin/src/getty/unisporkal/collaboration', '/Users/tmartin/src/getty/unisporkal/container', '/Users/tmartin/src/getty/unisporkal/curated-image-uploader', '/Users/tmartin/src/getty/unisporkal/customer-notifications-microservice', '/Users/tmartin/src/getty/unisporkal/customer-notifications-state', '/Users/tmartin/src/getty/unisporkal/landing', '/Users/tmartin/src/getty/unisporkal/misc_admin', '/Users/tmartin/src/getty/unisporkal/purchase', '/Users/tmartin/src/getty/unisporkal/search', '/Users/tmartin/src/getty/unisporkal/sign_in', '/Users/tmartin/src/getty/unisporakl/gems/authentication', '/Users/tmartin/src/getty/unisporakl/gems/auto_suggest', '/Users/tmartin/src/getty/unisporakl/gems/consul_client', '/Users/tmartin/src/getty/unisporakl/gems/cookies', '/Users/tmartin/src/getty/unisporakl/gems/cousin_it', '/Users/tmartin/src/getty/unisporakl/gems/getty-advertisement', '/Users/tmartin/src/getty/unisporakl/gems/globalization', '/Users/tmartin/src/getty/unisporakl/gems/instrumentation', '/Users/tmartin/src/getty/unisporakl/gems/service_client', '/Users/tmartin/src/getty/unisporakl/gems/sites', '/Users/tmartin/src/getty/unisporakl/gems/unisporkal_build', '/Users/tmartin/src/getty/unisporakl/gems/unisporkal_styles']
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nmap <silent> gd <Plug>(coc-definition)
@@ -245,7 +244,6 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " stsewd/fzf-checkout.vim
-nnoremap <leader>gc :GCheckout<CR>
 nnoremap <leader>gb :GBranches<CR>
 
 " timcmartin/vim-afterglow
@@ -470,7 +468,7 @@ noremap <Leader>tt :noautocmd vimgrep /TODO/j **/*.rb<CR>:cw<CR>
 nnoremap <leader>wtf oputs "#{'@' * 100}\n #{caller_locations(1,1)[0].label} \n#{'@' * 100}"<esc>
 " Switch from ruby 1.8 hash to ruby 1.9 hash
 map <silent> <leader>rh :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
-
+" Rspec file if missing (see function below)
 map <leader>grs :call MakeRspecFileIfMissing()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
