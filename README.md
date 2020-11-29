@@ -56,3 +56,6 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 * Fork
 * 1Password
 * AWS config
+
+### Tmux Plugin Manager:
+`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`

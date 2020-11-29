@@ -1,0 +1,12 @@
+# ~/.tmuxinator/dotfiles.yml
+
+name: dotfiles
+root: ~/Dotfiles
+
+windows:
+  - dotfiles:
+      layout: main-vertical
+      panes:
+        - vim:
+          - dotfiles
+          - vim

@@ -1,6 +1,6 @@
-# ~/.tmuxinator/ga-tracking.yml
+# ~/.tmuxinator/adp.yml
 
-name: ga-tracking
+name: adp
 root: ~/src/getty/unisporkal/asset_detail
 
 windows:
@@ -9,25 +9,17 @@ windows:
       panes:
         - vim:
           - givim
-  - engine:
-      layout: main-vertical
-      panes:
-        - engine-vim:
-          - engine
-          - vim
   - servers:
       layout: even-horizontal
       panes:
         - adp-rails:
-          - asset_detail
+          - adp
           - gir
         - adp-assets:
-          - asset_detail
+          - adp
           - giw
   - term:
       layout: main-vertical
       panes:
         - term-adp:
-          - asset_detail
-        - term-engine:
-          - engine
+          - adp

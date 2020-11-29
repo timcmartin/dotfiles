@@ -1,8 +1,9 @@
-" ---------- generic ---------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Generic Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin indent on
 syntax on
 
-" ----------- sets -----------
 set autoindent smartindent
 set autoread
 set backspace=indent,eol,start
@@ -28,7 +29,8 @@ set noswapfile
 set number relativenumber
 set ruler
 set scrolloff=5
-set shell=bash\ -i " instant_markdown
+" instant_markdown
+set shell=bash\ -i
 set shortmess+=c
 set showmatch
 set signcolumn=yes
@@ -44,7 +46,9 @@ set wildignore+=*.o,*.obj,.git,tmp/**,public/uploads/**,node_modules/**
 set wildmenu
 set wildmode=longest,list,full
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy/Paste Vim Tmux
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set clipboard=unnamed
 xnoremap p pgvy
 " Delete visual selection and paste default register
@@ -53,7 +57,6 @@ vnoremap <leader>p "_dP
 nmap gy :%y+<cr>
 " Make Y behave like other capital commands.
 nnoremap Y y$
-
 " Paste using Paste Mode
 " Keeps indentation from source.
 " ---------------
@@ -71,18 +74,26 @@ endfunction
 command! PasteWithPasteMode call PasteWithPasteMode()
 nmap <silent> <leader>p :PasteWithPasteMode<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ruby Styleguide
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
-" ----------- lets -----------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leaders
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 let localleader = '\'
 
-" ---------- env vars --------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Env Vars
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let $RTP=split(&runtimepath, ',')[0]
 let $RC="$HOME/.vimrc"
 
-" ----------- plug -----------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " :PlugInstall, :PlugUpdate, :PlugClean
 if empty(glob("~/.vim/autoload/plug.vim"))
   execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
@@ -91,8 +102,9 @@ call plug#begin('~/.vim/plugged')
 
 " ---------- plugins ---------
 Plug 'AndrewRadev/switch.vim'
-Plug 'axelf4/vim-strip-trailing-whitespace'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
+Plug 'axelf4/vim-strip-trailing-whitespace'
 Plug 'edkolev/tmuxline.vim'
 Plug 'freitass/todo.txt-vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -102,20 +114,23 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree'
+Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+Plug 'thoughtbot/vim-rspec'
 Plug 'timcmartin/vim-afterglow'
-Plug 'tpope/vim-git'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
-Plug 'vim-ruby/vim-ruby'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
 Plug 'pangloss/vim-javascript'
@@ -129,23 +144,23 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Initialize plugin system
 call plug#end()
 
-" ------- plugin mapping ------
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Mappings and Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AndrewRadev/switch.vim
 let g:switch_mapping = "-"
 
 " Yggdroot/indentLine
 let g:indentLine_color_term = 239
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-
-" junegunn/vim-easy-align
-au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-au FileType md vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
-
 " mbbill/undotree
 nnoremap <leader>u :UndotreeShow<CR>
 
 " neoclide/coc.nvim
-let g:coc_global_extensions = ['coc-json', 'coc-solargraph', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-json', 'coc-solargraph', 'coc-tsserver', 'coc-eslint', 'coc-prettier','coc-yaml']
+let g:coc_disable_transparent_cursor = 1
+let g:WorkspaceFolders = ['/Users/tmartin/src/getty/unisporkal/customer-notifications-microservice', '/Users/tmartin/src/getty/unisporkal/gems/unisporkal_engine', '/Users/tmartin/src/getty/unisporkal/account', '/Users/tmartin/src/getty/unisporkal/asset_detail', '/Users/tmartin/src/getty/unisporkal/builder', '/Users/tmartin/src/getty/unisporkal/collaboration', '/Users/tmartin/src/getty/unisporkal/container', '/Users/tmartin/src/getty/unisporkal/curated-image-uploader', '/Users/tmartin/src/getty/unisporkal/customer-notifications-microservice', '/Users/tmartin/src/getty/unisporkal/customer-notifications-state', '/Users/tmartin/src/getty/unisporkal/landing', '/Users/tmartin/src/getty/unisporkal/misc_admin', '/Users/tmartin/src/getty/unisporkal/purchase', '/Users/tmartin/src/getty/unisporkal/search', '/Users/tmartin/src/getty/unisporkal/sign_in', '/Users/tmartin/src/getty/unisporakl/gems/authentication', '/Users/tmartin/src/getty/unisporakl/gems/auto_suggest', '/Users/tmartin/src/getty/unisporakl/gems/consul_client', '/Users/tmartin/src/getty/unisporakl/gems/cookies', '/Users/tmartin/src/getty/unisporakl/gems/cousin_it', '/Users/tmartin/src/getty/unisporakl/gems/getty-advertisement', '/Users/tmartin/src/getty/unisporakl/gems/globalization', '/Users/tmartin/src/getty/unisporakl/gems/instrumentation', '/Users/tmartin/src/getty/unisporakl/gems/service_client', '/Users/tmartin/src/getty/unisporakl/gems/sites', '/Users/tmartin/src/getty/unisporakl/gems/unisporkal_build', '/Users/tmartin/src/getty/unisporakl/gems/unisporkal_styles']
+
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -169,10 +184,7 @@ endfunction
 
 " jgdavey/tslime.vim
 let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
-map <leader>t :call RunCurrentSpecFile()<CR>
-map <leader>s :call RunNearestSpec()<CR>
-map <leader>l :call RunLastSpec()<CR>
-map <leader>as :call RunAllSpecs()<CR>
+nnoremap <leader>us :unlet g:tslime<CR>
 
 " scrooloose/nerdcommenter
 nmap \\ <plug>NERDCommenterToggle<CR>
@@ -189,6 +201,8 @@ map <leader>dc :NERDTreeTabsClose<cr>
 map <leader>do :NERDTree<cr>
 nnoremap <silent><C-n> :NERDTreeTabsToggle<cr>
 vnoremap <silent><C-n> :NERDTreeTabsToggle<cr>
+" Refresh NERDTree to CWD
+nnoremap <leader>r :NERDTreeCWD<CR>
 let NERDChristmasTree = 1
 let NERDTreeHighlightCursorline = 1
 let NERDTreeShowBookmarks = 1
@@ -206,8 +220,9 @@ nmap \ms :InstantMarkdownStop<CR>
 " junegunn/fzf
 nnoremap <C-p> :Files<cr>
 nnoremap <C-g> :Rg<cr>
+nnoremap <C-b> :Buffers<cr>
 
-let $FZF_DEFAULT_OPTS='--reverse'
+let $FZF_DEFAULT_OPTS='--reverse --multi'
 let $FZF_DEFAULT_COMMAND='rg --files'
 
 let g:fzf_action = {
@@ -229,15 +244,24 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" stsewd/fzf-checkout.vim
+nnoremap <leader>gc :GCheckout<CR>
+nnoremap <leader>gb :GBranches<CR>
+
 " timcmartin/vim-afterglow
 let g:afterglow_inherit_background=1
 colorscheme afterglow
 set background=dark
 set t_Co=256
 
+" thoughtbot/vim-rspec
+map <leader>t :call RunCurrentSpecFile()<CR>
+map <leader>s :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()<CR>
+map <leader>as :call RunAllSpecs()<CR>
+
 " tpope/vim-fugitive
 nnoremap <leader>gs :G<CR>
-nnoremap <leader>gb :GBranches<CR>
 nnoremap <leader>gj :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
 
@@ -263,6 +287,7 @@ endif
 let g:CtrlSpaceFileEngine = s:vimfiles . '/plugged/vim-ctrlspace' . '/bin/file_engine_' . s:os . '_amd64'
 let g:CtrlSpaceStatuslineFunction = "airline#extensions#ctrlspace#statusline()"
 let g:CtrlSpaceUseTabline = 1
+let g:CtrlSpaceSearchTiming = 500
 map <C-space> :CtrlSpace
 hi link CtrlSpaceNormal   PMenu
 hi link CtrlSpaceSelected PMenuSel
@@ -381,7 +406,9 @@ if has ('autocmd')
   augroup END
 endif
 
-" ---- convenience mapping ----
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Convenience Mapping
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Date & Time
 nnoremap <F5> "=strftime("%b %d, %Y")<CR>P
 inoremap <F5> <C-R>=strftime("%b %d, %Y")<CR>
@@ -431,6 +458,7 @@ nnoremap td  :tabclose<CR>
 nmap <silent> <C-k> :wincmd k<CR>
 nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
+nmap <silent> <C-l> :wincmd l<CR>
 
 " Relative Filename
 nnoremap <Leader>fn :let @+ = expand("%")<CR>
@@ -442,6 +470,54 @@ noremap <Leader>tt :noautocmd vimgrep /TODO/j **/*.rb<CR>:cw<CR>
 nnoremap <leader>wtf oputs "#{'@' * 100}\n #{caller_locations(1,1)[0].label} \n#{'@' * 100}"<esc>
 " Switch from ruby 1.8 hash to ruby 1.9 hash
 map <silent> <leader>rh :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
+
+map <leader>grs :call MakeRspecFileIfMissing()<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Make Rspec file if Missing
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! MakeRspecFileIfMissing()
+ruby << EOF
+  class MakesRspecFileIfMissing
+    def self.for(buffer)
+      if spec_file?(buffer) || already_exists?(spec_for_buffer(buffer))
+        puts "Spec already exists"
+        return
+      end
+
+      system 'mkdir', '-p', directory_for_spec(buffer)
+      File.open(spec_for_buffer(buffer), File::WRONLY|File::CREAT|File::EXCL) do |file|
+      file.write "require 'spec_helper'"
+    end
+  end
+
+  private
+  def self.spec_file?(file)
+    file.match(/.*_spec.rb$/)
+  end
+
+  def self.already_exists?(b)
+    File.exists?(b)
+  end
+
+  def self.spec_for_buffer(b)
+    spec_buffer = b.sub('/app/', '/spec/app/')
+    spec_buffer.sub!('/lib/', '/spec/lib/')
+    spec_buffer.sub!('/rule/', '/spec/rule/')
+    spec_buffer.sub!('/chain/', '/spec/chain/')
+    spec_buffer.sub!('/priority/', '/spec/priority/')
+    spec_buffer.sub!('.rb', '_spec.rb')
+    return spec_buffer
+  end
+
+  def self.directory_for_spec(b)
+    File.dirname(self.spec_for_buffer(b))
+  end
+  end
+  buffer = VIM::Buffer.current.name
+  MakesRspecFileIfMissing.for(buffer)
+EOF
+endfunction
 
 " Sass highlighting for slim files
 autocmd BufNewFile,BufRead *.slim set ft=sass

@@ -2,7 +2,7 @@
 name: allapps
 root: ~/src/getty/unisporkal
 windows:
-  - a-l:
+  - a-c:
       layout: even-horizontal
       panes:
         - account:
@@ -14,12 +14,15 @@ windows:
         - collaboration:
           - cd collaboration
           - gst
+        - cns:
+          - cns
+          - gst
+  - l-s:
+      layout: even-horizontal
+      panes:
         - landing:
           - cd landing
           - gst
-  - p-s:
-      layout: even-horizontal
-      panes:
         - purchase:
           - cd purchase
           - gst

@@ -1,6 +1,6 @@
-# ~/.tmuxinator/fpo.yml
+# ~/.tmuxinator/purchase.yml
 
-name: fpo
+name: purchase
 root: ~/src/getty/unisporkal/purchase
 
 windows:
@@ -9,16 +9,10 @@ windows:
       panes:
         - vim:
           - givim
-  - engine:
-      layout: main-vertical
-      panes:
-        - engine-vim:
-          - engine
-          - vim
   - servers:
       layout: even-horizontal
       panes:
-        - purchse-rails:
+        - purchase-rails:
           - purchase
           - gir
         - purchase-assets:
@@ -29,5 +23,3 @@ windows:
       panes:
         - term-purchase:
           - purchase
-        - term-engine:
-          - engine

@@ -1,0 +1,25 @@
+# ~/.tmuxinator/account.yml
+
+name: account
+root: ~/src/getty/unisporkal/account
+
+windows:
+  - account:
+      layout: main-vertical
+      panes:
+        - vim:
+          - givim
+  - servers:
+      layout: even-horizontal
+      panes:
+        - account-rails:
+          - account
+          - gir
+        - account-assets:
+          - account
+          - giw
+  - term:
+      layout: main-vertical
+      panes:
+        - term-account:
+          - account
