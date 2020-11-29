@@ -124,6 +124,7 @@ Plug 'timcmartin/vim-afterglow'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
@@ -262,6 +263,10 @@ map <leader>as :call RunAllSpecs()<CR>
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gj :diffget //3<CR>
 nnoremap <leader>gf :diffget //2<CR>
+
+" tpope/vim-obsession
+nnoremap <localleader>s :Obsess<CR>
+nnoremap <localleader>sd :Obsess!<CR>
 
 " vim-airline/vim-airline
 let g:airline_powerline_fonts=1
@@ -547,3 +552,19 @@ if has ('autocmd')
   augroup END
 endif
 
+" Load session if it exists
+function! LoadSession()
+  let b:sessionfile = "Session.vim"
+  if (filereadable(b:sessionfile))
+    exe 'source ' b:sessionfile
+  else
+    echo "No session loaded."
+  endif
+endfunction
+
+if has ('autocmd')
+ augroup Source_Session
+    autocmd!
+    au VimEnter * nested :call LoadSession()
+  augroup END
+endif
