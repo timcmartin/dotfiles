@@ -4,7 +4,7 @@ name: gi
 root: ~/src/getty/unisporkal
 
 windows:
-  - gettyservers:
+  - proxy-dynamo:
       layout: even-vertical
       panes:
         - docker:
@@ -12,5 +12,12 @@ windows:
         - dynamo:
           - cd /Users/tmartin/src/getty/gi-local-dynamo
           - bin/start
-        - uni:
-          - ls
+  - landing:
+      layout: even-horizontal
+      panes:
+        - landing-rails:
+          - landing
+          - gir
+        - landing-assets:
+          - landing
+          - giw

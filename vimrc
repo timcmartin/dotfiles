@@ -19,6 +19,7 @@ set ignorecase smartcase
 set incsearch hlsearch
 set laststatus=2
 set listchars=tab:⇀\ ,trail:␠
+set linebreak
 set matchpairs+=<:>
 set nobackup
 set nocompatible
@@ -42,9 +43,10 @@ set titlestring='Powerslave'
 set undodir=~/.vim/undodir
 set undofile
 set whichwrap=b,s,h,l,<,>,[,]
-set wildignore+=*.o,*.obj,.git,tmp/**,public/uploads/**,node_modules/**
+set wildignore+=*.o,*.obj,.git,tmp/**,public/uploads/**,node_modules/**,config/locales/**
 set wildmenu
 set wildmode=longest,list,full
+set wrap
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy/Paste Vim Tmux
@@ -105,8 +107,10 @@ Plug 'AndrewRadev/switch.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 Plug 'axelf4/vim-strip-trailing-whitespace'
+Plug 'clarke/vim-renumber'
 Plug 'edkolev/tmuxline.vim'
 Plug 'freitass/todo.txt-vim'
+Plug 'gcmt/taboo.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jgdavey/tslime.vim'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -125,6 +129,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
@@ -153,8 +158,18 @@ let g:switch_mapping = "-"
 " Yggdroot/indentLine
 let g:indentLine_color_term = 239
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
 " mbbill/undotree
 nnoremap <leader>u :UndotreeShow<CR>
+
+" mhinz/vim-signify
+" Default maps in effect
+" ]c   Jump to the next hunk.
+" [c   Jump to the previous hunk.
+" ]C   Jump to the last hunk.
+" [C   Jump to the first hunk.
+nnoremap ]d :SignifyHunkDiff<CR>
+nnoremap ]D :SignifyHunkUndo<CR>
 
 " neoclide/coc.nvim
 let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier','coc-yaml']
@@ -170,6 +185,8 @@ nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 nmap <leader>do <Plug>(coc-codeaction)
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>cd :CocDisable<CR>
+nmap <leader>ce :CocEnable<CR>
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -270,11 +287,17 @@ nnoremap <localleader>sd :Obsess!<CR>
 " vim-airline/vim-airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tmuxline#enabled=1
+let g:airline#extensions#obsession#enabled=1
+" if enabled (1) overwrites tmux-theme
+let g:airline#extensions#tmuxline#enabled=0
 let g:airline#extensions#coc#enabled=1
 let airline#extensions#tabline#disable_refresh=0
+let g:airline_skip_empty_sections = 1
 " timcmartin/vim-afterglow
 let g:airline_theme='afterglow'
+
+" vim-ruby/vim-ruby
+ packadd! matchit
 
 " vimwiki/vimwiki
 " AWS
@@ -396,9 +419,9 @@ noremap ;; ;
 
 " Gitbook formatting convenience
 " Format txt
-nnoremap <Leader>txt :set ft=txt<CR>
+nnoremap <leader>txt :set ft=txt<CR>
 " Format md
-nnoremap <Leader>md :set ft=markdown<CR>
+nnoremap <leader>md :set ft=markdown<CR>
 
 " Jumping to end / beginning of lines
 noremap H ^
@@ -436,13 +459,17 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
 " Relative Filename
-nnoremap <Leader>fn :let @+ = expand("%")<CR>
+nnoremap <leader>fn :let @+ = expand("%")<CR>
 
 " Ruby
 " Look for Todos
-noremap <Leader>tt :noautocmd vimgrep /TODO/j **/*.rb<CR>:cw<CR>
+noremap <leader>tt :noautocmd vimgrep /TODO/j **/*.rb<CR>:cw<CR>
 " Insert puts caller
 nnoremap <leader>wtf oputs "#{'@' * 100}\n #{caller_locations(1,1)[0].label} \n#{'@' * 100}"<esc>
+" Insert binding pry
+nnoremap <leader>bp Obinding.pry <esc>
+" Insert require pry
+nnoremap <leader>rp Orequire 'pry'<esc>
 " Switch from ruby 1.8 hash to ruby 1.9 hash
 map <silent> <leader>rh :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
 " Rspec file if missing (see function below)
@@ -508,9 +535,18 @@ nnoremap <leader>h *<C-O>
 " todo.txt - make it easy
 nnoremap <leader>te :vsplit $HOME/Dropbox/Apps/Todotxt+/todo.txt<cr>
 
+" gcmt/taboo.vim
+nnoremap <localleader>tn :TabooRename
+set sessionoptions+=tabpages,globals
+
 " Untitled Documents
 if has("autocmd")
   autocmd FocusLost silent! :wa
+endif
+
+" The Silver Searcher
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
 endif
 
 " vimrc

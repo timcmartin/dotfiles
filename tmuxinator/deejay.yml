@@ -1,0 +1,18 @@
+# ~/.tmuxinator/deejay.yml
+
+name: deejay
+root: ~/src/getty/deejay
+
+windows:
+  - deejay:
+      layout: main-vertical
+      panes:
+        - vim:
+          - vim
+  - servers:
+      layout: even-horizontal
+      panes:
+        - deejay-rackup:
+          - git status
+        - deejay-term:
+          - git status

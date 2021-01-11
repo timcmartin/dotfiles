@@ -41,6 +41,9 @@
     ~/.rdebugrc:
       relink: true
       path: rdebugrc
+    ~/.rgignore:
+      relink: true
+      path: rgignore
     ~/.rspec:
       relink: true
       path: rspec

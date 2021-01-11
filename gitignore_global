@@ -21,3 +21,6 @@ doc/tags
 .rubocop.yml
 /spell/
 Session.vim
+Session.vim*
+Session-*.vim
+.projections.json

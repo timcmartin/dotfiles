@@ -34,6 +34,7 @@ alias giw="./bin/webpack-dev-server"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 alias gidynamoup='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/start'
 alias gidynamostop='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/stop'
+alias drestart='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/stop && bin/start'
 alias gicns='bundle exec rackup --host 0.0.0.0 --port 3108'
 alias giguard='find . -type f -name "*.rb" | entr -c -p bundle exec rspec spec --format documentation'
 alias uni_pre_update='proxy && git checkout master | cns && git checkout master | service_client && git checkout master'
@@ -44,6 +45,8 @@ alias uni_pull='uni_pre_update && uni pull && uni_post_update'
 alias cnsc='bundle exec pry -I. -r app.rb'
 # PID for CNS (when freezes)
 alias cnspid='lsof -wni tcp:3108'
+# PID for landing (when freezes)
+alias landingpid='lsof -wni tcp:3106'
 alias giawslocal="export AWS_PROFILE=local"
 alias gilock='g co Gemfile.lock'
 alias yarnlock='g co yarn.lock'
