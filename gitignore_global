@@ -24,3 +24,5 @@ Session.vim
 Session.vim*
 Session-*.vim
 .projections.json
+.vim/coc-settings.json
+.vim/.eslintrc.json

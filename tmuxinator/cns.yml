@@ -1,7 +1,7 @@
 # ~/.tmuxinator/cns.yml
 
 name: cns
-root: ~/src/getty/unisporkal/customer-notifications-microservice
+root: ~/src/getty/unisporkal/customer-notifications
 
 windows:
   - cns:

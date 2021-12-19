@@ -5,21 +5,10 @@ root: ~/src/getty/unisporkal/account
 
 windows:
   - account:
-      layout: main-vertical
+      layout: 3b05,364x98,0,0{262x98,0,0,57,101x98,263,0[101x24,263,0,58,101x24,263,25,62,101x48,263,50,59]}
       panes:
-        - vim:
-          - givim
-  - servers:
-      layout: even-horizontal
-      panes:
-        - account-rails:
-          - account
-          - gir
-        - account-assets:
-          - account
-          - giw
-  - term:
-      layout: main-vertical
-      panes:
-        - term-account:
-          - account
+        - account-vim:
+          - vim
+        - term:
+        - webpacker:
+        - railsserver:

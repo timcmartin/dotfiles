@@ -24,22 +24,30 @@ alias cypress-stage-vpn-istock="yarn staging:headless --spec cypress/integration
 alias findpg='ps -ax | grep -i postgres'
 alias giproxy="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b | lolcat"
 # Misc Admin
-alias giproxya="cd ~/src/getty/unisporkal/gi_proxy; git checkout admin_apps_2; git pull --rebase; ./runDocker.sh -b | lolcat"
+alias giproxy-a="cd ~/src/getty/unisporkal/gi_proxy; git checkout admin_apps_2; git pull --rebase; ./runDocker.sh -b | lolcat"
+alias giproxy-admin="cd ~/src/getty/unisporkal/gi_proxy; git checkout admin_apps_2; git pull --rebase; ./runDocker.sh -b | lolcat"
 # Home
 alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runDocker.sh -b | lolcat"
 alias giproxy-cabin="cd ~/src/getty/unisporkal/gi_proxy && git checkout cabin && ./runDocker.sh -b | lolcat"
 alias gir="bundle exec rails s"
 alias girs="bundle exec rails s 1>/dev/null"
-alias giw="./bin/webpack-dev-server"
+alias giw="yarn dev"
+alias giwp="./bin/webpack-dev-server"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 alias gidynamoup='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/start'
 alias gidynamostop='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/stop'
 alias drestart='cd /Users/tmartin/src/getty/gi-local-dynamo && bin/stop && bin/start'
 alias gicns='bundle exec rackup --host 0.0.0.0 --port 3108'
 alias giguard='find . -type f -name "*.rb" | entr -c -p bundle exec rspec spec --format documentation'
-alias uni_pre_update='proxy && git checkout master | cns && git checkout master | service_client && git checkout master'
-alias uni_post_update='proxy && git checkout wfh | cns && git checkout - | service_client && git checkout wfh | unisporkal'
+alias uni_pre_update='proxy && git checkout master | cns && git checkout master && gilock | service_client && git checkout master'
+alias uni_post_update='proxy && git checkout wfh && g rebase master | cns && git checkout - | service_client && git checkout wfh && g rebase master | unisporkal'
 alias uni_pull='uni_pre_update && uni pull && uni_post_update'
+alias uni_update='uni_pre_update && uni update && uni_post_update'
+alias dockerclean='docker rm $(docker ps -a -f status=exited -q)'
+alias listpackages='ls -l node_modules | grep ^l'
+alias listunipackages='ls -l node_modules/@unisporkal | grep ^l'
+alias rebundle='gem install --default -v 1.17.3 bundler && bundle'
+alias readmin='gem install --default -v 1.17.3 bundler && bundle && giwp'
 
 # Console for CNS
 alias cnsc='bundle exec pry -I. -r app.rb'
@@ -47,6 +55,16 @@ alias cnsc='bundle exec pry -I. -r app.rb'
 alias cnspid='lsof -wni tcp:3108'
 # PID for landing (when freezes)
 alias landingpid='lsof -wni tcp:3106'
+# PID for misc-admin (when freezes)
+alias miscpid='lsof -wni tcp:3112'
+# PID for purchase (when freezes)
+alias purchasepid='lsof -wni tcp:3102'
+# kill apps
+alias kill_cns='kill -9 $(cnspid -t)'
+alias kill_landing='kill -9 $(landingpid -t)'
+alias kill_misc='kill -9 $(miscpid -t)'
+alias kill_purchase='kill -9 $(purchasepid -t)'
+alias kill_proxy='docker stop hap'
 alias giawslocal="export AWS_PROFILE=local"
 alias gilock='g co Gemfile.lock'
 alias yarnlock='g co yarn.lock'
@@ -55,7 +73,7 @@ alias gifixtures='be rake fixtures'
 alias gitestfixtures='RAILS_ENV=test be rake fixtures'
 alias gikarma='yarn test'
 alias gikarmabrowser='yarn debug-test'
-alias givim='vim -O ~/Dropbox/vimwiki/getty/diary/diary.wiki'
+alias givim='vim -O /Users/tmartin/Dropbox/vimwiki/getty/diary/diary.wiki'
 alias hosts='sudo vim /etc/hosts'
 alias iptables="sudo iptables -L --line-numbers"
 alias iptablesdrop="sudo iptables -D ciscovpn "
@@ -71,6 +89,17 @@ alias caretm='stty sane'
 alias cleanvim="find ~/.vimbackupdir -type f -name '*.*' -not \( -atime 0 -or -atime 1 -or -atime 2 -or -atime 3 -or -atime 4 -or -atime 5 -or -atime 6 \) -delete"
 # Clear You've got mail
 alias cleanmail="sudo cat /dev/null > /var/mail/tmartin"
+# Source TMUX conf
+alias sourcetmux="tmux source-file ~/.tmux.conf"
+# List Yarn Links
+alias yarnlink="ls -l ~/.config/yarn/link"
+# Open Review App from within directory & branch
+alias cb='git rev-parse --abbrev-ref HEAD'
+alias review='open "https://$(cb).review-istockphoto.com"; open "https://$(cb).review-gettyimages.com"';
+
+# Local Webserver
+# Run in the directory you want to start it in, localhost:8000
+alias webserver='python -m SimpleHTTPServer 8000'
 
 # Bash Commands
 alias aliasedit='vim ~/.bash_aliases'
@@ -90,20 +119,23 @@ alias account='cd $HOME/src/getty/unisporkal/account'
 alias adp='cd $HOME/src/getty/unisporkal/asset_detail'
 alias automation='cd $HOME/src/getty/automation'
 alias ciu='cd $HOME/src/getty/unisporkal/curated-image-uploader'
-alias cns='cd $HOME/src/getty/unisporkal/customer-notifications-microservice'
+alias cns='cd $HOME/src/getty/unisporkal/customer-notifications'
+alias collab='cd $HOME/src/getty/unisporkal/collaboration'
 alias consul='cd $HOME/src/getty/unisporkal/gems/consul_client'
+alias cypress='cd $HOME/src/getty/automation'
 alias engine='cd $HOME/src/getty/unisporkal/gems/unisporkal_engine'
 alias gidocs='cd $HOME/src/getty/unisporkal/docs'
 alias landing='cd $HOME/src/getty/unisporkal/landing'
 alias misc_admin='cd $HOME/src/getty/unisporkal/misc_admin'
+alias packages='cd $HOME/src/getty/unisporkal/packages'
+alias proxy='cd $HOME/src/getty/unisporkal/gi_proxy'
 alias purchase='cd $HOME/src/getty/unisporkal/purchase'
-alias srp='cd $HOME/src/getty/unisporkal/search'
 alias service_client='cd $HOME/src/getty/unisporkal/gems/service_client'
 alias sign_in='cd $HOME/src/getty/unisporkal/sign_in'
+alias srp='cd $HOME/src/getty/unisporkal/search'
 alias styles='cd $HOME/src/getty/unisporkal/gems/unisporkal_styles'
 alias unisporkal='cd $HOME/src/getty/unisporkal'
-alias proxy='cd $HOME/src/getty/unisporkal/gi_proxy'
-alias cypress='cd $HOME/src/getty/automation'
+alias uni-old='cd $HOME/src/unisporkal-old'
 ## Personal
 alias cabin='cd $HOME/src/personal/cabin-monitor'
 alias devwork="vim $HOME/src/personal/workdev/index.html"
@@ -136,22 +168,27 @@ alias lsa='ls -lah'
 
 # Git Commands -> See also ~/.oh-my-zsh/plugins/git/git.plugin.zsh
 alias gac='git add . -A && git commit'
-alias gadd='git add .'
-# Note - I used to call this `gap` but oh-my-zsh overrides it
-alias gapp='git add -p'
+# Notes
+# gap = gapa now (oh-my-zsh)
+# gl = git pull
+# ggp = git push
+# gpristine = reset && clean
 alias gpull='git pull'
 alias gpush='git push'
 alias greset='git reset --hard HEAD && git clean -fd'
-alias gst='git status'
 alias gtrim="sed -i '' -e 's/[[:space:]]*$//g'"
 alias glastfive="git reflog | egrep -io \"moving from ([^[:space:]]+)\" | awk '{ print $3 }' | head -n5"
 # git branches for all subdirs
-alias brall='for dir in $(ls -d */);do (cd $dir && echo "$dir [$(git rev-parse --abbrev-ref HEAD)]") ; done'
+alias brall='for dir in $(ls -d */);do (cd $dir && [ -d .git ] && echo "$dir [$(git rev-parse --abbrev-ref HEAD)]") || git rev-parse --git-dir 2> /dev/null; done'
+alias brm="unisporkal && brall | grep -v 'master' | grep -v '\[\]' && cd gems && brall | grep -v 'master' | grep -v '\[\]' && unisporkal"
 # clean all merged branches
 alias git_clean_merged='git checkout master | git branch --merged| egrep -v "(^\*|master|fi)" | xargs git branch -d'
 alias gbranchdate="git for-each-ref --sort='-committerdate:iso8601' --format=' %(committerdate:iso8601)%09%(refname)' refs/heads"
+alias gupdatedirs="find . -type d -depth 1 -exec git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;"
 alias updatesubs='git submodule foreach --recursive git fetch'
 alias viuntracked='vi $(git ls-files -o -X .gitignore)'
+# Empty commit to force a rebuild
+alias gec='git commit --allow-empty -m'
 
 # Gem Commands
 alias audit='gem list'

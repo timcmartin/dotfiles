@@ -1,0 +1,19 @@
+# ~/.tmuxinator/uniadmin.yml
+name: uniadmin
+root: ~/src/getty/unisporkal/misc_admin
+
+windows:
+  - uniadmin-vim:
+      layout: main-vertical
+      panes:
+        - vim:
+          - givim
+  - uniadmin-servers:
+      layout: even-horizontal
+      panes:
+        - rails-server:
+          - gir
+        - webpacker:
+          - giw
+        - term:
+          - ls

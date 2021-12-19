@@ -6,7 +6,7 @@ windows:
   - ciu-editor:
       layout: main-vertical
       panes:
-        - givim
+        - vim
   - ciu-terminal:
       layout: main-vertical
       panes:

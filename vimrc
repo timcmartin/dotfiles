@@ -43,7 +43,7 @@ set titlestring='Powerslave'
 set undodir=~/.vim/undodir
 set undofile
 set whichwrap=b,s,h,l,<,>,[,]
-set wildignore+=*.o,*.obj,.git,tmp/**,public/uploads/**,node_modules/**,config/locales/**
+" set wildignore+=*.o,*.obj,.git,tmp/**,public/uploads/**,node_modules/**,config/locales/**
 set wildmenu
 set wildmode=longest,list,full
 set wrap
@@ -162,6 +162,13 @@ let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 " mbbill/undotree
 nnoremap <leader>u :UndotreeShow<CR>
 
+" junegunn/vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " mhinz/vim-signify
 " Default maps in effect
 " ]c   Jump to the next hunk.
@@ -171,9 +178,16 @@ nnoremap <leader>u :UndotreeShow<CR>
 nnoremap ]d :SignifyHunkDiff<CR>
 nnoremap ]D :SignifyHunkUndo<CR>
 
+" https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
 " neoclide/coc.nvim
 let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier','coc-yaml']
 let g:coc_disable_transparent_cursor = 1
+let g:coc_start_at_startup = v:false
+autocmd BufRead,BufNewFile /Users/tmartin/src/getty/unisporkal/misc_admin/* :CocStart
+autocmd BufRead,BufNewFile /Users/tmartin/src/getty/unisporkal/packages/customer-notifications/* :CocStart
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nmap <silent> gd <Plug>(coc-definition)
@@ -197,6 +211,10 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Prettier Range Format
+vmap <localleader>f  <Plug>(coc-format-selected)
+nmap <localleader>f  <Plug>(coc-format-selected)
 
 " jgdavey/tslime.vim
 let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
@@ -237,6 +255,9 @@ nmap \ms :InstantMarkdownStop<CR>
 nnoremap <C-p> :Files<cr>
 nnoremap <C-g> :Rg<cr>
 nnoremap <C-b> :Buffers<cr>
+nnoremap <C-c> :Cg<cr>
+" Don't look in filename
+command! -bang -nargs=* Cg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 let $FZF_DEFAULT_OPTS='--reverse --multi'
 let $FZF_DEFAULT_COMMAND='rg --files'
@@ -391,7 +412,7 @@ let vimwiki_express.name = 'Express'
 let g:vimwiki_list = [vimwiki_aws, vimwiki_getty, vimwiki_cabin, vimwiki_dev, vimwiki_guitar, vimwiki_house, vimwiki_personal, vimwiki_recipes, vimwiki_temp, vimwiki_travel, vimwiki_express]
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 let g:vimwiki_hl_headers = 1
-let g:vimwiki_nested_syntaxes = {'python':'python', 'c++':'cpp', 'ruby':'ruby', 'cmd':'sh'}
+let g:vimwiki_nested_syntaxes = {'python':'python', 'c++':'cpp', 'ruby':'ruby', 'cmd':'sh', 'bash':'sh', 'slim':'sass'}
 let g:automatic_nested_syntaxes = 1
 
 if has ('autocmd')

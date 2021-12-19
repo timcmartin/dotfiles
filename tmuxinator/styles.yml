@@ -8,7 +8,7 @@ windows:
       layout: main-vertical
       panes:
         - vim:
-          - givim
+          - vim
   - term:
       layout: main-vertical
       panes:

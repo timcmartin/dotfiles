@@ -33,7 +33,7 @@ tags
 # Ignore web packer
 *.js.map
 /packs/*
+/*/packs/*.js
+/*/*/packs/*.js
 /*/*/*/packs/*.js
 /*/*/*/*/packs/*.js
-/*/*/*/*/*/webpack/*
-/*/*/*/*/*/*/webpack/*
