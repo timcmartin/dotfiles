@@ -1,0 +1,25 @@
+# ~/.tmuxinator/sign-in.yml
+
+name: sign-in
+root: ~/src/getty/unisporkal/sign-in
+
+windows:
+  - sign-in:
+      layout: main-vertical
+      panes:
+        - vim:
+          - vim
+  - servers:
+      layout: even-horizontal
+      panes:
+        - sign-in-rails:
+          - sign-in
+          - gir
+        - sign-in-assets:
+          - sign-in
+          - giw
+  - term:
+      layout: main-vertical
+      panes:
+        - term-sign-in:
+          - sign-in

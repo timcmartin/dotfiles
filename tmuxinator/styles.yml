@@ -1,0 +1,16 @@
+# ~/.tmuxinator/styles.yml
+
+name: styles
+root: ~/src/getty/unisporkal/gems/unisporkal_styles
+
+windows:
+  - styles:
+      layout: main-vertical
+      panes:
+        - vim:
+          - vim
+  - term:
+      layout: main-vertical
+      panes:
+        - term-styles:
+          - styles

@@ -1,0 +1,16 @@
+# ~/.tmuxinator/engine.yml
+
+name: engine
+root: ~/src/getty/unisporkal/gems/unisporkal_engine
+
+windows:
+  - engine:
+      layout: main-vertical
+      panes:
+        - vim:
+          - vim
+  - term:
+      layout: main-vertical
+      panes:
+        - term-engine:
+          - engine

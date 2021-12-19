@@ -1,0 +1,14 @@
+# ~/.tmuxinator/account.yml
+
+name: account
+root: ~/src/getty/unisporkal/account
+
+windows:
+  - account:
+      layout: 3b05,364x98,0,0{262x98,0,0,57,101x98,263,0[101x24,263,0,58,101x24,263,25,62,101x48,263,50,59]}
+      panes:
+        - account-vim:
+          - vim
+        - term:
+        - webpacker:
+        - railsserver:

@@ -42,7 +42,7 @@
   editor = vim
   whitespace = warn
 [diff]
-  tool = vimdiff
+  tool = meld
 [difftool]
   prompt = false
 [help]

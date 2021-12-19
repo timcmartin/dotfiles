@@ -1,5 +1,5 @@
 {
-  "tsserver.enable": false,
+  "tsserver.enable": true,
   "eslint.enable": false,
   "eslint.options": { "configFile": ".eslintrc.json" },
   "eslint.autoFixOnSave": true,

@@ -1,0 +1,18 @@
+# ~/.tmuxinator/packages.yml
+
+name: packages
+root: ~/src/getty/unisporkal/packages
+
+windows:
+  - customer-notifications-package:
+      layout: main-vertical
+      panes:
+        - vim:
+          - cd customer-notifications
+          - vim
+  - term:
+      layout: main-vertical
+      panes:
+        - term-engine:
+          - cd customer-notifications
+

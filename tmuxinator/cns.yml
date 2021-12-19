@@ -1,7 +1,7 @@
 # ~/.tmuxinator/cns.yml
 
 name: cns
-root: ~/src/getty/unisporkal/customer-notifications-microservice
+root: ~/src/getty/unisporkal/customer-notifications
 
 windows:
   - cns:
@@ -9,15 +9,9 @@ windows:
       panes:
         - vim:
           - givim
-  - servers:
+  - cns-server:
       layout: even-horizontal
       panes:
-        - landing-rails:
-          - landing
-          - gir
-        - landing-assets:
-          - landing
-          - giw
         - cns:
           - cns
           - export AWS_PROFILE=local

@@ -14,6 +14,9 @@
     ~/.bashrc:
       relink: true
       path: bashrc
+    ~/.cs_cache:
+      relink: true
+      path: cs_cache
     ~/.gemrc:
       relink: true
       path: gemrc
@@ -38,6 +41,9 @@
     ~/.rdebugrc:
       relink: true
       path: rdebugrc
+    ~/.rgignore:
+      relink: true
+      path: rgignore
     ~/.rspec:
       relink: true
       path: rspec

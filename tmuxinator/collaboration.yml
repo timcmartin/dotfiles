@@ -1,0 +1,25 @@
+# ~/.tmuxinator/collaboration.yml
+
+name: collaboration
+root: ~/src/getty/unisporkal/collaboration
+
+windows:
+  - collaboration:
+      layout: main-vertical
+      panes:
+        - vim:
+          - vim
+  - servers:
+      layout: even-horizontal
+      panes:
+        - collaboration-rails:
+          - collaboration
+          - gir
+        - collaboration-assets:
+          - collaboration
+          - giw
+  - term:
+      layout: main-vertical
+      panes:
+        - term-collaboration:
+          - collaboration

@@ -1,0 +1,25 @@
+# ~/.tmuxinator/landing.yml
+
+name: landing
+root: ~/src/getty/unisporkal/landing
+
+windows:
+  - landing:
+      layout: main-vertical
+      panes:
+        - vim:
+          - vim
+  - servers:
+      layout: even-horizontal
+      panes:
+        - landing-rails:
+          - landing
+          - gir
+        - landing-assets:
+          - landing
+          - giw
+  - term:
+      layout: main-vertical
+      panes:
+        - term-landing:
+          - landing

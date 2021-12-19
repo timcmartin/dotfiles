@@ -1,0 +1,12 @@
+# ~/.tmuxinator/cn-package.yml
+
+name: cn-package
+root: ~/src/getty/unisporkal/packages/customer-notifications
+
+windows:
+  - customer-notifications-package:
+      layout: f7af,364x98,0,0{262x98,0,0,22,101x98,263,0,51}
+      panes:
+        - vim:
+          - vim
+        - term

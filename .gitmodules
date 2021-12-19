@@ -5,6 +5,3 @@
 [submodule "powerline-fonts"]
 	path = powerline-fonts
 	url = https://github.com/timcmartin/fonts
-[submodule "vimbundles"]
-	path = vimbundles
-	url = https://github.com/timcmartin/vimbundles

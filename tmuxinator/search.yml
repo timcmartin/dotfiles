@@ -1,0 +1,25 @@
+# ~/.tmuxinator/search.yml
+
+name: search
+root: ~/src/getty/unisporkal/search
+
+windows:
+  - search:
+      layout: main-vertical
+      panes:
+        - vim:
+          - vim
+  - servers:
+      layout: even-horizontal
+      panes:
+        - search-rails:
+          - srp
+          - gir
+        - search-assets:
+          - srp
+          - giw
+  - term:
+      layout: main-vertical
+      panes:
+        - term-search:
+          - srp

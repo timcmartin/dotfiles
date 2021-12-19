@@ -2,7 +2,7 @@
 name: allapps
 root: ~/src/getty/unisporkal
 windows:
-  - a-l:
+  - all-apps:
       layout: even-horizontal
       panes:
         - account:
@@ -14,12 +14,12 @@ windows:
         - collaboration:
           - cd collaboration
           - gst
+        - cns:
+          - cns
+          - gst
         - landing:
           - cd landing
           - gst
-  - p-s:
-      layout: even-horizontal
-      panes:
         - purchase:
           - cd purchase
           - gst
@@ -38,3 +38,23 @@ windows:
         - styles:
           - styles
           - gst
+        - consul:
+          - cd gems/consul_client
+          - gst
+        - service-client:
+          - cd gems/service_client
+          - gst
+  - cypress:
+      layout: even-horizontal
+      panes:
+        - cypress:
+          - cd /Users/tmartin/src/getty/automation
+          - gst
+        - vim:
+          - cd /Users/tmartin/src/getty/automation
+          - vim /cypress/integration/gi_spec.js /cypress/integration/istock_spec.js -o
+  - notes:
+      layout: even-horizontal
+      panes:
+        - notes:
+          - vim /Users/tmartin/src/personal/gists/getty_dev_notes.md
