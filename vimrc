@@ -183,7 +183,16 @@ autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 " neoclide/coc.nvim
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier','coc-yaml']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-yaml']
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
 let g:coc_disable_transparent_cursor = 1
 let g:coc_start_at_startup = v:false
 autocmd BufRead,BufNewFile /Users/tmartin/src/getty/unisporkal/misc_admin/* :CocStart
@@ -192,6 +201,7 @@ autocmd BufRead,BufNewFile /Users/tmartin/src/getty/unisporkal/packages/customer
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
@@ -232,7 +242,8 @@ let g:NERDDefaultAlign = 'left'
 " scrooloose/nerdtree
 map <silent> <leader>f :NERDTree<CR>:wincmd l<CR>:NERDTreeFind<CR>
 map <leader>dc :NERDTreeTabsClose<cr>
-map <leader>do :NERDTree<cr>
+" TODO: Using CTRL-N
+" map <leader>do :NERDTree<cr>
 nnoremap <silent><C-n> :NERDTreeTabsToggle<cr>
 vnoremap <silent><C-n> :NERDTreeTabsToggle<cr>
 " Refresh NERDTree to CWD
