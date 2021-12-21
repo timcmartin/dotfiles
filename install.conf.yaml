@@ -80,9 +80,6 @@
     ~/.vim:
       relink: true
       path: vim/
-    ~/.vimbundles:
-      relink: true
-      path: vimbundles/
     ~/.zsh:
       relink: true
       path: zsh/

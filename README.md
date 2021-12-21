@@ -5,8 +5,6 @@ but was tweaked for use with [Dotbot](https://github.com/anishathalye/dotbot) an
 
 This config makes use of powerline and tmux-powerline.
 
-I have included my preferred vimbundles as a submodule.  Upon running ./install, it will init and update all vimbundles as well.
-
 ## Preferred Setup:
 
 1. `git clone https://github.com/timcmartin/strap`
@@ -40,10 +38,19 @@ To edit the functionality, of Dotbot, edit the `install.conf.yaml` file.
 
 See [Dotbot](https://github.com/anishathalye/dotbot) for more information and examples.
 
+## Brewfile
+
+* Used by Strap: https://github.com/timcmartin/homebrew-brewfile
+
+## Vim
+
+* Running `:PlugInstall` from Vim should do the trick.
+* Maintaining my own colorscheme here: https://github.com/timcmartin/vim-afterglow
+
 ## Other Things to Install
 
 * iTerm2
-* Node.js
+* Node.js => Using Nodenv
 * oh-my-zsh
 * Alfred
 * Bartender
