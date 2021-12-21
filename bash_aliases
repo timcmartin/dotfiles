@@ -223,6 +223,9 @@ alias railsservers='lsof -wni tcp:5000'
 alias ag='ag --path-to-ignore ~/.ignore'
 alias Ag='ag --path-to-ignore ~/.ignore'
 
+# Ctags
+alias ctags="`brew --prefix`/bin/ctags"
+
 function rails_command {
   local cmd=$1
   shift
@@ -283,3 +286,4 @@ function besdb {
 }
 
 [ ! -f "$HOME/.bash_aliases.local" ] || . "$HOME/.bash_aliases.local"
+

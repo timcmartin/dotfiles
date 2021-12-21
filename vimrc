@@ -439,6 +439,20 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience Mapping
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ctags
+" Set f6 to generate tags
+nnoremap <F6> :!ctags -R<CR>
+" Ctags search
+set tags=./.tags;$HOME
+" Navigation
+" Ctrl+] - go to definition
+" Ctrl+T - Jump back from the definition.
+" Ctrl+W Ctrl+] - Open the definition in a horizontal split
+" Ctrl+\ - Open the definition in a new tab
+" Alt+] - Open the definition in a vertical split
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
 " Date & Time
 nnoremap <F5> "=strftime("%b %d, %Y")<CR>P
 inoremap <F5> <C-R>=strftime("%b %d, %Y")<CR>
