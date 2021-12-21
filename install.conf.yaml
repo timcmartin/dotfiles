@@ -65,6 +65,9 @@
     ~/.zshrc:
       relink: true
       path: zshrc
+    ~/.ctags.d:
+      relink: true
+      path: ctags.d/
     ~/.git_template:
       relink: true
       path: git_template/
