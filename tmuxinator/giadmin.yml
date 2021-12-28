@@ -10,7 +10,7 @@ windows:
         - docker:
           - giproxy-a
         - dynamo:
-          - cd /Users/tmartin/src/getty/gi-local-dynamo
+          - cd $HOME/src/getty/gi-local-dynamo
           - bin/start | lolcat
   - dotfiles:
       layout: even-horizontal
@@ -28,11 +28,11 @@ windows:
       layout: even-horizontal
       panes:
         - oh-my-zsh:
-          - cd /Users/tmartin/.oh-my-zsh/plugins/git
-          - vim -o /Users/tmartin/.oh-my-zsh/plugins/git/README.md
+          - cd $HOME/.oh-my-zsh/plugins/git
+          - vim -o $HOME/.oh-my-zsh/plugins/git/README.md
   - recipes:
       layout: even-horizontal
       panes:
         - recipes:
-          - cd /Users/tmartin/src/personal/recipes
+          - cd $HOME/src/personal/recipes
           - vim

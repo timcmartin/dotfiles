@@ -10,7 +10,7 @@ windows:
         - docker:
           - giproxy
         - dynamo:
-          - cd /Users/tmartin/src/getty/gi-local-dynamo
+          - cd $HOME/src/getty/gi-local-dynamo
           - bin/start
   - landing:
       layout: even-horizontal

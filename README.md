@@ -32,6 +32,8 @@ Strap has been forked from the original repo and modified to work with Dotbot.
 
 Dotbot will update the submodules and create the requisite symlinks.
 
+Will want to update `gitconfig` to use personal email instead of work email.
+
 ## Editing:
 
 To edit the functionality, of Dotbot, edit the `install.conf.yaml` file.

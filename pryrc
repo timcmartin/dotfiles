@@ -50,8 +50,8 @@ def a_hash
 end
 
 def dockit(doc)
-  File.open('/Users/tmartin/Desktop/docit.html', 'w') {|f| f.write(doc) }
-  %x{open /Users/tmartin/Desktop/docit.html}
+  File.open($HOME.'/Desktop/docit.html', 'w') {|f| f.write(doc) }
+  %x{open $HOME/Desktop/docit.html}
 end
 
 ## Benchmarking

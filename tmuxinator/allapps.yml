@@ -48,13 +48,13 @@ windows:
       layout: even-horizontal
       panes:
         - cypress:
-          - cd /Users/tmartin/src/getty/automation
+          - cd $HOME/src/getty/automation
           - gst
         - vim:
-          - cd /Users/tmartin/src/getty/automation
+          - cd $HOME/src/getty/automation
           - vim /cypress/integration/gi_spec.js /cypress/integration/istock_spec.js -o
   - notes:
       layout: even-horizontal
       panes:
         - notes:
-          - vim /Users/tmartin/src/personal/gists/getty_dev_notes.md
+          - vim $HOME/src/personal/gists/getty_dev_notes/getty_dev_notes.md

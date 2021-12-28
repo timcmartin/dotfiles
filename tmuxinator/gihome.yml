@@ -10,7 +10,7 @@ windows:
         - docker:
           - giproxy-wfh
         - dynamo:
-          - cd /Users/tmartin/src/getty/gi-local-dynamo
+          - cd $HOME/src/getty/gi-local-dynamo
           - bin/start | lolcat
   - landing:
       layout: even-horizontal

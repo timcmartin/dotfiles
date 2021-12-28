@@ -65,7 +65,7 @@ export PATH=/usr/local/sbin:$PATH
 
 fpath=(~/.zsh $fpath)
 
-export PATH=/Users/tmartin/Library/Python/2.7/bin:$PATH
+export PATH=$HOME/Library/Python/2.7/bin:$PATH
 
 # pbcopy
 # I needed this for Linux box - not for mac

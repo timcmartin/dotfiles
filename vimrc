@@ -195,8 +195,8 @@ endif
 
 let g:coc_disable_transparent_cursor = 1
 let g:coc_start_at_startup = v:false
-autocmd BufRead,BufNewFile /Users/tmartin/src/getty/unisporkal/misc_admin/* :CocStart
-autocmd BufRead,BufNewFile /Users/tmartin/src/getty/unisporkal/packages/customer-notifications/* :CocStart
+autocmd BufRead,BufNewFile $HOME/src/getty/unisporkal/misc_admin/* :CocStart
+autocmd BufRead,BufNewFile $HOME/src/getty/unisporkal/packages/customer-notifications/* :CocStart
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nmap <silent> gd <Plug>(coc-definition)
