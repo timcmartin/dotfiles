@@ -14,9 +14,6 @@
     ~/.bashrc:
       relink: true
       path: bashrc
-    ~/.cs_cache:
-      relink: true
-      path: cs_cache
     ~/.gemrc:
       relink: true
       path: gemrc
