@@ -53,7 +53,14 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 
 * iTerm2
 * Node.js => Using Nodenv
-* oh-my-zsh
+* oh-my-zsh:
+  * theme:
+    * `git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1`
+    * `ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"`
+  * zsh-syntax-highlighting:
+    * `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+    * autocomplete
+      * `sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 * Alfred
 * Bartender
 * iStat menus
@@ -65,6 +72,9 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 * Fork
 * 1Password
 * AWS config
+* Chrome
+* Reaper
+* Sibelius
 * Keyboard mapping: Caps Lock -> Control
 
 ### Tmux Plugin Manager:
