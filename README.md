@@ -33,7 +33,7 @@ Strap has been forked from the original repo and modified to work with Dotbot.
 Dotbot will update the submodules and create the requisite symlinks.
 
 Will want to update `gitconfig` to use personal email instead of work email.
-
+Lk
 ## Editing:
 
 To edit the functionality, of Dotbot, edit the `install.conf.yaml` file.
@@ -65,6 +65,7 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 * Fork
 * 1Password
 * AWS config
+* Keyboard mapping: Caps Lock -> Control
 
 ### Tmux Plugin Manager:
 `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
