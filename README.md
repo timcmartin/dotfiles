@@ -74,6 +74,7 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 * AWS config
 * Chrome
 * Reaper
+* XLN Online Installer - Addictive Drums
 * Sibelius
 * Keyboard mapping: Caps Lock -> Control
 

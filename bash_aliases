@@ -139,7 +139,7 @@ alias uni-old='cd $HOME/src/unisporkal-old'
 ## Personal
 alias cabin='cd $HOME/src/personal/cabin-monitor'
 alias devwork="vim $HOME/src/personal/workdev/index.html"
-alias dotfiles='cd $HOME/Dotfiles'
+alias dotfiles='cd $HOME/.dotfiles'
 alias documents='cd $HOME/Documents'
 alias dropbox='cd $HOME/dropbox'
 alias mycode='cd $HOME/src/personal'
