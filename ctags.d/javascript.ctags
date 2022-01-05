@@ -15,3 +15,4 @@
 --exclude=*.bundle.*
 --exclude=.git
 --exclude=*karma.conf.js*
+--exclude=*config/webpack/*
