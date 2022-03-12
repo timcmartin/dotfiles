@@ -24,10 +24,12 @@ alias cypress-stage-vpn-istock="yarn staging:headless --spec cypress/integration
 alias findpg='ps -ax | grep -i postgres'
 alias giproxy="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh -b | lolcat"
 # Misc Admin
-alias giproxy-a="cd ~/src/getty/unisporkal/gi_proxy; git checkout admin_apps_2; git pull --rebase; ./runDocker.sh -b | lolcat"
+alias giproxy-a="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; git pull --rebase; ./runLocal.sh -b | lolcat"
+alias gipa="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; git pull --rebase; ./runLocal.sh -b | lolcat"
 alias giproxy-admin="cd ~/src/getty/unisporkal/gi_proxy; git checkout admin_apps_2; git pull --rebase; ./runDocker.sh -b | lolcat"
 # Home
-alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runDocker.sh -b | lolcat"
+alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
+alias gipw="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
 alias giproxy-cabin="cd ~/src/getty/unisporkal/gi_proxy && git checkout cabin && ./runDocker.sh -b | lolcat"
 alias gir="bundle exec rails s"
 alias girs="bundle exec rails s 1>/dev/null"
@@ -59,6 +61,8 @@ alias landingpid='lsof -wni tcp:3106'
 alias miscpid='lsof -wni tcp:3112'
 # PID for purchase (when freezes)
 alias purchasepid='lsof -wni tcp:3102'
+# PID for sign_in (when freezes)
+alias signinpid='lsof -wni tcp:3101'
 # kill apps
 alias kill_cns='kill -9 $(cnspid -t)'
 alias kill_landing='kill -9 $(landingpid -t)'
@@ -73,7 +77,7 @@ alias gifixtures='be rake fixtures'
 alias gitestfixtures='RAILS_ENV=test be rake fixtures'
 alias gikarma='yarn test'
 alias gikarmabrowser='yarn debug-test'
-alias givim="vim -O $HOME/Dropbox/vimwiki/getty/diary/diary.wiki"
+alias givim="vim -O $HOME/Dropbox/vimwiki/getty/diary/diary.wiki $HOME/Dropbox/vimwiki/getty/index.wiki"
 alias hosts='sudo vim /etc/hosts'
 alias iptables="sudo iptables -L --line-numbers"
 alias iptablesdrop="sudo iptables -D ciscovpn "

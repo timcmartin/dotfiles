@@ -26,3 +26,4 @@ Session-*.vim
 .projections.json
 .vim/coc-settings.json
 .vim/.eslintrc.json
+.vim/tmp/*

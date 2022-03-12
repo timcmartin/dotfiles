@@ -15,7 +15,7 @@ set cursorline
 set encoding=utf-8
 set gdefault
 set hidden
-set ignorecase smartcase
+set smartcase
 set incsearch hlsearch
 set laststatus=2
 set listchars=tab:⇀\ ,trail:␠
@@ -47,6 +47,11 @@ set whichwrap=b,s,h,l,<,>,[,]
 set wildmenu
 set wildmode=longest,list,full
 set wrap
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Buffers: Clear all but current
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! BufOnly execute '%bdelete|edit #|normal `"'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Copy/Paste Vim Tmux
@@ -121,6 +126,7 @@ Plug 'mbbill/undotree'
 Plug 'mhinz/vim-signify'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'sk1418/Join'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'thoughtbot/vim-rspec'
@@ -195,6 +201,7 @@ endif
 
 let g:coc_disable_transparent_cursor = 1
 let g:coc_start_at_startup = v:false
+" Start COC in select projects automatically
 autocmd BufRead,BufNewFile $HOME/src/getty/unisporkal/misc_admin/* :CocStart
 autocmd BufRead,BufNewFile $HOME/src/getty/unisporkal/packages/customer-notifications/* :CocStart
 

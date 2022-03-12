@@ -11,5 +11,7 @@
     "typescriptreact"
   ],
   "tsserver.formatOnType": true,
-  "coc.preferences.formatOnType": true
+  "coc.preferences.formatOnType": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5"
 }

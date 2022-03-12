@@ -77,3 +77,6 @@ rerun.txt
  /config/locales/*
 */config/locales/*
 */*/config/locales/*
+
+# Node Modules
+*/node_modules/*
