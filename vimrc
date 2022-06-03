@@ -15,6 +15,7 @@ set cursorline
 set encoding=utf-8
 set gdefault
 set hidden
+set ignorecase
 set smartcase
 set incsearch hlsearch
 set laststatus=2
@@ -612,6 +613,10 @@ if has ('autocmd')
     autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw |  AirlineRefresh
   augroup END
 endif
+
+" hosts
+" make it easy to view hosts file - cannot edit
+nnoremap <leader>he :vsplit /etc/hosts<cr>
 
 " Load session if it exists
 function! LoadSession()

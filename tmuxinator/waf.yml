@@ -1,0 +1,12 @@
+# ~/.tmuxinator/waf.yml
+
+name: waf
+root: /Users/tmartin/src/getty/waf
+
+windows:
+  - waf:
+      layout: even-horizontal
+      panes:
+        - waf-vim:
+          - vim -O modules/wafv2/main.tf
+        - term:

@@ -29,7 +29,7 @@ alias gipa="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; ./runLoc
 alias giproxy-admin="cd ~/src/getty/unisporkal/gi_proxy; git checkout admin_apps_2; git pull --rebase; ./runDocker.sh | lolcat"
 # Home
 alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
-alias gipw="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
+alias gipw="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh | lolcat"
 alias giproxy-cabin="cd ~/src/getty/unisporkal/gi_proxy && git checkout cabin && ./runDocker.sh -b | lolcat"
 alias gir="bundle exec rails s"
 alias girs="bundle exec rails s 1>/dev/null"
