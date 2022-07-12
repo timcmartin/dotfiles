@@ -22,11 +22,11 @@ alias cypress-stage-vpn="yarn staging:headless"
 alias cypress-stage-vpn-getty="yarn staging:headless --spec cypress/integration/gi_spec.js"
 alias cypress-stage-vpn-istock="yarn staging:headless --spec cypress/integration/istock_spec.js"
 alias findpg='ps -ax | grep -i postgres'
-alias giproxy="cd ~/src/getty/unisporkal/gi_proxy && ./runDocker.sh | lolcat"
+alias giproxy="cd ~/src/getty/unisporkal/gi_proxy && ./runLocal.sh | lolcat"
+alias gip="./runLocal.sh | lolcat"
 # Misc Admin
 alias giproxy-a="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; git pull --rebase; ./runLocal.sh | lolcat"
 alias gipa="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; ./runLocal.sh | lolcat"
-alias giproxy-admin="cd ~/src/getty/unisporkal/gi_proxy; git checkout admin_apps_2; git pull --rebase; ./runDocker.sh | lolcat"
 # Home
 alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
 alias gipw="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh | lolcat"
