@@ -198,6 +198,7 @@ alias updatesubs='git submodule foreach --recursive git fetch'
 alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 # Empty commit to force a rebuild
 alias gec='git commit --allow-empty -m'
+alias gtb='git commit --allow-empty - m "Trigger Build"'
 
 # Gem Commands
 alias audit='gem list'
@@ -234,6 +235,10 @@ alias Ag='ag --path-to-ignore ~/.ignore'
 
 # Ctags
 alias ctags="`brew --prefix`/bin/ctags"
+
+# Node Typescript Compile
+alias tsc="node_modules/.bin/tsc"
+alias nsi="node ./dist/index.js"
 
 function rails_command {
   local cmd=$1

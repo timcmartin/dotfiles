@@ -190,7 +190,7 @@ autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
 " neoclide/coc.nvim
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-yaml']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-yaml', 'coc-css', 'coc-html', 'coc-eslint', 'coc-styled-components']
 
 if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
   let g:coc_global_extensions += ['coc-prettier']
@@ -205,6 +205,7 @@ let g:coc_start_at_startup = v:false
 " Start COC in select projects automatically
 autocmd BufRead,BufNewFile $HOME/src/getty/unisporkal/misc_admin/* :CocStart
 autocmd BufRead,BufNewFile $HOME/src/getty/unisporkal/packages/customer-notifications/* :CocStart
+autocmd BufRead,BufNewFile $HOME/src/getty/learning/ts/* :CocStart
 
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nmap <silent> gd <Plug>(coc-definition)
@@ -219,11 +220,23 @@ nmap <leader>do <Plug>(coc-codeaction)
 nmap <leader>rn <Plug>(coc-rename)
 nmap <leader>cd :CocDisable<CR>
 nmap <leader>ce :CocEnable<CR>
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
+" remap for complete to use tab and <cr>
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    \ coc#pum#visible() ? coc#pum#next(1):
+    \ <SID>check_back_space() ? "\<Tab>" :
+    \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" hi CocSearch ctermfg=12 guifg=#18A3FF
+" hi CocMenuSel ctermbg=109 guibg=#13354A
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -617,6 +630,9 @@ endif
 " hosts
 " make it easy to view hosts file - cannot edit
 nnoremap <leader>he :vsplit /etc/hosts<cr>
+
+" viminfo - don't need
+:set viminfo=
 
 " Load session if it exists
 function! LoadSession()
