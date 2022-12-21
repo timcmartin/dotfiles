@@ -1,6 +1,7 @@
 # Convenience Commands
 alias awslocal="export AWS_PROFILE=local"
 alias awssand='export AWS_PROFILE=oktad && oktad -p getty-sandbox -t sandbox -w'
+alias awscand='oktad -p getty-nonprod -t okta -w'
 alias chrome="google-chrome-stable --password-store=basic"
 alias clearcache='rake tmp:cache:clear'
 alias clearlogs='rake log:clear'
@@ -27,6 +28,8 @@ alias gip="./runLocal.sh | lolcat"
 # Misc Admin
 alias giproxy-a="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; git pull --rebase; ./runLocal.sh | lolcat"
 alias gipa="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; ./runLocal.sh | lolcat"
+alias watchlint="esw -w --changed app/javascript/react --ext .js,.jsx --color"
+alias watchjest="yarn jest --watch"
 # Home
 alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
 alias gipw="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh | lolcat"
@@ -81,7 +84,7 @@ alias gifixtures='be rake fixtures'
 alias gitestfixtures='RAILS_ENV=test be rake fixtures'
 alias gikarma='yarn test'
 alias gikarmabrowser='yarn debug-test'
-alias givim="vim -O $HOME/Dropbox/vimwiki/getty/diary/diary.wiki $HOME/Dropbox/vimwiki/getty/index.wiki"
+alias givim="nvim -O $HOME/Dropbox/vimwiki/getty/diary/diary.wiki $HOME/Dropbox/vimwiki/getty/index.wiki"
 alias hosts='sudo vim /etc/hosts'
 alias iptables="sudo iptables -L --line-numbers"
 alias iptablesdrop="sudo iptables -D ciscovpn "

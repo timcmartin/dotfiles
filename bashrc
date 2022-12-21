@@ -62,7 +62,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
@@ -106,4 +106,3 @@ proml
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 complete -C /usr/local/bin/vault vault
-eval "$(rbenv init -)"

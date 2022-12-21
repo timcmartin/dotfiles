@@ -32,7 +32,7 @@ set number relativenumber
 set ruler
 set scrolloff=5
 " instant_markdown
-set shell=bash\ -i
+" set shell=bash\ -i
 set shortmess+=c
 set showmatch
 set signcolumn=yes
