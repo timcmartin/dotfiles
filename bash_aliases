@@ -25,15 +25,19 @@ alias cypress-stage-vpn-istock="yarn staging:headless --spec cypress/integration
 alias findpg='ps -ax | grep -i postgres'
 alias giproxy="cd ~/src/getty/unisporkal/gi_proxy && ./runLocal.sh | lolcat"
 alias gip="./runLocal.sh | lolcat"
+alias gfi='g fi'
+# add current branch to fi
+alias fiadd='g fi -a'
 # Misc Admin
 alias giproxy-a="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; git pull --rebase; ./runLocal.sh | lolcat"
 alias gipa="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; ./runLocal.sh | lolcat"
 alias watchlint="esw -w --changed app/javascript/react --ext .js,.jsx --color"
 alias watchjest="yarn jest --watch"
+alias watchjestdb="yarn jest-debug --watch"
 # Home
 alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
 alias gipw="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh | lolcat"
-alias giproxy-cabin="cd ~/src/getty/unisporkal/gi_proxy && git checkout cabin && ./runDocker.sh -b | lolcat"
+alias giproxy-cabin="cd ~/src/getty/unisporkal/gi_proxy && git checkout cabin && ./runLocal.sh -b | lolcat"
 alias gir="bundle exec rails s"
 alias girs="bundle exec rails s 1>/dev/null"
 alias giw="yarn dev"
