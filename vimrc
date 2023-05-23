@@ -145,6 +145,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
 Plug 'hashivim/vim-terraform'
+Plug 'vim-test/vim-test'
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -458,6 +459,85 @@ if has ('autocmd')
   augroup END
 endif
 
+" vim-test
+let test#strategy = "tslime"
+let g:test#javascript#runner = 'jest'
+map <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+" Jest Test file if missing (see function below)
+map <leader>tj :call MakeJestFileIfMissing()<CR>
+
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Make Jest Test file if Missing
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! MakeJestFileIfMissing()
+ruby << EOF
+  class MakesJestFileIfMissing
+    def self.for(buffer)
+      test_file = test_for_buffer(buffer)
+      component = testify(buffer).sub!('.test.jsx','')
+
+      if already_exists?(test_file)
+        puts "Jest Test already exists"
+        return
+      end
+
+      File.open(test_file, File::WRONLY|File::CREAT|File::EXCL) do |file|
+        file.write "import React from 'react';\n"
+        file.write "import { render, screen } from '@testing-library/react';\n"
+        file.write "import #{component} from './#{component}';\n"
+        file.write "\n"
+        file.write "const MOCK_PERMISSIONS = {};\n"
+        file.write "\n"
+        file.write "const createMockProps = () => ({\n"
+        file.write "  permissions: MOCK_PERMISSIONS,\n"
+        file.write "});\n"
+        file.write "\n"
+        file.write "describe('#{component} test', () => {\n"
+        file.write "  const createComponent = () => {\n"
+        file.write "    render(\n"
+        file.write "      <#{component} {...createMockProps()} />,\n"
+        file.write "    );\n"
+        file.write "  };\n"
+        file.write "\n"
+        file.write "  it('should do something', () => {\n"
+        file.write "    createComponent();\n"
+        file.write "    screen.debug();\n"
+        file.write "  });\n"
+        file.write "});\n"
+      end
+    end
+
+    private
+
+    def self.jest_file?(file)
+      file.match(/.*test.jsx$/)
+    end
+
+    def self.already_exists?(b)
+      File.exists?(b)
+    end
+
+    def self.test_for_buffer(b)
+      jest_buffer = b.sub!('.jsx', '.test.jsx')
+      return jest_buffer
+    end
+
+    def self.testify(b)
+      File.basename(b)
+    end
+  end
+
+  buffer = VIM::Buffer.current.name
+  MakesJestFileIfMissing.for(buffer)
+EOF
+endfunction
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience Mapping
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -619,12 +699,13 @@ endif
 
 " vimrc
 " make it easy to source and load vimrc
-nnoremap <leader>ve :vsplit $MYVIMRC<cr>
+let $TIMVIMRC = $HOME."/.vimrc"
+nnoremap <leader>ve :vsplit $TIMVIMRC<cr>
 " Source vim configuration file whenever it is saved
 if has ('autocmd')
  augroup Reload_Vimrc
     autocmd!
-    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw |  AirlineRefresh
+    autocmd! BufWritePost $TIMVIMRC source % | echom "Reloaded " . $TIMVIMRC | redraw |  AirlineRefresh
   augroup END
 endif
 
