@@ -1,0 +1,25 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import #{component} from './#{component}';
+
+const MOCK_PERMISSIONS = {};
+
+const createMockProps = () => ({
+  permissions: MOCK_PERMISSIONS,
+});
+
+const createComponent = () => {
+  render(
+    <#{component} {...createMockProps()} />,
+  );
+};
+
+describe('#{component} test', () => {
+  beforeEach(() => {
+    createComponent();
+  });
+
+  it('should do something', () => {
+    screen.debug();
+  });
+});

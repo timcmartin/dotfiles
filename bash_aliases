@@ -152,6 +152,7 @@ alias srp='cd $HOME/src/getty/unisporkal/search'
 alias styles='cd $HOME/src/getty/unisporkal/gems/unisporkal_styles'
 alias unisporkal='cd $HOME/src/getty/unisporkal'
 alias uni-old='cd $HOME/src/unisporkal-old'
+alias sci='cd $HOME/src/getty/sci'
 ## Personal
 alias cabin='cd $HOME/src/personal/cabin-monitor'
 alias devwork="vim $HOME/src/personal/workdev/index.html"
@@ -206,6 +207,8 @@ alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 # Empty commit to force a rebuild
 alias gec='git commit --allow-empty -m'
 alias gtb='git commit --allow-empty - m "Trigger Build"'
+# Squash all commits on a branch
+alias gsquash='git reset $(git merge-base master $(git rev-parse --abbrev-ref HEAD))'
 
 # Gem Commands
 alias audit='gem list'

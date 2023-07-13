@@ -1,0 +1,21 @@
+{
+  "tsserver.enable": true,
+  "eslint.enable": true,
+  "eslint.options": { "configFile": ".eslintrc.json" },
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": [],
+  "tsserver.formatOnType": true,
+  "coc.preferences.formatOnType": true,
+  "prettier.bracketSpacing": true,
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.disableSuccessMessage": true,
+  "coc.preferences.extensionUpdateCheck": "daily"
+}

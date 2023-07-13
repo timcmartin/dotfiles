@@ -470,7 +470,6 @@ nmap <silent> <leader>g :TestVisit<CR>
 " Jest Test file if missing (see function below)
 map <leader>tj :call MakeJestFileIfMissing()<CR>
 
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Make Jest Test file if Missing
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -480,36 +479,20 @@ ruby << EOF
     def self.for(buffer)
       test_file = test_for_buffer(buffer)
       component = testify(buffer).sub!('.test.jsx','')
+      boilerplate_file = '/Users/tmartin/Dotfiles/vim/boilerplate/jest_test.txt'
 
       if already_exists?(test_file)
         puts "Jest Test already exists"
         return
       end
 
+      boilerplate_input = File.open(boilerplate_file)  
+      boilerplate_code = boilerplate_input.read()
+
       File.open(test_file, File::WRONLY|File::CREAT|File::EXCL) do |file|
-        file.write "import React from 'react';\n"
-        file.write "import { render, screen } from '@testing-library/react';\n"
-        file.write "import #{component} from './#{component}';\n"
-        file.write "\n"
-        file.write "const MOCK_PERMISSIONS = {};\n"
-        file.write "\n"
-        file.write "const createMockProps = () => ({\n"
-        file.write "  permissions: MOCK_PERMISSIONS,\n"
-        file.write "});\n"
-        file.write "\n"
-        file.write "describe('#{component} test', () => {\n"
-        file.write "  const createComponent = () => {\n"
-        file.write "    render(\n"
-        file.write "      <#{component} {...createMockProps()} />,\n"
-        file.write "    );\n"
-        file.write "  };\n"
-        file.write "\n"
-        file.write "  it('should do something', () => {\n"
-        file.write "    createComponent();\n"
-        file.write "    screen.debug();\n"
-        file.write "  });\n"
-        file.write "});\n"
+        file.write(boilerplate_code.gsub('#{component}', component))
       end
+      
     end
 
     private
@@ -536,7 +519,6 @@ ruby << EOF
   MakesJestFileIfMissing.for(buffer)
 EOF
 endfunction
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Convenience Mapping
@@ -696,6 +678,13 @@ endif
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 endif
+
+" Insert javascriptreact
+map <leader>jsr :call JSR()<CR>
+
+function! JSR()
+  r ~/.vim/boilerplate/javascriptreact.txt
+endfunction
 
 " vimrc
 " make it easy to source and load vimrc
