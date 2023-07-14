@@ -74,6 +74,8 @@ alias miscpid='lsof -wni tcp:3112'
 alias purchasepid='lsof -wni tcp:3102'
 # PID for sign_in (when freezes)
 alias signinpid='lsof -wni tcp:3101'
+# Proxy PID
+alias proxypid='lsof -wni tcp:8080'
 # kill apps
 alias kill_cns='kill -9 $(cnspid -t)'
 alias kill_landing='kill -9 $(landingpid -t)'

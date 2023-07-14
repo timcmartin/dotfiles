@@ -2,10 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import #{component} from './#{component}';
 
-const MOCK_PERMISSIONS = {};
-
 const createMockProps = () => ({
-  permissions: MOCK_PERMISSIONS,
 });
 
 const createComponent = () => {
@@ -20,6 +17,6 @@ describe('#{component} test', () => {
   });
 
   it('should do something', () => {
-    screen.debug();
+    screen.getByRole('blah');
   });
 });
