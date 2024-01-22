@@ -32,8 +32,9 @@ alias fiadd='g fi -a'
 alias giproxy-a="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; git pull --rebase; ./runLocal.sh | lolcat"
 alias gipa="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; ./runLocal.sh | lolcat"
 alias watchlint="esw -w --changed app/javascript/react --ext .js,.jsx --color"
-alias watchjest="yarn jest --watch"
-alias watchjestdb="yarn jest-debug --watch"
+alias yj="yarn jest"
+alias yjd="yarn jest-debug"
+alias wyjd="yarn jest-debug --watch"
 # Home
 alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
 alias gipw="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh | lolcat"
@@ -76,11 +77,8 @@ alias purchasepid='lsof -wni tcp:3102'
 alias signinpid='lsof -wni tcp:3101'
 # Proxy PID
 alias proxypid='lsof -wni tcp:8080'
-# kill apps
-alias kill_cns='kill -9 $(cnspid -t)'
-alias kill_landing='kill -9 $(landingpid -t)'
-alias kill_misc='kill -9 $(miscpid -t)'
-alias kill_purchase='kill -9 $(purchasepid -t)'
+# kill app
+alias ka='kill -9'
 alias kill_proxy='docker stop hap'
 alias giawslocal="export AWS_PROFILE=local"
 alias gilock='g co Gemfile.lock'

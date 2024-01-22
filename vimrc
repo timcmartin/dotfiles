@@ -133,6 +133,7 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'thoughtbot/vim-rspec'
 Plug 'timcmartin/vim-afterglow'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-obsession'
@@ -146,6 +147,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'vimwiki/vimwiki'
 Plug 'hashivim/vim-terraform'
 Plug 'vim-test/vim-test'
+Plug 'github/copilot.vim'
 " https://thoughtbot.com/blog/modern-typescript-and-react-development-in-vim
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -468,7 +470,7 @@ nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
 " Jest Test file if missing (see function below)
-map <leader>tj :call MakeJestFileIfMissing()<CR>
+map <leader>jt :call MakeJestFileIfMissing()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Make Jest Test file if Missing
@@ -685,6 +687,9 @@ map <leader>jsr :call JSR()<CR>
 function! JSR()
   r ~/.vim/boilerplate/javascriptreact.txt
 endfunction
+
+" Look for todos in jsx files
+noremap <leader>jstt :noautocmd vimgrep /TODO/j **/*.jsx<CR>:cw<CR>
 
 " vimrc
 " make it easy to source and load vimrc
