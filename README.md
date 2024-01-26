@@ -3,7 +3,7 @@
 This repository borrows heavily from [jcarley/dotmatrix](https://github.com/jcarley/dotmatrix),
 but was tweaked for use with [Dotbot](https://github.com/anishathalye/dotbot) and [Strap](https://github.com/timcmartin/strap).
 
-This config makes use of powerline and tmux-powerline.
+This config makes use of Tmux Catppuccin.
 
 ## Preferred Setup:
 
@@ -33,7 +33,7 @@ Strap has been forked from the original repo and modified to work with Dotbot.
 Dotbot will update the submodules and create the requisite symlinks.
 
 Will want to update `gitconfig` to use personal email instead of work email.
-Lk
+
 ## Editing:
 
 To edit the functionality, of Dotbot, edit the `install.conf.yaml` file.
@@ -51,7 +51,7 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
 
 ## Other Things to Install
 
-* iTerm2
+* iTerm2 => Should be done with brewfile
 * Node.js => Using Nodenv
 * oh-my-zsh:
   * theme:
@@ -61,20 +61,21 @@ See [Dotbot](https://github.com/anishathalye/dotbot) for more information and ex
     * `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
     * autocomplete
       * `sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+* Copilot: https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vimneovim
 * Alfred
 * Bartender
-* iStat menus
-* Dropbox
+* iStat menus => Should be done with brewfile
+* Dropbox => Should be done with brewfile
 * Slack
 * AnyConnect
-* Keeping You Awake
+* Keeping You Awake => Should be done with brewfile
 * Muzzle
 * Fork
-* 1Password
+* 1Password => Should be done with brewfile
 * AWS config
 * Chrome
-* Reaper
-* Sibelius
+* Reaper: Personal
+* Sibelius: Personal
 * Keyboard mapping: Caps Lock -> Control
 
 ### Tmux Plugin Manager:

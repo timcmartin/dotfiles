@@ -44,9 +44,6 @@
     ~/.rspec:
       relink: true
       path: rspec
-    ~/.thymerc:
-      relink: true
-      path: thymerc
     ~/.tmux.conf:
       relink: true
       path: tmux.conf
