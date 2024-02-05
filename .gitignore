@@ -24,4 +24,5 @@ doc/tags
 aws/*
 vim/sessions/
 vim/plugged/
+vim/undodir/
 .vim/
