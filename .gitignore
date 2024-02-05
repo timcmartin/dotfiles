@@ -26,3 +26,4 @@ vim/sessions/
 vim/plugged/
 vim/undodir/
 .vim/
+.node-version
