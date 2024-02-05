@@ -1,0 +1,14 @@
+if [[ $(git diff HEAD | grep 'binding.pry' -m 1 --count) -ne 0 ]]; then
+  echo 'This commit has been rejected.'
+  echo 'You are trying to commit a binding.pry'
+  exit 1
+fi
+
+BRANCH_NAME=`git rev-parse --abbrev-ref HEAD`
+if [[ $(git status | grep 'modified:.*Gemfile' --count -m 2) -eq 1 && ($BRANCH_NAME != 'fi') ]]
+then
+  echo 'This commit has been rejected.'
+  echo -e "You have an unexpected change where\n\tYou modified Gemfile without running 'bundle install'\n\t or Gemfile.lock is unexpectadly modified"
+  echo 'If this is intentional, re-run with --no-verify'
+  exit 1
+fi

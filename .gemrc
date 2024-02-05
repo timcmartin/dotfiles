@@ -1,0 +1,12 @@
+---
+:backtrace: false
+:bulk_threshold: 1000
+:sources:
+- https://rubygems.org/
+- https://artifactory.amer.gettywan.com/artifactory/api/gems/unisporkal/
+- https://artifactory.getty.cloud/artifactory/api/gems/unisporkal/
+:update_sources: true
+:verbose: true
+:concurrent_downloads: 8
+benchmark: false
+gem: "--no-ri --no-rdoc"
