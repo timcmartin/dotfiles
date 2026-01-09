@@ -1,0 +1,105 @@
+[alias]
+  d = difftool
+  br = branch
+  bra = branch -a
+  ci = commit
+  cl = clone
+  co = checkout
+  cp = cherry-pick
+  df = diff -a -w
+  dw = diff -a -w --word-diff
+  lg = log --graph  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=local
+  lgrelease = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --first-parent master
+  fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+  list = log --oneline --color --decorate
+  li = log --oneline --color
+  ls = log --stat
+  changed = diff-tree --no-commit-id --name-only -r HEAD
+  me = merge --no-ff
+  pruneremote = remote prune origin
+  put = push origin HEAD
+  ri = rebase --interactive
+  squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+  st = status
+  tr = log --graph --oneline --decorate --color
+  tree = log --graph --oneline --decorate --color --all
+  tweak = commit --amend -C HEAD
+  glog =  log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --
+  pushcurrent = "!f() { git push ${1:-origin} 'git symbolic-ref HEAD'; }; f"
+  pullcurrent = "!f() { git pull -u ${1:-origin} 'git symbolic-ref HEAD'; }; f"
+  unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
+  unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
+  showfiles = show --pretty="format:" --name-only
+  files = diff-tree --no-commit-id --name-only -r
+  ctags = !.git/hooks/ctags
+  nuke = !sh -c 'git branch -D $1 && git push origin :$1' -
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+  ui = auto
+[core]
+	excludesfile = ~/.gitignore_global
+  editor = vim
+  whitespace = warn
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
+[help]
+  autocorrect = 10
+[interactive]
+  singlekey = false
+[merge]
+  summary = true
+	tool = meld
+[merge "bundlelock"]
+  name = lock Gemfile
+  driver = bundle install
+[merge "bundle"]
+  name = bundle
+  driver = bundle
+[merge "railsschema"]
+  name = newer Rails schema version
+  driver = "ruby -e '\n\
+    system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
+    b = File.read(%(%A))\n\
+    b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
+      %(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
+    end\n\
+    File.open(%(%A), %(w)) {|f| f.write(b)}\n\
+    exit 1 if b.include?(%(<)*%L)'"
+[push]
+	default = current
+[rebase]
+  autosquash = true
+[rerere]
+  enabled = true
+[user]
+	name = Tim Martin
+[include]
+  path = ~/.gitconfig_identity
+[http]
+  sslVerify = false
+; [credential]
+  ; helper = /opt/boxen/bin/boxen-git-credential
+  # helper = cache --timeout=36000
+[mergetool]
+	keepBackup = false
+[init]
+	templatedir = ~/.git_template
+; [difftool "sourcetree"]
+	; cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
+	; path =
+; [mergetool "sourcetree"]
+	; cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	; trustExitCode = true
+
+[hub]
+protocol = https
+[pull]
+	rebase = true
+[github]
+	user = timcmartin
+[credential]
+	helper = osxkeychain

@@ -27,3 +27,4 @@ vim/plugged/
 vim/undodir/
 .vim/
 .node-version
+.gitconfig_identity

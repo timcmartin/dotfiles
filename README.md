@@ -1,53 +1,77 @@
 # Dotfiles
-* [Stow](https://www.youtube.com/watch?v=y6XCebnB9gs)
-* [Strap](https://github.com/MikeMcQuaid/strap)
 
-This config makes use of Tmux Catppuccin.
+Personal and work dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Strap](https://github.com/MikeMcQuaid/strap).
 
-## Preferred Setup:
+This config includes [Tmux Catppuccin](https://github.com/catppuccin/tmux) and is designed for seamless, context-aware setup across multiple macOS user accounts.
 
-1. Open [Strap](https://strap.mikemcquaid.com/) in browser.
-2. `cd ~/Dotfiles && stow .`
+---
 
-Will want to update `gitconfig` to use personal email instead of work email.
+## Setup Instructions
+
+### 1. **Bootstrap with Strap**
+
+- Open [Strap](https://strap.mikemcquaid.com/) in your browser and follow the instructions.
+- Strap will:
+  - Clone this dotfiles repo.
+  - Use your [Brewfile](https://github.com/timcmartin/homebrew-brewfile) to install Homebrew packages and casks.
+  - Run `script/setup.sh` to configure your dotfiles.
+
+### 2. **Run the Setup Script**
+
+From your dotfiles directory:
+
+```sh
+cd ~/Dotfiles
+./script/setup.sh
+```
+
+- This script:
+  - Backs up any existing dotfiles to `~/dotfiles-backup/`.
+  - Symlinks all managed dotfiles using GNU Stow, respecting `.stow-local-ignore`.
+  - Handles context-specific configuration (e.g., sets your git email based on your macOS user).
+  - Symlinks directories (e.g., `scripts/` → `~/.scripts`) as single links where appropriate.
+  - Ensures `~/.config/tmuxinator` and other config directories are created and symlinked as needed.
+
+**You do not need to run `stow .` manually.**
+All symlinking and context detection is handled by `script/setup.sh`.
+
+---
 
 ## Brewfile
 
-* Used by Strap: https://github.com/timcmartin/homebrew-brewfile
+- Used by Strap: <https://github.com/timcmartin/homebrew-brewfile>
+- Installs all required CLI tools and GUI apps via Homebrew and Mac App Store.
 
-## Vim
+---
 
-* Running `:PlugInstall` from Vim should do the trick.
-* Maintaining my own colorscheme here: https://github.com/timcmartin/vim-afterglow
+## Other Things to Install (Manual Checklist)
 
-## Other Things to Install
+These are not handled by Brew or Strap, but are part of your preferred environment:
 
-* iTerm2 => Should be done with brewfile
-* Node.js => Using Nodenv
-* oh-my-zsh:
-  * theme:
-    * `git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1`
-    * `ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"`
-  * zsh-syntax-highlighting:
-    * `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
-    * autocomplete
-      * `sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
-* Copilot: https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vimneovim
-* Alfred
-* Bartender
-* iStat menus => Should be done with brewfile
-* Dropbox => Should be done with brewfile
-* Slack
-* AnyConnect
-* Keeping You Awake => Should be done with brewfile
-* Muzzle
-* Fork
-* 1Password => Should be done with brewfile
-* AWS config
-* Chrome
-* Reaper: Personal
-* Sibelius: Personal
-* Keyboard mapping: Caps Lock -> Control
+- **Node.js** (using Nodenv)
+- **oh-my-zsh**:
+  - Theme:
+    - `git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1`
+    - `ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"`
+  - Plugins:
+    - zsh-syntax-highlighting:
+      - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+    - zsh-autosuggestions:
+      - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+- **Copilot**: <https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vimneovim>
+- **AWS config**
+- **TMUX Plugin Manager**: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+- **Chrome**
+- **Sibelius** (Personal)
+- **Keyboard mapping**: Caps Lock → Control
 
-### Tmux Plugin Manager:
-`git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+---
+
+## Notes
+
+- The setup script is idempotent and safe to re-run.
+- `.stow-local-ignore` ensures only intended files are symlinked.
+- Context-specific configuration (e.g., git email) is handled automatically based on your macOS user account.
+- For any manual steps, refer to the checklist above.
+
+---
