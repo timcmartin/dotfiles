@@ -28,9 +28,7 @@ vim
 .gitmodules
 git-completion.bash
 tags
-tmux-theme
-tmux-theme-airline
-tmux-theme-catppuccin
+(^|/)tmux-theme$
 vimrc
 uniadmin
 boilerplate
