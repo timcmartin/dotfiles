@@ -78,7 +78,8 @@ fi
 
 # --- rbenv, pyenv, nodenv ---
 eval "$(rbenv init - zsh)"
-eval "$(pyenv init -)"
+# Not needed?
+# eval "$(pyenv init -)"
 eval "$(nodenv init - zsh)"
 
 # --- Disable software flow control (ctrl-s/ctrl-q) ---
