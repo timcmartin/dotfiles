@@ -64,9 +64,12 @@ for pkg in "${PACKAGES[@]}"; do
   # Backup existing dotfiles
   for file in "$DOTFILES_DIR/$pkg"/.*; do
     [[ -e "$file" ]] || continue
-    target="$HOME/$(basename "$file")"
+    base="$(basename "$file")"
+    [[ "$base" == "." || "$base" == ".." ]] && continue
+    target="$HOME/$base"
     backup_and_remove "$target"
   done
+
   stow --dir="$DOTFILES_DIR" --ignore="$(basename "$STOW_IGNORE_FILE")" "$pkg"
 done
 
