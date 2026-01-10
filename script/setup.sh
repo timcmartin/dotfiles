@@ -69,7 +69,6 @@ for pkg in "${PACKAGES[@]}"; do
     target="$HOME/$base"
     backup_and_remove "$target"
   done
-
   stow --dir="$DOTFILES_DIR" --ignore="$(basename "$STOW_IGNORE_FILE")" "$pkg"
 done
 
@@ -81,12 +80,12 @@ for dir in "${DIRECTORIES[@]}"; do
 done
 
 # --- Stow .config Subdirectories ---
-mkdir -p "$HOME/.config"
 for config_pkg in "${CONFIG_PACKAGES[@]}"; do
-  # Backup existing config
-  target="$HOME/.config/$config_pkg"
-  backup_and_remove "$target"
-  stow --dir="$DOTFILES_DIR" --target="$HOME/.config" --ignore="$(basename "$STOW_IGNORE_FILE")" "$config_pkg"
+  src="$DOTFILES_DIR/$config_pkg"
+  dest="$HOME/.config/$config_pkg"
+  backup_and_remove "$dest"
+  echo "Copying $src to $dest"
+  cp -a "$src" "$dest"
 done
 
 echo "Dotfiles setup complete. Backups (if any) are in $BACKUP_DIR"
