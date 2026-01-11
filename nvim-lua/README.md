@@ -16,10 +16,13 @@ To install your Neovim Lua configuration on a new machine:
 
 ```sh
 cd ~/.dotfiles  # or wherever your dotfiles repo is
+stow -t ~ nvim-lua --adopt
+git reset --HARD
 stow -t ~ nvim-lua
 ```
 
 This will symlink all managed files into `~/.config/nvim/lua/` without touching your `init.lua` or other Neovim files.
+** NOTE ** The `--adopt reset and stow again` flow is required as LazyVim writes these files by default.
 
 ## Copying Sessions
 

@@ -36,6 +36,8 @@ cd ~/Dotfiles
 **You do not need to run `stow .` manually.**
 All symlinking and context detection is handled by `script/setup.sh`.
 
+When finished, you will want to change the remotes of `/.homebrew-brewfile` and `/.dotfiles` to use `SSH`
+
 ---
 
 ## Brewfile
@@ -68,6 +70,7 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 - **Sibelius** (Personal)
 - **Keyboard mapping**: Caps Lock → Control
 - **LazyVim**
+- Recipes
 
 ---
 
