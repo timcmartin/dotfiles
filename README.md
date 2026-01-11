@@ -93,5 +93,6 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 - Update catppuccin and tmux setup.
 - XCode back in Brewfile.
 - LazyVim setup
+- Sibelius setup
 
 ---
