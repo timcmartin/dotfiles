@@ -3,6 +3,7 @@
 Personal and work dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Strap](https://github.com/MikeMcQuaid/strap).
 
 This config includes [Tmux Catppuccin](https://github.com/catppuccin/tmux) and is designed for seamless, context-aware setup across multiple macOS user accounts.
+It is currently locked at my work machine version, (v0.1.0) but there have been significant changes that require edits to the tmux config.
 
 ---
 
@@ -73,5 +74,12 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 - `.stow-local-ignore` ensures only intended files are symlinked.
 - Context-specific configuration (e.g., git email) is handled automatically based on your macOS user account.
 - For any manual steps, refer to the checklist above.
+
+---
+
+## TODO
+
+- Update catppuccin and tmux setup.
+- XCode back in Brewfile. 
 
 ---
