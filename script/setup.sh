@@ -5,8 +5,8 @@ set -euo pipefail
 BACKUP_DIR="$HOME/dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 STOW_IGNORE_FILE="$DOTFILES_DIR/.stow-local-ignore"
-PACKAGES=(bash git ignore ruby tmux todo zsh) # Add/remove as needed
-DIRECTORIES=(scripts)                         # Add/remove as needed
+PACKAGES=(bash git ignore ruby tmux todo zsh bin) # Add/remove as needed
+DIRECTORIES=(scripts)                             # Add/remove as needed
 CONFIG_PACKAGES=(tmuxinator)
 SHELL_NAME="$(basename "$SHELL")" # Only stow bash if using bash
 if [[ "$SHELL_NAME" == "bash" ]]; then
