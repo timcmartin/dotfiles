@@ -42,6 +42,7 @@ All symlinking and context detection is handled by `script/setup.sh`.
 
 - Used by Strap: <https://github.com/timcmartin/homebrew-brewfile>
 - Installs all required CLI tools and GUI apps via Homebrew and Mac App Store.
+- Will clone Dotfiles repository to `/.dotfiles/` and Brewfile into `/.homebrew-brewfile`.
 
 ---
 
@@ -62,9 +63,11 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 - **Copilot**: <https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vimneovim>
 - **AWS config**
 - **TMUX Plugin Manager**: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+- **Catppuccin Tmux**: `https://github.com/catppuccin/tmux`
 - **Chrome**
 - **Sibelius** (Personal)
 - **Keyboard mapping**: Caps Lock → Control
+- **LazyVim**
 
 ---
 
@@ -81,5 +84,6 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 
 - Update catppuccin and tmux setup.
 - XCode back in Brewfile. 
+- LazyVim setup
 
 ---
