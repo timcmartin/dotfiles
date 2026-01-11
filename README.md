@@ -71,6 +71,14 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 
 ---
 
+> **Neovim Lua Config**
+>
+> The `nvim-lua` package manages only the contents of `~/.config/nvim/lua/` (not `init.lua` or other Neovim files).
+> To install, run:
+> `stow -t ~ nvim-lua`
+
+---
+
 ## Notes
 
 - The setup script is idempotent and safe to re-run.
@@ -83,7 +91,7 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 ## TODO
 
 - Update catppuccin and tmux setup.
-- XCode back in Brewfile. 
+- XCode back in Brewfile.
 - LazyVim setup
 
 ---
