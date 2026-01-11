@@ -29,7 +29,7 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$USER_HOME/.rbenv/bin:$PATH"
 export PATH="$USER_HOME/.yarn/bin:$USER_HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql/bin:$PATH"
-export PATH="$USER_HOME/Dotfiles/scripts:$PATH"
+export PATH="$USER_HOME/scripts:$PATH"
 export PATH="$USER_HOME/.local/bin:$PATH" # pipx/local binaries
 
 # --- Zsh Plugins ---
