@@ -6,7 +6,7 @@ alias awssand='export AWS_PROFILE=oktad && oktad -p getty-sandbox -t sandbox -w'
 alias awscand='oktad -p getty-nonprod -t okta -w'
 
 # CIU (Curated Image Uploader)
-alias ciu='cd $HOME/src/getty/unisporkal/curated-image-uploader'
+alias ciu='cd $UNISPORKAL/curated-image-uploader'
 alias ciucands='ciu; g co custom-environment; RAILS_ENV=devcand bundle exec rails s'
 alias ciucandc='ciu; g co custom-environment; RAILS_ENV=devcand rails c'
 alias ciuprods='ciu; g co custom-environment; RAILS_ENV=kdevprod bundle exec rails s'
@@ -29,13 +29,13 @@ alias cypress-stage="yarn staging-ca:headless"
 alias cypress='cd $HOME/src/getty/automation'
 
 # GI Proxy
-alias giproxy="cd ~/src/getty/unisporkal/gi_proxy && ./runLocal.sh | lolcat"
+alias giproxy="cd $UNISPORKAL/gi_proxy && ./runLocal.sh | lolcat"
 alias gip="./runLocal.sh | lolcat"
-alias giproxy-a="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; git pull --rebase; ./runLocal.sh | lolcat"
-alias gipa="cd ~/src/getty/unisporkal/gi_proxy; git checkout uni_admin; ./runLocal.sh | lolcat"
-alias giproxy-wfh="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
-alias gipw="cd ~/src/getty/unisporkal/gi_proxy && git checkout wfh && ./runLocal.sh | lolcat"
-alias giproxy-cabin="cd ~/src/getty/unisporkal/gi_proxy && git checkout cabin && ./runLocal.sh -b | lolcat"
+alias giproxy-a="cd $UNISPORKAL/gi_proxy; git checkout uni_admin; git pull --rebase; ./runLocal.sh | lolcat"
+alias gipa="cd /gi_proxy; git checkout uni_admin; ./runLocal.sh | lolcat"
+alias giproxy-wfh="cd /gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
+alias gipw="cd /gi_proxy && git checkout wfh && ./runLocal.sh | lolcat"
+alias giproxy-cabin="cd $UNISPORKAL/gi_proxy && git checkout cabin && ./runLocal.sh -b | lolcat"
 
 # Rails/GI services
 alias gir="bundle exec rails s"
@@ -74,29 +74,29 @@ alias gikarmabrowser='yarn debug-test'
 alias giawslocal="export AWS_PROFILE=local"
 alias gilock='g co Gemfile.lock'
 alias gimerge='git merge --no-ff'
-alias givim="nvim -O $HOME/Dropbox/vimwiki/getty/diary/diary.wiki $HOME/Dropbox/vimwiki/getty/index.wiki"
+alias givim="nvim -O $DROPBOX_DIR/vimwiki/getty/diary/diary.wiki $DROPBOX_DIR/vimwiki/getty/index.wiki"
 
 # Directory navigation - Getty projects
-alias account='cd $HOME/src/getty/unisporkal/account'
-alias adp='cd $HOME/src/getty/unisporkal/asset_detail'
-alias automation='cd $HOME/src/getty/automation'
-alias cns='cd $HOME/src/getty/unisporkal/customer-notifications'
-alias collab='cd $HOME/src/getty/unisporkal/collaboration'
-alias consul='cd $HOME/src/getty/unisporkal/gems/consul_client'
-alias engine='cd $HOME/src/getty/unisporkal/gems/unisporkal_engine'
-alias gidocs='cd $HOME/src/getty/unisporkal/docs'
-alias landing='cd $HOME/src/getty/unisporkal/landing'
-alias misc_admin='cd $HOME/src/getty/unisporkal/misc_admin'
-alias uniadmin='cd $HOME/src/getty/unisporkal/misc_admin'
-alias packages='cd $HOME/src/getty/unisporkal/packages'
-alias proxy='cd $HOME/src/getty/unisporkal/gi_proxy'
-alias purchase='cd $HOME/src/getty/unisporkal/purchase'
-alias service_client='cd $HOME/src/getty/unisporkal/gems/service_client'
-alias sign_in='cd $HOME/src/getty/unisporkal/sign_in'
-alias srp='cd $HOME/src/getty/unisporkal/search'
-alias styles='cd $HOME/src/getty/unisporkal/gems/unisporkal_styles'
-alias unisporkal='cd $HOME/src/getty/unisporkal'
-alias sci='cd $HOME/src/getty/sci'
+alias account='cd $UNISPORKAL/account'
+alias adp='cd $UNISPORKAL/asset_detail'
+alias automation='cd $GETTY_SRC/automation'
+alias cns='cd $UNISPORKAL/customer-notifications'
+alias collab='cd $UNISPORKAL/collaboration'
+alias consul='cd $UNISPORKAL/gems/consul_client'
+alias engine='cd $UNISPORKAL/gems/unisporkal_engine'
+alias gidocs='cd $UNISPORKAL/docs'
+alias landing='cd $UNISPORKAL/landing'
+alias misc_admin='cd $UNISPORKAL/misc_admin'
+alias uniadmin='cd $UNISPORKAL/misc_admin'
+alias packages='cd $UNISPORKAL/packages'
+alias proxy='cd $UNISPORKAL/gi_proxy'
+alias purchase='cd $UNISPORKAL/purchase'
+alias service_client='cd $UNISPORKAL/gems/service_client'
+alias sign_in='cd $UNISPORKAL/sign_in'
+alias srp='cd $UNISPORKAL/search'
+alias styles='cd $UNISPORKAL/gems/unisporkal_styles'
+alias unisporkal='cd $UNISPORKAL'
+alias sci='cd $GETTY_SRC/sci'
 
 # Unisporkal monorepo management
 alias uni_pre_update='proxy && git checkout master | uniadmin && git checkout master && gilock'

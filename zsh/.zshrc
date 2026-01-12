@@ -13,6 +13,8 @@ case "$USER" in
     PERSONAL_SRC="$USER_HOME/src"
     ;;
 esac
+GETTY_SRC="$USER_HOME/src"
+UNISPORKAL="$GETTY_SRC/unisporkal"
 
 # --- Oh My Zsh ---
 ZSH="$USER_HOME/.oh-my-zsh"
