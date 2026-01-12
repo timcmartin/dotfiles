@@ -24,6 +24,9 @@ export DROPBOX_DIR="$USER_HOME/Library/CloudStorage/Dropbox"
 # --- Editor ---
 export EDITOR="nvim"
 
+# --- Aliases ---
+[[ -e ~/.bash_aliases ]] && emulate sh -c 'source ~/.bash_aliases'
+
 # --- PATH Setup ---
 # Start with system paths, then add language/toolchain bins, then user bins
 export PATH="/usr/local/sbin:$PATH"
