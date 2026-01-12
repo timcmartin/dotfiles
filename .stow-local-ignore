@@ -1,5 +1,4 @@
 # Comments and blank lines are allowed.
-
 RCS
 .+,v
 
@@ -28,7 +27,6 @@ vim
 .gitmodules
 git-completion.bash
 tags
-(^|/)tmux-theme$
 vimrc
 uniadmin
 boilerplate

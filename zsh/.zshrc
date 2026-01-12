@@ -2,12 +2,15 @@
 case "$USER" in
   tim.martin)
     USER_HOME="/Users/tim.martin"
+    PERSONAL_SRC="$USER_HOME/src/personal"
     ;;
   timcmartin)
     USER_HOME="/Users/timcmartin"
+    PERSONAL_SRC="$USER_HOME/src"
     ;;
   *)
     USER_HOME="$HOME"
+    PERSONAL_SRC="$USER_HOME/src"
     ;;
 esac
 

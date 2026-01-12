@@ -1,0 +1,9 @@
+# Personal/non-work aliases
+
+# Directory navigation - Personal projects
+alias cabin="cd $PERSONAL_SRC/cabin-monitor"
+alias devwork="vim $PERSONAL_SRC/workdev/index.html"
+alias mycode="cd $PERSONAL_SRC"
+alias recipes="cd $PERSONAL_SRC/recipes"
+alias workdev="cd $PERSONAL_SRC/workdev"
+alias wurstwings="cd $PERSONAL_SRC/wurstwings"
