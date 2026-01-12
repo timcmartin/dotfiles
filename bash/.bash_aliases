@@ -110,15 +110,14 @@ alias sourcetmux="tmux source-file ~/.tmux.conf"
 alias yarnlink="ls -l ~/.config/yarn/link"
 # Open Review App from within directory & branch
 alias cb='git rev-parse --abbrev-ref HEAD'
-alias review='open "https://$(cb).review-istockphoto.com"; open "https://$(cb).review-gettyimages.com"';
+alias review='open "https://$(cb).review-istockphoto.com"; open "https://$(cb).review-gettyimages.com"'
 
 # Local Webserver
 # Run in the directory you want to start it in, localhost:8000
 alias webserver='python -m SimpleHTTPServer 8000'
 
 # Bash Commands
-alias aliasedit='vim ~/.bash_aliases'
-alias editalias='vim ~/.bash_aliases'
+alias editalias='nvim ~/.bash_aliases'
 alias callme='sudo su -'
 alias m.='mate .'
 alias m=mate
@@ -239,13 +238,6 @@ alias pryc='pry -r ./config/environment'
 alias rsff='be rspec spec --fail-fast --format documentation'
 alias railsservers='lsof -wni tcp:5000'
 
-# Silver Searcher
-alias ag='ag --path-to-ignore ~/.ignore'
-alias Ag='ag --path-to-ignore ~/.ignore'
-
-# Ctags
-alias ctags="`brew --prefix`/bin/ctags"
-
 # Node Typescript Compile
 alias tsc="node_modules/.bin/tsc"
 alias nsi="node ./dist/index.js"
@@ -310,4 +302,3 @@ function besdb {
 }
 
 [ ! -f "$HOME/.bash_aliases.local" ] || . "$HOME/.bash_aliases.local"
-
