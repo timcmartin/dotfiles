@@ -99,3 +99,8 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 - Sibelius setup
 
 ---
+
+## Important Locations
+
+- /Users/tim.martin/.cache
+- /Users/tim.martin/.local/share/tmux/resurrect
