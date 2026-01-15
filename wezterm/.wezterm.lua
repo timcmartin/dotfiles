@@ -2,10 +2,14 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- General
-config.font_size = 17
-config.line_height = 1.2
 config.enable_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
+config.window_decorations = "RESIZE"
+
+-- Font
+config.font = wezterm.font("MesloLGS Nerd Font Mono")
+config.font_size = 17
+config.line_height = 1.2
 
 -- Size
 config.initial_cols = 140
@@ -18,7 +22,8 @@ config.colors = {
 	cursor_border = "#7aa2f7",
 }
 
-config.window_decorations = "RESIZE"
+config.window_background_opacity = 0.9
+config.macos_window_background_blur = 10
 
 -- Key Bindings
 config.keys = {
