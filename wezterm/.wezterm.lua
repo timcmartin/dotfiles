@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- General
-config.font_size = 19
+config.font_size = 17
 config.line_height = 1.2
 config.color_scheme = "tokyonight_night"
 
