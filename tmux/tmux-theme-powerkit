@@ -1,4 +1,10 @@
 # Basic setup
-set -g @powerkit_plugins "group(battery,cpu,memory),git,weather"
-set -g @powerkit_theme "tokyonight"
+# Note pomodoro_plus is a custom wrapper for https://github.com/olimorris/tmux-pomodoro-plus
+set -g @powerkit_plugins "pomodoro_plus, group(battery,cpu,memory),git"
+set -g @powerkit_status_interval "1"
+set -g @powerkit_theme "tokyo-night"
 set -g @powerkit_theme_variant "night"
+set -g @powerkit_separator_style "rounded"
+set -g @powerkit_elements_spacing "both"
+set -g @powerkit_transparent "true"
+set -g @powerkit_status_position "bottom"
