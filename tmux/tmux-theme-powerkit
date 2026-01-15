@@ -1,0 +1,4 @@
+# Basic setup
+set -g @powerkit_plugins "group(battery,cpu,memory),git,weather"
+set -g @powerkit_theme "tokyonight"
+set -g @powerkit_theme_variant "night"
