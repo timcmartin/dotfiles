@@ -1,23 +1,26 @@
 # Dotfiles
 
-Personal and work dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/) and [Strap](https://github.com/MikeMcQuaid/strap).
+Personal and work dotfiles managed with [GNU Stow][stow] and [Strap][strap].
 
-This config includes [Tmux Catppuccin](https://github.com/catppuccin/tmux) and is designed for seamless, context-aware setup across multiple macOS user accounts.
-It is currently locked at my work machine version, (v0.1.0) but there have been significant changes that require edits to the tmux config.
+This config includes [Tmux Catppuccin][catppuccin] and is designed for seamless,
+context-aware setup across multiple macOS user accounts.
+
+Currently locked at work machine version (v0.1.0). Significant changes require
+edits to the tmux config.
 
 ---
 
 ## Setup Instructions
 
-### 1. **Bootstrap with Strap**
+### 1. Bootstrap with Strap
 
-- Open [Strap](https://strap.mikemcquaid.com/) in your browser and follow the instructions.
+- Open [Strap][strap] in your browser and follow the instructions.
 - Strap will:
   - Clone this dotfiles repo.
-  - Use your [Brewfile](https://github.com/timcmartin/homebrew-brewfile) to install Homebrew packages and casks.
+  - Use your [Brewfile][brewfile] to install Homebrew packages and casks.
   - Run `script/setup.sh` to configure your dotfiles.
 
-### 2. **Run the Setup Script**
+### 2. Run the Setup Script
 
 From your dotfiles directory:
 
@@ -27,16 +30,18 @@ cd ~/Dotfiles
 ```
 
 - This script:
-  - Backs up any existing dotfiles to `~/dotfiles-backup/`.
+  - Backs up existing dotfiles to `~/dotfiles-backup/`.
   - Symlinks all managed dotfiles using GNU Stow, respecting `.stow-local-ignore`.
-  - Handles context-specific configuration (e.g., sets your git email based on your macOS user).
-  - Symlinks directories (e.g., `scripts/` → `~/.scripts`) as single links where appropriate.
-  - Ensures `~/.config/tmuxinator` and other config directories are created and symlinked as needed.
+  - Handles context-specific config (e.g., sets git email by macOS user).
+  - Symlinks directories (e.g., `scripts/` → `~/.scripts`) as single links.
+  - Ensures `~/.config/tmuxinator` and other config dirs are created and
+    symlinked as needed.
 
 **You do not need to run `stow .` manually.**
 All symlinking and context detection is handled by `script/setup.sh`.
 
-When finished, you will want to change the remotes of `/.homebrew-brewfile` and `/.dotfiles` to use `SSH`
+When finished, change the remotes of `/.homebrew-brewfile` and `/.dotfiles` to
+use SSH.
 
 ---
 
@@ -44,28 +49,32 @@ When finished, you will want to change the remotes of `/.homebrew-brewfile` and 
 
 - Used by Strap: <https://github.com/timcmartin/homebrew-brewfile>
 - Installs all required CLI tools and GUI apps via Homebrew and Mac App Store.
-- Will clone Dotfiles repository to `/.dotfiles/` and Brewfile into `/.homebrew-brewfile`.
+- Clones Dotfiles repo to `/.dotfiles/` and Brewfile into `/.homebrew-brewfile`.
 
 ---
 
-## Other Things to Install (Manual Checklist)
+## Manual Checklist
 
-These are not handled by Brew or Strap, but are part of your preferred environment:
+These are not handled by Brew or Strap, but are part of your environment:
 
 - **Node.js** (using Nodenv)
 - **oh-my-zsh**:
   - Theme:
-    - `git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1`
-    - `ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"`
+    - `git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
+"$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1`
+    - `ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" \
+"$ZSH_CUSTOM/themes/spaceship.zsh-theme"`
   - Plugins:
     - zsh-syntax-highlighting:
-      - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+      - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
     - zsh-autosuggestions:
-      - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+      - `git clone https://github.com/zsh-users/zsh-autosuggestions \
+${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 - **Copilot**: <https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vimneovim>
 - **AWS config**
 - **TMUX Plugin Manager**: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
-- **Catppuccin Tmux**: `https://github.com/catppuccin/tmux`
+- **Catppuccin Tmux**: <https://github.com/catppuccin/tmux>
 - **Chrome**
 - **Sibelius** (Personal)
 - **Keyboard mapping**: Caps Lock → Control
@@ -76,7 +85,8 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 
 > **Neovim Lua Config**
 >
-> The `nvim-lua` package manages only the contents of `~/.config/nvim/lua/` (not `init.lua` or other Neovim files).
+> The `nvim-lua` package manages only `~/.config/nvim/lua/` (not `init.lua` or
+> other Neovim files).
 > To install, run:
 > `stow -t ~ nvim-lua`
 
@@ -86,8 +96,9 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 
 - The setup script is idempotent and safe to re-run.
 - `.stow-local-ignore` ensures only intended files are symlinked.
-- Context-specific configuration (e.g., git email) is handled automatically based on your macOS user account.
-- For any manual steps, refer to the checklist above.
+- Context-specific config (e.g., git email) is handled automatically by macOS
+  user account.
+- For manual steps, refer to the checklist above.
 
 ---
 
@@ -95,12 +106,19 @@ These are not handled by Brew or Strap, but are part of your preferred environme
 
 - Update catppuccin and tmux setup.
 - XCode back in Brewfile.
-- LazyVim setup
-- Sibelius setup
+- LazyVim setup.
+- Sibelius setup.
 
 ---
 
 ## Important Locations
 
-- /Users/tim.martin/.cache
-- /Users/tim.martin/.local/share/tmux/resurrect
+- $HOME/.cache
+- $HOME/.local/share/tmux/resurrect
+
+---
+
+[stow]: https://www.gnu.org/software/stow/
+[strap]: https://github.com/MikeMcQuaid/strap
+[catppuccin]: https://github.com/catppuccin/tmux
+[brewfile]: https://github.com/timcmartin/homebrew-brewfile
