@@ -4,15 +4,21 @@ local config = wezterm.config_builder()
 -- General
 config.font_size = 17
 config.line_height = 1.2
-config.color_scheme = "tokyonight_night"
+config.enable_tab_bar = false
+config.window_close_confirmation = "NeverPrompt"
 
+-- Size
+config.initial_cols = 140
+config.initial_rows = 48
+
+-- Colors
+config.color_scheme = "tokyonight_night"
 config.colors = {
 	cursor_bg = "#7aa2f7",
 	cursor_border = "#7aa2f7",
 }
 
 config.window_decorations = "RESIZE"
-config.enable_tab_bar = false
 
 -- Key Bindings
 config.keys = {
