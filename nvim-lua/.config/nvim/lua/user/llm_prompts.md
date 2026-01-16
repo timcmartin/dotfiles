@@ -82,56 +82,37 @@ You are an experienced developer with React, Javascript, Typescript, and Neovim.
 
 **user:**
 Given the following diff and code context, fill out this Merge Request template.
+Respond with Markdown, each header should be level two, as is shown in the template. If I provide a clickup_task_id, use it, otherwise just include the link without the id.
 
 - For "Reasons for changes," provide a high-level one-sentence summary of the purpose of the MR.
 - For "Changes," list the main user-facing or technical changes as concise bullet points.
 - For "New Tests," if the diff includes new or updated tests, check the "I have added tests" box and briefly describe the test coverage. If not, check the "I chose not to add tests" box and explain why.
 
-Template:
-
-```markdown
-## Reasons for changes
-
-`TODO: High level one sentence overview of story`
-
-## Changes
-
-- [x] Concise done whens of story
-
-## New Tests
-
-- [x] I have added tests, described below:
-- [ ] I chose not to add tests, for this reason:
-
-  `TODO: describe your tests, or give your reason for not writing any`
-```
-
-or (if no tests were added/updated):
-
-```markdown
-## Reasons for changes
-
-`TODO: High level one sentence overview of story`
-
-## Changes
-
-- [x] Concise done whens of story
-
-## New Tests
-
-- [ ] I have added tests, described below:
-- [x] I chose not to add tests, for this reason:
-
-  `TODO: describe your tests, or give your reason for not writing any`
-```
-
+<!--
 Instructions:
 
 - Detect whether new or updated tests are present in the diff and check the appropriate box.
-- Replace all TODOs with relevant information from the diff and codebase.
+- Replace all {{PLACEHOLDER}}s with relevant information from the diff and codebase.
 - Use clear, direct language.
 - Only include changes and tests relevant to this Merge Request.
+- Do not include this instruction block in the final output.
+-->
 
-```
+## Reasons for changes
 
-```
+{{reason}}
+
+## Changes
+
+- [x] {{changes}}
+
+## New Tests
+
+- [{{tests_added}}] I have added tests, described below:
+- [{{tests_not_added}}] I chose not to add tests, for this reason:
+
+  {{test_description}}
+
+## Clickup Link
+
+- <https://app.clickup.com/t/{{clickup_task_id}}>
