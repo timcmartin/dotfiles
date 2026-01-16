@@ -1,5 +1,7 @@
 # Basic setup
-set -g @powerkit_plugins "external(\"\"|\"$(~/.tmux/plugins/tmux-pomodoro-plus/scripts/pomodoro.sh)\"|\"ok-base-lighter\"|\"ok-base-lighter\"|\"60\")group(battery,cpu,memory),git"
+# Pomodoro not working
+# set -g @powerkit_plugins "external(\"\"|\"$(~/.tmux/plugins/tmux-pomodoro-plus/scripts/pomodoro.sh)\"|\"ok-base-lighter\"|\"ok-base-lighter\"|\"60\")group(battery,cpu,memory),git"
+set -g @powerkit_plugins "external(\"\"|\"$(pwd)\"|\"ok-base-darker\"|\"ok-base-darker\"|\"60\")group(battery,cpu,memory),git"
 set -g @powerkit_status_interval "1"
 set -g @powerkit_theme "tokyo-night"
 set -g @powerkit_theme_variant "night"
