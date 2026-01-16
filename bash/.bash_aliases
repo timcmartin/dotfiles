@@ -59,7 +59,7 @@ alias yarnlink="ls -l ~/.config/yarn/link"
 
 # Useful shortcuts
 alias cb='git rev-parse --abbrev-ref HEAD'
-alias review='open "https://$(cb).review-istockphoto.com"; open "https://$(cb).review-gettyimages.com"';
+alias review='open "https://$(cb).review-istockphoto.com"; open "https://$(cb).review-gettyimages.com"'
 alias webserver='python -m SimpleHTTPServer 8000'
 alias aliasedit='nvim ~/.bash_aliases'
 alias editalias='nvim ~/.bash_aliases'
@@ -102,9 +102,6 @@ alias railsservers='lsof -wni tcp:5000'
 # Silver Searcher
 alias ag='ag --path-to-ignore ~/.ignore'
 alias Ag='ag --path-to-ignore ~/.ignore'
-
-# Ctags
-alias ctags="`brew --prefix`/bin/ctags"
 
 # Node Typescript Compile
 alias tsc="node_modules/.bin/tsc"
@@ -167,12 +164,14 @@ function besdb {
 }
 
 # Directory Navigation - Common
-alias dotfiles='cd $HOME/Dotfiles'
+alias dotfiles='cd $DOTFILES_DIR'
 alias documents='cd $HOME/Documents'
-alias dropbox='cd $HOME/dropbox'
+alias dropbox='cd $DROPBOX_DIR'
 alias src='cd ~/src'
-alias vimwiki='cd $HOME/Dropbox/vimwiki'
+alias vimwiki='cd $DROPBOX_DIR/vimwiki'
 alias uni-old='cd $HOME/src/unisporkal-old'
+alias tmux-sessions='cd $HOME/.local/share/tmux/resurrect'
+alias app-cache='cd $HOME/.cache'
 
 # Directory shortcuts
 alias ...='cd ../..'

@@ -2,8 +2,6 @@
 
 # AWS
 alias awslocal="export AWS_PROFILE=local"
-alias awssand='export AWS_PROFILE=oktad && oktad -p getty-sandbox -t sandbox -w'
-alias awscand='oktad -p getty-nonprod -t okta -w'
 
 # CIU (Curated Image Uploader)
 alias ciu='cd $UNISPORKAL/curated-image-uploader'
@@ -31,11 +29,7 @@ alias cypress='cd $HOME/src/getty/automation'
 # GI Proxy
 alias giproxy="cd $UNISPORKAL/gi_proxy && ./runLocal.sh | lolcat"
 alias gip="./runLocal.sh | lolcat"
-alias giproxy-a="cd $UNISPORKAL/gi_proxy; git checkout uni_admin; git pull --rebase; ./runLocal.sh | lolcat"
 alias gipa="cd /gi_proxy; git checkout uni_admin; ./runLocal.sh | lolcat"
-alias giproxy-wfh="cd /gi_proxy && git checkout wfh && ./runLocal.sh -b | lolcat"
-alias gipw="cd /gi_proxy && git checkout wfh && ./runLocal.sh | lolcat"
-alias giproxy-cabin="cd $UNISPORKAL/gi_proxy && git checkout cabin && ./runLocal.sh -b | lolcat"
 
 # Rails/GI services
 alias gir="bundle exec rails s"
@@ -84,6 +78,7 @@ alias cns='cd $UNISPORKAL/customer-notifications'
 alias collab='cd $UNISPORKAL/collaboration'
 alias consul='cd $UNISPORKAL/gems/consul_client'
 alias engine='cd $UNISPORKAL/gems/unisporkal_engine'
+alias fed='cd $UNISPORKAL/federated-components'
 alias gidocs='cd $UNISPORKAL/docs'
 alias landing='cd $UNISPORKAL/landing'
 alias misc_admin='cd $UNISPORKAL/misc_admin'

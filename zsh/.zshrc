@@ -3,14 +3,17 @@ case "$USER" in
   tim.martin)
     USER_HOME="/Users/tim.martin"
     PERSONAL_SRC="$USER_HOME/src/personal"
+    DOTFILES_DIR="$USER_HOME/Dotfiles"
     ;;
   timcmartin)
     USER_HOME="/Users/timcmartin"
     PERSONAL_SRC="$USER_HOME/src"
+    DOTFILES_DIR="$USER_HOME/.dotfiles"
     ;;
   *)
     USER_HOME="$HOME"
     PERSONAL_SRC="$USER_HOME/src"
+    DOTFILES_DIR="$USER_HOME/.dotfiles"
     ;;
 esac
 GETTY_SRC="$USER_HOME/src"
