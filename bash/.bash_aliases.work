@@ -65,7 +65,6 @@ alias gikarma='yarn test'
 alias gikarmabrowser='yarn debug-test'
 
 # GI Git
-alias giawslocal="export AWS_PROFILE=local"
 alias gilock='g co Gemfile.lock'
 alias gimerge='git merge --no-ff'
 alias givim="nvim -O $DROPBOX_DIR/vimwiki/getty/diary/diary.wiki $DROPBOX_DIR/vimwiki/getty/index.wiki"

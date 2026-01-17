@@ -61,7 +61,6 @@ alias yarnlink="ls -l ~/.config/yarn/link"
 alias cb='git rev-parse --abbrev-ref HEAD'
 alias review='open "https://$(cb).review-istockphoto.com"; open "https://$(cb).review-gettyimages.com"'
 alias webserver='python -m SimpleHTTPServer 8000'
-alias aliasedit='nvim ~/.bash_aliases'
 alias editalias='nvim ~/.bash_aliases'
 alias m.='mate .'
 alias m=mate
@@ -98,10 +97,6 @@ alias testenv='RAILS_ENV=test'
 alias pryc='pry -r ./config/environment'
 alias rsff='be rspec spec --fail-fast --format documentation'
 alias railsservers='lsof -wni tcp:5000'
-
-# Silver Searcher
-alias ag='ag --path-to-ignore ~/.ignore'
-alias Ag='ag --path-to-ignore ~/.ignore'
 
 # Node Typescript Compile
 alias tsc="node_modules/.bin/tsc"
