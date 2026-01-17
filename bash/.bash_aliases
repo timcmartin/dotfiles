@@ -19,7 +19,7 @@ alias gupdatedirs="find . -type d -depth 1 -exec git --git-dir={}/.git --work-tr
 alias updatesubs='git submodule foreach --recursive git fetch'
 alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 alias git_clean_merged='git checkout master | git branch --merged| egrep -v "(^\*|master|fi)" | xargs git branch -d'
-alias brall='for dir in $(ls -d */);do (cd $dir && [ -d .git ] && echo "$dir [$(git rev-parse --abbrev-ref HEAD)]") || git rev-parse --git-dir 2> /dev/null; done'
+alias git-repos='git-repos.sh'
 
 # Development tools
 alias watchlint="esw -w --changed app/javascript/react --ext .js,.jsx --color"
@@ -32,30 +32,29 @@ alias listunipackages='ls -l node_modules/@unisporkal | grep ^l'
 alias rebundle='gem install --default -v 1.17.3 bundler && bundle'
 alias readmin='gem install --default -v 1.17.3 bundler && bundle && giwp'
 alias yarnlock='g co yarn.lock'
+alias yarnlink="ls -l ~/.config/yarn/link"
 
 # System administration
-alias hosts='sudo vim /etc/hosts'
+alias hosts='sudo nvim /etc/hosts'
 alias iptables="sudo iptables -L --line-numbers"
 alias iptablesdrop="sudo iptables -D ciscovpn "
 alias ka='kill -9'
 alias kill_proxy='docker stop hap'
 alias mux='tmuxinator'
+alias sourcetmux="tmux source-file ~/.tmux.conf"
 alias please=sudo
 alias callme='sudo su -'
 
 # Todo
 alias t='todo.sh -d ~/.todo.cfg'
 
-# Vim
-alias v.='vim .'
-alias v='vim'
-alias vimrc='vim ~/.vimrc'
-alias vimupdate='cd ~/.vimbundles;find . -maxdepth 1 -type d -exec sh -c "'"(cd {} && git pull)"'" "'";"'"'
-alias caretm='stty sane'
+# Vim => nvim
+alias v.='nvim .'
+alias v='nvim'
 alias cleanvim="find ~/.vimbackupdir -type f -name '*.*' -not \( -atime 0 -or -atime 1 -or -atime 2 -or -atime 3 -or -atime 4 -or -atime 5 -or -atime 6 \) -delete"
+
+alias caretm='stty sane'
 alias cleanmail="sudo cat /dev/null > /var/mail/tmartin"
-alias sourcetmux="tmux source-file ~/.tmux.conf"
-alias yarnlink="ls -l ~/.config/yarn/link"
 
 # Useful shortcuts
 alias cb='git rev-parse --abbrev-ref HEAD'
