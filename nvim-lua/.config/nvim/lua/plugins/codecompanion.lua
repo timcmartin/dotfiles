@@ -137,8 +137,8 @@ return {
 			end,
 		},
 	},
-	-- init = function()
-	-- 	vim.cmd([[cab cc CodeCompanion]])
-	-- 	require("plugins.custom.spinner"):init()
-	-- end,
+	init = function()
+		vim.cmd([[cab cc CodeCompanion]])
+		require("plugins.custom.spinner"):init()
+	end,
 }

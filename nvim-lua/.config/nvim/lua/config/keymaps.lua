@@ -37,13 +37,49 @@ vim.keymap.set("n", "<leader><Up>", "<cmd>resize +2<cr>", { desc = "Increase Win
 vim.keymap.set("n", "<leader><Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 vim.keymap.set("n", "<leader><Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 vim.keymap.set("n", "<leader><Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
--- Codecompanion
--- vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
--- vim.keymap.set({ "n", "v" }, "<LocalLeader>a", "<cmd>CodeCompanionChat Toggle<cr>", { noremap = true, silent = true })
--- vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
--- Expand 'cc' into 'CodeCompanion' in the command line
--- vim.cmd([[cab cc CodeCompanion]])
--- Javascript Snippet
+
+-- AI Tools Keymaps
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>ac",
+	"<cmd>CodeCompanionActions<cr>",
+	{ noremap = true, silent = true, desc = "CodeCompanion Actions" }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>as",
+	"<cmd>SidekickActions<cr>",
+	{ noremap = true, silent = true, desc = "Sidekick Actions" }
+)
+vim.keymap.set(
+	{ "n", "v" },
+	"<leader>at",
+	"<cmd>SomeOtherAITool<cr>",
+	{ noremap = true, silent = true, desc = "Other AI Tool" }
+) -- optional placeholder
+
+-- CodeCompanion Chat
+vim.keymap.set(
+	{ "n", "v" },
+	"<localleader>ac",
+	"<cmd>CodeCompanionChat Toggle<cr>",
+	{ noremap = true, silent = true, desc = "Toggle CodeCompanion Chat" }
+)
+vim.keymap.set(
+	"v",
+	"ga",
+	"<cmd>CodeCompanionChat Add<cr>",
+	{ noremap = true, silent = true, desc = "Add to CodeCompanion Chat" }
+)
+
+-- Sidekick Chat (example, adjust as needed)
+vim.keymap.set(
+	{ "n", "v" },
+	"<localleader>as",
+	"<cmd>SidekickChat Toggle<cr>",
+	{ noremap = true, silent = true, desc = "Toggle Sidekick Chat" }
+)
+
 vim.keymap.set(
 	"n",
 	"<leader>js",
