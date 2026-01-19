@@ -164,6 +164,7 @@ alias dropbox='cd $DROPBOX_DIR'
 alias src='cd ~/src'
 alias vimwiki='cd $DROPBOX_DIR/vimwiki'
 alias uni-old='cd $HOME/src/unisporkal-old'
+alias nvim-sessions='cd $HOME/.local/share/nvim/sessions'
 alias tmux-sessions='cd $HOME/.local/share/tmux/resurrect'
 alias app-cache='cd $HOME/.cache'
 
