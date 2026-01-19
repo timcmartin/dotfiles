@@ -1,5 +1,10 @@
 return {
 	"folke/sidekick.nvim",
+	opts = {
+		cli = {
+			default = "gpt-4.1",
+		},
+	},
 	keys = {
 		{
 			"<leader>as",
