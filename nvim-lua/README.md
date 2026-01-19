@@ -22,7 +22,7 @@ stow -t ~ nvim-lua
 ```
 
 This will symlink all managed files into `~/.config/nvim/lua/` without touching your `init.lua` or other Neovim files.
-** NOTE ** The `--adopt reset and stow again` flow is required as LazyVim writes these files by default.
+**NOTE** The `--adopt reset and stow again` flow is required as LazyVim writes these files by default.
 
 ## Copying Sessions
 
@@ -51,8 +51,9 @@ cp -arf ~/.local/share/nvim.bak/sessions ~/.local/share/nvim/sessions
 
 ● ai.copilot
 ● ai.copilot-chat
+● ai.sidekick
+● ai.supermaven
 ● coding.blink
-● coding.mini-surround
 ● coding.yanky
 ● editor.dial
 ● editor.inc-rename
@@ -61,6 +62,7 @@ cp -arf ~/.local/share/nvim.bak/sessions ~/.local/share/nvim/sessions
 ● editor.snacks_picker
 ● formatting.prettier
 ● linting.eslint
+● util.dot
 ● util.mini-hipatterns
 
 Enabled Languages: (7) permissions.
