@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 vim.keymap.set("i", "jj", "<ESC>", { silent = true })
+vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true, desc = "Exit terminal mode" })
 -- Formatting Convenience
 vim.keymap.set("n", "<leader>txt", ":set ft=txt<CR>", {})
 vim.keymap.set("n", "<leader>md", ":set ft=markdown<CR>", {})
