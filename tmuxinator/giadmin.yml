@@ -8,31 +8,31 @@ windows:
       layout: even-vertical
       panes:
         - docker:
-          - giproxy-a
+            - giproxy-a
         - dynamo:
-          - cd $HOME/src/getty/gi-local-dynamo
-          - bin/start | lolcat
+            - cd $HOME/src/getty/gi-local-dynamo
+            - bin/start | lolcat
   - dotfiles:
       layout: even-horizontal
       panes:
         - dotfiles-vim:
-          - Dotfiles
-          - vim ~/Dotfiles/kbash_aliases
+            - dotfiles
+            - vim ~/.dotfiles/bash_aliases
   - vimwiki:
       layout: even-horizontal
       panes:
         - vimwiki:
-          - cd ~/Dropbox/vimwiki
-          - ls
+            - cd ~/Dropbox/vimwiki
+            - ls
   - oh-my-zsh:
       layout: even-horizontal
       panes:
         - oh-my-zsh:
-          - cd $HOME/.oh-my-zsh/plugins/git
-          - vim -o $HOME/.oh-my-zsh/plugins/git/README.md
+            - cd $HOME/.oh-my-zsh/plugins/git
+            - vim -o $HOME/.oh-my-zsh/plugins/git/README.md
   - recipes:
       layout: even-horizontal
       panes:
         - recipes:
-          - cd $HOME/src/personal/recipes
-          - vim
+            - cd $HOME/src/personal/recipes
+            - vim

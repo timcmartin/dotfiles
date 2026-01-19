@@ -25,7 +25,7 @@ edits to the tmux config.
 From your dotfiles directory:
 
 ```sh
-cd ~/Dotfiles
+cd ~/.dotfiles
 ./script/setup.sh
 ```
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Script used to copy old dotfiles to new setup.
+# Previously, dotfiles were in the 'Dotfiles' directory. Now copied and edited in the new folder.
 set -euo pipefail
 
 # Source and destination

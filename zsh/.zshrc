@@ -3,7 +3,7 @@ case "$USER" in
   tim.martin)
     USER_HOME="/Users/tim.martin"
     PERSONAL_SRC="$USER_HOME/src/personal"
-    DOTFILES_DIR="$USER_HOME/Dotfiles"
+    DOTFILES_DIR="$USER_HOME/.dotfiles"
     ;;
   timcmartin)
     USER_HOME="/Users/timcmartin"
