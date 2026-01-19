@@ -12,6 +12,8 @@ mv ~/.cache/nvim{,.bak}
 
 ## Setup
 
+- [Install LazyVim](https://www.lazyvim.org/installation)
+
 To install your Neovim Lua configuration on a new machine:
 
 ```sh
