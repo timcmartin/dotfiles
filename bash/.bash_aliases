@@ -167,6 +167,7 @@ alias uni-old='cd $HOME/src/unisporkal-old'
 alias nvim-sessions='cd $HOME/.local/share/nvim/sessions'
 alias tmux-sessions='cd $HOME/.local/share/tmux/resurrect'
 alias app-cache='cd $HOME/.cache'
+alias app-state='cd $HOME/.local/state'
 
 # Directory shortcuts
 alias ...='cd ../..'

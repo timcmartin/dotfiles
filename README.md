@@ -108,6 +108,7 @@ ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 ## Important Locations
 
 - $HOME/.cache => alias `app-cache`
+- $HOME/.local/state => alias `app-state`
 - $HOME/.local/share/nvim/sessions => alias `nvim-sessions`
 - $HOME/.local/share/tmux/resurrect => alias `tmux-sessions`
 
