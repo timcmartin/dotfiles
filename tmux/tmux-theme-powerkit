@@ -9,4 +9,6 @@ set -g @powerkit_separator_style "rounded"
 set -g @powerkit_elements_spacing "both"
 set -g @powerkit_transparent "true"
 set -g @powerkit_status_position "bottom"
-set -g @powerkit_bar_layout 'double'
+if-shell "test \$(system_profiler SPDisplaysDataType | awk '/Displays:/{f=1;next} /^[^ ]/{f=0} f && /^[ ]{8}[^ ].*:$/ {c++} END{print c}') -lt 3" \
+  'set -g @powerkit_bar_layout double' \
+  'set -g @powerkit_bar_layout single'
