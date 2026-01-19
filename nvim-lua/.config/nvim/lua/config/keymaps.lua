@@ -48,23 +48,9 @@ vim.keymap.set(
 )
 vim.keymap.set(
 	{ "n", "v" },
-	"<leader>as",
-	"<cmd>SidekickActions<cr>",
-	{ noremap = true, silent = true, desc = "Sidekick Actions" }
-)
-vim.keymap.set(
-	{ "n", "v" },
-	"<leader>at",
-	"<cmd>SomeOtherAITool<cr>",
-	{ noremap = true, silent = true, desc = "Other AI Tool" }
-) -- optional placeholder
-
--- CodeCompanion Chat
-vim.keymap.set(
-	{ "n", "v" },
-	"<localleader>ac",
+	"<leader>aC",
 	"<cmd>CodeCompanionChat Toggle<cr>",
-	{ noremap = true, silent = true, desc = "Toggle CodeCompanion Chat" }
+	{ noremap = true, silent = true, desc = "CodeCompanion Toggle Chat" }
 )
 vim.keymap.set(
 	"v",
