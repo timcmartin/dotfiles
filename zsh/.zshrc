@@ -16,7 +16,7 @@ case "$USER" in
     DOTFILES_DIR="$USER_HOME/.dotfiles"
     ;;
 esac
-GETTY_SRC="$USER_HOME/src"
+GETTY_SRC="$USER_HOME/src/getty"
 UNISPORKAL="$GETTY_SRC/unisporkal"
 
 # --- Oh My Zsh ---
