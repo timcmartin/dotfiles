@@ -1,0 +1,1453 @@
+{
+  "name": "MiscAdmin Workspace",
+  "version": "1.0.0",
+  "system_prompt": "You are helping with MiscAdmin (also called UniAdmin), a Ruby on Rails application that's part of the Unisporkal business unit. The application started with Angular and is transitioning to React. The architecture follows a pattern where Rails controllers in the Solomon namespace render divs which get replaced with React components. React components make API calls to RESTful Ruby endpoints to interact with service clients. New code follows the Solomon namespace pattern for Ruby and lives under app/javascript/react for React components.",
+  "vars": {
+    "controllers_dir": "app/controllers/solomon",
+    "js_dir": "app/javascript/react",
+    "js_modules": "app/assets/javascripts/modules",
+    "lib_dir": "lib/solomon",
+    "vim_dir": ".vim"
+  },
+  "groups": [
+    {
+      "name": "eslint",
+      "system_prompt": "This group contains eslintrc.js file.",
+      "data": ["eslint"]
+    },
+    {
+      "name": "Test Utilities",
+      "system_prompt": "This group contains test utility files that help with React component testing. These utilities provide helpers for mocking dependencies, handling asynchronous operations, simulating user interactions, and verifying component rendering.",
+      "data": [
+        "test_setup_helpers",
+        "experience_helpers",
+        "salesforce_helpers",
+        "autocomplete_helpers",
+        "notification_helpers",
+        "text_presence_helpers",
+        "label_presence_helpers",
+        "testid_presence_helpers",
+        "sample_test"
+      ]
+    },
+    {
+      "name": "Access Level",
+      "system_prompt": "This group contains files relating to refactoring the accessLevel hook with a new useAccessLevel hook. I have a new test-util, and constants ",
+      "data": [
+        "access_level_permission_helper",
+        "access_level_hook",
+        "access_level_constants",
+        "access_level_old"
+      ]
+    },
+    {
+      "name": "SSO",
+      "system_prompt": "Focus on Single Sign-On (SSO) functionality, including backend and frontend integration.",
+      "data": [
+        "app_javascript_react_components_forms_SSO_SSOConfigurationManager_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_DeleteScimAdminButton_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_ScimAdminsList_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_ScimAdmins_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_ScimAdminConfiguration_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_ScimConfiguration_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_ScimAdmins_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_ScimAdminConfiguration_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_ScimConfiguration_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_DeleteScimAdminButton_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_Scim_ScimAdminsList_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UsersList_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UserMapping_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UserUploadSection_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UserFileUploader_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UserTablePagination_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UserUploadSection_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UserMapping_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UsersList_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_DeleteUserButton_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_DeleteUserButton_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_MappedUsers_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_ManualUserMapping_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UserFileUploader_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_ManualUserMapping_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_MappedUsers_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_WebLoginSplitButton_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_WebLoginSplitButton_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_UserMapping_UserTablePagination_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_shared_BooleanIcon_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_shared_FormActionButtons_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_shared_index_js",
+        "app_javascript_react_components_forms_SSO_components_shared_FormActionButtons_jsx",
+        "app_javascript_react_components_forms_SSO_components_shared_ButtonContainer_jsx",
+        "app_javascript_react_components_forms_SSO_components_shared_FormTitle_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_shared_FormTitle_jsx",
+        "app_javascript_react_components_forms_SSO_components_shared_BooleanIcon_jsx",
+        "app_javascript_react_components_forms_SSO_components_AssociateIdp_AssociateIdpConfigButton_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_AssociateIdp_AssociateIdp_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_AssociateIdp_IdpConfigurationListTable_jsx",
+        "app_javascript_react_components_forms_SSO_components_AssociateIdp_AssociateIdp_jsx",
+        "app_javascript_react_components_forms_SSO_components_AssociateIdp_AssociateIdpConfigButton_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_ReadOnlyConfigurationFields_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationFormInputs_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationNew_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationMetadataFields_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_CertificateDisplay_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_ChipListInput_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationEdit_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_CertificateDisplay_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_ReadOnlyConfigurationFields_test_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationEdit_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationNew_jsx",
+        "app_javascript_react_components_forms_SSO_components_IdpConfiguration_ChipListInput_jsx",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useMappedUsers_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useMappedUsers_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useSelection_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useManualMappingForm_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useUserUpload_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_index_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useWebLoginStatus_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useWebLoginStatus_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useManualMappingForm_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useSelection_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useUserMappingSubmission_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useUserUpload_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_mapping_useUserMappingSubmission_js",
+        "app_javascript_react_components_forms_SSO_hooks_scim_useScimAdmins_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_scim_useScimAdmins_js",
+        "app_javascript_react_components_forms_SSO_hooks_scim_index_js",
+        "app_javascript_react_components_forms_SSO_hooks_configuration_useFormValidation_js",
+        "app_javascript_react_components_forms_SSO_hooks_configuration_useIdpConfigForm_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_configuration_useIdpConfigForm_js",
+        "app_javascript_react_components_forms_SSO_hooks_configuration_index_js",
+        "app_javascript_react_components_forms_SSO_hooks_configuration_useSsoStatusChange_js",
+        "app_javascript_react_components_forms_SSO_hooks_configuration_useChipListManager_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_configuration_useChipListManager_js",
+        "app_javascript_react_components_forms_SSO_hooks_configuration_useFormValidation_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_configuration_useSsoStatusChange_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_associateIdp_useIdpConfigurationById_test_js",
+        "app_javascript_react_components_forms_SSO_hooks_associateIdp_useIdpConfigurationById_js",
+        "app_javascript_react_components_forms_SSO_SSOConfigurationManager_test_jsx",
+        "app_javascript_react_components_forms_SSO_validators_idpConfigurationValidators_test_js",
+        "app_javascript_react_components_forms_SSO_validators_index_js",
+        "app_javascript_react_components_forms_SSO_validators_userMappingValidators_test_js",
+        "app_javascript_react_components_forms_SSO_validators_userMappingValidators_js",
+        "app_javascript_react_components_forms_SSO_validators_idpConfigurationValidators_js",
+        "app_controllers_solomon_single_sign_on_configuration_manager_controller_rb",
+        "app_controllers_solomon_single_sign_on_api_user_mapping_controller_rb",
+        "app_controllers_solomon_single_sign_on_api_idp_configurations_controller_rb",
+        "app_controllers_solomon_single_sign_on_api_scim_controller_rb",
+        "app_assets_javascripts_modules_ssoIdpConfiguration_js",
+        "app_assets_javascripts_modules_ssoScim_js",
+        "app_assets_javascripts_modules_ssoUserMapping_js",
+        "lib_getty_single_sign_on_service_client_fake_client_rb",
+        "lib_getty_single_sign_on_service_client_client_rb",
+        "lib_solomon_single_sign_on_user_mapping_service_rb",
+        "lib_solomon_single_sign_on_scim_service_rb",
+        "lib_solomon_single_sign_on_idp_configuration_service_rb"
+      ]
+    },
+    {
+      "name": "Site Access",
+      "system_prompt": "Focus on the Site Access feature, including backend and frontend components.",
+      "data": [
+        "routes",
+        "app_assets_javascripts_modules_customer_js",
+        "app_controllers_solomon_customer_api_customer_controller_rb",
+        "app_controllers_solomon_customer_api_site_access_rb",
+        "app_controllers_solomon_site_access_site_access_controller_rb",
+        "app_javascript_react_components_fetch_wrapper_SiteAccess_SiteAccess_jsx",
+        "app_javascript_react_components_forms_SiteAccessContentForm_SiteAccessContentForm_jsx",
+        "app_javascript_react_components_forms_SiteAccessContentForm_SiteAccessContentForm_test_jsx",
+        "app_javascript_react_components_forms_UserSiteAccessForm_UserSiteAccessForm_jsx",
+        "app_javascript_react_components_forms_UserSiteAccessForm_UserSiteAccessForm_test_jsx",
+        "app_javascript_react_components_forms_UserStatusForm_UserStatusForm_jsx",
+        "app_javascript_react_components_forms_UserStatusForm_UserStatusForm_test_jsx",
+        "app_javascript_react_components_tables_SiteAccessAuditLogTable_SiteAccessAuditLogTable_jsx",
+        "app_javascript_react_components_tables_SiteAccessAuditLogTable_SiteAccessAuditLogTable_test_jsx",
+        "app_javascript_react_containers_site_access_SiteAccessForm_jsx",
+        "app_javascript_react_containers_site_access_index_js",
+        "lib_solomon_customer_account_status_rb",
+        "lib_solomon_customer_customer_rb",
+        "spec_rack_site_access_controller_spec_rb"
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "system_prompt": "Focus on the Dashboard feature, including backend and frontend components.",
+      "data": [
+        "app_javascript_react_components_layout_Dashboard_Dashboard_jsx",
+        "app_javascript_react_components_layout_Dashboard_Dashboard_test_jsx",
+        "app_javascript_react_components_layout_DashboardTile_DashboardTile_jsx"
+      ]
+    },
+    {
+      "name": "Contact Management",
+      "system_prompt": "Focus on managing contacts, including backend and frontend components.",
+      "data": [
+        "contacts_controller",
+        "contact_model",
+        "contacts_react",
+        "contacts_dialogs"
+      ]
+    },
+    {
+      "name": "Contact Password Management",
+      "system_prompt": "Focus on contact password management features.",
+      "data": [
+        "contact_passwords_controller",
+        "contact_passwords_react",
+        "contact_passwords_dialogs"
+      ]
+    },
+    {
+      "name": "Company Management",
+      "system_prompt": "Focus on company management features.",
+      "data": [
+        "companies_controller",
+        "company_model",
+        "companies_react",
+        "companies_dialogs"
+      ]
+    },
+    {
+      "name": "Order Management",
+      "system_prompt": "Focus on order management features.",
+      "data": [
+        "orders_controller",
+        "order_model",
+        "orders_react",
+        "orders_dialogs"
+      ]
+    },
+    {
+      "name": "Carts",
+      "system_prompt": "Focus on cart management features.",
+      "data": ["carts_controller", "cart_model", "carts_react", "carts_dialogs"]
+    },
+    {
+      "name": "Price Agreement (OPA) System",
+      "system_prompt": "Focus on the Price Agreement (OPA) system.",
+      "data": [
+        "price_agreements_controller",
+        "price_agreement_model",
+        "price_agreements_react",
+        "price_agreements_dialogs"
+      ]
+    },
+    {
+      "name": "Administration",
+      "system_prompt": "Focus on administration features.",
+      "data": ["admin_controller", "admin_react", "admin_dialogs"]
+    },
+    {
+      "name": "Quotes",
+      "system_prompt": "Focus on quote management features.",
+      "data": [
+        "quotes_controller",
+        "quote_model",
+        "quotes_react",
+        "quotes_dialogs"
+      ]
+    },
+    {
+      "name": "FeatureFlags",
+      "system_prompt": "Focus on feature flag management.",
+      "data": [
+        "feature_flag_model",
+        "feature_flags_react",
+        "feature_flags_dialogs"
+      ]
+    },
+    {
+      "name": "PricingCalculators",
+      "system_prompt": "Focus on pricing calculator features.",
+      "data": ["pricing_calculators_react", "pricing_calculators_dialogs"]
+    },
+    {
+      "name": "OrderHistory",
+      "system_prompt": "Focus on order history features.",
+      "data": [
+        "order_histories_controller",
+        "order_history_model",
+        "order_histories_react",
+        "order_histories_dialogs"
+      ]
+    },
+    {
+      "name": "Downloads",
+      "system_prompt": "Focus on download management features.",
+      "data": [
+        "downloads_controller",
+        "download_model",
+        "downloads_react",
+        "downloads_dialogs"
+      ]
+    },
+    {
+      "name": "Getty API (Connect)",
+      "system_prompt": "Focus on Getty API (Connect) integration.",
+      "data": ["getty_api_service", "getty_api_react", "getty_api_dialogs"]
+    },
+    {
+      "name": "Saved Licenses",
+      "system_prompt": "Focus on saved licenses features.",
+      "data": [
+        "saved_licenses_controller",
+        "saved_license_model",
+        "saved_licenses_react",
+        "saved_licenses_dialogs"
+      ]
+    },
+    {
+      "name": "RF Subscriptions",
+      "system_prompt": "Focus on RF subscriptions features.",
+      "data": [
+        "rf_subscriptions_controller",
+        "rf_subscription_model",
+        "rf_subscriptions_react",
+        "rf_subscriptions_dialogs"
+      ]
+    },
+    {
+      "name": "Legacy Angular Integration",
+      "system_prompt": "Focus on legacy Angular integration points.",
+      "data": ["legacy_controllers", "angular_frontend"]
+    },
+    {
+      "name": "Architecture Overview",
+      "system_prompt": "Provide a high-level overview of the application's architecture, using the following concrete examples.",
+      "data": [
+        "readme",
+        "routes",
+        "application_controller",
+        "app_jsx",
+        "example_controller",
+        "example_react_form",
+        "example_react_component",
+        "example_js_module",
+        "example_api_controller",
+        "example_service_model"
+      ]
+    },
+    {
+      "name": "API Refactor",
+      "system_prompt": "Refactoring API Calls to use Best Practices",
+      "data": [
+        "readme",
+        "routes",
+        "API_Module",
+        "Cart_Module",
+        "Asset_API_Controller",
+        "Asset_Ruby_Class",
+        "Purchase_Service_Client",
+        "RM_Pricing_Calculator"
+      ]
+    }
+  ],
+  "data": {
+    "example_controller": {
+      "type": "file",
+      "path": "${controllers_dir}/account/account_controller.rb",
+      "description": "Example of a modern React-oriented controller in the Solomon namespace that demonstrates the pattern of rendering divs for React components"
+    },
+    "example_react_form": {
+      "type": "file",
+      "path": "${js_dir}/containers/account/AccountSearchForm.jsx",
+      "description": "Example React form component that would be mounted to replace the div rendered by the account controller"
+    },
+    "example_react_component": {
+      "type": "file",
+      "path": "${js_dir}/components/fetch_wrapper/CompanyViewOpa/CompanyViewOpa.jsx",
+      "description": "Example of a React component using the fetch wrapper pattern to load data from the API"
+    },
+    "example_js_module": {
+      "type": "file",
+      "path": "${js_modules}/opa.js",
+      "description": "Example JavaScript module that defines API call functions used by React components"
+    },
+    "example_api_controller": {
+      "type": "file",
+      "path": "${controllers_dir}/opa/api/opa_controller.rb",
+      "description": "Example API controller that handles RESTful requests from the React components and interfaces with service models"
+    },
+    "example_service_model": {
+      "type": "file",
+      "path": "${lib_dir}/company/opa.rb",
+      "description": "Example service model that contains business logic and interfaces with external services"
+    },
+    "app_javascript_react_components_forms_SSO_SSOConfigurationManager_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/SSOConfigurationManager.jsx",
+      "description": "SSO React form component"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_DeleteScimAdminButton_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/DeleteScimAdminButton.jsx",
+      "description": "SSO Scim DeleteScimAdminButton component"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_ScimAdminsList_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/ScimAdminsList.test.jsx",
+      "description": "SSO ScimAdminsList test"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_ScimAdmins_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/ScimAdmins.test.jsx",
+      "description": "SSO ScimAdmins test"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_ScimAdminConfiguration_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/ScimAdminConfiguration.test.jsx",
+      "description": "SSO ScimAdminConfiguration test"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_ScimConfiguration_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/ScimConfiguration.test.jsx",
+      "description": "SSO ScimConfiguration test"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_ScimAdmins_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/ScimAdmins.jsx",
+      "description": "SSO ScimAdmins component"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_ScimAdminConfiguration_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/ScimAdminConfiguration.jsx",
+      "description": "SSO ScimAdminConfiguration component"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_ScimConfiguration_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/ScimConfiguration.jsx",
+      "description": "SSO ScimConfiguration component"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_DeleteScimAdminButton_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/DeleteScimAdminButton.test.jsx",
+      "description": "SSO DeleteScimAdminButton test"
+    },
+    "app_javascript_react_components_forms_SSO_components_Scim_ScimAdminsList_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/Scim/ScimAdminsList.jsx",
+      "description": "SSO ScimAdminsList component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UsersList_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UsersList.jsx",
+      "description": "SSO UserMapping UsersList component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UserMapping_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UserMapping.test.jsx",
+      "description": "SSO UserMapping test"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UserUploadSection_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UserUploadSection.jsx",
+      "description": "SSO UserUploadSection component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UserFileUploader_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UserFileUploader.test.jsx",
+      "description": "SSO UserFileUploader test"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UserTablePagination_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UserTablePagination.jsx",
+      "description": "SSO UserTablePagination component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UserUploadSection_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UserUploadSection.test.jsx",
+      "description": "SSO UserUploadSection test"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UserMapping_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UserMapping.jsx",
+      "description": "SSO UserMapping component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UsersList_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UsersList.test.jsx",
+      "description": "SSO UsersList test"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_DeleteUserButton_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/DeleteUserButton.test.jsx",
+      "description": "SSO DeleteUserButton test"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_DeleteUserButton_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/DeleteUserButton.jsx",
+      "description": "SSO DeleteUserButton component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_MappedUsers_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/MappedUsers.test.jsx",
+      "description": "SSO MappedUsers test"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_ManualUserMapping_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/ManualUserMapping.test.jsx",
+      "description": "SSO ManualUserMapping test"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UserFileUploader_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UserFileUploader.jsx",
+      "description": "SSO UserFileUploader component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_ManualUserMapping_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/ManualUserMapping.jsx",
+      "description": "SSO ManualUserMapping component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_MappedUsers_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/MappedUsers.jsx",
+      "description": "SSO MappedUsers component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_WebLoginSplitButton_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/WebLoginSplitButton.jsx",
+      "description": "SSO WebLoginSplitButton component"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_WebLoginSplitButton_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/WebLoginSplitButton.test.jsx",
+      "description": "SSO WebLoginSplitButton test"
+    },
+    "app_javascript_react_components_forms_SSO_components_UserMapping_UserTablePagination_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/UserMapping/UserTablePagination.test.jsx",
+      "description": "SSO UserTablePagination test"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_SsoConfirmationDialog_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/SsoConfirmationDialog.test.jsx",
+      "description": "SSO SsoConfirmationDialog test"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_BooleanIcon_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/BooleanIcon.test.jsx",
+      "description": "SSO BooleanIcon test"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_FormActionButtons_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/FormActionButtons.test.jsx",
+      "description": "SSO FormActionButtons test"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_index_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/index.js",
+      "description": "SSO shared index"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_FormActionButtons_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/FormActionButtons.jsx",
+      "description": "SSO FormActionButtons component"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_ButtonContainer_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/ButtonContainer.jsx",
+      "description": "SSO ButtonContainer component"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_SsoConfirmationDialog_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/SsoConfirmationDialog.jsx",
+      "description": "SSO SsoConfirmationDialog component"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_FormTitle_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/FormTitle.test.jsx",
+      "description": "SSO FormTitle test"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_FormTitle_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/FormTitle.jsx",
+      "description": "SSO FormTitle component"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_BooleanIcon_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/BooleanIcon.jsx",
+      "description": "SSO BooleanIcon component"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_NoConfigurationMessage_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/NoConfigurationMessage.jsx",
+      "description": "SSO NoConfigurationMessage component"
+    },
+    "app_javascript_react_components_forms_SSO_components_shared_NoConfigurationMessage_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/shared/NoConfigurationMessage.test.jsx",
+      "description": "SSO NoConfigurationMessage test"
+    },
+    "app_javascript_react_components_forms_SSO_components_AssociateIdp_AssociateIdpConfigButton_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/AssociateIdp/AssociateIdpConfigButton.test.jsx",
+      "description": "SSO AssociateIdpConfigButton test"
+    },
+    "app_javascript_react_components_forms_SSO_components_AssociateIdp_AssociateIdp_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/AssociateIdp/AssociateIdp.test.jsx",
+      "description": "SSO AssociateIdp test"
+    },
+    "app_javascript_react_components_forms_SSO_components_AssociateIdp_IdpConfigurationListTable_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/AssociateIdp/IdpConfigurationListTable.jsx",
+      "description": "SSO IdpConfigurationListTable component"
+    },
+    "app_javascript_react_components_forms_SSO_components_AssociateIdp_IdpConfigurationsListTable_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/AssociateIdp/IdpConfigurationsListTable.test.jsx",
+      "description": "SSO IdpConfigurationsListTable test"
+    },
+    "app_javascript_react_components_forms_SSO_components_AssociateIdp_AssociateIdp_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/AssociateIdp/AssociateIdp.jsx",
+      "description": "SSO AssociateIdp component"
+    },
+    "app_javascript_react_components_forms_SSO_components_AssociateIdp_AssociateIdpConfigButton_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/AssociateIdp/AssociateIdpConfigButton.jsx",
+      "description": "SSO AssociateIdpConfigButton component"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_ReadOnlyConfigurationFields_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/ReadOnlyConfigurationFields.jsx",
+      "description": "SSO ReadOnlyConfigurationFields component"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationFormInputs_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/IdpConfigurationFormInputs.jsx",
+      "description": "SSO IdpConfigurationFormInputs component"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationNew_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/IdpConfigurationNew.test.jsx",
+      "description": "SSO IdpConfigurationNew test"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationMetadataFields_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/IdpConfigurationMetadataFields.jsx",
+      "description": "SSO IdpConfigurationMetadataFields component"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_CertificateDisplay_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/CertificateDisplay.jsx",
+      "description": "SSO CertificateDisplay component"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_ChipListInput_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/ChipListInput.test.jsx",
+      "description": "SSO ChipListInput test"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationEdit_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/IdpConfigurationEdit.test.jsx",
+      "description": "SSO IdpConfigurationEdit test"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationMetadataFields_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/IdpConfigurationMetadataFields.test.jsx",
+      "description": "SSO IdpConfigurationMetadataFields test"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_CertificateDisplay_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/CertificateDisplay.test.jsx",
+      "description": "SSO CertificateDisplay test"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_ReadOnlyConfigurationFields_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/ReadOnlyConfigurationFields.test.jsx",
+      "description": "SSO ReadOnlyConfigurationFields test"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationFormInputs_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/IdpConfigurationFormInputs.test.jsx",
+      "description": "SSO IdpConfigurationFormInputs test"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationEdit_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/IdpConfigurationEdit.jsx",
+      "description": "SSO IdpConfigurationEdit component"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_IdpConfigurationNew_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/IdpConfigurationNew.jsx",
+      "description": "SSO IdpConfigurationNew component"
+    },
+    "app_javascript_react_components_forms_SSO_components_IdpConfiguration_ChipListInput_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/components/IdpConfiguration/ChipListInput.jsx",
+      "description": "SSO ChipListInput component"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useMappedUsers_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useMappedUsers.js",
+      "description": "SSO useMappedUsers hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useMappedUsers_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useMappedUsers.test.js",
+      "description": "SSO useMappedUsers test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useSelection_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useSelection.js",
+      "description": "SSO useSelection hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useManualMappingForm_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useManualMappingForm.js",
+      "description": "SSO useManualMappingForm hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useUserUpload_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useUserUpload.js",
+      "description": "SSO useUserUpload hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_index_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/index.js",
+      "description": "SSO mapping hooks index"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useWebLoginStatus_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useWebLoginStatus.js",
+      "description": "SSO useWebLoginStatus hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useWebLoginStatus_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useWebLoginStatus.test.js",
+      "description": "SSO useWebLoginStatus test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useManualMappingForm_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useManualMappingForm.test.js",
+      "description": "SSO useManualMappingForm test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useSelection_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useSelection.test.js",
+      "description": "SSO useSelection test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useUserMappingSubmission_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useUserMappingSubmission.test.js",
+      "description": "SSO useUserMappingSubmission test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useUserUpload_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useUserUpload.test.js",
+      "description": "SSO useUserUpload test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_mapping_useUserMappingSubmission_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/mapping/useUserMappingSubmission.js",
+      "description": "SSO useUserMappingSubmission hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_scim_useScimAdmins_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/scim/useScimAdmins.test.js",
+      "description": "SSO useScimAdmins test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_scim_useScimAdmins_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/scim/useScimAdmins.js",
+      "description": "SSO useScimAdmins hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_scim_index_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/scim/index.js",
+      "description": "SSO scim hooks index"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_configuration_useFormValidation_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/configuration/useFormValidation.js",
+      "description": "SSO useFormValidation hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_configuration_useIdpConfigForm_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/configuration/useIdpConfigForm.test.js",
+      "description": "SSO useIdpConfigForm test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_configuration_useIdpConfigForm_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/configuration/useIdpConfigForm.js",
+      "description": "SSO useIdpConfigForm hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_configuration_index_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/configuration/index.js",
+      "description": "SSO configuration hooks index"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_configuration_useSsoStatusChange_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/configuration/useSsoStatusChange.js",
+      "description": "SSO useSsoStatusChange hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_configuration_useChipListManager_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/configuration/useChipListManager.test.js",
+      "description": "SSO useChipListManager test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_configuration_useChipListManager_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/configuration/useChipListManager.js",
+      "description": "SSO useChipListManager hook"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_configuration_useFormValidation_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/configuration/useFormValidation.test.js",
+      "description": "SSO useFormValidation test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_configuration_useSsoStatusChange_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/configuration/useSsoStatusChange.test.js",
+      "description": "SSO useSsoStatusChange test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_associateIdp_useIdpConfigurationById_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/associateIdp/useIdpConfigurationById.test.js",
+      "description": "SSO useIdpConfigurationById test"
+    },
+    "app_javascript_react_components_forms_SSO_hooks_associateIdp_useIdpConfigurationById_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/hooks/associateIdp/useIdpConfigurationById.js",
+      "description": "SSO useIdpConfigurationById hook"
+    },
+    "app_javascript_react_components_forms_SSO_SSOConfigurationManager_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/SSOConfigurationManager.test.jsx",
+      "description": "SSOConfigurationManager test"
+    },
+    "app_javascript_react_components_forms_SSO_validators_idpConfigurationValidators_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/validators/idpConfigurationValidators.test.js",
+      "description": "SSO idpConfigurationValidators test"
+    },
+    "app_javascript_react_components_forms_SSO_validators_index_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/validators/index.js",
+      "description": "SSO validators index"
+    },
+    "app_javascript_react_components_forms_SSO_validators_userMappingValidators_test_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/validators/userMappingValidators.test.js",
+      "description": "SSO userMappingValidators test"
+    },
+    "app_javascript_react_components_forms_SSO_validators_userMappingValidators_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/validators/userMappingValidators.js",
+      "description": "SSO userMappingValidators"
+    },
+    "app_javascript_react_components_forms_SSO_validators_idpConfigurationValidators_js": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SSO/validators/idpConfigurationValidators.js",
+      "description": "SSO idpConfigurationValidators"
+    },
+    "app_controllers_solomon_single_sign_on_configuration_manager_controller_rb": {
+      "type": "file",
+      "path": "app/controllers/solomon/single_sign_on/configuration_manager_controller.rb",
+      "description": "SSO configuration manager controller"
+    },
+    "app_controllers_solomon_single_sign_on_api_user_mapping_controller_rb": {
+      "type": "file",
+      "path": "app/controllers/solomon/single_sign_on/api/user_mapping_controller.rb",
+      "description": "SSO user mapping API controller"
+    },
+    "app_controllers_solomon_single_sign_on_api_idp_configurations_controller_rb": {
+      "type": "file",
+      "path": "app/controllers/solomon/single_sign_on/api/idp_configurations_controller.rb",
+      "description": "SSO idp configurations API controller"
+    },
+    "app_controllers_solomon_single_sign_on_api_scim_controller_rb": {
+      "type": "file",
+      "path": "app/controllers/solomon/single_sign_on/api/scim_controller.rb",
+      "description": "SSO scim API controller"
+    },
+    "app_assets_javascripts_modules_ssoIdpConfiguration_js": {
+      "type": "file",
+      "path": "app/assets/javascripts/modules/ssoIdpConfiguration.js",
+      "description": "Legacy JS module for SSO IdP Configuration"
+    },
+    "app_assets_javascripts_modules_ssoScim_js": {
+      "type": "file",
+      "path": "app/assets/javascripts/modules/ssoScim.js",
+      "description": "Legacy JS module for SSO Scim"
+    },
+    "app_assets_javascripts_modules_ssoUserMapping_js": {
+      "type": "file",
+      "path": "app/assets/javascripts/modules/ssoUserMapping.js",
+      "description": "Legacy JS module for SSO User Mapping"
+    },
+    "lib_getty_single_sign_on_service_client_fake_client_rb": {
+      "type": "file",
+      "path": "lib/getty/single_sign_on_service_client/fake_client.rb",
+      "description": "Getty SSO service fake client"
+    },
+    "lib_getty_single_sign_on_service_client_client_rb": {
+      "type": "file",
+      "path": "lib/getty/single_sign_on_service_client/client.rb",
+      "description": "Getty SSO service client"
+    },
+    "lib_solomon_single_sign_on_user_mapping_service_rb": {
+      "type": "file",
+      "path": "lib/solomon/single_sign_on/user_mapping_service.rb",
+      "description": "Solomon SSO user mapping service"
+    },
+    "lib_solomon_single_sign_on_scim_service_rb": {
+      "type": "file",
+      "path": "lib/solomon/single_sign_on/scim_service.rb",
+      "description": "Solomon SSO scim service"
+    },
+    "lib_solomon_single_sign_on_idp_configuration_service_rb": {
+      "type": "file",
+      "path": "lib/solomon/single_sign_on/idp_configuration_service.rb",
+      "description": "Solomon SSO IdP configuration service"
+    },
+    "app_javascript_react_components_dialogs_AssociateIdpConfigurationDialog_AssociateIdpConfigurationDialog_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/AssociateIdpConfigurationDialog/AssociateIdpConfigurationDialog.jsx",
+      "description": "Dialog: AssociateIdpConfigurationDialog"
+    },
+    "app_javascript_react_components_dialogs_AssociateIdpConfigurationDialog_AssociateIdpConfigurationDialog_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/AssociateIdpConfigurationDialog/AssociateIdpConfigurationDialog.test.jsx",
+      "description": "Dialog test: AssociateIdpConfigurationDialog"
+    },
+    "app_javascript_react_components_dialogs_ChipRemoveDialog_ChipRemoveDialog_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/ChipRemoveDialog/ChipRemoveDialog.jsx",
+      "description": "Dialog: ChipRemoveDialog"
+    },
+    "app_javascript_react_components_dialogs_ChipRemoveDialog_ChipRemoveDialog_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/ChipRemoveDialog/ChipRemoveDialog.test.jsx",
+      "description": "Dialog test: ChipRemoveDialog"
+    },
+    "app_javascript_react_components_dialogs_DeleteScimAdminDialog_DeleteScimAdminDialog_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/DeleteScimAdminDialog/DeleteScimAdminDialog.jsx",
+      "description": "Dialog: DeleteScimAdminDialog"
+    },
+    "app_javascript_react_components_dialogs_DeleteScimAdminDialog_DeleteScimAdminDialog_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/DeleteScimAdminDialog/DeleteScimAdminDialog.test.jsx",
+      "description": "Dialog test: DeleteScimAdminDialog"
+    },
+    "app_javascript_react_components_dialogs_DisassociateCompanyDialog_DisassociateCompanyDialog_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/DisassociateCompanyDialog/DisassociateCompanyDialog.jsx",
+      "description": "Dialog: DisassociateCompanyDialog"
+    },
+    "app_javascript_react_components_dialogs_DisassociateCompanyDialog_DisassociateCompanyDialog_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/DisassociateCompanyDialog/DisassociateCompanyDialog.test.jsx",
+      "description": "Dialog test: DisassociateCompanyDialog"
+    },
+    "app_javascript_react_components_layout_Dashboard_Dashboard_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/layout/Dashboard/Dashboard.jsx",
+      "description": "Dashboard main React component"
+    },
+    "app_javascript_react_components_layout_Dashboard_Dashboard_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/layout/Dashboard/Dashboard.test.jsx",
+      "description": "Dashboard component test"
+    },
+    "app_javascript_react_components_layout_DashboardTile_DashboardTile_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/layout/DashboardTile/DashboardTile.jsx",
+      "description": "DashboardTile React component"
+    },
+    "contacts_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/contacts_controller.rb",
+      "description": "Rails controller for contacts"
+    },
+    "contact_model": {
+      "type": "file",
+      "path": "app/models/contact.rb",
+      "description": "Contact model"
+    },
+    "contacts_react": {
+      "type": "file",
+      "path": "app/javascript/react/contacts/",
+      "description": "React components for contacts"
+    },
+    "contacts_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[Contacts-related-dialogs]",
+      "description": "Dialogs referenced by contacts components"
+    },
+    "contact_passwords_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/contact_passwords_controller.rb",
+      "description": "Rails controller for contact passwords"
+    },
+    "contact_passwords_react": {
+      "type": "file",
+      "path": "app/javascript/react/contact_passwords/",
+      "description": "React components for contact passwords"
+    },
+    "contact_passwords_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[ContactPasswords-related-dialogs]",
+      "description": "Dialogs referenced by contact password components"
+    },
+    "companies_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/companies_controller.rb",
+      "description": "Rails controller for companies"
+    },
+    "company_model": {
+      "type": "file",
+      "path": "app/models/company.rb",
+      "description": "Company model"
+    },
+    "companies_react": {
+      "type": "file",
+      "path": "app/javascript/react/companies/",
+      "description": "React components for companies"
+    },
+    "companies_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[Companies-related-dialogs]",
+      "description": "Dialogs referenced by companies components"
+    },
+    "orders_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/orders_controller.rb",
+      "description": "Rails controller for orders"
+    },
+    "order_model": {
+      "type": "file",
+      "path": "app/models/order.rb",
+      "description": "Order model"
+    },
+    "orders_react": {
+      "type": "file",
+      "path": "app/javascript/react/orders/",
+      "description": "React components for orders"
+    },
+    "orders_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[Orders-related-dialogs]",
+      "description": "Dialogs referenced by orders components"
+    },
+    "carts_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/carts_controller.rb",
+      "description": "Rails controller for carts"
+    },
+    "cart_model": {
+      "type": "file",
+      "path": "app/models/cart.rb",
+      "description": "Cart model"
+    },
+    "carts_react": {
+      "type": "file",
+      "path": "app/javascript/react/carts/",
+      "description": "React components for carts"
+    },
+    "carts_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[Carts-related-dialogs]",
+      "description": "Dialogs referenced by carts components"
+    },
+    "price_agreements_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/price_agreements_controller.rb",
+      "description": "Rails controller for price agreements"
+    },
+    "price_agreement_model": {
+      "type": "file",
+      "path": "app/models/price_agreement.rb",
+      "description": "Price agreement model"
+    },
+    "price_agreements_react": {
+      "type": "file",
+      "path": "app/javascript/react/price_agreements/",
+      "description": "React components for price agreements"
+    },
+    "price_agreements_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[PriceAgreements-related-dialogs]",
+      "description": "Dialogs referenced by price agreements components"
+    },
+    "admin_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/admin_controller.rb",
+      "description": "Rails controller for admin"
+    },
+    "admin_react": {
+      "type": "file",
+      "path": "app/javascript/react/admin/",
+      "description": "React components for admin"
+    },
+    "admin_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[Admin-related-dialogs]",
+      "description": "Dialogs referenced by admin components"
+    },
+    "quotes_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/quotes_controller.rb",
+      "description": "Rails controller for quotes"
+    },
+    "quote_model": {
+      "type": "file",
+      "path": "app/models/quote.rb",
+      "description": "Quote model"
+    },
+    "quotes_react": {
+      "type": "file",
+      "path": "app/javascript/react/quotes/",
+      "description": "React components for quotes"
+    },
+    "quotes_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[Quotes-related-dialogs]",
+      "description": "Dialogs referenced by quotes components"
+    },
+    "feature_flag_model": {
+      "type": "file",
+      "path": "app/models/feature_flag.rb",
+      "description": "Feature flag model"
+    },
+    "feature_flags_react": {
+      "type": "file",
+      "path": "app/javascript/react/feature_flags/",
+      "description": "React components for feature flags"
+    },
+    "feature_flags_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[FeatureFlags-related-dialogs]",
+      "description": "Dialogs referenced by feature flags components"
+    },
+    "pricing_calculators_react": {
+      "type": "file",
+      "path": "app/javascript/react/pricing_calculators/",
+      "description": "React components for pricing calculators"
+    },
+    "pricing_calculators_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[PricingCalculators-related-dialogs]",
+      "description": "Dialogs referenced by pricing calculators components"
+    },
+    "order_histories_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/order_histories_controller.rb",
+      "description": "Rails controller for order histories"
+    },
+    "order_history_model": {
+      "type": "file",
+      "path": "app/models/order_history.rb",
+      "description": "Order history model"
+    },
+    "order_histories_react": {
+      "type": "file",
+      "path": "app/javascript/react/order_histories/",
+      "description": "React components for order histories"
+    },
+    "order_histories_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[OrderHistories-related-dialogs]",
+      "description": "Dialogs referenced by order histories components"
+    },
+    "downloads_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/downloads_controller.rb",
+      "description": "Rails controller for downloads"
+    },
+    "download_model": {
+      "type": "file",
+      "path": "app/models/download.rb",
+      "description": "Download model"
+    },
+    "downloads_react": {
+      "type": "file",
+      "path": "app/javascript/react/downloads/",
+      "description": "React components for downloads"
+    },
+    "downloads_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[Downloads-related-dialogs]",
+      "description": "Dialogs referenced by downloads components"
+    },
+    "getty_api_service": {
+      "type": "file",
+      "path": "lib/getty/api/",
+      "description": "Getty API service code"
+    },
+    "getty_api_react": {
+      "type": "file",
+      "path": "app/javascript/react/getty_api/",
+      "description": "React components for Getty API"
+    },
+    "getty_api_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[GettyAPI-related-dialogs]",
+      "description": "Dialogs referenced by Getty API components"
+    },
+    "saved_licenses_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/saved_licenses_controller.rb",
+      "description": "Rails controller for saved licenses"
+    },
+    "saved_license_model": {
+      "type": "file",
+      "path": "app/models/saved_license.rb",
+      "description": "Saved license model"
+    },
+    "saved_licenses_react": {
+      "type": "file",
+      "path": "app/javascript/react/saved_licenses/",
+      "description": "React components for saved licenses"
+    },
+    "saved_licenses_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[SavedLicenses-related-dialogs]",
+      "description": "Dialogs referenced by saved licenses components"
+    },
+    "rf_subscriptions_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/rf_subscriptions_controller.rb",
+      "description": "Rails controller for RF subscriptions"
+    },
+    "rf_subscription_model": {
+      "type": "file",
+      "path": "app/models/rf_subscription.rb",
+      "description": "RF subscription model"
+    },
+    "rf_subscriptions_react": {
+      "type": "file",
+      "path": "app/javascript/react/rf_subscriptions/",
+      "description": "React components for RF subscriptions"
+    },
+    "rf_subscriptions_dialogs": {
+      "type": "file",
+      "path": "app/javascript/react/components/dialogs/[RFSubscriptions-related-dialogs]",
+      "description": "Dialogs referenced by RF subscriptions components"
+    },
+    "legacy_controllers": {
+      "type": "file",
+      "path": "app/controllers/legacy/",
+      "description": "Controllers rendering Angular views"
+    },
+    "angular_frontend": {
+      "type": "file",
+      "path": "app/javascript/angular/",
+      "description": "Legacy Angular frontend code"
+    },
+    "readme": {
+      "type": "file",
+      "path": "README.md",
+      "description": "Project overview"
+    },
+    "routes": {
+      "type": "file",
+      "path": "config/routes.rb",
+      "description": "Rails routes"
+    },
+    "application_controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/solomon_controller.rb",
+      "description": "Base controller for Solomon namespace"
+    },
+    "app_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/containers/Index.jsx",
+      "description": "Main React app entry point"
+    },
+    "test_setup_helpers": {
+      "type": "file",
+      "path": "${js_dir}/test-utils/helpers/test_setup.js",
+      "description": "Core test setup utilities for handling promises, component mounting, and mocking API responses"
+    },
+    "experience_helpers": {
+      "type": "file",
+      "path": "${js_dir}/test-utils/helpers/experience.js",
+      "description": "Helpers for mocking the useExperience hook for feature flag testing"
+    },
+    "salesforce_helpers": {
+      "type": "file",
+      "path": "${js_dir}/test-utils/helpers/salesforce.js",
+      "description": "Helpers for mocking SalesForce context in component tests"
+    },
+    "autocomplete_helpers": {
+      "type": "file",
+      "path": "${js_dir}/test-utils/helpers/autocomplete.js",
+      "description": "Utilities for interacting with Material UI Autocomplete components in tests"
+    },
+    "notification_helpers": {
+      "type": "file",
+      "path": "${js_dir}/test-utils/helpers/notification.js",
+      "description": "Helpers for mocking notification context and verifying notification calls"
+    },
+    "text_presence_helpers": {
+      "type": "file",
+      "path": "${js_dir}/test-utils/helpers/text_presence.js",
+      "description": "Utility for checking presence/absence of text elements in rendered components"
+    },
+    "label_presence_helpers": {
+      "type": "file",
+      "path": "${js_dir}/test-utils/helpers/label_presence.js",
+      "description": "Utilities for checking presence and values of labeled form elements"
+    },
+    "testid_presence_helpers": {
+      "type": "file",
+      "path": "${js_dir}/test-utils/helpers/testid_presence.js",
+      "description": "Utilities for checking presence and values of elements with test IDs including MUI list items"
+    },
+    "sample_test": {
+      "type": "file",
+      "path": "${vim_dir}/sample_test.md",
+      "description": "Sample test file to demonstrate the structure and usage of test utilities when a page loads data in a useEffect or on mount."
+    },
+    "eslint": {
+      "type": "file",
+      "path": ".eslintrc.js",
+      "description": "eslintrc file"
+    },
+    "access_level_permission_helper": {
+      "type": "file",
+      "path": "${js_dir}/test-utils/helpers/permissions.js",
+      "description": "Utilities for checking useAccessLevel"
+    },
+    "access_level_hook": {
+      "type": "file",
+      "path": "${js_dir}/hooks/useAccessLevel.js",
+      "description": "Access Level Hook"
+    },
+    "access_level_constants": {
+      "type": "file",
+      "path": "${js_dir}/constants/accessLevels.js",
+      "description": "Access Level Constants"
+    },
+    "access_level_old": {
+      "type": "file",
+      "path": "${js_dir}/hooks/accessLevel.jsx",
+      "description": "Old Access Level Hook"
+    },
+    "app_assets_javascripts_modules_customer_js": {
+      "type": "file",
+      "path": "app/assets/javascripts/modules/customer.js",
+      "description": "Legacy JS module for customer API calls"
+    },
+    "app_controllers_solomon_customer_api_customer_controller_rb": {
+      "type": "file",
+      "path": "app/controllers/solomon/customer/api/customer_controller.rb",
+      "description": "Solomon customer API controller"
+    },
+    "app_controllers_solomon_customer_api_site_access_rb": {
+      "type": "file",
+      "path": "app/controllers/solomon/customer/api/site_access.rb",
+      "description": "Solomon customer API site access controller"
+    },
+    "app_controllers_solomon_site_access_site_access_controller_rb": {
+      "type": "file",
+      "path": "app/controllers/solomon/site_access/site_access_controller.rb",
+      "description": "Solomon site access controller"
+    },
+    "app_javascript_react_components_fetch_wrapper_SiteAccess_SiteAccess_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/fetch_wrapper/SiteAccess/SiteAccess.jsx",
+      "description": "React fetch wrapper for SiteAccess"
+    },
+    "app_javascript_react_components_forms_SiteAccessContentForm_SiteAccessContentForm_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SiteAccessContentForm/SiteAccessContentForm.jsx",
+      "description": "SiteAccessContentForm React component"
+    },
+    "app_javascript_react_components_forms_SiteAccessContentForm_SiteAccessContentForm_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/SiteAccessContentForm/SiteAccessContentForm.test.jsx",
+      "description": "SiteAccessContentForm component test"
+    },
+    "app_javascript_react_components_forms_UserSiteAccessForm_UserSiteAccessForm_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/UserSiteAccessForm/UserSiteAccessForm.jsx",
+      "description": "UserSiteAccessForm React component"
+    },
+    "app_javascript_react_components_forms_UserSiteAccessForm_UserSiteAccessForm_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/UserSiteAccessForm/UserSiteAccessForm.test.jsx",
+      "description": "UserSiteAccessForm component test"
+    },
+    "app_javascript_react_components_forms_UserStatusForm_UserStatusForm_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/UserStatusForm/UserStatusForm.jsx",
+      "description": "UserStatusForm React component"
+    },
+    "app_javascript_react_components_forms_UserStatusForm_UserStatusForm_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/forms/UserStatusForm/UserStatusForm.test.jsx",
+      "description": "UserStatusForm component test"
+    },
+    "app_javascript_react_components_tables_SiteAccessAuditLogTable_SiteAccessAuditLogTable_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/tables/SiteAccessAuditLogTable/SiteAccessAuditLogTable.jsx",
+      "description": "SiteAccessAuditLogTable React component"
+    },
+    "app_javascript_react_components_tables_SiteAccessAuditLogTable_SiteAccessAuditLogTable_test_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/components/tables/SiteAccessAuditLogTable/SiteAccessAuditLogTable.test.jsx",
+      "description": "SiteAccessAuditLogTable component test"
+    },
+    "app_javascript_react_containers_site_access_SiteAccessForm_jsx": {
+      "type": "file",
+      "path": "app/javascript/react/containers/site_access/SiteAccessForm.jsx",
+      "description": "SiteAccessForm React container component"
+    },
+    "app_javascript_react_containers_site_access_index_js": {
+      "type": "file",
+      "path": "app/javascript/react/containers/site_access/index.js",
+      "description": "Site access container index"
+    },
+    "lib_solomon_customer_account_status_rb": {
+      "type": "file",
+      "path": "lib/solomon/customer/account_status.rb",
+      "description": "Solomon customer account status service/model"
+    },
+    "lib_solomon_customer_customer_rb": {
+      "type": "file",
+      "path": "lib/solomon/customer/customer.rb",
+      "description": "Solomon customer service/model"
+    },
+    "spec_rack_site_access_controller_spec_rb": {
+      "type": "file",
+      "path": "spec/rack/site_access_controller_spec.rb",
+      "description": "Rack spec for site access controller"
+    },
+    "API_Module": {
+      "type": "file",
+      "path": "app/assets/javascripts/modules/api.js",
+      "description": "Javascript API Module"
+    },
+    "Cart_Module": {
+      "type": "file",
+      "path": "app/assets/javascripts/modules/cart.js",
+      "description": "Javascript Cart Module"
+    },
+    "Asset_API_Controller": {
+      "type": "file",
+      "path": "app/controllers/solomon/asset/api/asset_controller.rb",
+      "description": "Asset API Ruby Controller"
+    },
+    "Asset_Ruby_Class": {
+      "type": "file",
+      "path": "lib/solomon/asset/details.rb",
+      "description": "Asset Ruby Class"
+    },
+    "Purchase_Service_Client": {
+      "type": "file",
+      "path": "lib/getty/purchase_service_client/client.rb",
+      "description": "Purchase Service Client"
+    },
+    "RM_Pricing_Calculator": {
+      "type": "file",
+      "path": "app/javascript/react/components/inputs/RmPricingCalculator/LargeCartRmPricingCalculator.jsx",
+      "description": "RM Pricing Calculator"
+    }
+  }
+}

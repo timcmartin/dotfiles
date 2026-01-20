@@ -24,9 +24,4 @@ Session.vim
 Session.vim*
 Session-*.vim
 .projections.json
-.vim/coc-settings.json
-.vim/.eslintrc.json
-.vim/token.rb
-.vim/tmp/*
-.vim
-codecompanion-workspace.json
+.dev
