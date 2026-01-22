@@ -31,7 +31,7 @@ This will symlink all managed files into `~/.config/nvim/lua/` without touching 
 To restore your Neovim sessions:
 
 ```sh
-cp -arf ~/.local/share/nvim.bak/sessions ~/.local/share/nvim/sessions
+cp -a ~/.local/share/nvim.bak/sessions ~/.local/share/nvim/sessions
 ```
 
 ## Notes
