@@ -39,12 +39,13 @@ alias giwp="./bin/webpack-dev-server"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 
 # GI Database
-alias gidynamoup="cd $HOME/src/getty/gi-local-dynamo && bin/start"
-alias gidynamostop="cd $HOME/src/getty/gi-local-dynamo && bin/stop"
+alias gidynamoup="cd $HOME/src/getty/dynamodb_local_latest && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb"
+alias gidynamoadmin="cd $HOME/src/getty/dynamodb_local_latest && DYNAMO_ENDPOINT=http://localhost:8000 dynamodb-admin"
 alias drestart="cd $HOME/src/getty/gi-local-dynamo && bin/stop && bin/start"
 
 # GI Services
-alias gicns='bundle exec rackup --host 0.0.0.0 --port 3108'
+alias gicns='yarn ruby'
+alias gicnsw='yarn webpack'
 alias giguard='find . -type f -name "*.rb" | entr -c -p bundle exec rspec spec --format documentation'
 
 # GI Console/Admin
