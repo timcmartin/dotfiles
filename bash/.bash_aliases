@@ -26,6 +26,7 @@ alias watchlint="esw -w --changed app/javascript/react --ext .js,.jsx --color"
 alias yj="yarn jest"
 alias yjd="yarn jest-debug"
 alias wyjd="yarn jest-debug --watch"
+alias wyj="yarn jest --watch"
 alias dockerclean='docker rm $(docker ps -a -f status=exited -q)'
 alias listpackages='ls -l node_modules | grep ^l'
 alias listunipackages='ls -l node_modules/@unisporkal | grep ^l'
@@ -160,6 +161,8 @@ function besdb {
 # Directory Navigation - Common
 alias dotfiles='cd $DOTFILES_DIR'
 alias documents='cd $HOME/Documents'
+alias desktop='cd $HOME/Desktop'
+alias screenshots='cd $HOME/Documents/screenshots'
 alias dropbox='cd $DROPBOX_DIR'
 alias src='cd ~/src'
 alias vimwiki='cd $DROPBOX_DIR/vimwiki'
