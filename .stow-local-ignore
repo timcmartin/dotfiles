@@ -16,12 +16,17 @@ _darcs
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
 
-(^|.*/)README.*
+^/README.*
 ^/LICENSE.*
 ^/COPYING
 
 script
+scripts/scripts/README.md
 tmuxinator
+tmux/tmux-theme
+tmux/tmux-theme-airline
+tmux/tmux-theme-catppuccin
+tmux/tmux-theme-powerkit
 vim
 .DS_Store
 .gitmodules
@@ -33,3 +38,6 @@ boilerplate
 itermProfiles
 raycast
 dev
+bash/.bash_aliases.work
+bash/.bash_aliases.personal
+bash/README.md
