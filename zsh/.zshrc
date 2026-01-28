@@ -103,6 +103,7 @@ _git_fi () {
 
 # --- Getty Images Environment ---
 # GITLAB_ACCESS_TOKEN GOES HERE
+[ -f "$USER_HOME/.zsh_secrets" ] && source "$USER_HOME/.zsh_secrets"
 
 # --- Miscellaneous ---
 DISABLE_AUTO_TITLE="true" # Recommended for Tmuxinator

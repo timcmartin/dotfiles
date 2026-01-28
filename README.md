@@ -86,6 +86,35 @@ ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 
 ---
 
+## Managing Sensitive Environment Variables
+
+To keep secrets (like API tokens) out of your repository, store them in a separate, untracked file and source it from your `.zshrc`.
+
+### Creating `.zsh_secrets`
+
+1. Create the file:
+
+   ```sh
+   echo 'export GITLAB_ACCESS_TOKEN=your_actual_token_here' > ~/.zsh_secrets
+   chmod 600 ~/.zsh_secrets
+   ```
+
+2. Ensure this file is **never** committed to your repository.
+
+3. Your `.zshrc` should include:
+
+   ```sh
+   [ -f "$USER_HOME/.zsh_secrets" ] && source "$USER_HOME/.zsh_secrets"
+   ```
+
+### Creating a GitLab Access Token
+
+1. Go to [GitLab > Preferences > Access Tokens](https://gitlab.com/-/profile/personal_access_tokens).
+2. Create a new token with the required scopes (e.g., `api`, `read_repository`).
+3. Copy the token and add it to your `~/.zsh_secrets` as shown above.
+
+---
+
 ## Notes
 
 - The setup script is idempotent and safe to re-run.
