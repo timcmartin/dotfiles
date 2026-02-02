@@ -8,12 +8,18 @@ return {
 	--event = "BufReadPost",
 	build = ":Copilot auth",
 	opts = {
+		-- This model is free
 		copilot_model = "gpt-4.1",
 		suggestion = {
 			enabled = true,
 		},
 		nes = {
 			enabled = true,
+			keymap = {
+				accept_and_goto = "<leader>p",
+				accept = false,
+				dismiss = "<Esc>",
+			},
 		},
 		panel = {
 			enabled = true,
@@ -24,15 +30,21 @@ return {
 			},
 		},
 		filetypes = {
-			markdown = true,
+			gitcommit = true,
 			help = true,
 			javascript = true,
-			typescript = true,
+			lua = true,
+			markdown = true,
 			ruby = true,
-			gitcommit = true,
+			sh = true,
+			typescript = true,
+			yaml = true,
+			vimwiki = false,
+			-- ["*"] = false, -- disable for all other filetypes and ignore default `filetypes`
 		},
 		workspace_folders = {
-			"/Users/tim.martin/src/getty/unisporkal/misc_admin/app/javascript/react",
+			-- "/Users/tim.martin/src/getty/unisporkal/misc_admin/app/javascript/react",
+			"/Users/tim.martin/src/getty/unisporkal",
 		},
 	},
 }

@@ -7,9 +7,11 @@ config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "RESIZE"
 
 -- Font
-config.font = wezterm.font("MesloLGS Nerd Font Mono")
-config.font_size = 17
+config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font_size = 16
 config.line_height = 1.2
+-- disable ligatures
+config.harfbuzz_features = { "calt = 0", "clig = 0", "liga = 0" }
 
 -- Size
 config.initial_cols = 140
