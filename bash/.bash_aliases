@@ -20,6 +20,7 @@ alias updatesubs='git submodule foreach --recursive git fetch'
 alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 alias git_clean_merged='git checkout master | git branch --merged| egrep -v "(^\*|master|fi)" | xargs git branch -d'
 alias git-repos='git-repos.sh'
+alias gdm='git diff master > changes.diff'
 
 # Development tools
 alias watchlint="esw -w --changed app/javascript/react --ext .js,.jsx --color"
