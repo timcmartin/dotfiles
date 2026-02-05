@@ -60,12 +60,12 @@ plugins=(
   macos
   ssh-agent
   web-search
-  zsh-syntax-highlighting
   zsh-autosuggestions
   tmux
   tmuxinator
   rbenv
   docker
+  zsh-syntax-highlighting
 )
 autoload -U compinit && compinit
 
