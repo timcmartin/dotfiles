@@ -9,7 +9,7 @@ return {
 	build = ":Copilot auth",
 	opts = {
 		-- This model is free
-		copilot_model = "gpt-4.1",
+		copilot_model = "gpt-41-copilot",
 		suggestion = {
 			enabled = true,
 		},
