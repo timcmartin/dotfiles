@@ -1,0 +1,18 @@
+# ~/.tmuxinator/checkout.yml
+
+name: checkout
+root: ~/src/getty/unisporkal/federated-components/checkout
+
+windows:
+  - checkout:
+      layout: main-vertical
+      panes:
+        - nvim:
+            - nvim
+        - term:
+  - checkout-server:
+      layout: main-vertical
+      panes:
+        - copilot:
+        - yarn-dev:
+            - yarn dev

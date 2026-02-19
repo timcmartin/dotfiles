@@ -1,23 +1,20 @@
 # ~/.tmuxinator/cns.yml
 
 name: cns
-root: ~/src/getty/unisporkal/customer-notifications
+root: ~/src/getty/unisporkal/federated-components/customer-notifications
 
 windows:
   - cns:
       layout: main-vertical
       panes:
-        - vim:
-          - givim
+        - nvim:
+            - nvim
   - cns-server:
-      layout: even-horizontal
+      layout: 0fc7,254x52,0,0{84x52,0,0[84x29,0,0,9,84x22,0,30,10],83x52,85,0,11,85x52,169,0,12}
       panes:
         - cns:
-          - cns
-          - export AWS_PROFILE=local
-          - gicns
-  - term:
-      layout: main-vertical
-      panes:
-        - term-cns:
-          - cns
+        - dynamodb:
+            - cd ~/src/getty/dynamodb_local_latest
+            - export AWS_PROFILE=local
+        - cns-yarn:
+        - cns-ruby:

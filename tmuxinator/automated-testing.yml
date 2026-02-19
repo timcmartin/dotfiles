@@ -1,0 +1,17 @@
+# ~/.tmuxinator/automated-testing.yml
+
+name: automated-testing
+root: ~/src/getty/unisporkal/automated-testing
+
+windows:
+  - automated-testing:
+      layout: main-vertical
+      panes:
+        - nvim:
+            - nvim
+        - term:
+  - at-tests:
+      layout: main-vertical
+      panes:
+        - test1:
+        - test2:
