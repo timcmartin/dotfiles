@@ -3,13 +3,13 @@ name: allapps
 root: ~/src/getty/unisporkal
 windows:
   - all-apps:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - repos:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - term:
             - echo "💡 Navigate to: account, asset_detail, collaboration, cns, landing, purchase, search, sign_in"

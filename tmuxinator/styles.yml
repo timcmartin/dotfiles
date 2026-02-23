@@ -5,7 +5,7 @@ root: ~/src/getty/unisporkal/gems/unisporkal_styles
 
 windows:
   - styles:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim

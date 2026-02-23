@@ -5,7 +5,7 @@ root: ~/src/getty/deejay
 
 windows:
   - deejay:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim

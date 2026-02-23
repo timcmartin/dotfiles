@@ -5,13 +5,13 @@ root: ~/src/getty/unisporkal/search
 
 windows:
   - search:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - servers:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - rails:
             - echo "💡 Run 'gir' here (rails server)"

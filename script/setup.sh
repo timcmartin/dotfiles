@@ -85,7 +85,8 @@ for config_pkg in "${CONFIG_PACKAGES[@]}"; do
   dest="$HOME/.config/$config_pkg"
   backup_and_remove "$dest"
   echo "Copying $src to $dest"
-  cp -a "$src" "$dest"
+  mkdir -p "$(dirname "$dest")"
+  cp -af "$src" "$dest"
 done
 
 echo "Dotfiles setup complete. Backups (if any) are in $BACKUP_DIR"

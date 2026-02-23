@@ -5,7 +5,7 @@ root: /Users/tmartin/src/getty/waf
 
 windows:
   - waf:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim

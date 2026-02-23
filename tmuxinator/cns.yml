@@ -5,13 +5,13 @@ root: ~/src/getty/unisporkal/federated-components/customer-notifications
 
 windows:
   - cns:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - cns-server:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - dynamodb:
             - echo "💡 Run 'cd ~/src/getty/dynamodb_local_latest && export AWS_PROFILE=local' here"

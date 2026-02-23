@@ -5,14 +5,14 @@ root: ~/src/getty/unisporkal/automated-testing
 
 windows:
   - automated-testing:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
             - echo "💡 Empty Terminal"
   - at-tests:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - test1:
             - echo "💡 Intended for BDD tests"

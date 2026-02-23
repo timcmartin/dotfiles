@@ -5,20 +5,20 @@ root: ~/src/getty/unisporkal
 
 windows:
   - main:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - services:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - proxy:
             - echo "💡 Run 'giproxy' here"
         - dynamo:
             - echo "💡 Run 'cd $HOME/src/getty/gi-local-dynamo && bin/start' here"
   - servers:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - rails:
             - echo "💡 Run 'cd landing && gir' here"

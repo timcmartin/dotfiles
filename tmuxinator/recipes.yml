@@ -5,13 +5,13 @@ root: ~/src/personal/recipes
 
 windows:
   - recipes:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - gitbook:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - server:
             - echo "💡 Run 'gitbook serve .' here"

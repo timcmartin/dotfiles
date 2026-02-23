@@ -5,7 +5,7 @@ root: ~/src/getty/unisporkal
 
 windows:
   - uni:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim

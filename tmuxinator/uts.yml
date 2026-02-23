@@ -4,7 +4,7 @@ root: ~/src/getty/unisporkal
 
 windows:
   - engine:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - cd gems/unisporkal_engine
@@ -12,7 +12,7 @@ windows:
         - term:
             - cd gems/unisporkal_engine
   - cns:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - cd cns
@@ -20,7 +20,7 @@ windows:
         - term:
             - cd cns
   - servers:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - landing-rails:
             - echo "💡 Run 'cd landing && gir' here"

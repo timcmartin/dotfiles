@@ -1,18 +1,18 @@
 # ~/.tmuxinator/aarp.yml
 
-name: automated-testing
+name: aarp
 root: ~/src/getty/unisporkal/federated-components/asset-acquisition
 
 windows:
   - aarp:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
             - echo "💡 Empty Terminal"
   - servers:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - webpack:
             - echo "💡 Run 'giw' or 'yarn dev' here"

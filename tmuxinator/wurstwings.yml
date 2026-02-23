@@ -5,20 +5,20 @@ root: ~/src/personal/wurstwings/
 
 windows:
   - wurstwings:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - services:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - redis:
             - echo "💡 Run 'cd ~/Code/wurstwings && redisup' here"
         - foreman:
             - echo "💡 Run 'cd ~/Code/wurstwings && foreman start' here"
   - logs:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - dev:
             - echo "💡 Run 'tail -f log/development.log' here"

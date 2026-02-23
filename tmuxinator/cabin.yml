@@ -5,13 +5,13 @@ root: ~/src/personal/cabin-monitor/
 
 windows:
   - cabin:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - server:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - server:
             - echo "💡 Run 'foreman start' here"

@@ -5,13 +5,13 @@ root: ~/src/getty/unisporkal
 
 windows:
   - main:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - services:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - proxy:
             - echo "💡 Run 'giproxy-a' here"

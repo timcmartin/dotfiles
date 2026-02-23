@@ -5,7 +5,7 @@ root: ~/src/getty/unisporkal/account
 
 windows:
   - account:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim

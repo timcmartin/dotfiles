@@ -4,21 +4,21 @@ root: ~/src/getty/unisporkal/misc_admin
 
 windows:
   - uniadmin:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
             - echo "💡 Empty Terminal"
   - servers:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - webserver:
             - echo "💡 Run 'giw' here (webpack dev server)"
         - rails:
             - echo "💡 Run 'gir' here (rails server)"
   - watchers:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - lint:
             - echo "💡 Run 'watchlint' here (watch eslint)"
@@ -27,7 +27,7 @@ windows:
           - rspec:
               - echo "💡 Run 'giguard' here (rspec)"
   - logs:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - devlog:
             - echo "💡 Run 'devlog' here (dev logs)"

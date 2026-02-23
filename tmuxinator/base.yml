@@ -5,11 +5,11 @@ root: ~/src/getty/unisporkal
 
 windows:
   - cns:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
   - term:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - term:

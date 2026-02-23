@@ -5,7 +5,7 @@ root: ~/.dotfiles
 
 windows:
   - dotfiles:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim

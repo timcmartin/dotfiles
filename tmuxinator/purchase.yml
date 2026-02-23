@@ -5,13 +5,13 @@ root: ~/src/getty/unisporkal/purchase
 
 windows:
   - purchase:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - purchase-server:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - yarn:
             - echo "💡 Run 'yarn dev' here"

@@ -4,13 +4,13 @@ root: ~/src/getty/unisporkal/curated-image-uploader
 
 windows:
   - ciu:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - services:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - rails:
             - echo "💡 Run 'export AWS_PROFILE=local && gir' here"

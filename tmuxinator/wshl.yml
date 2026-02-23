@@ -5,13 +5,13 @@ root: ~/Code/wshl/
 
 windows:
   - wshl:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - nvim:
             - nvim
         - term:
   - services:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - guard:
             - echo "💡 Run 'guard' here"
@@ -20,7 +20,7 @@ windows:
         - rails:
             - echo "💡 Run 'rails s' here"
   - logs:
-      layout: main-vertical
+      layout: even-horizontal
       panes:
         - dev:
             - echo "💡 Run 'tail -f log/development.log' here"
