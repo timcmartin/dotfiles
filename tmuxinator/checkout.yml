@@ -15,4 +15,4 @@ windows:
       panes:
         - copilot:
         - yarn-dev:
-            - yarn dev
+            - echo "💡 Run 'yarn dev' here"

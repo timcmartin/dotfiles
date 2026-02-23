@@ -4,20 +4,23 @@ name: gihome
 root: ~/src/getty/unisporkal
 
 windows:
-  - proxy-dynamo:
-      layout: even-vertical
+  - main:
+      layout: main-vertical
       panes:
-        - docker:
-          - giproxy-wfh
+        - nvim:
+            - nvim
+        - term:
+  - services:
+      layout: main-vertical
+      panes:
+        - proxy:
+            - echo "💡 Run 'giproxy-wfh' here"
         - dynamo:
-          - cd $HOME/src/getty/gi-local-dynamo
-          - bin/start | lolcat
-  - landing:
-      layout: even-horizontal
+            - echo "💡 Run 'cd $HOME/src/getty/gi-local-dynamo && bin/start' here"
+  - servers:
+      layout: main-vertical
       panes:
-        - landing-rails:
-          - landing
-          - gir
-        - landing-assets:
-          - landing
-          - giw
+        - rails:
+            - echo "💡 Run 'cd landing && gir' here"
+        - assets:
+            - echo "💡 Run 'cd landing && giw' here"

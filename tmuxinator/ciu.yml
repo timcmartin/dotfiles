@@ -3,26 +3,16 @@ name: ciu
 root: ~/src/getty/unisporkal/curated-image-uploader
 
 windows:
-  - ciu-editor:
+  - ciu:
       layout: main-vertical
       panes:
-        - vim
-  - ciu-terminal:
+        - nvim:
+            - nvim
+        - term:
+  - services:
       layout: main-vertical
       panes:
         - rails:
-          - export AWS_PROFILE=local
-          - gir
-        - git:
-          - ll
+            - echo "💡 Run 'export AWS_PROFILE=local && gir' here"
         - guard:
-          - be guard -c
-  - uni-terminal:
-      layout: main-vertical
-      panes:
-        - landing:
-          - cd ../landing
-          - ll
-        - consul:
-          - cd ../gems/consul_client
-          - g co curated-image-uploader
+            - echo "💡 Run 'be guard -c' here"

@@ -5,8 +5,8 @@ root: /Users/tmartin/src/getty/waf
 
 windows:
   - waf:
-      layout: even-horizontal
+      layout: main-vertical
       panes:
-        - waf-vim:
-          - vim -O modules/wafv2/main.tf
+        - nvim:
+            - nvim
         - term:

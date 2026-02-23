@@ -7,10 +7,6 @@ windows:
   - styles:
       layout: main-vertical
       panes:
-        - vim:
-          - vim
-  - term:
-      layout: main-vertical
-      panes:
-        - term-styles:
-          - styles
+        - nvim:
+            - nvim
+        - term:

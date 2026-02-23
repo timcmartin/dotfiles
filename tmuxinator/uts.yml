@@ -6,38 +6,25 @@ windows:
   - engine:
       layout: main-vertical
       panes:
-        - vim:
-          - engine
-          - givim
+        - nvim:
+            - cd gems/unisporkal_engine
+            - nvim
+        - term:
+            - cd gems/unisporkal_engine
   - cns:
       layout: main-vertical
       panes:
-        - vim:
-          - cns
-          - vim -O rule/base.rb rule/newly_registered.rb
+        - nvim:
+            - cd cns
+            - nvim
+        - term:
+            - cd cns
   - servers:
-      layout: even-horizontal
+      layout: main-vertical
       panes:
         - landing-rails:
-          - landing
-          - gir
+            - echo "💡 Run 'cd landing && gir' here"
         - landing-assets:
-          - landing
-          - giw
-        - cns:
-          - cns
-          - export AWS_PROFILE=local
-          - gicns
-  - cns-term:
-      layout: main-vertical
-      panes:
-        - term:
-          - cns
-  - gi-local-dynamo:
-      layout: main-vertical
-      panes:
-        - editor:
-          - cd ~/src/getty/gi-local-dynamo
-          - vim
-        - term:
-          - cd ~/src/getty/gi-local-dynamo
+            - echo "💡 Run 'cd landing && giw' here"
+        - cns-service:
+            - echo "💡 Run 'cd cns && export AWS_PROFILE=local && gicns' here"

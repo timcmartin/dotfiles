@@ -4,35 +4,16 @@ name: giadmin
 root: ~/src/getty/unisporkal
 
 windows:
-  - proxy-dynamo:
-      layout: even-vertical
+  - main:
+      layout: main-vertical
       panes:
-        - docker:
-            - giproxy-a
+        - nvim:
+            - nvim
+        - term:
+  - services:
+      layout: main-vertical
+      panes:
+        - proxy:
+            - echo "💡 Run 'giproxy-a' here"
         - dynamo:
-            - cd $HOME/src/getty/gi-local-dynamo
-            - bin/start | lolcat
-  - dotfiles:
-      layout: even-horizontal
-      panes:
-        - dotfiles-vim:
-            - dotfiles
-            - vim ~/.dotfiles/bash_aliases
-  - vimwiki:
-      layout: even-horizontal
-      panes:
-        - vimwiki:
-            - cd ~/Dropbox/vimwiki
-            - ls
-  - oh-my-zsh:
-      layout: even-horizontal
-      panes:
-        - oh-my-zsh:
-            - cd $HOME/.oh-my-zsh/plugins/git
-            - vim -o $HOME/.oh-my-zsh/plugins/git/README.md
-  - recipes:
-      layout: even-horizontal
-      panes:
-        - recipes:
-            - cd $HOME/src/personal/recipes
-            - vim
+            - echo "💡 Run 'cd $HOME/src/getty/gi-local-dynamo && bin/start' here"

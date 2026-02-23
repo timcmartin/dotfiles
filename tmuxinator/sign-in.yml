@@ -7,19 +7,13 @@ windows:
   - sign-in:
       layout: main-vertical
       panes:
-        - vim:
-          - vim
+        - nvim:
+            - nvim
+        - term:
   - servers:
-      layout: even-horizontal
-      panes:
-        - sign-in-rails:
-          - sign-in
-          - gir
-        - sign-in-assets:
-          - sign-in
-          - giw
-  - term:
       layout: main-vertical
       panes:
-        - term-sign-in:
-          - sign-in
+        - rails:
+            - echo "💡 Run 'gir' here (rails server)"
+        - assets:
+            - echo "💡 Run 'giw' here (webpack dev server)"

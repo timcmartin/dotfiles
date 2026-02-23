@@ -9,12 +9,13 @@ windows:
       panes:
         - nvim:
             - nvim
+        - term:
   - cns-server:
-      layout: 0fc7,254x52,0,0{84x52,0,0[84x29,0,0,9,84x22,0,30,10],83x52,85,0,11,85x52,169,0,12}
+      layout: main-vertical
       panes:
-        - cns:
         - dynamodb:
-            - cd ~/src/getty/dynamodb_local_latest
-            - export AWS_PROFILE=local
-        - cns-yarn:
-        - cns-ruby:
+            - echo "💡 Run 'cd ~/src/getty/dynamodb_local_latest && export AWS_PROFILE=local' here"
+        - yarn:
+            - echo "💡 Run 'yarn dev' here"
+        - ruby:
+            - echo "💡 Run ruby service here"

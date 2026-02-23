@@ -7,11 +7,9 @@ windows:
   - cns:
       layout: main-vertical
       panes:
-        - vim:
-          - cns
-          - givim
+        - nvim:
+            - nvim
   - term:
       layout: main-vertical
       panes:
         - term:
-          - cns

@@ -7,10 +7,13 @@ windows:
   - purchase:
       layout: main-vertical
       panes:
-        - purchase-nvim:
+        - nvim:
             - nvim
+        - term:
   - purchase-server:
       layout: main-vertical
       panes:
-        - yarn-dev:
+        - yarn:
+            - echo "💡 Run 'yarn dev' here"
         - ruby:
+            - echo "💡 Run ruby service here"

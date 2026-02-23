@@ -37,6 +37,7 @@ alias girs="bundle exec rails s 1>/dev/null"
 alias giw="yarn dev"
 alias giwp="./bin/webpack-dev-server"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
+alias unilog="tail -f unisporkal_development.log"
 
 # GI Database
 alias gidynamoup="cd $HOME/src/getty/dynamodb_local_latest && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb"

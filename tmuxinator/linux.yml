@@ -5,9 +5,9 @@ root: ~/src/getty/learning/linux-cli-classes
 
 windows:
   - linux:
-      layout: even-horizontal
+      layout: main-vertical
       panes:
+        - nvim:
+            - nvim
         - ssh:
-          - ssh -i linux-class.key tmartin@linuxclass.sandbox-getty.cloud
-        - vim:
-          - givim
+            - echo "💡 Run 'ssh -i linux-class.key tmartin@linuxclass.sandbox-getty.cloud' here"

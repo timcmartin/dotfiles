@@ -4,8 +4,9 @@ name: uni
 root: ~/src/getty/unisporkal
 
 windows:
-  - blank:
+  - uni:
       layout: main-vertical
       panes:
-        - main:
-          - ls
+        - nvim:
+            - nvim
+        - term:

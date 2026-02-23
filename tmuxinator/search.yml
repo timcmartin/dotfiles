@@ -7,19 +7,13 @@ windows:
   - search:
       layout: main-vertical
       panes:
-        - vim:
-          - vim
+        - nvim:
+            - nvim
+        - term:
   - servers:
-      layout: even-horizontal
-      panes:
-        - search-rails:
-          - srp
-          - gir
-        - search-assets:
-          - srp
-          - giw
-  - term:
       layout: main-vertical
       panes:
-        - term-search:
-          - srp
+        - rails:
+            - echo "💡 Run 'gir' here (rails server)"
+        - assets:
+            - echo "💡 Run 'giw' here (webpack dev server)"

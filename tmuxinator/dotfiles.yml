@@ -7,6 +7,5 @@ windows:
   - dotfiles:
       layout: main-vertical
       panes:
-        - vim:
-            - dotfiles
-            - vim
+        - nvim:
+            - nvim

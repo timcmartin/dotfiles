@@ -3,58 +3,13 @@ name: allapps
 root: ~/src/getty/unisporkal
 windows:
   - all-apps:
-      layout: even-horizontal
+      layout: main-vertical
       panes:
-        - account:
-          - cd account
-          - gst
-        - asset-detail:
-          - cd asset_detail
-          - gst
-        - collaboration:
-          - cd collaboration
-          - gst
-        - cns:
-          - cns
-          - gst
-        - landing:
-          - cd landing
-          - gst
-        - purchase:
-          - cd purchase
-          - gst
-        - search:
-          - cd search
-          - gst
-        - sign-in:
-          - cd sign_in
-          - gst
-  - gems:
-      layout: even-horizontal
+        - nvim:
+            - nvim
+        - term:
+  - repos:
+      layout: main-vertical
       panes:
-        - engine:
-          - engine
-          - gst
-        - styles:
-          - styles
-          - gst
-        - consul:
-          - cd gems/consul_client
-          - gst
-        - service-client:
-          - cd gems/service_client
-          - gst
-  - cypress:
-      layout: even-horizontal
-      panes:
-        - cypress:
-          - cd $HOME/src/getty/automation
-          - gst
-        - vim:
-          - cd $HOME/src/getty/automation
-          - vim /cypress/integration/gi_spec.js /cypress/integration/istock_spec.js -o
-  - notes:
-      layout: even-horizontal
-      panes:
-        - notes:
-          - vim $HOME/src/personal/gists/getty_dev_notes/getty_dev_notes.md
+        - term:
+            - echo "💡 Navigate to: account, asset_detail, collaboration, cns, landing, purchase, search, sign_in"

@@ -7,19 +7,13 @@ windows:
   - landing:
       layout: main-vertical
       panes:
-        - vim:
-          - vim
+        - nvim:
+            - nvim
+        - term:
   - servers:
-      layout: even-horizontal
-      panes:
-        - landing-rails:
-          - landing
-          - gir
-        - landing-assets:
-          - landing
-          - giw
-  - term:
       layout: main-vertical
       panes:
-        - term-landing:
-          - landing
+        - rails:
+            - echo "💡 Run 'gir' here (rails server)"
+        - assets:
+            - echo "💡 Run 'giw' here (webpack dev server)"

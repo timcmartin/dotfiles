@@ -7,10 +7,6 @@ windows:
   - engine:
       layout: main-vertical
       panes:
-        - vim:
-          - vim
-  - term:
-      layout: main-vertical
-      panes:
-        - term-engine:
-          - engine
+        - nvim:
+            - nvim
+        - term:

@@ -3,17 +3,33 @@ name: uniadmin
 root: ~/src/getty/unisporkal/misc_admin
 
 windows:
-  - uniadmin-vim:
+  - uniadmin:
       layout: main-vertical
       panes:
-        - vim:
-          - givim
-  - uniadmin-servers:
-      layout: even-horizontal
-      panes:
-        - rails-server:
-          - gir
-        - webpacker:
-          - giw
+        - nvim:
+            - nvim
         - term:
-          - ls
+            - echo "💡 Empty Terminal"
+  - servers:
+      layout: main-vertical
+      panes:
+        - webserver:
+            - echo "💡 Run 'giw' here (webpack dev server)"
+        - rails:
+            - echo "💡 Run 'gir' here (rails server)"
+  - watchers:
+      layout: main-vertical
+      panes:
+        - lint:
+            - echo "💡 Run 'watchlint' here (watch eslint)"
+        - - jest:
+              - echo "💡 Run 'wyj' here (jest tests)"
+          - rspec:
+              - echo "💡 Run 'giguard' here (rspec)"
+  - logs:
+      layout: main-vertical
+      panes:
+        - devlog:
+            - echo "💡 Run 'devlog' here (dev logs)"
+        - unisporkal-log:
+            - echo "💡 Run 'unilog' here (unisporkal logs)"

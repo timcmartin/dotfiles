@@ -4,15 +4,15 @@ name: recipes
 root: ~/src/personal/recipes
 
 windows:
-  - vim:
+  - recipes:
       layout: main-vertical
       panes:
-        - main:
-          - vim
+        - nvim:
+            - nvim
+        - term:
   - gitbook:
       layout: main-vertical
       panes:
         - server:
-          - gitbook serve .
+            - echo "💡 Run 'gitbook serve .' here"
         - git:
-          - gst

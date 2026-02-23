@@ -3,50 +3,26 @@
 name: wshl
 root: ~/Code/wshl/
 
-# Optional tmux socket
-# socket_name: foo
-
-# Runs before everything. Use it to start daemons etc.
-# pre: sudo /etc/rc.d/mysqld start
-
-# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
-# pre_window: rbenv shell 2.0.0-p247
-pre_window: cd ~/Code/wshl/
-
-# Pass command line options to tmux. Useful for specifying a different tmux.conf.
-# tmux_options: -f ~/.tmux.mac.conf
-
-# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
-# tmux_command: byobu
-
 windows:
-  - editor:
+  - wshl:
       layout: main-vertical
       panes:
-        - vim
-  - terminal:
-      layout: even-horizontal
+        - nvim:
+            - nvim
+        - term:
+  - services:
+      layout: main-vertical
       panes:
         - guard:
-          - cd ~/Code/wshl/
-          - guard
-        - git:
-          - cd ~/Code/wshl/
-          - gst
-  - server:
-      layout: even-horizontal
-      panes:
+            - echo "💡 Run 'guard' here"
         - redis:
-          - cd ~/Code/wshl
-          - redisup
-        - redis-monitor:
-          - cd ~/Code/wshl
-          - redis-cli monitor
+            - echo "💡 Run 'redisup' here"
         - rails:
-          - cd ~/Code/wshl
-          - rails s
+            - echo "💡 Run 'rails s' here"
   - logs:
-      layout: even-horizontal
+      layout: main-vertical
       panes:
-        - tail -f log/development.log
-        - tail -f log/test.log
+        - dev:
+            - echo "💡 Run 'tail -f log/development.log' here"
+        - test:
+            - echo "💡 Run 'tail -f log/test.log' here"

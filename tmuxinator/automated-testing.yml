@@ -10,8 +10,11 @@ windows:
         - nvim:
             - nvim
         - term:
+            - echo "💡 Empty Terminal"
   - at-tests:
       layout: main-vertical
       panes:
         - test1:
+            - echo "💡 Intended for BDD tests"
         - test2:
+            - echo "💡 Intended for BDD tests"
