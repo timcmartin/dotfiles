@@ -11,6 +11,11 @@ return {
 		"j-hui/fidget.nvim", -- Display status
 	},
 	opts = {
+		global_context_files = {
+			".github/copilot-instructions.md",
+			".github/contributing.md",
+			".github/merge-request-template.md",
+		},
 		log_level = "DEBUG",
 		-- Place all plugin options here
 		interactions = {

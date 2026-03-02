@@ -10,7 +10,11 @@ windows:
         - nvim:
             - nvim
         - term:
-        - webpacker:
+            - echo "💡 Empty Terminal"
+  - servers:
+      layout: even-horizontal
+      panes:
+        - webpack:
             - echo "💡 Run 'giw' or 'yarn dev' here"
-        - railsserver:
+        - test:
             - echo "💡 Run 'rails s' here"
