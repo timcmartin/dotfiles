@@ -20,6 +20,7 @@ alias updatesubs='git submodule foreach --recursive git fetch'
 alias viuntracked='vi $(git ls-files -o -X .gitignore)'
 alias git_clean_merged='git checkout master | git branch --merged| egrep -v "(^\*|master|fi)" | xargs git branch -d'
 alias git-repos='git-repos.sh'
+alias brall='git-repos.sh'
 alias gdm='git diff master > changes.diff'
 
 # Development tools
@@ -184,9 +185,9 @@ alias ~='cd ~'
 alias b='cd -'
 alias c=clear
 alias d='ls -bF'
-alias l='exa -a --long --header --git'
-alias la='exa -a'
-alias ll='exa -l --git'
+alias l='eza -a --long --header --git'
+alias la='eza -a'
+alias ll='eza -l --git'
 alias ls='ls -G'
 alias lsa='ls -lah'
 
