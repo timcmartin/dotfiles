@@ -6,7 +6,7 @@ BACKUP_DIR="$HOME/dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 STOW_IGNORE_FILE="$DOTFILES_DIR/.stow-local-ignore"
 PACKAGES=(bash git ignore ruby tmux todo wezterm zsh) # Add/remove as needed
-DIRECTORIES=(scripts)                                 # Add/remove as needed
+DIRECTORIES=(scripts)                                        # Add/remove as needed
 CONFIG_PACKAGES=(tmuxinator)
 SHELL_NAME="$(basename "$SHELL")" # Only stow bash if using bash
 if [[ "$SHELL_NAME" == "bash" ]]; then
@@ -88,5 +88,10 @@ for config_pkg in "${CONFIG_PACKAGES[@]}"; do
   mkdir -p "$(dirname "$dest")"
   cp -af "$src" "$dest"
 done
+
+# --- Copy Claude Settings ---
+mkdir -p "$HOME/.claude"
+echo "Copying claude settings to $HOME/.claude"
+cp -af "$DOTFILES_DIR/claude/." "$HOME/.claude/"
 
 echo "Dotfiles setup complete. Backups (if any) are in $BACKUP_DIR"

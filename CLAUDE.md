@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Hard Rules
+- I use **Neovim (LazyVim)** exclusively. Never suggest VS Code or any VS Code-specific configuration.
+- Always read relevant config files in this repo before answering questions about my setup. For nvim questions, check `nvim-lua/.config/nvim/lua/plugins/` first.
+
 ## Overview
 
 Personal macOS dotfiles managed with **GNU Stow** for symlinking and **Strap** for bootstrapping. Supports two macOS user accounts with automatic context detection: `tim.martin` (work/Getty Images) and `timcmartin` (personal).

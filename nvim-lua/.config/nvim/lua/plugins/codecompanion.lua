@@ -123,7 +123,8 @@ return {
 			local lib = {}
 			for _, name in ipairs(names) do
 				lib[name] = {
-					opts = { is_workflow = true },
+					opts = {},
+					interaction = "chat",
 					description = descriptions[name],
 					prompts = llm_prompts[name] and llm_prompts[name].prompts or {},
 				}
