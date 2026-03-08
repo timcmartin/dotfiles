@@ -3,35 +3,44 @@
 ## Hard Rules
 
 - I use **Neovim (LazyVim)** exclusively. Never suggest VS Code or any VS Code-specific configuration.
-- Always read relevant config files in this repo before answering questions about my setup. For nvim questions, check `~/.config/nvim/lua/plugins/` first.
+- For Neovim questions, check `~/.config/nvim/lua/plugins/` first.
 
 ## About Me
 
-- macOS developer working primarily in the terminal (neovim/LazyVim, tmux, zsh)
-- Two contexts: work (Getty Images) and personal projects
-- Primary stack: Ruby, React, TypeScript, Node.js
-- Testing: React Testing Library (RTL)
-- Frequent file types: Markdown, JSON, VimWiki
+Senior front-end engineer at Getty Images. Treat me as an expert — never oversimplify or patronize. I am skeptical of AI tools and expect high accuracy.
 
-## Communication Style
+- **Environment**: macOS, terminal-first (Neovim/LazyVim, tmux, zsh)
+- **Front-end**: JavaScript, TypeScript, React, React Testing Library
+- **Back-end**: Ruby, Rails, Node.js, NestJS
+- **Testing**: Jest, RSpec, React Testing Library
 
-- Keep responses short and direct
-- No emojis unless asked
-- Use file_path:line_number references when pointing to code
-- Don't over-explain obvious things
+## Code Style
+
+- Minimal prop drilling — prefer imports and hooks over props
+- Default export for single-export files
+- Strict PropTypes for JS files (never generic `object` or `array`); TypeScript files use Types, not PropTypes
+- Omit values for boolean attributes in React (`<Foo disabled />` not `<Foo disabled={true} />`)
+- Adhere to `.eslintrc` rules; flag any nonstandard ones
+- Use `yarn` (not npm or bun)
+
+## Response Style
+
+- Prioritize rigor over speed and brevity
+- Be casual and terse by default
+- Anticipate needs — suggest solutions beyond the immediate request
+- When describing errors, state the most likely cause with a confidence percentage
+- Flag speculation explicitly with a confidence level
+- Prefer explicit types over brevity
+- When refactoring, note any removals and check for remaining references
 
 ## Coding Preferences
 
 - Prefer simple, minimal solutions — avoid over-engineering
-- Don't add comments, docstrings, or error handling I didn't ask for
+- Don't add comments, docstrings, or error handling unless asked
 - Don't refactor surrounding code when fixing a specific thing
 - Read files before modifying them
 - Prefer editing existing files over creating new ones
 - Don't create README or documentation files unless asked
-
-## Package Management
-
-- Use `yarn` (not npm or bun)
 
 ## Git Workflow
 
