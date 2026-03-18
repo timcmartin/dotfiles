@@ -102,7 +102,7 @@ _git_fi () {
 }
 
 # --- Getty Images Environment ---
-# GITLAB_ACCESS_TOKEN GOES HERE
+# GITLAB_ACCESS_TOKEN AND SPLUNK_API_TOKEN GO HERE
 [ -f "$USER_HOME/.zsh_secrets" ] && source "$USER_HOME/.zsh_secrets"
 
 # --- Miscellaneous ---

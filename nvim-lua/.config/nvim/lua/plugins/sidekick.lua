@@ -3,6 +3,9 @@ return {
 	opts = {
 		cli = {
 			default = "gpt-4.1",
+			tools = {
+				copilot = { cmd = { "copilot", "--alt-screen", "on" } },
+			},
 		},
 	},
 	keys = {
