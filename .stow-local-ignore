@@ -41,4 +41,5 @@ dev
 bash/.bash_aliases.work
 bash/.bash_aliases.personal
 bash/README.md
+nvim-lua/README.md
 claude

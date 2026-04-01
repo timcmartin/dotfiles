@@ -1,0 +1,13 @@
+# ~/.tmuxinator/proxy.yml
+
+name: gi_proxy
+root: ~/src/getty/unisporkal/gi_proxy
+
+windows:
+  - proxy:
+      layout: even-horizontal
+      panes:
+        - proxy:
+            - echo "💡 Run 'giproxy' or 'gipa' here"
+        - term:
+            - echo "💡 Just a terminal"

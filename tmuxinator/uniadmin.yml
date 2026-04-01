@@ -22,10 +22,10 @@ windows:
       panes:
         - lint:
             - echo "💡 Run 'watchlint' here (watch eslint)"
-        - - jest:
-              - echo "💡 Run 'wyj' here (jest tests)"
-          - rspec:
-              - echo "💡 Run 'giguard' here (rspec)"
+        - jest:
+            - echo "💡 Run 'wyj' here (jest tests)"
+        - rspec:
+            - echo "💡 Run 'giguard' here (rspec)"
   - logs:
       layout: even-horizontal
       panes:

@@ -29,7 +29,7 @@ alias cypress='cd $HOME/src/getty/automation'
 # GI Proxy
 alias giproxy="cd $UNISPORKAL/gi_proxy && ./runLocal.sh | lolcat"
 alias gip="./runLocal.sh | lolcat"
-alias gipa="cd /gi_proxy; git checkout uni_admin; ./runLocal.sh | lolcat"
+alias gipa="cd $UNISPORKAL/gi_proxy; git checkout uni_admin; ./runLocal.sh | lolcat"
 
 # Rails/GI services
 alias gir="bundle exec rails s"

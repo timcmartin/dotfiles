@@ -10,6 +10,9 @@ windows:
         - nvim:
             - nvim
         - term:
+  - servers:
+      layout: even-horizontal
+      panes:
         - webpacker:
             - echo "💡 Run 'npm run dev' or 'yarn dev' here"
         - railsserver:

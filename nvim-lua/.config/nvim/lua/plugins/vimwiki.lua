@@ -10,6 +10,7 @@ return {
 				syntax = "default",
 				ext = ".wiki",
 				name = "Getty",
+				diary_caption_level = 0,
 			},
 			{
 				path = "$DROPBOX_DIR/vimwiki/personal",
@@ -17,6 +18,7 @@ return {
 				syntax = "default",
 				ext = ".wiki",
 				name = "Personal",
+				diary_caption_level = 0,
 			},
 		}
 		vim.g.vimwiki_ext2syntax = {
