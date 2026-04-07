@@ -59,13 +59,34 @@ These are not handled by Brew or Strap, but are part of your environment:
 
 - **Node.js** (using Nodenv)
 - **oh-my-zsh**:
-  - Theme: - `git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
-"$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1` - `ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" \
-"$ZSH_CUSTOM/themes/spaceship.zsh-theme"`
-  - Plugins: - zsh-syntax-highlighting: - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
-${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting` - zsh-autosuggestions: - `git clone https://github.com/zsh-users/zsh-autosuggestions \
-${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+- **Theme:**
+
+  Clone the Spaceship theme:
+
+  ```
+  git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+  ```
+
+  Symlink the theme file:
+
+  ```
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+  ```
+
+- **Plugins:**
+  - zsh-syntax-highlighting:
+
+    ```
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    ```
+
+  - zsh-autosuggestions:
+    ```
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```
+
 - **Copilot**: <https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vimneovim>
+- eslint-watch: `yarn global add eslint eslint-watch`
 - **AWS config**
 - **TMUX Plugin Manager**: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 - **Catppuccin Tmux**: <https://github.com/catppuccin/tmux>
