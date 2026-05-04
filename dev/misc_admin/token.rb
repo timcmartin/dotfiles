@@ -1,4 +1,4 @@
-i #!/usr/bin/env ruby
+#!/usr/bin/env ruby
 require 'rack/utils'
 
 result = Rack::Utils.parse_query(URI(ARGV[0]).query)
