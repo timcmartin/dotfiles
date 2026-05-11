@@ -25,7 +25,7 @@ alias gdm='git diff master > changes.diff'
 
 # Development tools
 # alias watchlint="esw -w --changed app/javascript/react --ext .js,.jsx --color"
-alias watchlint='PATH=./node_modules/.bin:$PATH esw -w --changed app/javascript/react --ext .js,.jsx --color'
+alias watchlint='PATH=./node_modules/.bin:$PATH esw -w --changed app/javascript/react --ext .js,.jsx,.tsx --color'
 alias yj="yarn jest"
 alias yjd="yarn jest-debug"
 alias wyjd="yarn jest-debug --watch"
@@ -164,6 +164,7 @@ function besdb {
 # Directory Navigation - Common
 alias dotfiles='cd $DOTFILES_DIR'
 alias documents='cd $HOME/Documents'
+alias downloads='cd $HOME/Downloads'
 alias desktop='cd $HOME/Desktop'
 alias screenshots='cd $HOME/Documents/screenshots'
 alias dropbox='cd $DROPBOX_DIR'
@@ -174,7 +175,7 @@ alias nvim-sessions='cd $HOME/.local/share/nvim/sessions'
 alias tmux-sessions='cd $HOME/.local/share/tmux/resurrect'
 alias app-cache='cd $HOME/.cache'
 alias app-state='cd $HOME/.local/state'
-alias brewfile='cd $HOME/homebrew-brewfile/'
+alias brewfile='cd $HOME/.homebrew-brewfile/'
 
 # Directory shortcuts
 alias ...='cd ../..'
