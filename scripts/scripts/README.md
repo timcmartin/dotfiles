@@ -2,6 +2,42 @@
 
 These scripts will be symlinked to a `scripts` directory in the user's home directory upon installation.
 
+## all_apps.sh
+
+Work setup. Opens GitLab pipeline pages for all Unisporkal apps and release monitoring dashboards (Grafana, Splunk) in the browser.
+
+## git-repos.sh
+
+Lists git branch and status for immediate subdirectories of a given path.
+
+### Usage
+
+```sh
+git-repos [path]
+git-repos --dirty    # only repos with uncommitted changes
+git-repos --ahead    # include upstream ahead/behind counts
+git-repos --simple   # compact "dir branch" output
+git-repos --help
+```
+
+## independent-branches.sh
+
+Creates independent branches from a base branch, each containing a single cherry-picked commit. Useful for splitting a multi-commit branch into separate PRs that don't depend on each other.
+
+## stacked-branches.sh
+
+Creates stacked branches where each branch builds on the previous one. Useful for splitting a multi-commit branch into a chain of dependent PRs.
+
+## update-cla.sh
+
+Updates CLA (Content License Agreement) PDF files for Getty or iStock in the Unisporkal repo from an extracted PDF folder.
+
+### Usage
+
+```sh
+update-cla.sh <getty|istock> <path-to-extracted-PDF-folder>
+```
+
 ## pomodoro.sh
 
 For use in tmux status bar.
