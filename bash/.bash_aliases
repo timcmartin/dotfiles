@@ -30,6 +30,7 @@ alias yj="yarn jest"
 alias yjd="yarn jest-debug"
 alias wyjd="yarn jest-debug --watch"
 alias wyj="yarn jest --watch"
+alias watchprettier='fswatch -e ".*" -i "\\.jsx?$" -i "\\.tsx?$" app/javascript/react | xargs -n1 -I{} prettier --write {}'
 alias dockerclean='docker rm $(docker ps -a -f status=exited -q)'
 alias listpackages='ls -l node_modules | grep ^l'
 alias listunipackages='ls -l node_modules/@unisporkal | grep ^l'
@@ -193,6 +194,7 @@ alias la='eza -a'
 alias ll='eza -l --git'
 alias ls='ls -G'
 alias lsa='ls -lah'
+alias cpwd='pwd | pbcopy'
 
 # Load context-specific aliases (work/personal)
 if [ -f "$HOME/.dotfiles/bash/.bash_aliases.work" ]; then
