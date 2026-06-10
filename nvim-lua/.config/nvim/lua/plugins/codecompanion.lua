@@ -22,7 +22,7 @@ return {
 			chat = {
 				adapter = {
 					name = "copilot",
-					model = "gpt-4.1",
+					model = "claude-sonnet-4.6",
 				},
 				roles = {
 					user = "Tim",
@@ -70,7 +70,7 @@ return {
 			inline = {
 				adapter = {
 					name = "copilot",
-					model = "gpt-4.1",
+					model = "claude-sonnet-4.6",
 				},
 			},
 		},

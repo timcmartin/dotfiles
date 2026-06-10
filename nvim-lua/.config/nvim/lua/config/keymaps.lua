@@ -126,7 +126,7 @@ end, { desc = "Convert route to pattern" })
 -- Gitlab
 vim.keymap.set("n", "<leader>rg", function()
 	local prefix = "/Users/tim.martin/src/getty/unisporkal/misc_admin/"
-	local base_url = "https://gitlab.getty.cloud/unisporkal/misc-admin-app/-/blob/master/"
+	local base_url = "https://gitlab.getty.cloud/unisporkal-sox/uniadmin/-/blob/master/"
 	local line = vim.api.nvim_get_current_line()
 	local path = line
 	if vim.startswith(line, prefix) then

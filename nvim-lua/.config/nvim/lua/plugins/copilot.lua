@@ -8,8 +8,7 @@ return {
 	--event = "BufReadPost",
 	build = ":Copilot auth",
 	opts = {
-		-- This model is free
-		copilot_model = "gpt-41-copilot",
+		copilot_model = "",
 		suggestion = {
 			enabled = true,
 		},

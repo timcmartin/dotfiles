@@ -5,7 +5,6 @@ open https://gitlab.getty.cloud/unisporkal/asset-detail-app/pipelines/new
 open https://gitlab.getty.cloud/unisporkal/account-app/pipelines/new
 open https://gitlab.getty.cloud/unisporkal/collaboration-app/pipelines/new
 open https://gitlab.getty.cloud/unisporkal/landing-app/pipelines/new
-open https://gitlab.getty.cloud/unisporkal/misc-admin-app/pipelines/new
 open https://gitlab.getty.cloud/unisporkal/purchase-app/pipelines/new
 open https://gitlab.getty.cloud/unisporkal/search-app/pipelines/new
 open https://gitlab.getty.cloud/unisporkal/sign-in-app/pipelines/new
