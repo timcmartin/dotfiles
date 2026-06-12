@@ -33,9 +33,9 @@ cd ~/.dotfiles
   - Backs up existing dotfiles to `~/dotfiles-backup/`.
   - Symlinks all managed dotfiles using GNU Stow, respecting `.stow-local-ignore`.
   - Handles context-specific config (e.g., sets git email by macOS user).
-  - Symlinks directories (e.g., `scripts/` → `~/.scripts`) as single links.
-  - Ensures `~/.config/tmuxinator` and other config dirs are created and
-    symlinked as needed.
+  - Symlinks directories (e.g., `scripts/` → `~/scripts`) as single links.
+  - Symlinks files under `~/.config/<pkg>/` (e.g. `tmuxinator/*.yml`) so edits
+    flow back to the repo.
 
 **You do not need to run `stow .` manually.**
 All symlinking and context detection is handled by `script/setup.sh`.

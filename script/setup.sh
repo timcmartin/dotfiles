@@ -6,7 +6,7 @@ BACKUP_DIR="$HOME/dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 STOW_IGNORE_FILE="$DOTFILES_DIR/.stow-local-ignore"
 PACKAGES=(bash git ignore ruby tmux todo wezterm zsh) # Add/remove as needed
-DIRECTORIES=(scripts)                                        # Add/remove as needed
+DIRECTORIES=(scripts claude)                                 # Add/remove as needed
 CONFIG_PACKAGES=(tmuxinator)
 SHELL_NAME="$(basename "$SHELL")" # Only stow bash if using bash
 if [[ "$SHELL_NAME" == "bash" ]]; then
@@ -73,25 +73,42 @@ for pkg in "${PACKAGES[@]}"; do
 done
 
 # --- Stow Directories ---
+# Stow packages whose contents are directories (not dotfiles). The target is
+# derived from each package's top-level directory name(s), so a package
+# containing `scripts/` lands at `~/scripts/` and one containing `.foo/` would
+# land at `~/.foo/` — no naming convention needs to be hard-coded here.
+#
+# We only back up/remove the individual entries stow is about to place. The
+# parent directory is left intact so any user content living alongside the
+# stowed files (e.g. `~/.claude/commands/`) is preserved.
 for dir in "${DIRECTORIES[@]}"; do
-  target="$HOME/.$dir"
-  backup_and_remove "$target"
+  pkg_path="$DOTFILES_DIR/$dir"
+  shopt -s nullglob dotglob
+  for inner in "$pkg_path"/*/; do
+    inner_name="$(basename "$inner")"
+    mkdir -p "$HOME/$inner_name"
+    for entry in "$inner"*; do
+      backup_and_remove "$HOME/$inner_name/$(basename "$entry")"
+    done
+  done
+  shopt -u nullglob dotglob
   stow --dir="$DOTFILES_DIR" --target="$HOME" --no-folding "$dir"
 done
 
 # --- Stow .config Subdirectories ---
+# Symlink each file individually into ~/.config/<pkg>/ so edits to the live
+# files flow back to the repo. --no-folding prevents stow from collapsing the
+# whole package into a single directory symlink.
 for config_pkg in "${CONFIG_PACKAGES[@]}"; do
-  src="$DOTFILES_DIR/$config_pkg"
   dest="$HOME/.config/$config_pkg"
   backup_and_remove "$dest"
-  echo "Copying $src to $dest"
-  mkdir -p "$(dirname "$dest")"
-  cp -af "$src" "$dest"
+  mkdir -p "$dest"
+  echo "Stowing $config_pkg into $dest"
+  stow --dir="$DOTFILES_DIR" --target="$dest" --no-folding "$config_pkg"
 done
 
 # --- Copy Claude Settings ---
-mkdir -p "$HOME/.claude"
-echo "Copying claude settings to $HOME/.claude"
-cp -af "$DOTFILES_DIR/claude/." "$HOME/.claude/"
+# (Now handled by the DIRECTORIES loop above — claude/.claude/* is symlinked
+# into ~/.claude/, leaving any untracked content like ~/.claude/commands/ intact.)
 
 echo "Dotfiles setup complete. Backups (if any) are in $BACKUP_DIR"
