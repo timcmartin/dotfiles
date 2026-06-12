@@ -1,0 +1,12 @@
+# ~/.tmuxinator/alliance-ui.yml
+
+name: packages
+root: <%= ENV['UNISPORKAL'] %>/packages/alliance-ui
+
+windows:
+  - alliance-ui:
+      layout: even-horizontal
+      panes:
+        - nvim:
+            - nvim
+        - term:
