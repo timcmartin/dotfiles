@@ -14,8 +14,8 @@ windows:
       layout: even-horizontal
       panes:
         - dynamodb:
-            - echo "💡 Run 'cd ~/src/getty/dynamodb_local_latest && export AWS_PROFILE=local' here"
+            - echo "💡 Run 'colima start' here, then 'gidynamodb-admin'"
         - yarn:
             - echo "💡 Run 'yarn dev' here"
         - ruby:
-            - echo "💡 Run ruby service here"
+            - echo "💡 Run yarn ruby here"

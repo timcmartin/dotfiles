@@ -42,6 +42,7 @@ alias unilog="tail -f unisporkal_development.log"
 # GI Database
 alias gidynamoup="cd $HOME/src/getty/dynamodb_local_latest && java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb"
 alias gidynamoadmin="cd $HOME/src/getty/dynamodb_local_latest && DYNAMO_ENDPOINT=http://localhost:8000 dynamodb-admin"
+alias gidynamodb-admin='AWS_ACCESS_KEY_ID=development AWS_SECRET_ACCESS_KEY=secret-access-key AWS_REGION=us-west-2 DYNAMO_ENDPOINT=http://localhost:8000 dynamodb-admin'
 alias drestart="cd $HOME/src/getty/gi-local-dynamo && bin/stop && bin/start"
 
 # GI Services
