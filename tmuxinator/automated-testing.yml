@@ -1,7 +1,7 @@
 # ~/.tmuxinator/automated-testing.yml
 
 name: automated-testing
-root: ~/src/getty/unisporkal/automated-testing
+root: <%= ENV['UNISPORKAL'] %>/automated-testing
 
 windows:
   - automated-testing:

@@ -1,7 +1,7 @@
 # ~/.tmuxinator/engine.yml
 
 name: engine
-root: ~/src/getty/unisporkal/gems/unisporkal_engine
+root: <%= ENV['UNISPORKAL'] %>/gems/unisporkal_engine
 
 windows:
   - engine:

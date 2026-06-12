@@ -1,10 +1,10 @@
-# ~/.tmuxinator/waf.yml
+# ~/.tmuxinator/sites-gem.yml
 
-name: waf
-root: <%= ENV['GETTY_SRC'] %>/waf
+name: sites-gem
+root: <%= ENV['UNISPORKAL'] %>/gems/sites
 
 windows:
-  - waf:
+  - sites-gem:
       layout: even-horizontal
       panes:
         - nvim:

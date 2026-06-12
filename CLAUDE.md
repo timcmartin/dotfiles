@@ -38,7 +38,7 @@ Packages stowed to `~`: `bash`, `git`, `ignore`, `ruby`, `tmux`, `todo`, `zsh`
 
 Special cases (see `script/setup.sh`):
 - `scripts/` → `~/.scripts/` (symlinked as a directory, not individual files)
-- `tmuxinator/` → `~/.config/tmuxinator/` (copied, not symlinked)
+- `tmuxinator/` → `~/.config/tmuxinator/` (stowed with `--no-folding` so each `*.yml` is an individual symlink, letting edits flow back to the repo)
 - `nvim-lua/` → stowed with `-t ~` separately
 
 ### `.stow-local-ignore`
@@ -68,7 +68,7 @@ Template dir at `git/.git_template/hooks/` (configured via `git config init.temp
 
 ### Tmuxinator Sessions
 
-30+ session templates in `tmuxinator/`. These are **copied** (not symlinked) to `~/.config/tmuxinator/` during setup. Use `mux <session>` to launch.
+30+ session templates in `tmuxinator/`. These are **symlinked** (via stow `--no-folding`) into `~/.config/tmuxinator/` during setup, so editing either side stays in sync with the repo. Use `mux <session>` to launch.
 
 ## Key Paths
 

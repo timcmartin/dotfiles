@@ -1,0 +1,12 @@
+# ~/.tmuxinator/sites-pkg.yml
+
+name: packages
+root: <%= ENV['UNISPORKAL'] %>/packages/sites
+
+windows:
+  - sites-package:
+      layout: even-horizontal
+      panes:
+        - nvim:
+            - nvim
+        - term:

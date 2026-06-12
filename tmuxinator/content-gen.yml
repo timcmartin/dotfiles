@@ -1,7 +1,7 @@
 # ~/.tmuxinator/content-gen.yml
 
 name: content-gen
-root: ~/src/getty/unisporkal/federated-components/content-gen
+root: <%= ENV['UNISPORKAL'] %>/federated-components/content-gen
 
 windows:
   - aarp:

@@ -1,7 +1,7 @@
 # ~/.tmuxinator/wurstwings.yml
 
 name: wurstwings
-root: ~/src/personal/wurstwings/
+root: <%= ENV['PERSONAL_SRC'] %>/wurstwings/
 
 windows:
   - wurstwings:

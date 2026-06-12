@@ -1,7 +1,7 @@
 # ~/.tmuxinator/gi.yml
 
 name: gi
-root: ~/src/getty/unisporkal
+root: <%= ENV['UNISPORKAL'] %>
 
 windows:
   - main:

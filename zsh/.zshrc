@@ -18,6 +18,7 @@ case "$USER" in
 esac
 GETTY_SRC="$USER_HOME/src/getty"
 UNISPORKAL="$GETTY_SRC/unisporkal"
+export GETTY_SRC UNISPORKAL PERSONAL_SRC DOTFILES_DIR USER_HOME
 
 # --- Oh My Zsh ---
 ZSH="$USER_HOME/.oh-my-zsh"

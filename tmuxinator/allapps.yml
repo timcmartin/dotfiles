@@ -1,6 +1,6 @@
 # ~/.tmuxinator/allapps.yml
 name: allapps
-root: ~/src/getty/unisporkal
+root: <%= ENV['UNISPORKAL'] %>
 windows:
   - all-apps:
       layout: even-horizontal

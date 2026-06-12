@@ -1,7 +1,7 @@
 # ~/.tmuxinator/aarp.yml
 
 name: aarp
-root: ~/src/getty/unisporkal/federated-components/asset-acquisition
+root: <%= ENV['UNISPORKAL'] %>/federated-components/asset-acquisition
 
 windows:
   - aarp:

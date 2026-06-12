@@ -1,7 +1,7 @@
 # ~/.tmuxinator/linux.yml
 
 name: linux
-root: ~/src/getty/learning/linux-cli-classes
+root: <%= ENV['GETTY_SRC'] %>/learning/linux-cli-classes
 
 windows:
   - linux:

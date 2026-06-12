@@ -1,7 +1,7 @@
 # ~/.tmuxinator/checkout.yml
 
 name: checkout
-root: ~/src/getty/unisporkal/federated-components/checkout
+root: <%= ENV['UNISPORKAL'] %>/federated-components/checkout
 
 windows:
   - checkout:

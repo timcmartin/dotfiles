@@ -1,7 +1,7 @@
 # ~/.tmuxinator/proxy.yml
 
 name: gi_proxy
-root: ~/src/getty/unisporkal/gi_proxy
+root: <%= ENV['UNISPORKAL'] %>/gi_proxy
 
 windows:
   - proxy:

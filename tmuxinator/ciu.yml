@@ -1,6 +1,6 @@
 # ~/.tmuxinator/ciu.yml
 name: ciu
-root: ~/src/getty/unisporkal/curated-image-uploader
+root: <%= ENV['UNISPORKAL'] %>/curated-image-uploader
 
 windows:
   - ciu:

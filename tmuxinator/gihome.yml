@@ -1,7 +1,7 @@
 # ~/.tmuxinator/gihome.yml
 
 name: gihome
-root: ~/src/getty/unisporkal
+root: <%= ENV['UNISPORKAL'] %>
 
 windows:
   - main:

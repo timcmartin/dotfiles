@@ -1,7 +1,7 @@
 # ~/.tmuxinator/landing.yml
 
 name: landing
-root: ~/src/getty/unisporkal/landing
+root: <%= ENV['UNISPORKAL'] %>/landing
 
 windows:
   - landing:

@@ -1,7 +1,7 @@
 # ~/.tmuxinator/purchase.yml
 
 name: purchase
-root: ~/src/getty/unisporkal/purchase
+root: <%= ENV['UNISPORKAL'] %>/purchase
 
 windows:
   - purchase:

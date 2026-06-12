@@ -1,7 +1,7 @@
 # ~/.tmuxinator/packages.yml
 
 name: packages
-root: ~/src/getty/unisporkal/packages
+root: <%= ENV['UNISPORKAL'] %>/packages
 
 windows:
   - customer-notifications-package:

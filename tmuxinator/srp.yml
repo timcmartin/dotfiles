@@ -1,7 +1,7 @@
 # ~/.tmuxinator/srp.yml
 
 name: srp
-root: ~/src/getty/unisporkal/search
+root: <%= ENV['UNISPORKAL'] %>/search
 
 windows:
   - srp:

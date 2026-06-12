@@ -1,7 +1,7 @@
 # ~/.tmuxinator/recipes.yml
 
 name: recipes
-root: ~/src/personal/recipes
+root: <%= ENV['PERSONAL_SRC'] %>/recipes
 
 windows:
   - recipes:

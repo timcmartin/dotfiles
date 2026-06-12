@@ -1,7 +1,7 @@
 # ~/.tmuxinator/deejay.yml
 
 name: deejay
-root: ~/src/getty/deejay
+root: <%= ENV['GETTY_SRC'] %>/deejay
 
 windows:
   - deejay:

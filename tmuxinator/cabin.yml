@@ -1,7 +1,7 @@
 # ~/.tmuxinator/cabin.yml
 
 name: cabin
-root: ~/src/personal/cabin-monitor/
+root: <%= ENV['PERSONAL_SRC'] %>/cabin-monitor/
 
 windows:
   - cabin:

@@ -1,7 +1,7 @@
 # ~/.tmuxinator/collaboration.yml
 
 name: collaboration
-root: ~/src/getty/unisporkal/collaboration
+root: <%= ENV['UNISPORKAL'] %>/collaboration
 
 windows:
   - collaboration:

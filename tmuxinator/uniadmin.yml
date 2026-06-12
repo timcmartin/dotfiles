@@ -1,6 +1,6 @@
 # ~/.tmuxinator/uniadmin.yml
 name: uniadmin
-root: ~/src/getty/unisporkal/misc_admin
+root: <%= ENV['UNISPORKAL'] %>/misc_admin
 
 windows:
   - uniadmin:

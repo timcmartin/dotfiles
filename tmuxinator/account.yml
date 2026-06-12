@@ -1,7 +1,7 @@
 # ~/.tmuxinator/account.yml
 
 name: account
-root: ~/src/getty/unisporkal/account
+root: <%= ENV['UNISPORKAL'] %>/account
 
 windows:
   - account:

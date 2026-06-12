@@ -1,7 +1,7 @@
 # ~/.tmuxinator/adp.yml
 
 name: adp
-root: ~/src/getty/unisporkal/asset_detail
+root: <%= ENV['UNISPORKAL'] %>/asset_detail
 
 windows:
   - adp:

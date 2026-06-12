@@ -1,7 +1,7 @@
 # ~/.tmuxinator/uni.yml
 
 name: uni
-root: ~/src/getty/unisporkal
+root: <%= ENV['UNISPORKAL'] %>
 
 windows:
   - uni:

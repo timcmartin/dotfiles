@@ -1,6 +1,6 @@
 # ~/.tmuxinator/uts.yml
 name: uts
-root: ~/src/getty/unisporkal
+root: <%= ENV['UNISPORKAL'] %>
 
 windows:
   - engine:
