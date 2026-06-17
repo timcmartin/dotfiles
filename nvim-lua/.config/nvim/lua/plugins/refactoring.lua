@@ -1,6 +1,10 @@
 return {
 	"ThePrimeagen/refactoring.nvim", -- Refactor code like Martin Fowler
 	lazy = true,
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-treesitter/nvim-treesitter",
+	},
 	keys = {
 		{
 			"<LocalLeader>rr",
