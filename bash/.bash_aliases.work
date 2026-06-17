@@ -104,5 +104,8 @@ alias uni_pull='uni_pre_update && uni update && uni pull && uni_post_update'
 alias uni_update='uni_pre_update && uni update && uni_post_update'
 alias uni_gems='uni pull -g'
 
+# Claude Copilot shim
+alias copilot-shim-install='$UNISPORKAL/claude-skills/copilot-shim/install.sh'
+
 # Git branch management (work context)
 alias brm="unisporkal && brall | grep -v 'master' | grep -v '\[\]' && cd gems && brall | grep -v 'master' | grep -v '\[\]' && unisporkal"
