@@ -1,6 +1,6 @@
 # ~/.tmuxinator/sites-pkg.yml
 
-name: packages
+name: sites-pkg
 root: <%= ENV['UNISPORKAL'] %>/packages/sites
 
 windows:

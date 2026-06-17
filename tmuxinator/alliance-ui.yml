@@ -1,6 +1,6 @@
 # ~/.tmuxinator/alliance-ui.yml
 
-name: packages
+name: alliance-ui
 root: <%= ENV['UNISPORKAL'] %>/packages/alliance-ui
 
 windows:
