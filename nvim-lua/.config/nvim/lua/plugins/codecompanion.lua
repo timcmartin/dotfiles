@@ -1,21 +1,28 @@
 local prompt_utils = require("user.parse_prompts_util")
+local shim_prompts = require("user.copilot_shim_prompts")
 local config_path = vim.fn.stdpath("config") .. "/lua/user/"
 local llm_prompts = prompt_utils.parse_prompts_from_markdown(config_path .. "llm_prompts.md")
 
+local global_context_files = {
+  ".github/copilot-instructions.md",
+  ".github/contributing.md",
+  ".github/merge-request-template.md",
+}
+local shim_instructions = shim_prompts.instructions_path()
+if shim_instructions then
+  table.insert(global_context_files, shim_instructions)
+end
+
 return {
 	"olimorris/codecompanion.nvim",
-	tag = "v18.4.1", -- Latest v18
+	tag = "v19.16.0",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"j-hui/fidget.nvim", -- Display status
 	},
 	opts = {
-		global_context_files = {
-			".github/copilot-instructions.md",
-			".github/contributing.md",
-			".github/merge-request-template.md",
-		},
+		global_context_files = global_context_files,
 		log_level = "DEBUG",
 		-- Place all plugin options here
 		interactions = {
@@ -128,6 +135,13 @@ return {
 					description = descriptions[name],
 					prompts = llm_prompts[name] and llm_prompts[name].prompts or {},
 				}
+			end
+			-- Merge in getty copilot-shim prompts + skills from ~/.copilot/.
+			-- See lua/user/copilot_shim_prompts.lua. Local entries win on collision.
+			for k, v in pairs(shim_prompts.prompt_library()) do
+				if lib[k] == nil then
+					lib[k] = v
+				end
 			end
 			return lib
 		end)(),
