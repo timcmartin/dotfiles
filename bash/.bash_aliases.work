@@ -11,19 +11,19 @@ alias ciuprods='ciu; g co custom-environment; RAILS_ENV=kdevprod bundle exec rai
 alias ciuprodc='ciu; g co custom-environment; RAILS_ENV=devprod rails c'
 
 # Cypress testing
-alias cypress-candidate-getty="yarn candidate:headless --spec cypress/integration/gi_spec.js"
-alias cypress-candidate-istock="yarn candidate:headless --spec cypress/integration/istock_spec.js"
-alias cypress-candidate="yarn candidate:headless"
-alias cypress-dev-getty="yarn development:headless --spec cypress/integration/gi_spec.js"
-alias cypress-dev-istock="yarn development:headless --spec cypress/integration/istock_spec.js"
-alias cypress-dev="yarn development:headless"
-alias cypress-stage-gix="yarn staging-ca:headless --spec cypress/integration/gi_gix_spec.js"
-alias cypress-stage-getty="yarn staging-ca:headless --spec cypress/integration/gi_spec.js"
-alias cypress-stage-istock="yarn staging-ca:headless --spec cypress/integration/istock_spec.js"
-alias cypress-stage-vpn="yarn staging:headless"
-alias cypress-stage-vpn-getty="yarn staging:headless --spec cypress/integration/gi_spec.js"
-alias cypress-stage-vpn-istock="yarn staging:headless --spec cypress/integration/istock_spec.js"
-alias cypress-stage="yarn staging-ca:headless"
+alias cypress-candidate-getty="pnpm candidate:headless --spec cypress/integration/gi_spec.js"
+alias cypress-candidate-istock="pnpm candidate:headless --spec cypress/integration/istock_spec.js"
+alias cypress-candidate="pnpm candidate:headless"
+alias cypress-dev-getty="pnpm development:headless --spec cypress/integration/gi_spec.js"
+alias cypress-dev-istock="pnpm development:headless --spec cypress/integration/istock_spec.js"
+alias cypress-dev="pnpm development:headless"
+alias cypress-stage-gix="pnpm staging-ca:headless --spec cypress/integration/gi_gix_spec.js"
+alias cypress-stage-getty="pnpm staging-ca:headless --spec cypress/integration/gi_spec.js"
+alias cypress-stage-istock="pnpm staging-ca:headless --spec cypress/integration/istock_spec.js"
+alias cypress-stage-vpn="pnpm staging:headless"
+alias cypress-stage-vpn-getty="pnpm staging:headless --spec cypress/integration/gi_spec.js"
+alias cypress-stage-vpn-istock="pnpm staging:headless --spec cypress/integration/istock_spec.js"
+alias cypress-stage="pnpm staging-ca:headless"
 alias cypress='cd $HOME/src/getty/automation'
 
 # GI Proxy
@@ -34,7 +34,9 @@ alias gipa="cd $UNISPORKAL/gi_proxy; git checkout uni_admin; ./runLocal.sh | lol
 # Rails/GI services
 alias gir="bundle exec rails s"
 alias girs="bundle exec rails s 1>/dev/null"
-alias giw="yarn dev"
+alias giw="pnpm dev"
+# Holding over for MiscAdmin until Andy's change is merged
+alias giwy="yarn dev"
 alias giwp="./bin/webpack-dev-server"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 alias unilog="tail -f unisporkal_development.log"
@@ -46,8 +48,8 @@ alias gidynamodb-admin='AWS_ACCESS_KEY_ID=development AWS_SECRET_ACCESS_KEY=secr
 alias drestart="cd $HOME/src/getty/gi-local-dynamo && bin/stop && bin/start"
 
 # GI Services
-alias gicns='yarn ruby'
-alias gicnsw='yarn webpack'
+alias gicns='pnpm ruby'
+alias gicnsw='pnpm webpack'
 alias giguard='find . -type f -name "*.rb" | entr -c -p bundle exec rspec spec --format documentation'
 
 # GI Console/Admin
@@ -66,8 +68,8 @@ alias clearcache='rake tmp:cache:clear'
 alias clearlogs='rake log:clear'
 alias gifixtures='be rake fixtures'
 alias gitestfixtures='RAILS_ENV=test be rake fixtures'
-alias gikarma='yarn test'
-alias gikarmabrowser='yarn debug-test'
+alias gikarma='pnpm test'
+alias gikarmabrowser='pnpm debug-test'
 
 # GI Git
 alias gilock='g co Gemfile.lock'

@@ -15,6 +15,6 @@ windows:
       layout: even-horizontal
       panes:
         - webpack:
-            - echo "💡 Run 'giw' or 'yarn dev' here"
+            - echo "💡 Run 'giw' or 'pnpm dev' here"
         - test:
-            - echo "💡 run 'yarn jest' here"
+            - echo "💡 run 'pnpm jest' here"

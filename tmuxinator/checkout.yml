@@ -14,5 +14,5 @@ windows:
       layout: even-horizontal
       panes:
         - copilot:
-        - yarn-dev:
-            - echo "💡 Run 'yarn dev' here"
+        - pnpm:
+            - echo "💡 Run 'pnpm dev' here"

@@ -15,7 +15,7 @@ windows:
       panes:
         - dynamodb:
             - echo "💡 Run 'colima start' here, then 'gidynamodb-admin'"
-        - yarn:
-            - echo "💡 Run 'yarn dev' here"
+        - pnpm:
+            - echo "💡 Run 'pnpm dev' here"
         - ruby:
-            - echo "💡 Run yarn ruby here"
+            - echo "💡 Run pnpm ruby here"

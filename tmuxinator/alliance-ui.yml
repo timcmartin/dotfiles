@@ -10,4 +10,4 @@ windows:
         - nvim:
             - nvim
         - term:
-            - echo "💡 Run 'yarn dev' here"
+            - echo "💡 Run 'pnpm dev' here"

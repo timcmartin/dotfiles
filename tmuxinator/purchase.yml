@@ -13,7 +13,7 @@ windows:
   - purchase-server:
       layout: even-horizontal
       panes:
-        - yarn:
-            - echo "💡 Run 'yarn dev' here"
+        - pnpm:
+            - echo "💡 Run 'pnpm dev' here"
         - ruby:
             - echo "💡 Run ruby service here"
