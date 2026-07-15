@@ -107,6 +107,29 @@ subset I actually use.
 |---|---|
 | `prefix+shift+g` | New worktree from current workspace (opens as a grouped child) |
 
+### Copy mode (scrollback + search)
+
+`prefix+[` enters copy mode on the focused pane — the equivalent of tmux's
+copy mode. The pane process keeps running; copy mode just pins the viewport
+in history.
+
+| Key | Action |
+|---|---|
+| `prefix+[` | Enter copy mode |
+| `h` `j` `k` `l` / arrows | Move |
+| `w` `b` `e` | Word motions (tmux-style) |
+| `{` / `}` | Paragraph jump |
+| `PageUp` / `PageDown` | Page |
+| `ctrl+b` / `ctrl+f` | Half-page back / forward |
+| `ctrl+u` / `ctrl+d` | Half-page up / down |
+| `/` / `?` | Forward / backward search (smart case) |
+| `n` / `N` | Next / previous match |
+| `v` or `space` | Start selection |
+| `y` or `enter` | Copy selection |
+| `q` or `esc` | Exit copy mode |
+
+Mouse drag-select in a pane also copies without entering copy mode.
+
 ## Config highlights (`config.toml`)
 
 - `theme.name = "tokyo-night"` with accent `#7aa2f7`

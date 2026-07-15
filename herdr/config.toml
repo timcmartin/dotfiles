@@ -20,6 +20,11 @@ show_agent_labels_on_pane_borders = true
 # Skip the tab row when a workspace only has one tab.
 hide_tab_bar_when_single_tab = true
 
+[ui.sound]
+# Silence the audible ding when agents finish or need attention.
+# Sidebar/pane state (idle/working/blocked) still updates visually.
+enabled = false
+
 [keys]
 # Match my tmux prefix (GNU screen style).
 prefix = "ctrl+a"
