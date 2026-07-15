@@ -91,6 +91,11 @@ if command -v vault >/dev/null 2>&1; then
   complete -o nospace -C /usr/local/bin/vault vault
 fi
 
+# --- Completion for Herdr (if installed) ---
+if command -v herdr >/dev/null 2>&1; then
+  eval "$(herdr completion zsh)"
+fi
+
 # --- rbenv, pyenv, nodenv ---
 eval "$(rbenv init - zsh)"
 # Not needed?

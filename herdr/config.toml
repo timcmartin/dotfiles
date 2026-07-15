@@ -1,0 +1,42 @@
+# Herdr configuration
+# Stowed to ~/.config/herdr/config.toml
+# Run `herdr --default-config` to see every available option.
+
+onboarding = false
+
+[theme]
+name = "tokyo-night"
+auto_switch = false
+
+[ui]
+# Group the agent sidebar by workspace/space.
+agent_panel_sort = "spaces"
+# Tokyo-night blue accent to match the old powerkit vibe.
+accent = "#7aa2f7"
+# Wider default so workspace names like `plans-and-pricing` don't truncate.
+sidebar_width = 30
+# Show detected agent labels in pane borders — closest analog to a status segment.
+show_agent_labels_on_pane_borders = true
+# Skip the tab row when a workspace only has one tab.
+hide_tab_bar_when_single_tab = true
+
+[keys]
+# Match my tmux prefix (GNU screen style).
+prefix = "ctrl+a"
+
+# Inside the `prefix+w` workspace picker, allow vim-style j/k in addition
+# to the arrow keys. This does NOT touch pane focus — `prefix+j`/`prefix+k`
+# still move between panes as usual.
+navigate_workspace_up = ["up", "k"]
+navigate_workspace_down = ["down", "j"]
+
+# --- Reference (uncomment to enable) ---------------------------------------
+# [terminal]
+# default_shell = ""      # empty => $SHELL, then /bin/sh
+# shell_mode = "auto"     # "auto" | "login" | "non_login"
+# new_cwd = "follow"      # "follow" | "home" | "current" | fixed path
+#
+# [update]
+# channel = "stable"      # or "preview"
+# version_check = true
+# manifest_check = true

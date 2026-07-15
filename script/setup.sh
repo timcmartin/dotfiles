@@ -7,7 +7,7 @@ DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 STOW_IGNORE_FILE="$DOTFILES_DIR/.stow-local-ignore"
 PACKAGES=(bash git ignore ruby tmux todo wezterm zsh) # Add/remove as needed
 DIRECTORIES=(scripts claude)                                 # Add/remove as needed
-CONFIG_PACKAGES=(tmuxinator)
+CONFIG_PACKAGES=(tmuxinator herdr)
 SHELL_NAME="$(basename "$SHELL")" # Only stow bash if using bash
 if [[ "$SHELL_NAME" == "bash" ]]; then
   PACKAGES+=(bash)
@@ -101,8 +101,15 @@ done
 # whole package into a single directory symlink.
 for config_pkg in "${CONFIG_PACKAGES[@]}"; do
   dest="$HOME/.config/$config_pkg"
-  backup_and_remove "$dest"
   mkdir -p "$dest"
+  # Only back up files that stow is about to place, so unrelated runtime
+  # content in the same directory (e.g. herdr's session.json / *.log) stays
+  # intact.
+  shopt -s nullglob dotglob
+  for entry in "$DOTFILES_DIR/$config_pkg"/*; do
+    backup_and_remove "$dest/$(basename "$entry")"
+  done
+  shopt -u nullglob dotglob
   echo "Stowing $config_pkg into $dest"
   stow --dir="$DOTFILES_DIR" --target="$dest" --no-folding "$config_pkg"
 done
