@@ -52,6 +52,18 @@ When used in the `~/src/recipes` repository, will automatically build recipebook
 
 - Work setup, convenience script to truncate uniadmin logs.
 
+## yarn-pnpm.sh
+
+Migrates immediate subdirectories from yarn to pnpm. For each subdirectory, checks out `master` (or `main`), pulls, removes `node_modules` and `yarn.lock`, then runs `pnpm install`. Non-git directories skip the checkout/pull step.
+
+### Usage
+
+```sh
+yarn-pnpm.sh [path]
+```
+
+If `[path]` is omitted, the current working directory is used.
+
 ## backup_nvim.sh
 
 Backs up your Neovim configuration and data directories to timestamped backup folders, restores sessions, and can optionally install the LazyVim starter config.
