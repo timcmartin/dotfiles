@@ -111,3 +111,14 @@ alias copilot-shim-install='$UNISPORKAL/claude-skills/copilot-shim/install.sh'
 
 # Git branch management (work context)
 alias brm="unisporkal && brall | grep -v 'master' | grep -v '\[\]' && cd gems && brall | grep -v 'master' | grep -v '\[\]' && unisporkal"
+
+# Curated Image Uploader — local services
+# DDB is a shared container (no ciu- prefix); LocalStack is per-repo.
+alias ddb-start='docker start dynamodb-local'
+alias ddb-stop='docker stop dynamodb-local'
+alias ciu-s3-start='(cd $UNISPORKAL/curated-image-uploader && docker compose up -d)'
+alias ciu-s3-stop='(cd $UNISPORKAL/curated-image-uploader && docker compose down)'
+alias ciu-up='ddb-start && ciu-s3-start'
+alias ciu-down='ciu-s3-stop && ddb-stop'
+alias ciu-status='docker ps --filter name=dynamodb-local --filter name=ciu-localstack --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias ciu-rails='AWS_PROFILE=local be rails s'
