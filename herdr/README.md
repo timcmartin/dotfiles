@@ -47,8 +47,15 @@ Two options:
 1. **Fast path** — just run `hmux <name>` and let it auto-open the repo dir
    as a single-pane workspace.
 2. **Full layout** — copy `projects/example.sh` to `projects/<name>.sh`,
-   edit it, then `hmux <name>`. See [`projects/README.md`](projects/README.md)
-   for the DSL.
+   edit it, then symlink it into `~/.config/herdr/projects/` before
+   `hmux <name>` will see it. Either re-run `./script/setup.sh` (idempotent)
+   or run stow directly:
+
+   ```sh
+   stow --dir=~/.dotfiles --target=~/.config/herdr --no-folding herdr
+   ```
+
+   See [`projects/README.md`](projects/README.md) for the layout DSL.
 
 ## Keyboard reference
 

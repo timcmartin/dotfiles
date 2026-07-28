@@ -35,8 +35,7 @@ alias gipa="cd $UNISPORKAL/gi_proxy; git checkout uni_admin; ./runLocal.sh | lol
 alias gir="bundle exec rails s"
 alias girs="bundle exec rails s 1>/dev/null"
 alias giw="pnpm dev"
-# Holding over for MiscAdmin until Andy's change is merged
-alias giwy="yarn dev"
+alias gij="pnpm jest"
 alias giwp="./bin/webpack-dev-server"
 alias gilog="tail -f log/development.log | ag -A 2 -Q '**********'"
 alias unilog="tail -f unisporkal_development.log"
@@ -122,3 +121,7 @@ alias ciu-up='ddb-start && ciu-s3-start'
 alias ciu-down='ciu-s3-stop && ddb-stop'
 alias ciu-status='docker ps --filter name=dynamodb-local --filter name=ciu-localstack --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
 alias ciu-rails='AWS_PROFILE=local be rails s'
+
+# Workday bookends
+alias workday-start='herdr'
+alias workday-end='herdr server stop'
