@@ -121,3 +121,11 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # --- Source additional scripts if present ---
 [ -f "$USER_HOME/authaws" ] && source "$USER_HOME/authaws"
+
+# Print the most recent copilot session ID after exiting (workaround for
+# `/exit print` not being reachable via ctrl+c×2).
+copilot() {
+  command copilot "$@"
+  local last=$(ls -1t ~/.copilot/session-state/ 2>/dev/null | head -1)
+  [[ -n "$last" ]] && print -P "%F{cyan}session:%f $last"
+}
