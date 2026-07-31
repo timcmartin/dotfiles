@@ -32,6 +32,26 @@ vim.keymap.set("n", "<leader>fa", function()
 	vim.fn.setreg("+", abspath)
 	print("Copied: " .. abspath)
 end, {})
+-- Wiki File Link to Current File / Folder
+local function yank_wiki_link(dir_only)
+	local bufname = vim.api.nvim_buf_get_name(0)
+	if bufname == "" then
+		vim.notify("Buffer has no file name", vim.log.levels.WARN)
+		return
+	end
+	local path = vim.fn.fnamemodify(bufname, dir_only and ":p:h" or ":p")
+	local home = vim.loop.os_homedir()
+	path = path:gsub("^" .. vim.pesc(home) .. "/", "~/")
+	local link = string.format("[[file:%s]]", path)
+	vim.fn.setreg("+", link)
+	print("Copied: " .. link)
+end
+vim.keymap.set("n", "<leader>fl", function()
+	yank_wiki_link(false)
+end, { desc = "Yank wiki file link (file)" })
+vim.keymap.set("n", "<leader>fL", function()
+	yank_wiki_link(true)
+end, { desc = "Yank wiki file link (folder)" })
 -- Vimwiki Diary Note
 vim.keymap.set({ "n", "v", "i" }, "<leader>dd", ":VimwikiMakeDiaryNote", {})
 -- Resize
