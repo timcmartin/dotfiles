@@ -8,11 +8,17 @@ agents, running alongside my legacy tmux setup during migration.
 | Path | Purpose |
 |---|---|
 | `config.toml` | Herdr config. Stowed to `~/.config/herdr/config.toml`. |
-| `projects/` | Per-project `hmux` layouts. Stowed to `~/.config/herdr/projects/`. |
-| `projects/README.md` | DSL reference for layout files. |
+| `projects/` | My actual per-project `hmux` layouts. Stowed to `~/.config/herdr/projects/`. |
 
-The launcher lives at [`scripts/scripts/hmux`](../scripts/scripts/hmux) in
-this repo and is symlinked to `~/scripts/hmux` (already on `$PATH`).
+The `hmux` launcher itself and the layout DSL reference now live in the
+standalone [`hmuxinator`](https://gitlab.getty.cloud/tmartin/hmuxinator)
+repo, installed via its `install.sh` (symlinks `hmux` onto `$PATH`, seeds
+generic sample layouts). This package only holds my real, Getty-specific
+project layouts on top of that.
+
+`HMUX_DEFAULT_ROOT` is set to `$UNISPORKAL` in `zsh/.zshrc`, so `hmux
+<project>` falls back to `$UNISPORKAL/<project>` for any project without a
+layout file here.
 
 ## Daily flow
 
@@ -46,16 +52,17 @@ Two options:
 
 1. **Fast path** — just run `hmux <name>` and let it auto-open the repo dir
    as a single-pane workspace.
-2. **Full layout** — copy `projects/example.sh` to `projects/<name>.sh`,
-   edit it, then symlink it into `~/.config/herdr/projects/` before
-   `hmux <name>` will see it. Either re-run `./script/setup.sh` (idempotent)
-   or run stow directly:
+2. **Full layout** — add `projects/<name>.sh` here, then re-run
+   `./script/setup.sh` (idempotent) or stow directly:
 
    ```sh
    stow --dir=~/.dotfiles --target=~/.config/herdr --no-folding herdr
    ```
 
-   See [`projects/README.md`](projects/README.md) for the layout DSL.
+   See hmuxinator's
+   [`projects/README.md`](https://gitlab.getty.cloud/tmartin/hmuxinator/-/blob/main/projects/README.md)
+   for the layout DSL, or copy one of its sample layouts (in
+   `~/.config/herdr/projects/` after installing it) as a starting point.
 
 ## Keyboard reference
 
