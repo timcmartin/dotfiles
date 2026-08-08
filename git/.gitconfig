@@ -88,6 +88,8 @@
 	keepBackup = false
 [init]
 	templatedir = ~/.git_template
+[url "git@gitlab.getty.cloud:"]
+	insteadOf = https://gitlab.getty.cloud/
 ; [difftool "sourcetree"]
 	; cmd = /Applications/DiffMerge.app/Contents/MacOS/DiffMerge --nosplash \"$LOCAL\" \"$REMOTE\"
 	; path =

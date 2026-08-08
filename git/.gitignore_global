@@ -26,3 +26,5 @@ Session-*.vim
 .projections.json
 .dev
 .github
+
+**/.claude/settings.local.json

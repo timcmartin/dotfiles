@@ -2,9 +2,9 @@ return {
 	"folke/sidekick.nvim",
 	opts = {
 		cli = {
-			default = "gpt-4.1",
+			default = "claude-opus-5",
 			tools = {
-				copilot = { cmd = { "copilot", "--alt-screen", "on" } },
+				copilot = { cmd = { "claude", "--alt-screen", "on" } },
 			},
 		},
 	},
