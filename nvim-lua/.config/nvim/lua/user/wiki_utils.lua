@@ -5,7 +5,7 @@ function M.generate_wiki_header()
   local sections = {}
   local title_line_index = nil
 
-  -- Extract date from filename (format: YYYY-MM-DD.wiki)
+  -- Extract date from filename (format: YYYY-MM-DD.md)
   local filename = vim.fn.expand("%:t:r") -- Get filename without extension
   local year, month, day = filename:match("^(%d%d%d%d)%-(%d%d)%-(%d%d)$")
 
@@ -39,34 +39,29 @@ function M.generate_wiki_header()
     end
   end
 
-  -- Check if first line is already a header
-  local first_line = lines[1]
-  if first_line and first_line:match("^=%s*(.-)%s*=$") then
-    title_line_index = 0 -- 0-based index of the first line
-  end
-
-  -- Scan the document for section headers - ONLY level 2 headers
+  -- Find the existing title (first level 1 heading) and collect level 2 headings
   for i, line in ipairs(lines) do
-    -- Use a pattern that matches EXACTLY two equal signs at the start followed by a space,
-    -- content, then a space followed by EXACTLY two equal signs at the end
-    if line:match("^==[ ]") and line:match("[ ]==$") then
-      -- Extract the content between the equal signs
-      local content = line:sub(3, -3) -- Remove the first two and last two characters
-      content = content:match("^%s*(.-)%s*$") -- Trim whitespace
+    if title_line_index == nil and line:match("^#%s+%S") then
+      title_line_index = i - 1 -- 0-based index
+    elseif line:match("^##%s+%S") then
+      local content = line:gsub("^##%s+", ""):gsub("%s+$", "")
       table.insert(sections, content)
     end
   end
 
   if date and #sections > 0 then
-    local header = "= " .. table.concat(sections, ", ") .. ", " .. date .. " ="
+    local header = "# " .. table.concat(sections, ", ") .. ", " .. date
 
-    -- Remove existing title line if found
     if title_line_index ~= nil then
-      vim.api.nvim_buf_set_lines(0, title_line_index, title_line_index + 1, false, {})
+      -- Replace the existing title in place
+      vim.api.nvim_buf_set_lines(0, title_line_index, title_line_index + 1, false, { header })
+    else
+      local new_lines = { header }
+      if lines[1] ~= nil and lines[1] ~= "" then
+        table.insert(new_lines, "")
+      end
+      vim.api.nvim_buf_set_lines(0, 0, 0, false, new_lines)
     end
-
-    -- Insert new header at the top
-    vim.api.nvim_buf_set_lines(0, 0, 0, false, { header })
     print("Header updated at the top of the file.")
   else
     print("No valid date or sections found.")

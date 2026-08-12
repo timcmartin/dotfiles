@@ -20,6 +20,12 @@ return {
 				name = "Personal",
 				diary_caption_level = 0,
 			},
+			{
+				path = "$ONEDRIVE_DIR/Documents/stories",
+				syntax = "markdown",
+				ext = ".md",
+				name = "Stories",
+			},
 		}
 		vim.g.vimwiki_ext2syntax = {
 			[".md"] = "markdown",
@@ -41,8 +47,7 @@ return {
 		-- Notes re: links
 		-- [[path/to/the/file|friendly title]] will create a file
 		-- in the directory.  Without path, defaults to current
-		-- example from Getty Diary:
-		-- [[../stories/2028/testfile|This is a Test File]] will create a
-		-- testfile.md in the Getty directory under stories/2028
+		-- Cross-wiki links to the Stories wiki (OneDrive) use named interwiki syntax:
+		-- [[wn.Stories:2026-08/signin-errors/investigation|Sign-in errors investigation]]
 	end,
 }

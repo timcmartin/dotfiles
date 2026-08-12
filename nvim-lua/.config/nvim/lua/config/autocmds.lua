@@ -22,17 +22,17 @@ end, {})
 vim.api.nvim_create_augroup("WikiDiary", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
 	group = "WikiDiary",
-	pattern = "*/vimwiki/getty/diary/*.wiki",
+	pattern = "*/vimwiki/getty/diary/*.md",
 	callback = function()
 		-- Get the current buffer's filename
 		local filename = vim.fn.expand("%:t")
 
-		-- Skip if the filename is diary.wiki
-		if filename ~= "diary.wiki" then
+		-- Skip if the filename is diary.md
+		if filename ~= "diary.md" then
 			require("user.wiki_utils").generate_wiki_header()
 		end
 	end,
-	desc = "Generate wiki header for diary entries except for diary.wiki",
+	desc = "Generate wiki header for diary entries except for diary.md",
 })
 
 -- Syntax for TodoTxt

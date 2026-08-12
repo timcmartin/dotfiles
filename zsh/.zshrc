@@ -28,6 +28,9 @@ ZSH_THEME="spaceship"
 # --- Dropbox ---
 export DROPBOX_DIR="$USER_HOME/Library/CloudStorage/Dropbox"
 
+# --- OneDrive ---
+export ONEDRIVE_DIR="$USER_HOME/Library/CloudStorage/OneDrive-GettyImages"
+
 # --- Editor ---
 export EDITOR="nvim"
 
