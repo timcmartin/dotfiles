@@ -98,14 +98,14 @@ vim.keymap.set(
 vim.keymap.set(
 	"n",
 	"<localleader>gd",
-	":e /Users/tim.martin/Library/CloudStorage/Dropbox/vimwiki/getty/diary/diary.wiki<CR>",
+	":e /Users/tim.martin/Library/CloudStorage/Dropbox/vimwiki/getty/diary/diary.md<CR>",
 	{ noremap = true, silent = true }
 )
 -- Open Getty Index
 vim.keymap.set(
 	"n",
 	"<localleader>gi",
-	":e /Users/tim.martin/Library/CloudStorage/Dropbox/vimwiki/getty/index.wiki<CR>",
+	":e /Users/tim.martin/Library/CloudStorage/Dropbox/vimwiki/getty/index.md<CR>",
 	{ noremap = true, silent = true }
 )
 -- Unused Buffers

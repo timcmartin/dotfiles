@@ -1,14 +1,14 @@
 ---@diagnostic disable: undefined-global
 return {
 	"vimwiki/vimwiki",
-	event = "BufEnter *.wiki",
+	event = { "BufEnter *.wiki", "BufEnter *.md" },
 	keys = { "<leader>ww", "<leader>wt" },
 	init = function()
 		vim.g.vimwiki_list = {
 			{
 				path = "$DROPBOX_DIR/vimwiki/getty",
-				syntax = "default",
-				ext = ".wiki",
+				syntax = "markdown",
+				ext = ".md",
 				name = "Getty",
 				diary_caption_level = 0,
 			},
@@ -33,9 +33,16 @@ return {
 			["cmd"] = "sh",
 			["bash"] = "sh",
 			["slim"] = "sass",
+			["markdown"] = "md",
 		}
 		vim.g.vimwiki_option_automatic_nested_syntaxes = 1
 		vim.g.vimwiki_hl_headers = 1
 		-- moved highlighting to autocmds.lua to load later
+		-- Notes re: links
+		-- [[path/to/the/file|friendly title]] will create a file
+		-- in the directory.  Without path, defaults to current
+		-- example from Getty Diary:
+		-- [[../stories/2028/testfile|This is a Test File]] will create a
+		-- testfile.md in the Getty directory under stories/2028
 	end,
 }
