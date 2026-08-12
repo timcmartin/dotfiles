@@ -130,3 +130,5 @@ copilot() {
   local last=$(ls -1t ~/.copilot/session-state/ 2>/dev/null | head -1)
   [[ -n "$last" ]] && print -P "%F{cyan}session:%f $last"
 }
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
