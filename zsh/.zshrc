@@ -50,7 +50,6 @@ export PATH="$USER_HOME/.yarn/bin:$USER_HOME/.config/yarn/global/node_modules/.b
 export PATH="/opt/homebrew/opt/mysql/bin:$PATH"
 export PATH="$USER_HOME/scripts:$PATH"
 export PATH="$USER_HOME/.local/bin:$PATH" # pipx/local binaries
-export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
 
 # --- Zsh Plugins ---
 plugins=(
