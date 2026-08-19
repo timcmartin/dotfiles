@@ -26,6 +26,12 @@ return {
 				ext = ".md",
 				name = "Stories",
 			},
+			{
+				path = "$DROPBOX_DIR/vimwiki/getty",
+				syntax = "markdown",
+				ext = ".md",
+				name = "GettyDocs",
+			},
 		}
 		vim.g.vimwiki_ext2syntax = {
 			[".md"] = "markdown",

@@ -177,6 +177,20 @@ vim.keymap.set("n", "<leader>rg", function()
 		vim.fn.setreg("+", url)
 	end
 end, { desc = "Convert local path to GitLab URL, open in browser, and copy to clipboard" })
+-- Obsidian wiki link
+vim.keymap.set("n", "<leader>rw", function()
+	local line = vim.api.nvim_get_current_line()
+	-- Keep any leading indentation / list marker outside the link
+	local prefix, rest = line:match("^(%s*[-*+]?%s*)(.*)$")
+	local path = vim.trim(rest):gsub("%.md$", "")
+	local name = path:match("([^/]+)$") or path
+	local label = name:gsub("[-_]", " "):gsub("(%a[%w']*)", function(word)
+		return word:sub(1, 1):upper() .. word:sub(2)
+	end)
+	local link = "[[wn.Stories:" .. path .. "|" .. label .. "]]"
+	vim.api.nvim_set_current_line(prefix .. link)
+	vim.fn.setreg("+", link)
+end, { desc = "Convert path to wn.Stories wiki link and copy to clipboard" })
 -- TODO.txt
 vim.keymap.set("n", "<leader>te", function()
 	local path = vim.fn.expand("$HOME/Dropbox/Apps/Todotxt+/todo.txt")
