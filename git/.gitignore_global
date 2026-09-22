@@ -31,3 +31,5 @@ Session-*.vim
 # planning working notebook (briefs, plans, attachments)
 .kickoff/
 **/.claude/.create-mr-in-flight
+# AI session usage CSVs (sales-tools hooks; consumed by sf-create-pull-request)
+ai-session-tracking/

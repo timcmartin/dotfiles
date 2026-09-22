@@ -43,7 +43,11 @@ Special cases (see `script/setup.sh`):
 
 ### `.stow-local-ignore`
 
-Controls what Stow skips. Notable exclusions: `script/`, `boilerplate/`, `itermProfiles/`, `raycast/`, `dev/`, alternate tmux themes, work/personal alias variants.
+Controls what Stow skips. Stow reads this file **from inside a package** (`bash/.stow-local-ignore`, `tmux/.stow-local-ignore`, `nvim-lua/.stow-local-ignore`) — a copy at the repo root is never read. Paths in it are relative to the package root, not the repo root.
+
+Supplying the file **replaces** Stow's built-in default ignore list, so a package that adds one must restate any default it still wants — most often `^/README.*`, otherwise the package's own README gets symlinked into `$HOME`.
+
+Directories that are simply absent from `PACKAGES`/`DIRECTORIES`/`CONFIG_PACKAGES` in `script/setup.sh` (`script/`, `boilerplate/`, `itermProfiles/`, `raycast/`, `dev/`) need no ignore rule — they are never stowed.
 
 ### Context-Aware Configuration
 

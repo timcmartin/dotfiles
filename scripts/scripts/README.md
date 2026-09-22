@@ -90,3 +90,25 @@ By default, the script:
 - Moves your Neovim config/data/state/cache directories to backup folders with a timestamp.
 - Restores your previous Neovim sessions.
 - Installs the LazyVim starter config.
+
+## reap-orphans.sh
+
+Finds — and optionally kills — dev processes left behind when a herdr workspace, tab, or pane is closed.
+
+Closing a workspace kills the pane shells, but tooling that has detached from them (Spring servers, ruby-lsp's `rails runner`, language servers, file watchers) is reparented to launchd and keeps running. It holds memory and counts against `kern.maxprocperuid` (6000) — the ceiling that makes panes fail to start with `fork failed: resource temporarily unavailable`.
+
+A process is only reported when its git project root has no live herdr pane, so tooling for a project that is still open is left alone. Also reports spaceship prompt jobs wedged under an async worker.
+
+### Usage
+
+```sh
+reap-orphans.sh           # dry run — list what would be reaped
+reap-orphans.sh --kill    # SIGTERM, then SIGKILL to any stragglers
+```
+
+Dry run is the default. A dev server that was deliberately backgrounded before its pane was closed looks identical to debris, so read the list before passing `--kill`.
+
+### Notes
+
+- Detection is allowlist-based (`spring`, `ruby-lsp`, `solargraph`, `puma`, `sidekiq`, language servers, `jest`, `vitest`, `vite`, `webpack`, watchers). Tooling outside that list needs adding to `dev_re` in the script.
+- Spring is the usual culprit and survives its parent by design — quitting Neovim first does not clean it up. Run `spring stop` in the project before closing it to avoid the leak at source, or set `DISABLE_SPRING=1` to turn it off entirely.

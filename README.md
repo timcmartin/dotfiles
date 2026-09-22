@@ -31,7 +31,8 @@ cd ~/.dotfiles
 
 - This script:
   - Backs up existing dotfiles to `~/dotfiles-backup/`.
-  - Symlinks all managed dotfiles using GNU Stow, respecting `.stow-local-ignore`.
+  - Symlinks all managed dotfiles using GNU Stow, respecting each package's own
+    `.stow-local-ignore`.
   - Handles context-specific config (e.g., sets git email by macOS user).
   - Symlinks directories (e.g., `scripts/` → `~/scripts`) as single links.
   - Symlinks files under `~/.config/<pkg>/` (e.g. `tmuxinator/*.yml`) so edits
@@ -139,7 +140,10 @@ To keep secrets (like API tokens) out of your repository, store them in a separa
 ## Notes
 
 - The setup script is idempotent and safe to re-run.
-- `.stow-local-ignore` ensures only intended files are symlinked.
+- A package's own `.stow-local-ignore` (e.g. `bash/`, `tmux/`, `nvim-lua/`)
+  ensures only intended files are symlinked. Stow does not read one placed at
+  the repo root, and supplying one replaces Stow's built-in defaults — restate
+  `^/README.*` in it unless you want that package's README symlinked to `$HOME`.
 - Context-specific config (e.g., git email) is handled automatically by macOS
   user account.
 - For manual steps, refer to the checklist above.

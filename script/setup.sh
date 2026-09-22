@@ -4,7 +4,6 @@ set -euo pipefail
 # --- Config ---
 BACKUP_DIR="$HOME/dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-STOW_IGNORE_FILE="$DOTFILES_DIR/.stow-local-ignore"
 PACKAGES=(bash git ignore ruby tmux todo wezterm zsh) # Add/remove as needed
 DIRECTORIES=(scripts claude)                                 # Add/remove as needed
 CONFIG_PACKAGES=(tmuxinator herdr)
@@ -69,7 +68,11 @@ for pkg in "${PACKAGES[@]}"; do
     target="$HOME/$base"
     backup_and_remove "$target"
   done
-  stow --dir="$DOTFILES_DIR" --ignore="$(basename "$STOW_IGNORE_FILE")" "$pkg"
+  # Exclusions live in each package's own .stow-local-ignore (see bash/, tmux/,
+  # nvim-lua/). Stow reads that file automatically; note that supplying one
+  # REPLACES stow's built-in defaults, so a package that needs an exclusion must
+  # also restate any default it still wants (e.g. "^/README.*").
+  stow --dir="$DOTFILES_DIR" "$pkg"
 done
 
 # --- Stow Directories ---
