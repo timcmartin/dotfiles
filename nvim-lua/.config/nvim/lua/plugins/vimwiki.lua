@@ -27,6 +27,12 @@ return {
 				name = "Stories",
 			},
 			{
+				path = "$ONEDRIVE_DIR/Documents/projects",
+				syntax = "markdown",
+				ext = ".md",
+				name = "Projects",
+			},
+			{
 				path = "$DROPBOX_DIR/vimwiki/getty",
 				syntax = "markdown",
 				ext = ".md",
