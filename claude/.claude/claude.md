@@ -44,7 +44,6 @@ Senior front-end engineer at Getty Images. Treat me as an expert — never overs
 
 ## Git Workflow
 
-- Never commit unless I explicitly ask
 - Never push unless I explicitly ask
 - Never amend commits — always create new ones
 - Never skip hooks (--no-verify)

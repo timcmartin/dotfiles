@@ -28,3 +28,6 @@ Session-*.vim
 .github
 
 **/.claude/settings.local.json
+# planning working notebook (briefs, plans, attachments)
+.kickoff/
+**/.claude/.create-mr-in-flight
