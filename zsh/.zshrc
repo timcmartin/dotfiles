@@ -25,6 +25,28 @@ export GETTY_SRC UNISPORKAL PERSONAL_SRC DOTFILES_DIR USER_HOME HMUX_DEFAULT_ROO
 ZSH="$USER_HOME/.oh-my-zsh"
 ZSH_THEME="spaceship"
 
+# --- Spaceship Prompt ---
+# Spaceship forks one subshell per section on every render. Pin the list: the
+# ~60-section default costs ~150 procs per shell, and 27 herdr panes starting at
+# once then blows past kern.maxprocperuid (6000) with "fork failed: EAGAIN".
+SPACESHIP_PROMPT_ORDER=(
+  time
+  user
+  dir
+  host
+  git
+  package
+  node
+  ruby
+  python
+  docker
+  exec_time
+  line_sep
+  jobs
+  exit_code
+  char
+)
+
 # --- Dropbox ---
 export DROPBOX_DIR="$USER_HOME/Library/CloudStorage/Dropbox"
 
