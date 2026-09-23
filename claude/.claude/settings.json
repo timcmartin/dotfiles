@@ -1,7 +1,6 @@
 {
   "permissions": {
-    "allow": ["Bash(dotnet build:*)", "Bash(gh pr diff:*)"],
-    "deny": ["Bash(git commit:*)", "Bash(git add:*)", "Bash(git push:*)"]
+    "allow": ["Bash(dotnet build:*)", "Bash(gh pr diff:*)"]
   },
   "model": "opus[1m]",
   "statusLine": {
