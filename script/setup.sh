@@ -28,7 +28,17 @@ mkdir -p "$BACKUP_DIR"
 
 backup_and_remove() {
   local target="$1"
+  local source="${2:-}"
   if [ -e "$target" ] && [ ! -L "$target" ]; then
+    # $target used to be a symlink into this repo but is now a plain file —
+    # something (e.g. Claude Code rewriting ~/.claude/settings.json in place)
+    # replaced the link with its own copy. Capture that drift into the repo
+    # source before it gets backed up, so re-running setup.sh can't silently
+    # discard live changes that were never committed.
+    if [ -n "$source" ] && [ -f "$source" ] && [ -f "$target" ] && ! cmp -s "$source" "$target"; then
+      echo "Note: $target has diverged from $source — copying live changes into the repo (review with 'git -C \"$DOTFILES_DIR\" diff' before committing)"
+      cp "$target" "$source"
+    fi
     echo "Backing up $target to $BACKUP_DIR"
     mv "$target" "$BACKUP_DIR/"
   elif [ -L "$target" ]; then
@@ -66,7 +76,7 @@ for pkg in "${PACKAGES[@]}"; do
     base="$(basename "$file")"
     [[ "$base" == "." || "$base" == ".." ]] && continue
     target="$HOME/$base"
-    backup_and_remove "$target"
+    backup_and_remove "$target" "$file"
   done
   # Exclusions live in each package's own .stow-local-ignore (see bash/, tmux/,
   # nvim-lua/). Stow reads that file automatically; note that supplying one
@@ -91,7 +101,7 @@ for dir in "${DIRECTORIES[@]}"; do
     inner_name="$(basename "$inner")"
     mkdir -p "$HOME/$inner_name"
     for entry in "$inner"*; do
-      backup_and_remove "$HOME/$inner_name/$(basename "$entry")"
+      backup_and_remove "$HOME/$inner_name/$(basename "$entry")" "$entry"
     done
   done
   shopt -u nullglob dotglob
@@ -110,7 +120,7 @@ for config_pkg in "${CONFIG_PACKAGES[@]}"; do
   # intact.
   shopt -s nullglob dotglob
   for entry in "$DOTFILES_DIR/$config_pkg"/*; do
-    backup_and_remove "$dest/$(basename "$entry")"
+    backup_and_remove "$dest/$(basename "$entry")" "$entry"
   done
   shopt -u nullglob dotglob
   echo "Stowing $config_pkg into $dest"
@@ -119,6 +129,10 @@ done
 
 # --- Copy Claude Settings ---
 # (Now handled by the DIRECTORIES loop above — claude/.claude/* is symlinked
-# into ~/.claude/, leaving any untracked content like ~/.claude/commands/ intact.)
+# into ~/.claude/, leaving any untracked content like ~/.claude/commands/ intact.
+# Claude Code rewrites ~/.claude/settings.json in place, which replaces the
+# symlink with a plain file; backup_and_remove's drift capture above copies
+# that plain file's content back into the repo before relinking, so rerunning
+# this script can't silently discard settings changes made outside git.)
 
 echo "Dotfiles setup complete. Backups (if any) are in $BACKUP_DIR"
