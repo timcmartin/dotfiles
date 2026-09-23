@@ -6,8 +6,7 @@ ADP="$UNISPORKAL/asset_detail"
 ADPMAIN="$ADP/master"
 AARP="$UNISPORKAL/federated-components/asset-acquisition"
 PURCHASE="$UNISPORKAL/purchase"
-UNIADMIN="$UNISPORKAL/misc_admin"
-UAMAIN="$UNIADMIN/master"
+UNIDOCS="$UNISPORKAL/unidocs"
 
 # --- Tab: sites-gem ---
 tab_new sites-g
@@ -44,7 +43,7 @@ tab_new purchase
 pane_new nvim "cd $PURCHASE && nvim"
 pane_split right "" term "cd $PURCHASE"
 
-# --- Tab: uniadmin ---
-tab_new uniadmin
-pane_new nvim "cd $UAMAIN && nvim"
-pane_split right "" term "cd $UAMAIN"
+# --- Tab: unidocs ---
+tab_new unidocs
+pane_new nvim "cd $UNIDOCS && nvim"
+pane_split right "" term "cd $UNIDOCS"
