@@ -40,6 +40,7 @@ Special cases (see `script/setup.sh`):
 - `scripts/` → `~/.scripts/` (symlinked as a directory, not individual files)
 - `tmuxinator/` → `~/.config/tmuxinator/` (stowed with `--no-folding` so each `*.yml` is an individual symlink, letting edits flow back to the repo)
 - `nvim-lua/` → stowed with `-t ~` separately
+- `claude/` → `~/.claude/`, individual files via `--no-folding` (see [Claude Code Settings](#claude-code-settings) — this one needs special handling on rerun)
 
 ### `.stow-local-ignore`
 
@@ -73,6 +74,12 @@ Template dir at `git/.git_template/hooks/` (configured via `git config init.temp
 ### Tmuxinator Sessions
 
 30+ session templates in `tmuxinator/`. These are **symlinked** (via stow `--no-folding`) into `~/.config/tmuxinator/` during setup, so editing either side stays in sync with the repo. Use `mux <session>` to launch.
+
+### Claude Code Settings
+
+`claude/.claude/settings.json` is symlinked to `~/.claude/settings.json`, but Claude Code rewrites that file in place (permissions, model, statusline, enabled plugins, MCP servers) by writing a fresh file rather than editing through the symlink — this **replaces the symlink with a plain file**, silently disconnecting live changes from the repo.
+
+`backup_and_remove()` in `script/setup.sh` handles this: before backing up and relinking, if the target has become a plain file that differs from its repo source, it copies the live content into the repo first (printing a note to review `git diff` before committing). So rerunning `setup.sh` can no longer silently discard settings changes made outside git — it captures them as an uncommitted diff instead. Always check `git status`/`git diff` after a `setup.sh` run and commit (or discard) what it captured.
 
 ## Key Paths
 
