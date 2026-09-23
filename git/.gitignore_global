@@ -34,3 +34,4 @@ Session-*.vim
 # AI session usage CSVs (sales-tools hooks; consumed by sf-create-pull-request)
 ai-session-tracking/
 .kickoff/
+journals/
