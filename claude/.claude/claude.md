@@ -4,6 +4,7 @@
 
 - I use **Neovim (LazyVim)** exclusively. Never suggest VS Code or any VS Code-specific configuration.
 - For Neovim questions, check `~/.config/nvim/lua/plugins/` first.
+- **Neovim 0.12 — `:LspRestart`, `:LspInfo`, `:LspStart` and `:LspStop` DO NOT EXIST. Never suggest them.** Core ships `:lsp`, so `nvim-lspconfig/plugin/lspconfig.lua` returns early (`if vim.fn.exists(':lsp') == 2 then return end`) and creates none of its `Lsp*` commands. Use `:lsp restart` (subcommands: `enable`, `disable`, `restart`, `stop`); `:LspInfo` → `:checkhealth vim.lsp`.
 
 ## About Me
 
