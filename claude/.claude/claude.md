@@ -22,7 +22,7 @@ Senior front-end engineer at Getty Images. Treat me as an expert — never overs
 - Strict PropTypes for JS files (never generic `object` or `array`); TypeScript files use Types, not PropTypes
 - Omit values for boolean attributes in React (`<Foo disabled />` not `<Foo disabled={true} />`)
 - Adhere to `.eslintrc` rules; flag any nonstandard ones
-- Use `yarn` (not npm or bun)
+- Use `pnpm` (not npm, yarn, or bun)
 
 ## Response Style
 
