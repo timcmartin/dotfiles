@@ -1,0 +1,2 @@
+[projects."gitlab.getty.cloud/unisporkal-sox/uniadmin"]
+worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"

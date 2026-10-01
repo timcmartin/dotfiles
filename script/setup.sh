@@ -6,7 +6,7 @@ BACKUP_DIR="$HOME/dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
 DOTFILES_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 PACKAGES=(bash git ignore ruby tmux todo wezterm zsh) # Add/remove as needed
 DIRECTORIES=(scripts claude)                                 # Add/remove as needed
-CONFIG_PACKAGES=(tmuxinator herdr)
+CONFIG_PACKAGES=(tmuxinator herdr worktrunk)
 SHELL_NAME="$(basename "$SHELL")" # Only stow bash if using bash
 if [[ "$SHELL_NAME" == "bash" ]]; then
   PACKAGES+=(bash)
