@@ -38,10 +38,6 @@ Updates CLA (Content License Agreement) PDF files for Getty or iStock in the Uni
 update-cla.sh <getty|istock> <path-to-extracted-PDF-folder>
 ```
 
-## pomodoro.sh
-
-For use in tmux status bar.
-
 ## recipebook
 
 When used in the `~/src/recipes` repository, will automatically build recipebook.

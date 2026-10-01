@@ -1,7 +1,8 @@
 # Herdr
 
 Personal Herdr configuration — a terminal workspace manager for AI coding
-agents, running alongside my legacy tmux setup during migration.
+agents. Herdr is my preferred multiplexer; tmux is kept only for when Herdr
+isn't in use.
 
 ## Files in this package
 
@@ -15,6 +16,15 @@ standalone [`hmuxinator`](https://gitlab.getty.cloud/tmartin/hmuxinator)
 repo, installed via its `install.sh` (symlinks `hmux` onto `$PATH`, seeds
 generic sample layouts). This package only holds my real, Getty-specific
 project layouts on top of that.
+
+hmuxinator is a separate GitLab repo, not part of these dotfiles. My local
+checkout is `~/src/getty/hmuxinator`; changes to `hmux` itself are made and
+committed there. On a new machine:
+
+```sh
+git clone git@gitlab.getty.cloud:tmartin/hmuxinator.git ~/src/getty/hmuxinator
+~/src/getty/hmuxinator/install.sh
+```
 
 `HMUX_DEFAULT_ROOT` is set to `$UNISPORKAL` in `zsh/.zshrc`, so `hmux
 <project>` falls back to `$UNISPORKAL/<project>` for any project without a
@@ -37,14 +47,19 @@ hmux <project>
 - If no layout file exists, fall back to `$UNISPORKAL/<project>` when that
   directory exists, otherwise `$HOME`.
 
-Ported layouts (matches my six active tmuxinator sessions):
+Layouts in `projects/`:
 
-- `hmux gi_proxy`
-- `hmux uniadmin`
-- `hmux landing`
-- `hmux plans-and-pricing`
+- `hmux account`
+- `hmux adp`
 - `hmux checkout`
+- `hmux cns`
 - `hmux docs`
+- `hmux gi_proxy`
+- `hmux landing`
+- `hmux opa`
+- `hmux phones`
+- `hmux plans-and-pricing`
+- `hmux uniadmin`
 
 ## Adding a new project
 
@@ -156,9 +171,9 @@ Mouse drag-select in a pane also copies without entering copy mode.
 
 ## Migration status
 
-Running Herdr in parallel with tmux. Not deleting `tmux/` or `tmuxinator/`
-yet — tmux stays for SSH shells and legacy workflows during the trial.
-Re-evaluate after ~1 month of daily Herdr use.
+Migration complete — Herdr is the daily driver. `tmux/` and `tmuxinator/`
+are kept as a legacy fallback for when Herdr isn't in use (e.g. SSH shells),
+not deleted.
 
 ## Restarting from scratch
 

@@ -2,11 +2,8 @@
 
 Personal and work dotfiles managed with [GNU Stow][stow] and [Strap][strap].
 
-This config includes [Tmux Catppuccin][catppuccin] and is designed for seamless,
-context-aware setup across multiple macOS user accounts.
-
-Currently locked at work machine version (v0.1.0). Significant changes require
-edits to the tmux config.
+This config is designed for seamless, context-aware setup across multiple macOS
+user accounts.
 
 ---
 
@@ -89,8 +86,7 @@ These are not handled by Brew or Strap, but are part of your environment:
 - **Copilot**: <https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vimneovim>
 - eslint-watch: `yarn global add eslint eslint-watch`
 - **AWS config**
-- **TMUX Plugin Manager**: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
-- **Catppuccin Tmux**: <https://github.com/catppuccin/tmux>
+- **TMUX Plugin Manager** (legacy tmux only): `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
 - **Chrome**
 - **Sibelius** (Personal)
 - **Keyboard mapping**: Caps Lock → Control
@@ -105,6 +101,20 @@ These are not handled by Brew or Strap, but are part of your environment:
 > other Neovim files).
 > To install, run:
 > `stow -t ~ nvim-lua`
+
+---
+
+## Terminal Multiplexer: Herdr and tmux
+
+[Herdr][herdr-readme] is the preferred multiplexer. Workspace layouts live in
+`herdr/projects/` and config in `herdr/config.toml`. The `hmux` launcher comes
+from the separate [hmuxinator][hmuxinator] GitLab repo (checked out at
+`~/src/getty/hmuxinator`, installed via its `install.sh`).
+
+The `tmux/` and `tmuxinator/` packages are kept for legacy use, for times when
+Herdr isn't running (e.g. SSH shells). The tmux config uses the
+[powerkit][powerkit] status bar via `tmux/tmux-theme-powerkit`, with plugins
+managed by TPM.
 
 ---
 
@@ -152,7 +162,6 @@ To keep secrets (like API tokens) out of your repository, store them in a separa
 
 ## TODO
 
-- Update catppuccin and tmux setup.
 - XCode back in Brewfile.
 - LazyVim setup.
 - Sibelius setup.
@@ -170,5 +179,7 @@ To keep secrets (like API tokens) out of your repository, store them in a separa
 
 [stow]: https://www.gnu.org/software/stow/
 [strap]: https://github.com/MikeMcQuaid/strap
-[catppuccin]: https://github.com/catppuccin/tmux
+[herdr-readme]: herdr/README.md
+[hmuxinator]: https://gitlab.getty.cloud/tmartin/hmuxinator
+[powerkit]: https://github.com/fabioluciano/tmux-powerkit
 [brewfile]: https://github.com/timcmartin/homebrew-brewfile
