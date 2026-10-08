@@ -4,13 +4,13 @@ local config_path = vim.fn.stdpath("config") .. "/lua/user/"
 local llm_prompts = prompt_utils.parse_prompts_from_markdown(config_path .. "llm_prompts.md")
 
 local global_context_files = {
-  ".github/copilot-instructions.md",
-  ".github/contributing.md",
-  ".github/merge-request-template.md",
+	".github/copilot-instructions.md",
+	".github/contributing.md",
+	".github/merge-request-template.md",
 }
 local shim_instructions = shim_prompts.instructions_path()
 if shim_instructions then
-  table.insert(global_context_files, shim_instructions)
+	table.insert(global_context_files, shim_instructions)
 end
 
 return {
@@ -29,7 +29,7 @@ return {
 			chat = {
 				adapter = {
 					name = "copilot",
-					model = "claude-sonnet-4.6",
+					model = "claude-opus-5.5",
 				},
 				roles = {
 					user = "Tim",
@@ -77,7 +77,7 @@ return {
 			inline = {
 				adapter = {
 					name = "copilot",
-					model = "claude-sonnet-4.6",
+					model = "claude-opus-5.5",
 				},
 			},
 		},

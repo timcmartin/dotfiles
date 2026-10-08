@@ -9,6 +9,10 @@ return {
 				".git",
 				"dist",
 				"build",
+				"junit.xml",
+				"vendor",
+				"log",
+				"public/misc-admin/assets",
 			},
 			sources = {
 				explorer = {
