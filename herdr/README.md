@@ -59,6 +59,7 @@ Layouts in `projects/`:
 - `hmux opa`
 - `hmux phones`
 - `hmux plans-and-pricing`
+- `hmux sales-agents`
 - `hmux uniadmin`
 
 ## Adding a new project
