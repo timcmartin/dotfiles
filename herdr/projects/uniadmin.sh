@@ -17,14 +17,14 @@ for _wt in "$ROOT"/*/; do
   fi
 done
 
-WORK="${FEATURE:-$MAIN}"
+WORK="${FEATURE:-$ROOT}"
 
 if [ -n "$FEATURE" ]; then
   FEATURE_NVIM="cd $FEATURE && nvim"
   FEATURE_TERM="cd $FEATURE"
 else
   FEATURE_NVIM="echo \"💡 No feature worktree yet — git worktree add ../<branch> <branch>\""
-  FEATURE_TERM="cd $MAIN"
+  FEATURE_TERM="cd $ROOT"
 fi
 
 # --- Tab: master ---
